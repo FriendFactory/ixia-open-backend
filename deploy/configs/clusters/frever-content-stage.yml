@@ -1,0 +1,34 @@
+serverInfo:
+  serviceCount: 10 # override default 9 because migration service is running on content-stage
+settings:
+  aws:
+    region: "eu-central-1"
+    bucket: "xxxxxxxxx"
+    queue: "xxxxxxxxx"
+  svc:
+    machineLearning: xxxxxxxxx
+  environmentType: "stage"
+  videoConversion:
+    ingestBucket: "video-source-content-stage"
+    sqsQueue: "xxxxxxxxx"
+    mediaConverterQueue: "content-stage"
+    mediaConverterJobName: "video-conversion-stage"
+  oneSignal:
+    androidChannelId: "xxxxxxxxx"
+  redis:
+    enableCaching: true
+  autoCreateTemplate:
+    templateSubcategoryName: "Frever Stars"
+  jaeger:
+    host: xxxxxxxxx
+  hardDeleteAccountSettings:
+    environmentInfo: "Content-Stage"
+  sns:
+    videoTemplateMappingTopicArn: "xxxxxxxxx"
+    groupChangedTopicArn: "xxxxxxxxx"
+    templateUpdatedTopicArn: "xxxxxxxxx"
+    groupDeletedTopicArn: "xxxxxxxxx"
+    videoUnlikedTopicArn: "xxxxxxxxx"
+    groupUnfollowedTopicArn: "xxxxxxxxx"
+    groupFollowedTopicArn: "xxxxxxxxx"
+    outfitChangedTopicArn: "xxxxxxxxx"

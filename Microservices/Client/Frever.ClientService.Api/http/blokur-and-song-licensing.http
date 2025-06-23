@@ -1,0 +1,277 @@
+# Works together with Frever.Impersonate CLI util to generate tokens.
+# Supports both local and remote environment
+@version=latest
+@env=content-prod
+
+@auth_server=https://{{env}}.frever-api.com/{{version}}/auth/
+@asset_server=https://{{env}}.frever-api.com/{{version}}/asset/
+@admin_server=https://{{env}}.frever-api.com/{{version}}/admin/
+@client_server=https://{{env}}.frever-api.com/{{version}}/client/
+@video_server=https://{{env}}.frever-api.com/{{version}}/video/
+@notification_server=https://{{env}}.frever-api.com/{{version}}/notification/
+@token_dev_16=xxxxxxxxx
+@token_stage_16=xxxxxxxxx
+@token_stage_34866=xxxxxxxxx
+@token={{token_stage_34866}}
+
+###
+@auth_server=http://localhost:5002/
+@asset_server=http://localhost:5004/file-storage/
+@admin_server=http://localhost:5010/admin/
+@client_server=http://localhost:5011/client/
+@video_server=http://localhost:5005/video/
+@notification_server=http://localhost:5008/notification/
+@token_stage_16=xxxxxxxxx
+@token_dev_1863=xxxxxxxxx
+@token_stage_899=xxxxxxxxx
+@token={{token_stage_899}}
+
+############ END ##############
+
+@blokur_api=https://api.blokur.com/v1
+@blokur_token=xxxxxxxxx
+
+###
+GET {{client_server}}api/music/playlist/633e885065c9a015780feac1
+Authorization: Bearer {{token}}
+
+
+###
+POST {{blokur_api}}/licensing/status
+Authorization: Bearer {{blokur_token}}
+Content-Type: application/json
+
+{
+  "recordings": [
+    {
+      "audio_provider_recording_id": "abc123",
+      "title": "SONG TITLE",
+      "artists": [
+        "ARTIST 1"
+      ],
+      "isrc": "USSKG1912345"
+    }
+  ]
+}
+
+###
+POST {{blokur_api}}/licensing/status
+Authorization: Bearer {{blokur_token}}
+Content-Type: application/json
+
+{
+  "recordings": [
+    {
+      "audio_provider_recording_id": "249251903",
+      "title": "Spearhead",
+      "artists": [
+        "Spearhead"
+      ],
+      "isrc": "USRE11300223"
+    }
+  ]
+}
+
+###
+POST {{blokur_api}}/licensing/status
+Authorization: Bearer {{blokur_token}}
+Content-Type: application/json
+
+{
+  "recordings": [
+    {
+      "audio_provider_recording_id": "655964",
+      "title": "Svitanok",
+      "artists": [
+        "Ruslana"
+      ],
+      "isrc": "DEA810600933"
+    }
+  ]
+}
+
+###
+# @name ct
+GET {{blokur_api}}/licensing/cleared-tracks
+Authorization: Bearer {{blokur_token}}
+
+###
+GET {{ct.response.body.file_url}}
+
+###
+GET {{client_server}}api/top-chart
+Authorization: Bearer {{token}}
+
+
+###
+POST {{client_server}}api/level
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "Id": 0,
+  "RemixedFromLevelId": null,
+  "SchoolTaskId": null,
+  "Description": null,
+  "ContainsCopyrightedContent": false,
+  "Event": [
+    {
+      "TargetCharacterSequenceNumber": 0,
+      "CharacterSpawnPositionId": 434,
+      "CharacterSpawnPositionFormationId": 1,
+      "Length": 3928,
+      "TemplateId": null,
+      "LevelSequence": 1,
+      "Id": 0,
+      "HasActualThumbnail": true,
+      "Files": [
+        {
+          "FilePath": "/Users/ruben/Library/Application Support/Friend Factory/savedcacheDev/LocalStorage/Level_L1/Event_L1/thumbnail_512x512.png",
+          "State": 1,
+          "File": 1,
+          "Resolution": "512x512",
+          "Source": {
+            "UploadId": "3dae6859-b668-48aa-b948-388f1575e49f",
+            "CopyFrom": null
+          },
+          "Version": null,
+          "Platform": null,
+          "Extension": 5
+        },
+        {
+          "FilePath": "/Users/ruben/Library/Application Support/Friend Factory/savedcacheDev/LocalStorage/Level_L1/Event_L1/thumbnail_128x128.png",
+          "State": 1,
+          "File": 1,
+          "Resolution": "128x128",
+          "Source": {
+            "UploadId": "182b35d2-99d0-426c-a160-45731cb2fd69",
+            "CopyFrom": null
+          },
+          "Version": null,
+          "Platform": null,
+          "Extension": 5
+        }
+      ],
+      "CharacterController": [
+        {
+          "Id": 0,
+          "CharacterId": 2862,
+          "ControllerSequenceNumber": 0,
+          "OutfitId": null,
+          "CharacterSpawnPositionId": 434,
+          "BodyAnimation": {
+            "Id": 0,
+            "BodyAnimationId": 66,
+            "ActivationCue": 3562,
+            "EndCue": 7490
+          },
+          "FaceVoice": {
+            "Id": 0,
+            "VoiceFilterId": 7,
+            "VoiceSoundVolume": 100,
+            "VoiceTrack": null,
+            "FaceAnimation": {
+              "Id": 0,
+              "Duration": 3962,
+              "MusicStartCue": 0,
+              "Files": [
+                {
+                  "FilePath": "/Users/ruben/Library/Application Support/Friend Factory/savedcacheDev/LocalStorage/Level_L1/Event_L1/FaceAnimation.txt",
+                  "State": 1,
+                  "File": 0,
+                  "Resolution": null,
+                  "Source": {
+                    "UploadId": "d2a6f1fb-3d13-427f-a8f9-3817e9f0f30d",
+                    "CopyFrom": null
+                  },
+                  "Version": null,
+                  "Platform": null,
+                  "Extension": 6
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "CameraController": {
+        "Id": 0,
+        "CameraAnimationTemplateId": 42,
+        "StartFocusDistance": 0,
+        "EndFocusDistance": 0,
+        "CameraNoiseSettingsIndex": 0,
+        "TemplateSpeed": 0,
+        "FollowAll": true,
+        "LookAtIndex": 1,
+        "AnimationRegenerationRequired": false,
+        "CameraAnimation": {
+          "Id": 0,
+          "Files": [
+            {
+              "FilePath": "/Users/ruben/Library/Application Support/Friend Factory/savedcacheDev/LocalStorage/Level_L1/Event_L1/CameraAnimation.txt",
+              "State": 1,
+              "File": 0,
+              "Resolution": null,
+              "Source": {
+                "UploadId": "769d1148-9e9d-48d7-993d-db7135a4ab32",
+                "CopyFrom": null
+              },
+              "Version": null,
+              "Platform": null,
+              "Extension": 6
+            }
+          ]
+        }
+      },
+      "SetLocationController": {
+        "Id": 0,
+        "SetLocationId": 206,
+        "ActivationCue": 63852,
+        "EndCue": 67780,
+        "TimeOfDay": null,
+        "VideoActivationCue": null,
+        "VideoEndCue": null,
+        "VideoSoundVolume": 0,
+        "TimelapseSpeed": null,
+        "Photo": null,
+        "VideoClip": null
+      },
+      "VfxController": null,
+      "CameraFilterController": null,
+      "MusicController": {
+        "Id": 0,
+        "SongId": null,
+        "ActivationCue": 0,
+        "EndCue": 3928,
+        "LevelSoundVolume": 100,
+        "ExternalTrackId": 75221152,
+        "UserSound": null
+      },
+      "Caption": null
+    }
+  ]
+}
+
+###
+# @name completeUploading
+PUT {{video_server}}video/upload/FAB053B9-2F8C-4D16-9A06-92FFD34ABCC2
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "levelId": 195440,
+  "size": 10318854,
+  "durationSec": 7,
+  "isPublic": true
+}
+
+### Ensure you have VPN on if you run this from Ukraine
+GET {{client_server}}api/music/search?q=Beginning+to+Look+a+Lot+like+Christmas&take=10000
+Authorization: Bearer {{token}}
+
+### Ensure you have VPN on if you run this from Ukraine
+GET {{client_server}}api/music/search?q=woody+herman
+Authorization: Bearer {{token}}
+
+###
+GET {{client_server}}api/me
+Authorization: Bearer {{token}}

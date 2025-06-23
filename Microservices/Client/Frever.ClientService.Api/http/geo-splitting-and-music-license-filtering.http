@@ -1,0 +1,227 @@
+# Works together with Frever.Impersonate CLI util to generate tokens.
+# Supports both local and remote environment
+@version=latest
+@env=content-stage
+
+@auth_server=https://{{env}}.frever-api.com/{{version}}/auth/
+@asset_server=https://{{env}}.frever-api.com/{{version}}/asset/
+@admin_server=https://{{env}}.frever-api.com/{{version}}/admin/
+@client_server=https://{{env}}.frever-api.com/{{version}}/client/
+@video_server=https://{{env}}.frever-api.com/{{version}}/video/
+@notification_server=https://{{env}}.frever-api.com/{{version}}/notification/
+@token_swe=xxxxxxxxx
+@token_eng=xxxxxxxxx
+@token_fra=xxxxxxxxx
+@token_admin=xxxxxxxxx
+@token_ruben_stage=xxxxxxxxx
+@token_dev_1753=xxxxxxxxx
+@token_stage_25933=xxxxxxxxx
+@token_stage_899=xxxxxxxxx
+@token_stage_34866=xxxxxxxxx
+@token_prod_81933=xxxxxxxxx
+@token_stage_34868=xxxxxxxxx
+@token_stage_34869=xxxxxxxxx
+@token_stage_32312=xxxxxxxxx
+@token={{token_stage_32312}}
+
+
+# ###
+@auth_server=http://localhost:5002/auth/
+@asset_server=http://localhost:5004/file-storage/
+@admin_server=http://localhost:5010/admin/
+@client_server=http://localhost:5011/client/
+@video_server=http://localhost:5005/video/
+@notification_server=http://localhost:5008/notification/
+@token_dev_16=xxxxxxxxx
+@token_stage_16=xxxxxxxxx
+@token_prod_102275=xxxxxxxxx
+@token_stage_32312=xxxxxxxxx
+@token={{token_stage_32312}}
+
+
+############ END ##############
+
+###
+GET {{video_server}}video/sound/109/usersound
+Authorization: Bearer {{token}}
+
+###
+GET {{video_server}}video/sound/36785810/externalsong
+Authorization: Bearer {{token}}
+
+
+### No geo splitting since templates are geo-split
+### [x] Commercial music must be filtered
+GET {{video_server}}video/template/{{templates.response.body.$[0].id}}
+Authorization: Bearer {{token}}
+
+### No geo splitting since templates are geo-split
+### [x] Commercial music must be filtered
+### FREV-17896
+GET {{video_server}}video/template/3683
+Authorization: Bearer {{token}}
+
+### No geo-splitting
+# @name hashtags
+GET {{video_server}}hashtag/all
+Authorization: Bearer {{token}}
+
+### [x] Hashtags videos should be geo-split
+### [x] Commercial music must be filtered
+GET {{video_server}}video/hashtag/{{hashtags.response.body.$[4].id}}
+Authorization: Bearer {{token}}
+
+### [x] Hashtags videos should be geo-split
+### [x] Commercial music must be filtered
+GET {{video_server}}video/hashtag/294
+Authorization: Bearer {{token}}
+
+### [x] Trending videos should be geo-split
+### [x] Commercial music must be filtered
+GET {{video_server}}video/trending
+Authorization: Bearer {{token}}
+
+### No geo-split
+### [x] Commercial music must be filtered
+GET {{video_server}}video/my-videos?&$takeNext=17
+Authorization: Bearer {{token}}
+
+### No geo-split
+### [x] Commercial music must be filtered
+GET {{video_server}}video/my-friends-videos
+Authorization: Bearer {{token}}
+
+### No geo-split
+### [x] Commercial music must be filtered
+GET {{video_server}}video/my-following
+Authorization: Bearer {{token}}
+
+### [x] FYP videos should be geo-split
+### [x] Commercial music must be filtered
+GET {{video_server}}video/fyp-v2
+Authorization: Bearer {{token}}
+
+### FREV-15206
+### [x] Individual videos should not be geo-split
+### [x] Commercial music must be filtered
+GET {{video_server}}video/1274217
+Authorization: Bearer {{token}}
+
+### FREV-18336
+### [x] Individual videos should not be geo-split
+### [x] Commercial music must be filtered
+GET {{video_server}}video/19874
+Authorization: Bearer {{token}}
+
+### [x] Tasks should NOT be geo-split if filter is not provided
+### [x] Commercial music must be filtered
+# @name tasks
+GET {{client_server}}api/task
+Authorization: Bearer {{token}}
+
+### [x] Trending tasks should NOT be geo-split
+### [x] Commercial music must be filtered
+# @name tasks
+GET {{client_server}}api/task/trending
+Authorization: Bearer {{token}}
+
+### Task videos shouldn't be geo-split
+### [x] Commercial music must be filtered
+GET {{video_server}}video/by-task/{{tasks.response.body.$[0].id}}
+Authorization: Bearer {{token}}
+
+### Group's videos shouldn't be geo-split
+### [x] Commercial music must be filtered
+GET {{video_server}}video/by-group/81933?$takeNext=50&$targetVideo=630499
+Authorization: Bearer {{token}}
+
+### Group's task videos shouldn't be geo-split
+### [x] Commercial music must be filtered
+GET {{video_server}}video/by-group/16/tasks
+Authorization: Bearer {{token}}
+
+### Group's been tagged videos shouldn't be geo-split
+### [x] Commercial music must be filtered
+GET {{video_server}}video/tagged/16
+Authorization: Bearer {{token}}
+
+### Video remixes shouldn't be geo-split
+### [x] Commercial music must be filtered
+GET {{video_server}}video/19510/remixes
+Authorization: Bearer {{token}}
+
+### Video remixes shouldn't be geo-split
+### [x] Commercial music must be filtered
+GET {{video_server}}video/17505/remixes?$targetVideo=17481&$takeNext=100&$takePrevious=100
+Authorization: Bearer {{token}}
+
+### [x] Featured videos should be geo-split
+### [x] Commercial music must be filtered
+GET {{video_server}}video/featured
+Authorization: Bearer {{token}}
+
+### [x] Templates must be should be geo-split
+### [x] Commercial music must be filtered
+GET {{client_server}}api/template
+Authorization: Bearer {{token}}
+
+
+### [?] Templates must be should be geo-split
+### [?] Commercial music must be filtered
+GET {{client_server}}api/template/personal?top=10
+Authorization: Bearer {{token}}
+
+### [x] Templates must be should be geo-split
+### [x] Commercial music must be filtered
+GET {{client_server}}api/template/333
+Authorization: Bearer {{token}}
+
+### [x] Commercial music must be filtered
+GET {{client_server}}api/level/drafts?take=1000
+Authorization: Bearer {{token}}
+
+### [x] Battle video must be filtered
+GET {{video_server}}battle/123
+Authorization: Bearer {{token}}
+
+### [x] Commercial music must be filtered
+GET {{video_server}}video/watch/dHzv10fLZkuvcAOJHESag?country=ua
+Authorization: Bearer {{token}}
+
+### [x] Commercial music must be filtered
+GET {{client_server}}api/assets/promoted-song
+Authorization: Bearer {{token}}
+
+### [ ] Commercial music must be filtered
+GET {{client_server}}api/assets/favorite-sound?take=2&jskip=4
+Authorization: Bearer {{token}}
+
+### [ ] Commercial music must be filtered
+GET {{client_server}}api/assets/favorite-sound-v2?take=5&key=2024-02-27T12:44:32.5482800Z
+Authorization: Bearer {{token}}
+
+###
+GET {{admin_server}}api/my-ip
+Authorization: Bearer {{token}}
+
+
+###
+POST {{video_server}}video/4553/access
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "access": "Private"
+}
+
+
+###
+GET {{client_server}}api/me
+Authorization: Bearer {{token}}
+
+### RECALCULATE
+GET {{client_server}}api/start-pack/default-user-assets
+Authorization: Bearer {{token}}
+
+###
+GET https://ipgeolocation.abstractapi.com/v1/?api_key=xxxxxxxxx&ip_address=185.65.135.247&fields=country_code,latitude,longitude

@@ -1,0 +1,24 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: video-trending-api-collector-job
+spec:
+  schedule: "{{ .Values.schedule }}"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+            - name: video-trending-api-collector
+              image: "{{ .Values.repository }}:{{ .Values.release }}"
+              imagePullPolicy: Always
+              env:
+                - name: FREVER_API
+                  value: "{{ .Values.frever_api }}"
+                - name: S3_UPLOAD_PATH
+                  value: "{{ .Values.s3_upload_path }}"
+                - name: AWS_ACCESS_KEY_ID
+                  value: "{{ .Values.aws_access_key_id }}"
+                - name: AWS_SECRET_ACCESS_KEY
+                  value: "{{ .Values.aws_secret_access_key }}"

@@ -1,0 +1,11 @@
+auth.clientSecret: xxxxxxxxx
+aws.accessKey: xxxxxxxxx
+aws.secretAccessKey: xxxxxxxxx
+cs.auth: xxxxxxxxx
+cs.main: xxxxxxxxx
+cs.video: xxxxxxxxx
+oneSignal.apiKey: xxxxxxxxx
+oneSignal.appId: xxxxxxxxx
+twilio.messagingServiceSid: xxxxxxxxx
+twilio.secret: xxxxxxxxx
+twilio.sid: xxxxxxxxx

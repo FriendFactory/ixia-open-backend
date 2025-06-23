@@ -1,0 +1,21 @@
+### ML Server
+@ml-server-host=https://[2a02:470:426:0:9a67:61bd:842:4f99]
+
+###
+GET {{ml-server-host}}/health
+
+#### OLD PROXY
+###
+GET http://3.126.234.21/health
+
+###
+POST http://3.126.234.21/reroute
+emailVerified: True
+Content-Type: multipart/form-data; boundary="8c25ed5e-a43e-41da-ba90-3fac45402d74"
+
+--8c25ed5e-a43e-41da-ba90-3fac45402d74
+Content-Disposition: form-data; name=image; filename=image.png; filename*=utf-8''image.png
+
+< img.png
+
+--8c25ed5e-a43e-41da-ba90-3fac45402d74--

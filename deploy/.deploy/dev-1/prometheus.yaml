@@ -1,0 +1,76 @@
+alertmanagerFiles:
+  alertmanager.yml:
+      route:
+        group_by: ["alertname", "area"]
+        receiver: "frever"
+      receivers:
+      - name: "frever"
+        slack_configs:
+         - api_url: "xxxxxxxxx"
+           send_resolved: true
+           title: |-
+              [{{ .Status | toUpper }}{{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{ end }}] {{ .CommonLabels.alertname }}
+           text: >-
+                Cluster: dev-1
+                {{ range .Alerts }}
+                  `{{ .Labels.severity }} [{{ .Labels.area }}]:` {{ .Annotations.summary }}
+                       {{ range .Labels.SortedPairs }}
+                       • *{{ .Name }}:* `{{ .Value }}`
+                       {{ end }}
+                {{ end }}
+
+serverFiles:
+  alerting_rules.yml:
+    groups:
+      - name: "Nodes"
+        rules:
+          - alert: "Node Unschedulable"
+            expr: kube_node_status_condition { condition="Ready", status!="true" } > 0
+            for: 5m
+            labels:
+              severity: high
+              area: nodes
+            annotations:
+              summary: Node `{{ .Labels.node }}` unschedulable and kicked out of cluster
+          # - alert: "Node Out Of Free Memory"
+          #   expr: 100-(node_memory_MemFree_bytes/ node_memory_MemTotal_bytes)*100 > 75
+          #   labels:
+          #     severity: medium
+          #     area: nodes
+          #   annotations:
+          #     summary: Node `{{ .Labels.node }}` has more that 75% of memory used
+          - alert: "Node Is Under Pressure"
+            expr: kube_node_status_condition {condition!="Ready", status="true"}>0
+            labels:
+              severity: high
+              area: nodes
+            annotations:
+              summary: Node `{{ .Labels.node }}` is under {{ .Labels.condition }}
+      - name: "Application Load Balancer"
+        rules:
+          - alert: "ALB 5XX"
+            expr: sum by (tag_kubernetes_io_ingress_name) ( aws_alb_httpcode_elb_5_xx_count_sum) > 0
+            for: 5m
+            labels:
+              severity: high
+              area: alb
+            annotations:
+              summary: ALB `{{ .Labels.tag_kubernetes_io_ingress_name }}` encounters 5XX errors
+          - alert: "ALB Target 5XX"
+            expr: sum by (tag_kubernetes_io_ingress_name) ( aws_alb_httpcode_target_5_xx_count_sum) > 0
+            for: 5m
+            labels:
+              severity: high
+              area: alb
+            annotations:
+              summary: Target of ALB `{{ .Labels.tag_kubernetes_io_ingress_name }}` encounters 5XX errors
+      - name: "Pods"
+        rules:
+          - alert: "Not successfull containers"
+            expr: kube_pod_status_phase{phase!="Running",phase!="Succeeded"}>0
+            for: 10m
+            labels:
+              severity: medium
+              area: pods
+            annotations:
+              summary: Pod `{{ .Labels.pod }}` is in {{ .Labels.phase }} for 10m

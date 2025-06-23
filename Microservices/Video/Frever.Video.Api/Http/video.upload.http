@@ -1,0 +1,104 @@
+# Works together with Frever.Impersonate CLI util to generate tokens.
+# Supports both local and remote environment
+
+# @version=latest
+# @env=content-stage
+# @auth_server=https://{{env}}.frever-api.com/{{version}}/auth/
+# @asset_server=https://{{env}}.frever-api.com/{{version}}/asset/
+# @admin_server=https://{{env}}.frever-api.com/{{version}}/admin/
+# @client_server=https://{{env}}.frever-api.com/{{version}}/client/
+# @video_server=https://{{env}}.frever-api.com/{{version}}/video/
+# @notification_server=https://{{env}}.frever-api.com/{{version}}/notification/
+# @token_dev_16=
+# @token={{token_dev_16}}
+
+
+###
+@auth_server=http://localhost:5002/
+@asset_server=http://localhost:5004/file-storage/
+@admin_server=http://localhost:5010/admin/
+@client_server=http://localhost:5011/client/
+@video_server=http://localhost:5005/video/
+@notification_server=http://localhost:5008/notification/
+@token_dev_16=xxxxxxxxx
+@token={{token_dev_16}}
+
+############ END ##############
+
+###
+# @name level
+GET {{client_server}}api/level/drafts
+Authorization: Bearer {{token}}
+
+###
+@levelId={{level.response.body.$[1].id}}
+
+@sampleVideoSize=21737644
+@sampleVideo2Size=10318854
+@bigVideoSize=27882559
+
+###
+GET {{client_server}}api/Level?$filter=groupId eq 16
+Authorization: Bearer {{token}}
+
+
+###
+# @name initUploading
+POST {{video_server}}video/upload
+Authorization: Bearer {{token}}
+
+###
+# @name upload video
+PUT {{initUploading.response.body.uploadUrl}}
+
+< ./sample-video.mp4
+
+###
+# @name completeUploading
+PUT {{video_server}}video/upload/{{initUploading.response.body.uploadId}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "levelId": {{levelId}},
+    "size": {{sampleVideoSize}},
+    "durationSec": 185,
+    "isPublic": true,
+    "allowComment": false,
+    "allowRemix": false
+}
+
+
+###
+# @name oneVideoById
+GET {{video_server}}video/{{completeUploading.response.body.id}}
+Authorization: Bearer {{token}}
+
+###
+# @name viewOneVideoById
+GET {{video_server}}video/{{completeUploading.response.body.id}}/view
+Authorization: Bearer {{token}}
+
+###
+PATCH {{video_server}}video/{{completeUploading.response.body.$}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "allowComment": true,
+  "allowRemix": true
+}
+
+###
+POST {{video_server}}video/{{completeUploading.response.body.$}}/comment
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "Text": "Mention @373 Viktor's old group 2"
+}
+
+### [x] Featured videos should be geo-split
+### [x] Commercial music must be filtered
+GET {{video_server}}video/featured
+Authorization: Bearer {{token}}

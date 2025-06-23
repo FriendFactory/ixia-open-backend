@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+    <Sdk Name="Microsoft.Build.CentralPackageVersions" Version="2.1.3" />
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\Common\Common.Infrastructure\Common.Infrastructure.csproj" />
+        <ProjectReference Include="..\..\..\Common\Common.Models\Common.Models.csproj" />
+        <ProjectReference Include="..\..\Authorization\AuthServerShared\AuthServerShared.csproj" />
+        <ProjectReference Include="..\..\Client\Frever.Client.Shared\Frever.Client.Shared.csproj" />
+        <ProjectReference Include="..\NotificationService.Client\NotificationService.Client.csproj" />
+        <ProjectReference Include="..\NotificationService.Shared\NotificationService.Shared.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="FluentValidation" />
+        <PackageReference Include="IdentityServer4.AccessTokenValidation" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Binder" />
+        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" />
+        <PackageReference Include="Microsoft.Extensions.Configuration" />
+        <PackageReference Include="Swashbuckle.AspNetCore" />
+        <PackageReference Include="OpenTelemetry" />
+        <PackageReference Include="OpenTelemetry.Api" />
+        <PackageReference Include="OpenTelemetry.Extensions.Hosting" />
+        <PackageReference Include="OpenTelemetry.Exporter.Prometheus.AspNetCore" />
+        <PackageReference Include="OpenTelemetry.Instrumentation.AspNetCore" />
+        <PackageReference Include="OpenTelemetry.Instrumentation.Http" />
+    </ItemGroup>
+
+</Project>

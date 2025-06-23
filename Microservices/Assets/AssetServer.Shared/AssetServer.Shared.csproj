@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <Sdk Name="Microsoft.Build.CentralPackageVersions" Version="2.1.3" />
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+    </PropertyGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\Common\Common.Models\Common.Models.csproj" />
+      <ProjectReference Include="..\..\..\Utils\AssetUrlGenerator\AssetStorage.PathProviding.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="AWSSDK.SQS" />
+    </ItemGroup>
+
+</Project>

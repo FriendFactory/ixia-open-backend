@@ -1,0 +1,125 @@
+# Works together with Frever.Impersonate CLI util to generate tokens.
+# Supports both local and remote environment
+@version=latest
+@env=content-stage
+
+@auth_server=https://{{env}}.frever-api.com/{{version}}/auth/
+@asset_server=https://{{env}}.frever-api.com/{{version}}/asset/
+@admin_server=https://{{env}}.frever-api.com/{{version}}/admin/
+@client_server=https://{{env}}.frever-api.com/{{version}}/client/
+@video_server=https://{{env}}.frever-api.com/{{version}}/video/
+@notification_server=https://{{env}}.frever-api.com/{{version}}/notification/
+@token=xxxxxxxxx
+
+###
+@auth_server=http://localhost:5002/
+@asset_server=http://localhost:5004/file-storage/
+@admin_server=http://localhost:5010/admin/
+@client_server=http://localhost:5011/client/
+@video_server=http://localhost:5005/video/
+@notification_server=http://localhost:5008/notification/
+@token_dev_16=xxxxxxxxx
+@token_dev_2725=xxxxxxxxx
+@token={{token_dev_16}}
+
+############ END ##############
+
+@stability_api=https://api.stability.ai/v1
+@replicate_api=https://api.replicate.com/v1
+
+### Prompt: in VS Code press F1 and choose "REST Client > Copy as cURL".
+### Then paste snippet to terminal and add `> 1.png` at the end to see result as an image
+# @prompt stability_key StableDiffusion API Key
+POST {{stability_api}}/generation/stable-diffusion-xl-1024-v1-0/text-to-image
+Authorization: {{stability_key}}
+Accept: image/jpeg
+Content-Type: application/json
+
+{
+  "height": 1024,
+  "width": 1024,
+  "text_prompts": [{"text": "An image of a cat on the window", "weight": 1}]
+}
+
+###
+POST {{client_server}}api/ai/text-to-image/stable-diffusion-xl-1024-v1-0
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "height": 1024,
+  "width": 1024,
+  "text_prompts": [{"text": "An image of a cat on the sofa", "weight": 1}]
+}
+
+### Test moderation
+POST {{client_server}}api/ai/text-to-image/stable-diffusion-xl-1024-v1-0
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "height": 1024,
+  "width": 1024,
+  "text_prompts": [{"text": "An image of a naked wome on the sofa", "weight": 1}]
+}
+
+### Predictions
+# @prompt replicate_key Replicate API Key
+# @name prediction
+POST {{replicate_api}}/predictions
+Content-Type: application/json
+Authorization: Token {{replicate_key}}
+
+{
+    "version": "daf838c751247334118e4d37c9a07fbc1183f7e0b7f2b9bc78b206e760a374a3",
+    "input": {
+      "width": 1024,
+      "height": 1024,
+      "prompt": "An astronaut riding a rainbow unicorn",
+      "refine": "no_refiner",
+      "scheduler": "K_EULER",
+      "lora_scale": 0.6,
+      "num_outputs": 1,
+      "guidance_scale": 7.5,
+      "apply_watermark": true,
+      "high_noise_frac": 0.8,
+      "negative_prompt": "",
+      "prompt_strength": 0.8,
+      "num_inference_steps": 50
+    }
+}
+
+
+###
+# @prompt replicate_key Replicate API Key
+GET {{prediction.response.body.urls.get}}
+Authorization: Token {{replicate_key}}
+
+###
+# @name prediction
+POST {{client_server}}api/ai/v1/replicate
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "version": "daf838c751247334118e4d37c9a07fbc1183f7e0b7f2b9bc78b206e760a374a3",
+    "input": {
+      "width": 1024,
+      "height": 1024,
+      "prompt": "An Dobbie the Elf riding a rainbow unicorn",
+      "refine": "no_refiner",
+      "scheduler": "K_EULER",
+      "lora_scale": 0.6,
+      "num_outputs": 1,
+      "guidance_scale": 7.5,
+      "apply_watermark": true,
+      "high_noise_frac": 0.8,
+      "negative_prompt": "",
+      "prompt_strength": 0.8,
+      "num_inference_steps": 50
+    }
+}
+
+###
+GET {{client_server}}api/ai/v1/replicate/{{prediction.response.body.predictionId}}
+Authorization: Bearer {{token}}

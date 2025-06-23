@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <Sdk Name="Microsoft.Build.CentralPackageVersions" Version="2.1.3"/>
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <OutputType>Library</OutputType>
+    </PropertyGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Frever.Cache\Frever.Cache.csproj"/>
+        <ProjectReference Include="..\Frever.Shared.MainDb\Frever.Shared.MainDb.csproj"/>
+    </ItemGroup>
+
+</Project>

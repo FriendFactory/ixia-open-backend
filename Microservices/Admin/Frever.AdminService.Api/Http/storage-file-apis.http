@@ -1,0 +1,65 @@
+@auth_server=http://localhost:5002
+#@auth_server=https://dev-1.frever-api.com/auth
+
+### Authenticate
+# @name auth
+POST {{auth_server}}/connect/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=password&username=xxxxxxxxx&password=123456&client_id=Server&scope=friends_factory.creators_api+offline_access&client_secret=xxxxxxxxx
+
+###
+@asset_server={{auth.response.body.asset_server}}
+@main_server={{auth.response.body.server_url}}
+@assetmanager_server={{auth.response.body.assetmanager_server}}
+@client_server={{auth.response.body.client_server}}
+@video_server={{auth.response.body.video_server}}
+@social_server={{auth.response.body.social_server}}
+@notification_server={{auth.response.body.notification_server}}
+
+###
+# @name initUpload
+GET {{asset_server}}api/File/PreUploadingUrl
+Authorization: Bearer {{auth.response.body.access_token}}
+
+###
+# @name uploadFile
+PUT {{initUpload.response.body.$.uploadUrl}}
+
+< ./Microservices/Admin/Frever.AdminService.Api/Http/2.png
+
+###
+GET {{assetmanager_server}}api/StorageFile
+Authorization: Bearer {{auth.response.body.access_token}}
+
+###
+POST {{assetmanager_server}}api/StorageFile
+Authorization: Bearer {{auth.response.body.access_token}}
+Content-Type: application/json
+
+{
+  "id": 1,
+  "key": "popup/background",
+  "uploadId": "39208f84-bf84-41f3-99be-9be34be980c2"
+}
+
+###
+DELETE {{assetmanager_server}}api/StorageFile/1
+Authorization: Bearer {{auth.response.body.access_token}}
+
+###
+POST {{client_server}}api/StorageFile
+Authorization: Bearer {{auth.response.body.access_token}}
+Content-Type: application/json
+
+{
+  "key": "popup/background"
+}
+
+###
+GET {{asset_server}}api/Cdn/StorageFile/20230207T180042U6e1832f0053043c48feab04271ec828f/popup/level_creation/locked
+Authorization: Bearer {{auth.response.body.access_token}}
+
+###
+GET {{asset_server}}api/CdnLink/StorageFile/20230207T180042U6e1832f0053043c48feab04271ec828f/popup/level_creation/locked
+Authorization: Bearer {{auth.response.body.access_token}}

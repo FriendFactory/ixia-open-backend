@@ -1,0 +1,20 @@
+{{- define "frever-app.net-horizontal-pod-autoscaler" }}
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: {{ .Service }}-autoscaler
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: {{ .Service }}-deployment
+  minReplicas: {{ .Values.serverInfo.minReplicas }}
+  maxReplicas: {{ .Values.serverInfo.maxReplicas }}
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: {{ .Values.serverInfo.cpuTargetUtilization }}
+{{- end }}

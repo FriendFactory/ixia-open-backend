@@ -1,0 +1,656 @@
+{
+    "id": 0,
+    "groupId": ${primary-group-id},
+    "originalGroupId": ${primary-group-id},
+    "createdTime": "0001-01-01T00:00:00",
+    "modifiedTime": "0001-01-01T00:00:00",
+    "levelTemplateId": 2,
+    "verticalCategoryId": 1,
+    "languageId": 1,
+    "remixedFromLevelId": null,
+    "isDeleted": false,
+    "isDraft": false,
+    "group": null,
+    "language": null,
+    "levelTemplate": null,
+    "originalGroup": null,
+    "remixedFromLevel": null,
+    "verticalCategory": null,
+    "event": [
+        {
+            "id": 0,
+            "groupId": 0,
+            "createdTime": "0001-01-01T00:00:00",
+            "modifiedTime": "0001-01-01T00:00:00",
+            "levelId": 0,
+            "levelSequence": 1,
+            "autoclipId": null,
+            "targetCharacterSequenceNumber": 0,
+            "filesInfo": null,
+            "length": 2216,
+            "characterSpawnPositionId": 434,
+            "characterSpawnPositionFormationId": 1,
+            "autoclip": null,
+            "characterSpawnPosition": null,
+            "characterSpawnPositionFormation": null,
+            "group": null,
+            "level": null,
+            "cameraController": [
+                {
+                    "id": 0,
+                    "eventId": 0,
+                    "controllerSequenceNumber": 0,
+                    "activationCue": 0,
+                    "endCue": 0,
+                    "cameraAnimationTemplateId": 42,
+                    "spawnIndex": 0,
+                    "startDepthOfFieldOffset": 65000,
+                    "endDepthOfFieldOffset": 0,
+                    "startFocusDistance": 0,
+                    "endFocusDistance": 0,
+                    "followSpawnPositionIndex": null,
+                    "followAll": true,
+                    "lookAtIndex": 1,
+                    "cameraNoiseSettingsIndex": 0,
+                    "autoFocus": false,
+                    "autoRoll": false,
+                    "followZoom": false,
+                    "cameraAnimationId": null,
+                    "cameraAnimation": {
+                        "id": 0,
+                        "groupId": 0,
+                        "createdTime": "0001-01-01T00:00:00",
+                        "modifiedTime": "0001-01-01T00:00:00",
+                        "filesInfo": null,
+                        "group": null,
+                        "cameraAnimationTemplate": null,
+                        "cameraController": [],
+                        "files": [
+                            {
+                                "file": 0,
+                                "resolution": null,
+                                "source": {
+                                    "uploadId": "${event1-cameraAnimation-uploadId}",
+                                    "copyFrom": null
+                                },
+                                "version": null,
+                                "extension": 6
+                            }
+                        ]
+                    },
+                    "cameraAnimationTemplate": null,
+                    "event": null
+                }
+            ],
+            "cameraFilterController": [],
+            "characterController": [
+                {
+                    "id": 0,
+                    "eventId": 0,
+                    "controllerSequenceNumber": 0,
+                    "characterId": ${characterId},
+                    "activationCue": 0,
+                    "endCue": 0,
+                    "rotation": 0,
+                    "outfitId": null,
+                    "character": null,
+                    "event": null,
+                    "outfit": null,
+                    "characterControllerBackgroundDancer": null,
+                    "characterControllerBodyAnimation": [
+                        {
+                            "id": 0,
+                            "characterControllerId": 0,
+                            "controllerSequenceNumber": 0,
+                            "primaryBodyAnimationId": 66,
+                            "lowerBodyAnimationId": null,
+                            "animationSpeed": 0,
+                            "activationCue": 4067,
+                            "endCue": 6283,
+                            "locomotion": false,
+                            "looping": false,
+                            "characterController": null,
+                            "lowerBodyAnimation": null,
+                            "primaryBodyAnimation": null
+                        }
+                    ],
+                    "characterControllerFaceVoice": [
+                        {
+                            "id": 0,
+                            "characterControllerId": 0,
+                            "controllerSequenceNumber": 0,
+                            "voiceTrackId": null,
+                            "faceAnimationId": null,
+                            "voiceFilterId": 7,
+                            "activationCue": 0,
+                            "endCue": 0,
+                            "extremeExpressionId": null,
+                            "faceVfxId": null,
+                            "voiceSoundVolume": 100,
+                            "characterController": null,
+                            "extremeExpression": null,
+                            "faceAnimation": null,
+                            "faceVfx": null,
+                            "voiceFilter": null,
+                            "voiceTrack": {
+                                "files": [
+                                    {
+                                        "file": 0,
+                                        "resolution": null,
+                                        "source": {
+                                            "uploadId": "${event1-voiceTrack-uploadId}",
+                                            "copyFrom": null
+                                        },
+                                        "version": null,
+                                        "extension": 3
+                                    }
+                                ],
+                                "id": 0,
+                                "assetStoreInfoId": null,
+                                "languageId": 1,
+                                "groupId": 1,
+                                "createdTime": "0001-01-01T00:00:00",
+                                "modifiedTime": "0001-01-01T00:00:00",
+                                "size": null,
+                                "channels": null,
+                                "samplingSize": null,
+                                "duration": 0,
+                                "samplingFrequency": null,
+                                "filesInfo": null,
+                                "assetStoreInfo": null,
+                                "group": null,
+                                "language": null,
+                                "characterControllerFaceVoice": []
+                            }
+                        }
+                    ],
+                    "characterControllerUmaRecipe": [],
+                    "orderNumber": 0
+                }
+            ],
+            "eventAndEventSpecialAssetbundle": null,
+            "musicController": [],
+            "propController": null,
+            "setLocationController": [
+                {
+                    "id": 0,
+                    "eventId": 0,
+                    "controllerSequenceNumber": 0,
+                    "setLocationId": 206,
+                    "activationCue": 7028,
+                    "endCue": 9244,
+                    "timeOfDay": null,
+                    "weatherId": 1,
+                    "crowdId": null,
+                    "crowdMovementId": null,
+                    "maxCrowds": null,
+                    "timelapseSpeed": null,
+                    "npeAnimationSpeed": null,
+                    "videoClipId": null,
+                    "photoId": null,
+                    "videoActivationCue": null,
+                    "videoEndCue": null,
+                    "videoSoundVolume": 0,
+                    "crowd": null,
+                    "crowdMovement": null,
+                    "event": null,
+                    "setLocation": null,
+                    "weather": null,
+                    "videoClip": null,
+                    "photo": null
+                }
+            ],
+            "sfxController": null,
+            "stickerController": null,
+            "vfxController": [],
+            "files": [
+                {
+                    "file": 1,
+                    "resolution": "512x512",
+                    "source": {
+                        "uploadId": "${event1-thumb512-uploadId}",
+                        "copyFrom": null
+                    },
+                    "version": null,
+                    "extension": 5
+                },
+                {
+                    "file": 1,
+                    "resolution": "128x128",
+                    "source": {
+                        "uploadId": "${event1-thumb128-uploadId}",
+                        "copyFrom": null
+                    },
+                    "version": null,
+                    "extension": 5
+                }
+            ],
+            "orderNumber": 1
+        },
+        {
+            "id": 0,
+            "groupId": 0,
+            "createdTime": "0001-01-01T00:00:00",
+            "modifiedTime": "0001-01-01T00:00:00",
+            "levelId": 0,
+            "levelSequence": 2,
+            "autoclipId": null,
+            "targetCharacterSequenceNumber": 0,
+            "filesInfo": null,
+            "length": 2799,
+            "characterSpawnPositionId": 478,
+            "characterSpawnPositionFormationId": 1,
+            "autoclip": null,
+            "characterSpawnPosition": null,
+            "characterSpawnPositionFormation": null,
+            "group": null,
+            "level": null,
+            "cameraController": [
+                {
+                    "id": 0,
+                    "eventId": 0,
+                    "controllerSequenceNumber": 0,
+                    "activationCue": 0,
+                    "endCue": 0,
+                    "cameraAnimationTemplateId": 42,
+                    "spawnIndex": 0,
+                    "startDepthOfFieldOffset": 65000,
+                    "endDepthOfFieldOffset": 0,
+                    "startFocusDistance": 0,
+                    "endFocusDistance": 0,
+                    "followSpawnPositionIndex": null,
+                    "followAll": true,
+                    "lookAtIndex": 1,
+                    "cameraNoiseSettingsIndex": 0,
+                    "autoFocus": false,
+                    "autoRoll": false,
+                    "followZoom": false,
+                    "cameraAnimationId": null,
+                    "cameraAnimation": {
+                        "id": 0,
+                        "groupId": 0,
+                        "createdTime": "0001-01-01T00:00:00",
+                        "modifiedTime": "0001-01-01T00:00:00",
+                        "filesInfo": null,
+                        "group": null,
+                        "cameraAnimationTemplate": null,
+                        "cameraController": [],
+                        "files": [
+                            {
+                                "file": 0,
+                                "resolution": null,
+                                "source": {
+                                    "uploadId": "${event2-cameraAnimation-uploadId}",
+                                    "copyFrom": null
+                                },
+                                "version": null,
+                                "extension": 6
+                            }
+                        ]
+                    },
+                    "cameraAnimationTemplate": null,
+                    "event": null
+                }
+            ],
+            "cameraFilterController": [],
+            "characterController": [
+                {
+                    "id": 0,
+                    "eventId": 0,
+                    "controllerSequenceNumber": 0,
+                    "characterId": ${characterId},
+                    "activationCue": 0,
+                    "endCue": 0,
+                    "rotation": 0,
+                    "outfitId": null,
+                    "character": null,
+                    "event": null,
+                    "outfit": null,
+                    "characterControllerBackgroundDancer": null,
+                    "characterControllerBodyAnimation": [
+                        {
+                            "id": 0,
+                            "characterControllerId": 0,
+                            "controllerSequenceNumber": 0,
+                            "primaryBodyAnimationId": 66,
+                            "lowerBodyAnimationId": null,
+                            "animationSpeed": 0,
+                            "activationCue": 6283,
+                            "endCue": 9082,
+                            "locomotion": false,
+                            "looping": false,
+                            "characterController": null,
+                            "lowerBodyAnimation": null,
+                            "primaryBodyAnimation": null
+                        }
+                    ],
+                    "characterControllerFaceVoice": [
+                        {
+                            "id": 0,
+                            "characterControllerId": 0,
+                            "controllerSequenceNumber": 0,
+                            "voiceTrackId": null,
+                            "faceAnimationId": null,
+                            "voiceFilterId": 7,
+                            "activationCue": 0,
+                            "endCue": 0,
+                            "extremeExpressionId": null,
+                            "faceVfxId": null,
+                            "voiceSoundVolume": 100,
+                            "characterController": null,
+                            "extremeExpression": null,
+                            "faceAnimation": null,
+                            "faceVfx": null,
+                            "voiceFilter": null,
+                            "voiceTrack": {
+                                "files": [
+                                    {
+                                        "file": 0,
+                                        "resolution": null,
+                                        "source": {
+                                            "uploadId": "${event2-voiceTrack-uploadId}",
+                                            "copyFrom": null
+                                        },
+                                        "version": null,
+                                        "extension": 3
+                                    }
+                                ],
+                                "id": 0,
+                                "assetStoreInfoId": null,
+                                "languageId": 1,
+                                "groupId": 1,
+                                "createdTime": "0001-01-01T00:00:00",
+                                "modifiedTime": "0001-01-01T00:00:00",
+                                "size": null,
+                                "channels": null,
+                                "samplingSize": null,
+                                "duration": 0,
+                                "samplingFrequency": null,
+                                "filesInfo": null,
+                                "assetStoreInfo": null,
+                                "group": null,
+                                "language": null,
+                                "characterControllerFaceVoice": []
+                            }
+                        }
+                    ],
+                    "characterControllerUmaRecipe": [],
+                    "orderNumber": 0
+                }
+            ],
+            "eventAndEventSpecialAssetbundle": null,
+            "musicController": [],
+            "propController": null,
+            "setLocationController": [
+                {
+                    "id": 0,
+                    "eventId": 0,
+                    "controllerSequenceNumber": 0,
+                    "setLocationId": 228,
+                    "activationCue": 4994,
+                    "endCue": 7793,
+                    "timeOfDay": null,
+                    "weatherId": 1,
+                    "crowdId": null,
+                    "crowdMovementId": null,
+                    "maxCrowds": null,
+                    "timelapseSpeed": null,
+                    "npeAnimationSpeed": null,
+                    "videoClipId": null,
+                    "photoId": null,
+                    "videoActivationCue": null,
+                    "videoEndCue": null,
+                    "videoSoundVolume": 0,
+                    "crowd": null,
+                    "crowdMovement": null,
+                    "event": null,
+                    "setLocation": null,
+                    "weather": null,
+                    "videoClip": null,
+                    "photo": null
+                }
+            ],
+            "sfxController": null,
+            "stickerController": null,
+            "vfxController": [],
+            "files": [
+                {
+                    "file": 1,
+                    "resolution": "512x512",
+                    "source": {
+                        "uploadId": "${event2-thumb512-uploadId}",
+                        "copyFrom": null
+                    },
+                    "version": null,
+                    "extension": 5
+                },
+                {
+                    "file": 1,
+                    "resolution": "128x128",
+                    "source": {
+                        "uploadId": "${event2-thumb128-uploadId}",
+                        "copyFrom": null
+                    },
+                    "version": null,
+                    "extension": 5
+                }
+            ],
+            "orderNumber": 2
+        },
+        {
+            "id": 0,
+            "groupId": 0,
+            "createdTime": "0001-01-01T00:00:00",
+            "modifiedTime": "0001-01-01T00:00:00",
+            "levelId": 0,
+            "levelSequence": 3,
+            "autoclipId": null,
+            "targetCharacterSequenceNumber": 0,
+            "filesInfo": null,
+            "length": 3504,
+            "characterSpawnPositionId": 422,
+            "characterSpawnPositionFormationId": 1,
+            "autoclip": null,
+            "characterSpawnPosition": null,
+            "characterSpawnPositionFormation": null,
+            "group": null,
+            "level": null,
+            "cameraController": [
+                {
+                    "id": 0,
+                    "eventId": 0,
+                    "controllerSequenceNumber": 0,
+                    "activationCue": 0,
+                    "endCue": 0,
+                    "cameraAnimationTemplateId": 42,
+                    "spawnIndex": 0,
+                    "startDepthOfFieldOffset": 65000,
+                    "endDepthOfFieldOffset": 0,
+                    "startFocusDistance": 0,
+                    "endFocusDistance": 0,
+                    "followSpawnPositionIndex": null,
+                    "followAll": true,
+                    "lookAtIndex": 1,
+                    "cameraNoiseSettingsIndex": 0,
+                    "autoFocus": false,
+                    "autoRoll": false,
+                    "followZoom": false,
+                    "cameraAnimationId": null,
+                    "cameraAnimation": {
+                        "id": 0,
+                        "groupId": 0,
+                        "createdTime": "0001-01-01T00:00:00",
+                        "modifiedTime": "0001-01-01T00:00:00",
+                        "filesInfo": null,
+                        "group": null,
+                        "cameraAnimationTemplate": null,
+                        "cameraController": [],
+                        "files": [
+                            {
+                                "file": 0,
+                                "resolution": null,
+                                "source": {
+                                    "uploadId": "${event3-cameraAnimation-uploadId}",
+                                    "copyFrom": null
+                                },
+                                "version": null,
+                                "extension": 6
+                            }
+                        ]
+                    },
+                    "cameraAnimationTemplate": null,
+                    "event": null
+                }
+            ],
+            "cameraFilterController": [],
+            "characterController": [
+                {
+                    "id": 0,
+                    "eventId": 0,
+                    "controllerSequenceNumber": 0,
+                    "characterId": ${characterId},
+                    "activationCue": 0,
+                    "endCue": 0,
+                    "rotation": 0,
+                    "outfitId": null,
+                    "character": null,
+                    "event": null,
+                    "outfit": null,
+                    "characterControllerBackgroundDancer": null,
+                    "characterControllerBodyAnimation": [
+                        {
+                            "id": 0,
+                            "characterControllerId": 0,
+                            "controllerSequenceNumber": 0,
+                            "primaryBodyAnimationId": 66,
+                            "lowerBodyAnimationId": null,
+                            "animationSpeed": 0,
+                            "activationCue": 9082,
+                            "endCue": 12586,
+                            "locomotion": false,
+                            "looping": false,
+                            "characterController": null,
+                            "lowerBodyAnimation": null,
+                            "primaryBodyAnimation": null
+                        }
+                    ],
+                    "characterControllerFaceVoice": [
+                        {
+                            "id": 0,
+                            "characterControllerId": 0,
+                            "controllerSequenceNumber": 0,
+                            "voiceTrackId": null,
+                            "faceAnimationId": null,
+                            "voiceFilterId": 7,
+                            "activationCue": 0,
+                            "endCue": 0,
+                            "extremeExpressionId": null,
+                            "faceVfxId": null,
+                            "voiceSoundVolume": 100,
+                            "characterController": null,
+                            "extremeExpression": null,
+                            "faceAnimation": null,
+                            "faceVfx": null,
+                            "voiceFilter": null,
+                            "voiceTrack": {
+                                "files": [
+                                    {
+                                        "file": 0,
+                                        "resolution": null,
+                                        "source": {
+                                            "uploadId": "${event3-voiceTrack-uploadId}",
+                                            "copyFrom": null
+                                        },
+                                        "version": null,
+                                        "extension": 3
+                                    }
+                                ],
+                                "id": 0,
+                                "assetStoreInfoId": null,
+                                "languageId": 1,
+                                "groupId": 1,
+                                "createdTime": "0001-01-01T00:00:00",
+                                "modifiedTime": "0001-01-01T00:00:00",
+                                "size": null,
+                                "channels": null,
+                                "samplingSize": null,
+                                "duration": 0,
+                                "samplingFrequency": null,
+                                "filesInfo": null,
+                                "assetStoreInfo": null,
+                                "group": null,
+                                "language": null,
+                                "characterControllerFaceVoice": []
+                            }
+                        }
+                    ],
+                    "characterControllerUmaRecipe": [],
+                    "orderNumber": 0
+                }
+            ],
+            "eventAndEventSpecialAssetbundle": null,
+            "musicController": [],
+            "propController": null,
+            "setLocationController": [
+                {
+                    "id": 0,
+                    "eventId": 0,
+                    "controllerSequenceNumber": 0,
+                    "setLocationId": 202,
+                    "activationCue": 4734,
+                    "endCue": 8238,
+                    "timeOfDay": 500,
+                    "weatherId": 1,
+                    "crowdId": null,
+                    "crowdMovementId": null,
+                    "maxCrowds": null,
+                    "timelapseSpeed": 0,
+                    "npeAnimationSpeed": null,
+                    "videoClipId": null,
+                    "photoId": null,
+                    "videoActivationCue": null,
+                    "videoEndCue": null,
+                    "videoSoundVolume": 0,
+                    "crowd": null,
+                    "crowdMovement": null,
+                    "event": null,
+                    "setLocation": null,
+                    "weather": null,
+                    "videoClip": null,
+                    "photo": null
+                }
+            ],
+            "sfxController": null,
+            "stickerController": null,
+            "vfxController": [],
+            "files": [
+                {
+                    "file": 1,
+                    "resolution": "512x512",
+                    "source": {
+                        "uploadId": "${event3-thumb512-uploadId}",
+                        "copyFrom": null
+                    },
+                    "version": null,
+                    "extension": 5
+                },
+                {
+                    "file": 1,
+                    "resolution": "128x128",
+                    "source": {
+                        "uploadId": "${event3-thumb128-uploadId}",
+                        "copyFrom": null
+                    },
+                    "version": null,
+                    "extension": 5
+                }
+            ],
+            "orderNumber": 3
+        }
+    ],
+    "groupAndLevel": null,
+    "inverseRemixedFromLevel": null,
+    "levelAbuseReport": null,
+    "levelAndHashtag": null,
+    "levelAndMultiLanguageLevel": null
+}

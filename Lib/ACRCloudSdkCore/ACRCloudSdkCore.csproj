@@ -1,0 +1,56 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>preview</LangVersion>
+    <RootNamespace>ACRCloudSdkCore</RootNamespace>
+    <OutputType>Library</OutputType>
+    <Nullable>enable</Nullable>
+    <NoWin32Manifest>true</NoWin32Manifest>
+    <Version>1.2.1.0</Version>
+    <AssemblyVersion>1.2.1.0</AssemblyVersion>
+    <FileVersion>1.2.1.0</FileVersion>
+    <Authors>Executor</Authors>
+    <Company>Executor</Company>
+    <Copyright>Copyright © Executor 2022</Copyright>
+    <Description>Easy to recognize any music by using this sdk. Supported by ACRCloud platform.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/Executor-Cheng/ACRCloudSdkCore</PackageProjectUrl>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <RepositoryUrl>https://github.com/Executor-Cheng/ACRCloudSdkCore</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReleaseNotes></PackageReleaseNotes>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <PublishDocumentationFile>true</PublishDocumentationFile>
+    <PublishReferencesDocumentationFiles>true</PublishReferencesDocumentationFiles>
+    <PackageTags>ACRCloud</PackageTags>
+    <NoWarn>1701;1702;1591</NoWarn>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup Condition="$(TargetFramework.StartsWith('netframework'))">
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.1'">
+    <PackageReference Include="System.Text.Json" Version="4.7.2" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0' or $(TargetFramework.StartsWith('netframework'))">
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="System.Memory" Version="4.5.4" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(NETCoreSdkRuntimeIdentifier)' == 'win-x86' or '$(NETCoreSdkRuntimeIdentifier)' == 'win-x64'">
+    <PackageReference Include="ACRCloudSdkCore.NativeAssets.Win32" Version="1.*" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(NETCoreSdkRuntimeIdentifier)' == 'linux-x64'">
+    <PackageReference Include="ACRCloudSdkCore.NativeAssets.Linux" Version="1.*" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(NETCoreSdkRuntimeIdentifier)' == 'osx-x86' or '$(NETCoreSdkRuntimeIdentifier)' == 'osx-x64'">
+    <PackageReference Include="ACRCloudSdkCore.NativeAssets.MacOS" Version="1.*" />
+  </ItemGroup>
+
+</Project>

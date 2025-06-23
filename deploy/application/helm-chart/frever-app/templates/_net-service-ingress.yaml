@@ -1,0 +1,39 @@
+{{- define "frever-app.net-service-ingress" }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .Service }}-ingress
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/group.name: frever-{{ .Values.clusterName }}-z
+    alb.ingress.kubernetes.io/load-balancer-name: {{ .Values.clusterName }}
+    alb.ingress.kubernetes.io/healthcheck-path: "/{{ .Values.apiIdentifier }}/{{ .Service }}/api/health"
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/certificate-arn: {{ .Values.sslCertificateArn | quote }}
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}]'
+    alb.ingress.kubernetes.io/load-balancer-attributes: idle_timeout.timeout_seconds=360
+spec:
+  rules:
+    - host: {{ include "frever-app.service-host" . | quote }}
+      http:
+        paths:
+          - path: "/{{ .Values.apiIdentifier }}/{{ .Service }}/"
+            pathType: Prefix
+            backend:
+                service:
+                    name: "{{ .Service }}-service"
+                    port:
+                        number: 80
+    {{ if eq (.Values.apiIdentifier) (.Values.latestApiId) }}
+    - host: {{ include "frever-app.service-host" . | quote }}
+      http:
+        paths:
+          - path: "/latest/{{ .Service }}/"
+            pathType: Prefix
+            backend:
+              service:
+                name: "{{ .Service }}-service"
+                port:
+                  number: 80
+    {{ end }}
+{{- end }}

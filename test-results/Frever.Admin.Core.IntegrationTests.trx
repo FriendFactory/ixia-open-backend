@@ -1,0 +1,3680 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="6f8a3ec2-6c65-4a52-b070-198fc1c4f37d" name="@5955a5bf5f87 2024-07-02 13:00:20" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2024-07-02T13:00:20.8735878+00:00" queuing="2024-07-02T13:00:20.8735880+00:00" start="2024-07-02T13:00:08.1663062+00:00" finish="2024-07-02T13:00:20.8808998+00:00" />
+  <TestSettings name="default" id="41b75340-bc61-423c-acfb-afcdad7392ca">
+    <Deployment runDeploymentRoot="_5955a5bf5f87_2024-07-02_13_00_20" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="dc8fe7ff-fb99-42b4-bf59-71ed4ed7bb3b" testId="2db3fec2-e524-0a07-b847-0425598a351b" testName="Frever.Admin.Core.IntegrationTests.Features.Baking.CharacterBakingIntegrationTest.CharacterBakingTest" computerName="5955a5bf5f87" duration="00:00:06.1328703" startTime="2024-07-02T13:00:20.8107880+00:00" endTime="2024-07-02T13:00:20.8108003+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="dc8fe7ff-fb99-42b4-bf59-71ed4ed7bb3b">
+      <Output>
+        <StdOut>Debug [10403]: Entity Framework Core 8.0.4 initialized 'TestReadWriteDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:8.0.2+5a671b9769f2d00a75b0ba42ce30c444a12407e3' with options: SensitiveDataLoggingEnabled CommandTimeout=60 MigrationsHistoryTable=public.__EFMigrationsHistory using NetTopologySuite 
+Debug [20005]: Creating DbConnection.
+Debug [20006]: Created DbConnection. (0ms).
+Debug [20000]: Opening connection to database 'frevertest' on server 'tcp://postgres-frever-it:5432'.
+Debug [20001]: Opened connection to database 'frevertest' on server 'tcp://postgres-frever-it:5432'.
+Debug [20209]: Beginning transaction with isolation level 'Unspecified'.
+Debug [20200]: Began transaction with isolation level 'ReadCommitted'.
+Debug [10111]: Compiling query expression: 
+'DbSet&lt;User&gt;().FromSql(
+with g as (
+    insert into "Group" ("NickName",
+                         "TaxationCountryId",
+                         "DefaultLanguageId",
+                         "BirthDate",
+                         "Gender"
+        )
+        values ('test-user-cb110d93cdad497db54c7213757bf0d5',
+                (select "Id" from "Country" where "ISOName" = 'swe'),
+                (select "Id" from "Language" where "IsoCode" = 'swe'),
+                '1992-08-08T00:00:00.0000000',
+                1)
+        returning *),
+     u as (
+         insert
+             into "User" ("IdentityServerId", "Email", "DataCollection", "MainGroupId", "AnalyticsEnabled",
+                          "PhoneNumber",
+                          "CreatorPermissionLevel", "MainCharacterId")
+                 select uuid_generate_v4(),
+                        'test-user-cb110d93cdad497db54c7213757bf0d5@frever-test.com',
+                        true,
+                        g."Id",
+                        true,
+                        null,
+                        array []::bigint[],
+                        null
+                 from g
+                 returning *),
+     activity as (
+         insert into "UserActivity" ("GroupId", "OccurredAt", "ActionType")
+             select g."Id", null, 'Login'
+             from g
+             where null is not null)
+select *
+from u;, __p_0)
+'
+Debug [10107]: Generated query execution expression: 
+'queryContext =&gt; new FromSqlQueryingEnumerable&lt;User&gt;(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -&gt; Dictionary&lt;IProperty, int&gt; { [Property: User.Id (long) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: User.AnalyticsEnabled (bool) Required, 1], [Property: User.AppleId (string), 2], [Property: User.CreatedTime (DateTime) Required ValueGenerated.OnAdd, 3], [Property: User.CreatorPermissionLevel (long[]) Element type: long Required, 4], [Property: User.DataCollection (bool?), 5], [Property: User.Email (string) Index, 6], [Property: User.GoogleId (string), 7], [Property: User.IdentityServerId (Guid) Required Index, 8], [Property: User.IsFeatured (bool) Required, 9], [Property: User.MainCharacterId (long?) FK Index, 10], [Property: User.MainGroupId (long) Required FK Index, 11], [Property: User.ModifiedTime (DateTime) Required, 12], [Property: User.PhoneNumber (string) Index, 13] }
+        SELECT f.Id, f.AnalyticsEnabled, f.AppleId, f.CreatedTime, f.CreatorPermissionLevel, f.DataCollection, f.Email, f.GoogleId, f.IdentityServerId, f.IsFeatured, f.MainCharacterId, f.MainGroupId, f.ModifiedTime, f.PhoneNumber
+        FROM 
+with g as (
+    insert into "Group" ("NickName",
+                         "TaxationCountryId",
+                         "DefaultLanguageId",
+                         "BirthDate",
+                         "Gender"
+        )
+        values ('test-user-cb110d93cdad497db54c7213757bf0d5',
+                (select "Id" from "Country" where "ISOName" = 'swe'),
+                (select "Id" from "Language" where "IsoCode" = 'swe'),
+                '1992-08-08T00:00:00.0000000',
+                1)
+        returning *),
+     u as (
+         insert
+             into "User" ("IdentityServerId", "Email", "DataCollection", "MainGroupId", "AnalyticsEnabled",
+                          "PhoneNumber",
+                          "CreatorPermissionLevel", "MainCharacterId")
+                 select uuid_generate_v4(),
+                        'test-user-cb110d93cdad497db54c7213757bf0d5@frever-test.com',
+                        true,
+                        g."Id",
+                        true,
+                        null,
+                        array []::bigint[],
+                        null
+                 from g
+                 returning *),
+     activity as (
+         insert into "UserActivity" ("GroupId", "OccurredAt", "ActionType")
+             select g."Id", null, 'Login'
+             from g
+             where null is not null)
+select *
+from u;), 
+    null, 
+    List&lt;string&gt; { "Id", "AnalyticsEnabled", "AppleId", "CreatedTime", "CreatorPermissionLevel", "DataCollection", "Email", "GoogleId", "IdentityServerId", "IsFeatured", "MainCharacterId", "MainGroupId", "ModifiedTime", "PhoneNumber" }, 
+    Func&lt;QueryContext, DbDataReader, int[], User&gt;, 
+    Frever.Common.IntegrationTesting.TestReadWriteDbContext, 
+    False, 
+    False, 
+    True
+)'
+Debug [20103]: Creating DbCommand for 'ExecuteReader'.
+Debug [20104]: Created DbCommand for 'ExecuteReader' (0ms).
+Debug [20106]: Initialized DbCommand for 'ExecuteReader' (0ms).
+Debug [20100]: Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='60']
+
+with g as (
+    insert into "Group" ("NickName",
+                         "TaxationCountryId",
+                         "DefaultLanguageId",
+                         "BirthDate",
+                         "Gender"
+        )
+        values ('test-user-cb110d93cdad497db54c7213757bf0d5',
+                (select "Id" from "Country" where "ISOName" = 'swe'),
+                (select "Id" from "Language" where "IsoCode" = 'swe'),
+                '1992-08-08T00:00:00.0000000',
+                1)
+        returning *),
+     u as (
+         insert
+             into "User" ("IdentityServerId", "Email", "DataCollection", "MainGroupId", "AnalyticsEnabled",
+                          "PhoneNumber",
+                          "CreatorPermissionLevel", "MainCharacterId")
+                 select uuid_generate_v4(),
+                        'test-user-cb110d93cdad497db54c7213757bf0d5@frever-test.com',
+                        true,
+                        g."Id",
+                        true,
+                        null,
+                        array []::bigint[],
+                        null
+                 from g
+                 returning *),
+     activity as (
+         insert into "UserActivity" ("GroupId", "OccurredAt", "ActionType")
+             select g."Id", null, 'Login'
+             from g
+             where null is not null)
+select *
+from u;
+Information [20101]: Executed DbCommand (20ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+
+with g as (
+    insert into "Group" ("NickName",
+                         "TaxationCountryId",
+                         "DefaultLanguageId",
+                         "BirthDate",
+                         "Gender"
+        )
+        values ('test-user-cb110d93cdad497db54c7213757bf0d5',
+                (select "Id" from "Country" where "ISOName" = 'swe'),
+                (select "Id" from "Language" where "IsoCode" = 'swe'),
+                '1992-08-08T00:00:00.0000000',
+                1)
+        returning *),
+     u as (
+         insert
+             into "User" ("IdentityServerId", "Email", "DataCollection", "MainGroupId", "AnalyticsEnabled",
+                          "PhoneNumber",
+                          "CreatorPermissionLevel", "MainCharacterId")
+                 select uuid_generate_v4(),
+                        'test-user-cb110d93cdad497db54c7213757bf0d5@frever-test.com',
+                        true,
+                        g."Id",
+                        true,
+                        null,
+                        array []::bigint[],
+                        null
+                 from g
+                 returning *),
+     activity as (
+         insert into "UserActivity" ("GroupId", "OccurredAt", "ActionType")
+             select g."Id", null, 'Login'
+             from g
+             where null is not null)
+select *
+from u;
+Debug [10806]: Context 'TestReadWriteDbContext' started tracking 'User' entity with key '{Id: 189722}'.
+Debug [20301]: Closing data reader to 'frevertest' on server 'tcp://postgres-frever-it:5432'.
+Debug [20300]: A data reader for 'frevertest' on server 'tcp://postgres-frever-it:5432' is being disposed after spending 94ms reading results.
+Debug [20103]: Creating DbCommand for 'ExecuteNonQuery'.
+Debug [20104]: Created DbCommand for 'ExecuteNonQuery' (0ms).
+Debug [20106]: Initialized DbCommand for 'ExecuteNonQuery' (0ms).
+Debug [20100]: Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='60']
+delete from "GeoCluster"
+Information [20101]: Executed DbCommand (5,524ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+delete from "GeoCluster"
+Debug [10111]: Compiling query expression: 
+'DbSet&lt;GeoCluster&gt;().FromSql(insert into "GeoCluster"("Priority", "Title", "IncludeVideoFromCountry",
+                         "IncludeVideoWithLanguage", "ShowToUserFromCountry",
+                         "ShowForUserWithLanguage")
+values (3,
+        'Swedish',
+        ARRAY['swe']::text[],
+        ARRAY['swe']::text[],
+        ARRAY['swe']::text[],
+        ARRAY['swe']::text[])
+returning *;
+, __p_0)
+'
+Debug [10107]: Generated query execution expression: 
+'queryContext =&gt; new FromSqlQueryingEnumerable&lt;GeoCluster&gt;(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -&gt; Dictionary&lt;IProperty, int&gt; { [Property: GeoCluster.Id (long) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: GeoCluster.ExcludeVideoFromCountry (string[]) Element type: string, 1], [Property: GeoCluster.ExcludeVideoWithLanguage (string[]) Element type: string, 2], [Property: GeoCluster.HideForUserFromCountry (string[]) Element type: string, 3], [Property: GeoCluster.HideForUserWithLanguage (string[]) Element type: string, 4], [Property: GeoCluster.IncludeVideoFromCountry (string[]) Element type: string, 5], [Property: GeoCluster.IncludeVideoWithLanguage (string[]) Element type: string, 6], [Property: GeoCluster.IsActive (bool) Required, 7], [Property: GeoCluster.Priority (int) Required, 8], [Property: GeoCluster.RecommendationNumOfDaysLookback (int) Required, 9], [Property: GeoCluster.RecommendationVideosPool (int) Required, 10], [Property: GeoCluster.ShowForUserWithLanguage (string[]) Element type: string, 11], [Property: GeoCluster.ShowToUserFromCountry (string[]) Element type: string, 12], [Property: GeoCluster.Title (string), 13] }
+        SELECT f.Id, f.ExcludeVideoFromCountry, f.ExcludeVideoWithLanguage, f.HideForUserFromCountry, f.HideForUserWithLanguage, f.IncludeVideoFromCountry, f.IncludeVideoWithLanguage, f.IsActive, f.Priority, f.RecommendationNumOfDaysLookback, f.RecommendationVideosPool, f.ShowForUserWithLanguage, f.ShowToUserFromCountry, f.Title
+        FROM insert into "GeoCluster"("Priority", "Title", "IncludeVideoFromCountry",
+                         "IncludeVideoWithLanguage", "ShowToUserFromCountry",
+                         "ShowForUserWithLanguage")
+values (3,
+        'Swedish',
+        ARRAY['swe']::text[],
+        ARRAY['swe']::text[],
+        ARRAY['swe']::text[],
+        ARRAY['swe']::text[])
+returning *;
+), 
+    null, 
+    List&lt;string&gt; { "Id", "ExcludeVideoFromCountry", "ExcludeVideoWithLanguage", "HideForUserFromCountry", "HideForUserWithLanguage", "IncludeVideoFromCountry", "IncludeVideoWithLanguage", "IsActive", "Priority", "RecommendationNumOfDaysLookback", "RecommendationVideosPool", "ShowForUserWithLanguage", "ShowToUserFromCountry", "Title" }, 
+    Func&lt;QueryContext, DbDataReader, int[], GeoCluster&gt;, 
+    Frever.Common.IntegrationTesting.TestReadWriteDbContext, 
+    False, 
+    False, 
+    True
+)'
+Debug [20103]: Creating DbCommand for 'ExecuteReader'.
+Debug [20104]: Created DbCommand for 'ExecuteReader' (0ms).
+Debug [20106]: Initialized DbCommand for 'ExecuteReader' (0ms).
+Debug [20100]: Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='60']
+insert into "GeoCluster"("Priority", "Title", "IncludeVideoFromCountry",
+                         "IncludeVideoWithLanguage", "ShowToUserFromCountry",
+                         "ShowForUserWithLanguage")
+values (3,
+        'Swedish',
+        ARRAY['swe']::text[],
+        ARRAY['swe']::text[],
+        ARRAY['swe']::text[],
+        ARRAY['swe']::text[])
+returning *;
+Information [20101]: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+insert into "GeoCluster"("Priority", "Title", "IncludeVideoFromCountry",
+                         "IncludeVideoWithLanguage", "ShowToUserFromCountry",
+                         "ShowForUserWithLanguage")
+values (3,
+        'Swedish',
+        ARRAY['swe']::text[],
+        ARRAY['swe']::text[],
+        ARRAY['swe']::text[],
+        ARRAY['swe']::text[])
+returning *;
+Debug [10806]: Context 'TestReadWriteDbContext' started tracking 'GeoCluster' entity with key '{Id: 103}'.
+Debug [20301]: Closing data reader to 'frevertest' on server 'tcp://postgres-frever-it:5432'.
+Debug [20300]: A data reader for 'frevertest' on server 'tcp://postgres-frever-it:5432' is being disposed after spending 15ms reading results.
+Debug [10111]: Compiling query expression: 
+'DbSet&lt;GeoCluster&gt;().FromSql(insert into "GeoCluster"("Priority", "Title", "IncludeVideoFromCountry",
+                         "IncludeVideoWithLanguage", "ShowToUserFromCountry",
+                         "ShowForUserWithLanguage")
+values (2,
+        'Americal',
+        ARRAY['usa']::text[],
+        ARRAY['eng']::text[],
+        ARRAY['usa']::text[],
+        ARRAY['eng']::text[])
+returning *;
+, __p_0)
+'
+Debug [10107]: Generated query execution expression: 
+'queryContext =&gt; new FromSqlQueryingEnumerable&lt;GeoCluster&gt;(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -&gt; Dictionary&lt;IProperty, int&gt; { [Property: GeoCluster.Id (long) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: GeoCluster.ExcludeVideoFromCountry (string[]) Element type: string, 1], [Property: GeoCluster.ExcludeVideoWithLanguage (string[]) Element type: string, 2], [Property: GeoCluster.HideForUserFromCountry (string[]) Element type: string, 3], [Property: GeoCluster.HideForUserWithLanguage (string[]) Element type: string, 4], [Property: GeoCluster.IncludeVideoFromCountry (string[]) Element type: string, 5], [Property: GeoCluster.IncludeVideoWithLanguage (string[]) Element type: string, 6], [Property: GeoCluster.IsActive (bool) Required, 7], [Property: GeoCluster.Priority (int) Required, 8], [Property: GeoCluster.RecommendationNumOfDaysLookback (int) Required, 9], [Property: GeoCluster.RecommendationVideosPool (int) Required, 10], [Property: GeoCluster.ShowForUserWithLanguage (string[]) Element type: string, 11], [Property: GeoCluster.ShowToUserFromCountry (string[]) Element type: string, 12], [Property: GeoCluster.Title (string), 13] }
+        SELECT f.Id, f.ExcludeVideoFromCountry, f.ExcludeVideoWithLanguage, f.HideForUserFromCountry, f.HideForUserWithLanguage, f.IncludeVideoFromCountry, f.IncludeVideoWithLanguage, f.IsActive, f.Priority, f.RecommendationNumOfDaysLookback, f.RecommendationVideosPool, f.ShowForUserWithLanguage, f.ShowToUserFromCountry, f.Title
+        FROM insert into "GeoCluster"("Priority", "Title", "IncludeVideoFromCountry",
+                         "IncludeVideoWithLanguage", "ShowToUserFromCountry",
+                         "ShowForUserWithLanguage")
+values (2,
+        'Americal',
+        ARRAY['usa']::text[],
+        ARRAY['eng']::text[],
+        ARRAY['usa']::text[],
+        ARRAY['eng']::text[])
+returning *;
+), 
+    null, 
+    List&lt;string&gt; { "Id", "ExcludeVideoFromCountry", "ExcludeVideoWithLanguage", "HideForUserFromCountry", "HideForUserWithLanguage", "IncludeVideoFromCountry", "IncludeVideoWithLanguage", "IsActive", "Priority", "RecommendationNumOfDaysLookback", "RecommendationVideosPool", "ShowForUserWithLanguage", "ShowToUserFromCountry", "Title" }, 
+    Func&lt;QueryContext, DbDataReader, int[], GeoCluster&gt;, 
+    Frever.Common.IntegrationTesting.TestReadWriteDbContext, 
+    False, 
+    False, 
+    True
+)'
+Debug [20103]: Creating DbCommand for 'ExecuteReader'.
+Debug [20104]: Created DbCommand for 'ExecuteReader' (0ms).
+Debug [20106]: Initialized DbCommand for 'ExecuteReader' (0ms).
+Debug [20100]: Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='60']
+insert into "GeoCluster"("Priority", "Title", "IncludeVideoFromCountry",
+                         "IncludeVideoWithLanguage", "ShowToUserFromCountry",
+                         "ShowForUserWithLanguage")
+values (2,
+        'Americal',
+        ARRAY['usa']::text[],
+        ARRAY['eng']::text[],
+        ARRAY['usa']::text[],
+        ARRAY['eng']::text[])
+returning *;
+Information [20101]: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+insert into "GeoCluster"("Priority", "Title", "IncludeVideoFromCountry",
+                         "IncludeVideoWithLanguage", "ShowToUserFromCountry",
+                         "ShowForUserWithLanguage")
+values (2,
+        'Americal',
+        ARRAY['usa']::text[],
+        ARRAY['eng']::text[],
+        ARRAY['usa']::text[],
+        ARRAY['eng']::text[])
+returning *;
+Debug [10806]: Context 'TestReadWriteDbContext' started tracking 'GeoCluster' entity with key '{Id: 104}'.
+Debug [20301]: Closing data reader to 'frevertest' on server 'tcp://postgres-frever-it:5432'.
+Debug [20300]: A data reader for 'frevertest' on server 'tcp://postgres-frever-it:5432' is being disposed after spending 0ms reading results.
+Debug [10111]: Compiling query expression: 
+'DbSet&lt;User&gt;().FromSql(
+with g as (
+    insert into "Group" ("NickName",
+                         "TaxationCountryId",
+                         "DefaultLanguageId",
+                         "BirthDate",
+                         "Gender"
+        )
+        values ('friend-author-0-4e38390d5d5e44659381925c3a974910',
+                (select "Id" from "Country" where "ISOName" = 'swe'),
+                (select "Id" from "Language" where "IsoCode" = 'swe'),
+                '1991-03-24T00:00:00.0000000',
+                1)
+        returning *),
+     u as (
+         insert
+             into "User" ("IdentityServerId", "Email", "DataCollection", "MainGroupId", "AnalyticsEnabled",
+                          "PhoneNumber",
+                          "CreatorPermissionLevel", "MainCharacterId")
+                 select uuid_generate_v4(),
+                        'friend-author-0-4e38390d5d5e44659381925c3a974910@frever-test.com',
+                        true,
+                        g."Id",
+                        true,
+                        null,
+                        array []::bigint[],
+                        111
+                 from g
+                 returning *),
+     activity as (
+         insert into "UserActivity" ("GroupId", "OccurredAt", "ActionType")
+             select g."Id", '2024-07-02T13:00:20.5797070Z', 'Login'
+             from g
+             where '2024-07-02T13:00:20.5797070Z' is not null)
+select *
+from u;, __p_0)
+'
+Debug [10107]: Generated query execution expression: 
+'queryContext =&gt; new FromSqlQueryingEnumerable&lt;User&gt;(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -&gt; Dictionary&lt;IProperty, int&gt; { [Property: User.Id (long) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: User.AnalyticsEnabled (bool) Required, 1], [Property: User.AppleId (string), 2], [Property: User.CreatedTime (DateTime) Required ValueGenerated.OnAdd, 3], [Property: User.CreatorPermissionLevel (long[]) Element type: long Required, 4], [Property: User.DataCollection (bool?), 5], [Property: User.Email (string) Index, 6], [Property: User.GoogleId (string), 7], [Property: User.IdentityServerId (Guid) Required Index, 8], [Property: User.IsFeatured (bool) Required, 9], [Property: User.MainCharacterId (long?) FK Index, 10], [Property: User.MainGroupId (long) Required FK Index, 11], [Property: User.ModifiedTime (DateTime) Required, 12], [Property: User.PhoneNumber (string) Index, 13] }
+        SELECT f.Id, f.AnalyticsEnabled, f.AppleId, f.CreatedTime, f.CreatorPermissionLevel, f.DataCollection, f.Email, f.GoogleId, f.IdentityServerId, f.IsFeatured, f.MainCharacterId, f.MainGroupId, f.ModifiedTime, f.PhoneNumber
+        FROM 
+with g as (
+    insert into "Group" ("NickName",
+                         "TaxationCountryId",
+                         "DefaultLanguageId",
+                         "BirthDate",
+                         "Gender"
+        )
+        values ('friend-author-0-4e38390d5d5e44659381925c3a974910',
+                (select "Id" from "Country" where "ISOName" = 'swe'),
+                (select "Id" from "Language" where "IsoCode" = 'swe'),
+                '1991-03-24T00:00:00.0000000',
+                1)
+        returning *),
+     u as (
+         insert
+             into "User" ("IdentityServerId", "Email", "DataCollection", "MainGroupId", "AnalyticsEnabled",
+                          "PhoneNumber",
+                          "CreatorPermissionLevel", "MainCharacterId")
+                 select uuid_generate_v4(),
+                        'friend-author-0-4e38390d5d5e44659381925c3a974910@frever-test.com',
+                        true,
+                        g."Id",
+                        true,
+                        null,
+                        array []::bigint[],
+                        111
+                 from g
+                 returning *),
+     activity as (
+         insert into "UserActivity" ("GroupId", "OccurredAt", "ActionType")
+             select g."Id", '2024-07-02T13:00:20.5797070Z', 'Login'
+             from g
+             where '2024-07-02T13:00:20.5797070Z' is not null)
+select *
+from u;), 
+    null, 
+    List&lt;string&gt; { "Id", "AnalyticsEnabled", "AppleId", "CreatedTime", "CreatorPermissionLevel", "DataCollection", "Email", "GoogleId", "IdentityServerId", "IsFeatured", "MainCharacterId", "MainGroupId", "ModifiedTime", "PhoneNumber" }, 
+    Func&lt;QueryContext, DbDataReader, int[], User&gt;, 
+    Frever.Common.IntegrationTesting.TestReadWriteDbContext, 
+    False, 
+    False, 
+    True
+)'
+Debug [20103]: Creating DbCommand for 'ExecuteReader'.
+Debug [20104]: Created DbCommand for 'ExecuteReader' (0ms).
+Debug [20106]: Initialized DbCommand for 'ExecuteReader' (0ms).
+Debug [20100]: Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='60']
+
+with g as (
+    insert into "Group" ("NickName",
+                         "TaxationCountryId",
+                         "DefaultLanguageId",
+                         "BirthDate",
+                         "Gender"
+        )
+        values ('friend-author-0-4e38390d5d5e44659381925c3a974910',
+                (select "Id" from "Country" where "ISOName" = 'swe'),
+                (select "Id" from "Language" where "IsoCode" = 'swe'),
+                '1991-03-24T00:00:00.0000000',
+                1)
+        returning *),
+     u as (
+         insert
+             into "User" ("IdentityServerId", "Email", "DataCollection", "MainGroupId", "AnalyticsEnabled",
+                          "PhoneNumber",
+                          "CreatorPermissionLevel", "MainCharacterId")
+                 select uuid_generate_v4(),
+                        'friend-author-0-4e38390d5d5e44659381925c3a974910@frever-test.com',
+                        true,
+                        g."Id",
+                        true,
+                        null,
+                        array []::bigint[],
+                        111
+                 from g
+                 returning *),
+     activity as (
+         insert into "UserActivity" ("GroupId", "OccurredAt", "ActionType")
+             select g."Id", '2024-07-02T13:00:20.5797070Z', 'Login'
+             from g
+             where '2024-07-02T13:00:20.5797070Z' is not null)
+select *
+from u;
+Information [20101]: Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+
+with g as (
+    insert into "Group" ("NickName",
+                         "TaxationCountryId",
+                         "DefaultLanguageId",
+                         "BirthDate",
+                         "Gender"
+        )
+        values ('friend-author-0-4e38390d5d5e44659381925c3a974910',
+                (select "Id" from "Country" where "ISOName" = 'swe'),
+                (select "Id" from "Language" where "IsoCode" = 'swe'),
+                '1991-03-24T00:00:00.0000000',
+                1)
+        returning *),
+     u as (
+         insert
+             into "User" ("IdentityServerId", "Email", "DataCollection", "MainGroupId", "AnalyticsEnabled",
+                          "PhoneNumber",
+                          "CreatorPermissionLevel", "MainCharacterId")
+                 select uuid_generate_v4(),
+                        'friend-author-0-4e38390d5d5e44659381925c3a974910@frever-test.com',
+                        true,
+                        g."Id",
+                        true,
+                        null,
+                        array []::bigint[],
+                        111
+                 from g
+                 returning *),
+     activity as (
+         insert into "UserActivity" ("GroupId", "OccurredAt", "ActionType")
+             select g."Id", '2024-07-02T13:00:20.5797070Z', 'Login'
+             from g
+             where '2024-07-02T13:00:20.5797070Z' is not null)
+select *
+from u;
+Debug [10806]: Context 'TestReadWriteDbContext' started tracking 'User' entity with key '{Id: 189774}'.
+Debug [20301]: Closing data reader to 'frevertest' on server 'tcp://postgres-frever-it:5432'.
+Debug [20300]: A data reader for 'frevertest' on server 'tcp://postgres-frever-it:5432' is being disposed after spending 0ms reading results.
+Debug [10111]: Compiling query expression: 
+'DbSet&lt;User&gt;().FromSql(
+with g as (
+    insert into "Group" ("NickName",
+                         "TaxationCountryId",
+                         "DefaultLanguageId",
+                         "BirthDate",
+                         "Gender"
+        )
+        values ('friend-author-1-26198a0f2aac40b083003975a3c802bb',
+                (select "Id" from "Country" where "ISOName" = 'swe'),
+                (select "Id" from "Language" where "IsoCode" = 'swe'),
+                '1991-05-09T00:00:00.0000000',
+                1)
+        returning *),
+     u as (
+         insert
+             into "User" ("IdentityServerId", "Email", "DataCollection", "MainGroupId", "AnalyticsEnabled",
+                          "PhoneNumber",
+                          "CreatorPermissionLevel", "MainCharacterId")
+                 select uuid_generate_v4(),
+                        'friend-author-1-26198a0f2aac40b083003975a3c802bb@frever-test.com',
+                        true,
+                        g."Id",
+                        true,
+                        null,
+                        array []::bigint[],
+                        111
+                 from g
+                 returning *),
+     activity as (
+         insert into "UserActivity" ("GroupId", "OccurredAt", "ActionType")
+             select g."Id", '2024-07-02T13:00:20.5797282Z', 'Login'
+             from g
+             where '2024-07-02T13:00:20.5797282Z' is not null)
+select *
+from u;, __p_0)
+'
+Debug [10107]: Generated query execution expression: 
+'queryContext =&gt; new FromSqlQueryingEnumerable&lt;User&gt;(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -&gt; Dictionary&lt;IProperty, int&gt; { [Property: User.Id (long) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: User.AnalyticsEnabled (bool) Required, 1], [Property: User.AppleId (string), 2], [Property: User.CreatedTime (DateTime) Required ValueGenerated.OnAdd, 3], [Property: User.CreatorPermissionLevel (long[]) Element type: long Required, 4], [Property: User.DataCollection (bool?), 5], [Property: User.Email (string) Index, 6], [Property: User.GoogleId (string), 7], [Property: User.IdentityServerId (Guid) Required Index, 8], [Property: User.IsFeatured (bool) Required, 9], [Property: User.MainCharacterId (long?) FK Index, 10], [Property: User.MainGroupId (long) Required FK Index, 11], [Property: User.ModifiedTime (DateTime) Required, 12], [Property: User.PhoneNumber (string) Index, 13] }
+        SELECT f.Id, f.AnalyticsEnabled, f.AppleId, f.CreatedTime, f.CreatorPermissionLevel, f.DataCollection, f.Email, f.GoogleId, f.IdentityServerId, f.IsFeatured, f.MainCharacterId, f.MainGroupId, f.ModifiedTime, f.PhoneNumber
+        FROM 
+with g as (
+    insert into "Group" ("NickName",
+                         "TaxationCountryId",
+                         "DefaultLanguageId",
+                         "BirthDate",
+                         "Gender"
+        )
+        values ('friend-author-1-26198a0f2aac40b083003975a3c802bb',
+                (select "Id" from "Country" where "ISOName" = 'swe'),
+                (select "Id" from "Language" where "IsoCode" = 'swe'),
+                '1991-05-09T00:00:00.0000000',
+                1)
+        returning *),
+     u as (
+         insert
+             into "User" ("IdentityServerId", "Email", "DataCollection", "MainGroupId", "AnalyticsEnabled",
+                          "PhoneNumber",
+                          "CreatorPermissionLevel", "MainCharacterId")
+                 select uuid_generate_v4(),
+                        'friend-author-1-26198a0f2aac40b083003975a3c802bb@frever-test.com',
+                        true,
+                        g."Id",
+                        true,
+                        null,
+                        array []::bigint[],
+                        111
+                 from g
+                 returning *),
+     activity as (
+         insert into "UserActivity" ("GroupId", "OccurredAt", "ActionType")
+             select g."Id", '2024-07-02T13:00:20.5797282Z', 'Login'
+             from g
+             where '2024-07-02T13:00:20.5797282Z' is not null)
+select *
+from u;), 
+    null, 
+    List&lt;string&gt; { "Id", "AnalyticsEnabled", "AppleId", "CreatedTime", "CreatorPermissionLevel", "DataCollection", "Email", "GoogleId", "IdentityServerId", "IsFeatured", "MainCharacterId", "MainGroupId", "ModifiedTime", "PhoneNumber" }, 
+    Func&lt;QueryContext, DbDataReader, int[], User&gt;, 
+    Frever.Common.IntegrationTesting.TestReadWriteDbContext, 
+    False, 
+    False, 
+    True
+)'
+Debug [20103]: Creating DbCommand for 'ExecuteReader'.
+Debug [20104]: Created DbCommand for 'ExecuteReader' (0ms).
+Debug [20106]: Initialized DbCommand for 'ExecuteReader' (0ms).
+Debug [20100]: Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='60']
+
+with g as (
+    insert into "Group" ("NickName",
+                         "TaxationCountryId",
+                         "DefaultLanguageId",
+                         "BirthDate",
+                         "Gender"
+        )
+        values ('friend-author-1-26198a0f2aac40b083003975a3c802bb',
+                (select "Id" from "Country" where "ISOName" = 'swe'),
+                (select "Id" from "Language" where "IsoCode" = 'swe'),
+                '1991-05-09T00:00:00.0000000',
+                1)
+        returning *),
+     u as (
+         insert
+             into "User" ("IdentityServerId", "Email", "DataCollection", "MainGroupId", "AnalyticsEnabled",
+                          "PhoneNumber",
+                          "CreatorPermissionLevel", "MainCharacterId")
+                 select uuid_generate_v4(),
+                        'friend-author-1-26198a0f2aac40b083003975a3c802bb@frever-test.com',
+                        true,
+                        g."Id",
+                        true,
+                        null,
+                        array []::bigint[],
+                        111
+                 from g
+                 returning *),
+     activity as (
+         insert into "UserActivity" ("GroupId", "OccurredAt", "ActionType")
+             select g."Id", '2024-07-02T13:00:20.5797282Z', 'Login'
+             from g
+             where '2024-07-02T13:00:20.5797282Z' is not null)
+select *
+from u;
+Information [20101]: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+
+with g as (
+    insert into "Group" ("NickName",
+                         "TaxationCountryId",
+                         "DefaultLanguageId",
+                         "BirthDate",
+                         "Gender"
+        )
+        values ('friend-author-1-26198a0f2aac40b083003975a3c802bb',
+                (select "Id" from "Country" where "ISOName" = 'swe'),
+                (select "Id" from "Language" where "IsoCode" = 'swe'),
+                '1991-05-09T00:00:00.0000000',
+                1)
+        returning *),
+     u as (
+         insert
+             into "User" ("IdentityServerId", "Email", "DataCollection", "MainGroupId", "AnalyticsEnabled",
+                          "PhoneNumber",
+                          "CreatorPermissionLevel", "MainCharacterId")
+                 select uuid_generate_v4(),
+                        'friend-author-1-26198a0f2aac40b083003975a3c802bb@frever-test.com',
+                        true,
+                        g."Id",
+                        true,
+                        null,
+                        array []::bigint[],
+                        111
+                 from g
+                 returning *),
+     activity as (
+         insert into "UserActivity" ("GroupId", "OccurredAt", "ActionType")
+             select g."Id", '2024-07-02T13:00:20.5797282Z', 'Login'
+             from g
+             where '2024-07-02T13:00:20.5797282Z' is not null)
+select *
+from u;
+Debug [10806]: Context 'TestReadWriteDbContext' started tracking 'User' entity with key '{Id: 189775}'.
+Debug [20301]: Closing data reader to 'frevertest' on server 'tcp://postgres-frever-it:5432'.
+Debug [20300]: A data reader for 'frevertest' on server 'tcp://postgres-frever-it:5432' is being disposed after spending 0ms reading results.
+Debug [10111]: Compiling query expression: 
+'DbSet&lt;User&gt;().FromSql(
+with g as (
+    insert into "Group" ("NickName",
+                         "TaxationCountryId",
+                         "DefaultLanguageId",
+                         "BirthDate",
+                         "Gender"
+        )
+        values ('friend-author-2-049e2192909340a0aad88f09351fadd2',
+                (select "Id" from "Country" where "ISOName" = 'swe'),
+                (select "Id" from "Language" where "IsoCode" = 'swe'),
+                '1991-12-30T00:00:00.0000000',
+                1)
+        returning *),
+     u as (
+         insert
+             into "User" ("IdentityServerId", "Email", "DataCollection", "MainGroupId", "AnalyticsEnabled",
+                          "PhoneNumber",
+                          "CreatorPermissionLevel", "MainCharacterId")
+                 select uuid_generate_v4(),
+                        'friend-author-2-049e2192909340a0aad88f09351fadd2@frever-test.com',
+                        true,
+                        g."Id",
+                        true,
+                        null,
+                        array []::bigint[],
+                        111
+                 from g
+                 returning *),
+     activity as (
+         insert into "UserActivity" ("GroupId", "OccurredAt", "ActionType")
+             select g."Id", '2024-07-02T13:00:20.5797290Z', 'Login'
+             from g
+             where '2024-07-02T13:00:20.5797290Z' is not null)
+select *
+from u;, __p_0)
+'
+Debug [10107]: Generated query execution expression: 
+'queryContext =&gt; new FromSqlQueryingEnumerable&lt;User&gt;(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -&gt; Dictionary&lt;IProperty, int&gt; { [Property: User.Id (long) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: User.AnalyticsEnabled (bool) Required, 1], [Property: User.AppleId (string), 2], [Property: User.CreatedTime (DateTime) Required ValueGenerated.OnAdd, 3], [Property: User.CreatorPermissionLevel (long[]) Element type: long Required, 4], [Property: User.DataCollection (bool?), 5], [Property: User.Email (string) Index, 6], [Property: User.GoogleId (string), 7], [Property: User.IdentityServerId (Guid) Required Index, 8], [Property: User.IsFeatured (bool) Required, 9], [Property: User.MainCharacterId (long?) FK Index, 10], [Property: User.MainGroupId (long) Required FK Index, 11], [Property: User.ModifiedTime (DateTime) Required, 12], [Property: User.PhoneNumber (string) Index, 13] }
+        SELECT f.Id, f.AnalyticsEnabled, f.AppleId, f.CreatedTime, f.CreatorPermissionLevel, f.DataCollection, f.Email, f.GoogleId, f.IdentityServerId, f.IsFeatured, f.MainCharacterId, f.MainGroupId, f.ModifiedTime, f.PhoneNumber
+        FROM 
+with g as (
+    insert into "Group" ("NickName",
+                         "TaxationCountryId",
+                         "DefaultLanguageId",
+                         "BirthDate",
+                         "Gender"
+        )
+        values ('friend-author-2-049e2192909340a0aad88f09351fadd2',
+                (select "Id" from "Country" where "ISOName" = 'swe'),
+                (select "Id" from "Language" where "IsoCode" = 'swe'),
+                '1991-12-30T00:00:00.0000000',
+                1)
+        returning *),
+     u as (
+         insert
+             into "User" ("IdentityServerId", "Email", "DataCollection", "MainGroupId", "AnalyticsEnabled",
+                          "PhoneNumber",
+                          "CreatorPermissionLevel", "MainCharacterId")
+                 select uuid_generate_v4(),
+                        'friend-author-2-049e2192909340a0aad88f09351fadd2@frever-test.com',
+                        true,
+                        g."Id",
+                        true,
+                        null,
+                        array []::bigint[],
+                        111
+                 from g
+                 returning *),
+     activity as (
+         insert into "UserActivity" ("GroupId", "OccurredAt", "ActionType")
+             select g."Id", '2024-07-02T13:00:20.5797290Z', 'Login'
+             from g
+             where '2024-07-02T13:00:20.5797290Z' is not null)
+select *
+from u;), 
+    null, 
+    List&lt;string&gt; { "Id", "AnalyticsEnabled", "AppleId", "CreatedTime", "CreatorPermissionLevel", "DataCollection", "Email", "GoogleId", "IdentityServerId", "IsFeatured", "MainCharacterId", "MainGroupId", "ModifiedTime", "PhoneNumber" }, 
+    Func&lt;QueryContext, DbDataReader, int[], User&gt;, 
+    Frever.Common.IntegrationTesting.TestReadWriteDbContext, 
+    False, 
+    False, 
+    True
+)'
+Debug [20103]: Creating DbCommand for 'ExecuteReader'.
+Debug [20104]: Created DbCommand for 'ExecuteReader' (0ms).
+Debug [20106]: Initialized DbCommand for 'ExecuteReader' (0ms).
+Debug [20100]: Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='60']
+
+with g as (
+    insert into "Group" ("NickName",
+                         "TaxationCountryId",
+                         "DefaultLanguageId",
+                         "BirthDate",
+                         "Gender"
+        )
+        values ('friend-author-2-049e2192909340a0aad88f09351fadd2',
+                (select "Id" from "Country" where "ISOName" = 'swe'),
+                (select "Id" from "Language" where "IsoCode" = 'swe'),
+                '1991-12-30T00:00:00.0000000',
+                1)
+        returning *),
+     u as (
+         insert
+             into "User" ("IdentityServerId", "Email", "DataCollection", "MainGroupId", "AnalyticsEnabled",
+                          "PhoneNumber",
+                          "CreatorPermissionLevel", "MainCharacterId")
+                 select uuid_generate_v4(),
+                        'friend-author-2-049e2192909340a0aad88f09351fadd2@frever-test.com',
+                        true,
+                        g."Id",
+                        true,
+                        null,
+                        array []::bigint[],
+                        111
+                 from g
+                 returning *),
+     activity as (
+         insert into "UserActivity" ("GroupId", "OccurredAt", "ActionType")
+             select g."Id", '2024-07-02T13:00:20.5797290Z', 'Login'
+             from g
+             where '2024-07-02T13:00:20.5797290Z' is not null)
+select *
+from u;
+Information [20101]: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+
+with g as (
+    insert into "Group" ("NickName",
+                         "TaxationCountryId",
+                         "DefaultLanguageId",
+                         "BirthDate",
+                         "Gender"
+        )
+        values ('friend-author-2-049e2192909340a0aad88f09351fadd2',
+                (select "Id" from "Country" where "ISOName" = 'swe'),
+                (select "Id" from "Language" where "IsoCode" = 'swe'),
+                '1991-12-30T00:00:00.0000000',
+                1)
+        returning *),
+     u as (
+         insert
+             into "User" ("IdentityServerId", "Email", "DataCollection", "MainGroupId", "AnalyticsEnabled",
+                          "PhoneNumber",
+                          "CreatorPermissionLevel", "MainCharacterId")
+                 select uuid_generate_v4(),
+                        'friend-author-2-049e2192909340a0aad88f09351fadd2@frever-test.com',
+                        true,
+                        g."Id",
+                        true,
+                        null,
+                        array []::bigint[],
+                        111
+                 from g
+                 returning *),
+     activity as (
+         insert into "UserActivity" ("GroupId", "OccurredAt", "ActionType")
+             select g."Id", '2024-07-02T13:00:20.5797290Z', 'Login'
+             from g
+             where '2024-07-02T13:00:20.5797290Z' is not null)
+select *
+from u;
+Debug [10806]: Context 'TestReadWriteDbContext' started tracking 'User' entity with key '{Id: 189776}'.
+Debug [20301]: Closing data reader to 'frevertest' on server 'tcp://postgres-frever-it:5432'.
+Debug [20300]: A data reader for 'frevertest' on server 'tcp://postgres-frever-it:5432' is being disposed after spending 0ms reading results.
+Debug [10111]: Compiling query expression: 
+'DbSet&lt;User&gt;().FromSql(
+with g as (
+    insert into "Group" ("NickName",
+                         "TaxationCountryId",
+                         "DefaultLanguageId",
+                         "BirthDate",
+                         "Gender"
+        )
+        values ('friend-author-3-42ca5aa541644709917b9fc5d49976d4',
+                (select "Id" from "Country" where "ISOName" = 'swe'),
+                (select "Id" from "Language" where "IsoCode" = 'swe'),
+                '1991-12-24T00:00:00.0000000',
+                1)
+        returning *),
+     u as (
+         insert
+             into "User" ("IdentityServerId", "Email", "DataCollection", "MainGroupId", "AnalyticsEnabled",
+                          "PhoneNumber",
+                          "CreatorPermissionLevel", "MainCharacterId")
+                 select uuid_generate_v4(),
+                        'friend-author-3-42ca5aa541644709917b9fc5d49976d4@frever-test.com',
+                        true,
+                        g."Id",
+                        true,
+                        null,
+                        array []::bigint[],
+                        111
+                 from g
+                 returning *),
+     activity as (
+         insert into "UserActivity" ("GroupId", "OccurredAt", "ActionType")
+             select g."Id", '2024-07-02T13:00:20.5797296Z', 'Login'
+             from g
+             where '2024-07-02T13:00:20.5797296Z' is not null)
+select *
+from u;, __p_0)
+'
+Debug [10107]: Generated query execution expression: 
+'queryContext =&gt; new FromSqlQueryingEnumerable&lt;User&gt;(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -&gt; Dictionary&lt;IProperty, int&gt; { [Property: User.Id (long) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: User.AnalyticsEnabled (bool) Required, 1], [Property: User.AppleId (string), 2], [Property: User.CreatedTime (DateTime) Required ValueGenerated.OnAdd, 3], [Property: User.CreatorPermissionLevel (long[]) Element type: long Required, 4], [Property: User.DataCollection (bool?), 5], [Property: User.Email (string) Index, 6], [Property: User.GoogleId (string), 7], [Property: User.IdentityServerId (Guid) Required Index, 8], [Property: User.IsFeatured (bool) Required, 9], [Property: User.MainCharacterId (long?) FK Index, 10], [Property: User.MainGroupId (long) Required FK Index, 11], [Property: User.ModifiedTime (DateTime) Required, 12], [Property: User.PhoneNumber (string) Index, 13] }
+        SELECT f.Id, f.AnalyticsEnabled, f.AppleId, f.CreatedTime, f.CreatorPermissionLevel, f.DataCollection, f.Email, f.GoogleId, f.IdentityServerId, f.IsFeatured, f.MainCharacterId, f.MainGroupId, f.ModifiedTime, f.PhoneNumber
+        FROM 
+with g as (
+    insert into "Group" ("NickName",
+                         "TaxationCountryId",
+                         "DefaultLanguageId",
+                         "BirthDate",
+                         "Gender"
+        )
+        values ('friend-author-3-42ca5aa541644709917b9fc5d49976d4',
+                (select "Id" from "Country" where "ISOName" = 'swe'),
+                (select "Id" from "Language" where "IsoCode" = 'swe'),
+                '1991-12-24T00:00:00.0000000',
+                1)
+        returning *),
+     u as (
+         insert
+             into "User" ("IdentityServerId", "Email", "DataCollection", "MainGroupId", "AnalyticsEnabled",
+                          "PhoneNumber",
+                          "CreatorPermissionLevel", "MainCharacterId")
+                 select uuid_generate_v4(),
+                        'friend-author-3-42ca5aa541644709917b9fc5d49976d4@frever-test.com',
+                        true,
+                        g."Id",
+                        true,
+                        null,
+                        array []::bigint[],
+                        111
+                 from g
+                 returning *),
+     activity as (
+         insert into "UserActivity" ("GroupId", "OccurredAt", "ActionType")
+             select g."Id", '2024-07-02T13:00:20.5797296Z', 'Login'
+             from g
+             where '2024-07-02T13:00:20.5797296Z' is not null)
+select *
+from u;), 
+    null, 
+    List&lt;string&gt; { "Id", "AnalyticsEnabled", "AppleId", "CreatedTime", "CreatorPermissionLevel", "DataCollection", "Email", "GoogleId", "IdentityServerId", "IsFeatured", "MainCharacterId", "MainGroupId", "ModifiedTime", "PhoneNumber" }, 
+    Func&lt;QueryContext, DbDataReader, int[], User&gt;, 
+    Frever.Common.IntegrationTesting.TestReadWriteDbContext, 
+    False, 
+    False, 
+    True
+)'
+Debug [20103]: Creating DbCommand for 'ExecuteReader'.
+Debug [20104]: Created DbCommand for 'ExecuteReader' (0ms).
+Debug [20106]: Initialized DbCommand for 'ExecuteReader' (0ms).
+Debug [20100]: Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='60']
+
+with g as (
+    insert into "Group" ("NickName",
+                         "TaxationCountryId",
+                         "DefaultLanguageId",
+                         "BirthDate",
+                         "Gender"
+        )
+        values ('friend-author-3-42ca5aa541644709917b9fc5d49976d4',
+                (select "Id" from "Country" where "ISOName" = 'swe'),
+                (select "Id" from "Language" where "IsoCode" = 'swe'),
+                '1991-12-24T00:00:00.0000000',
+                1)
+        returning *),
+     u as (
+         insert
+             into "User" ("IdentityServerId", "Email", "DataCollection", "MainGroupId", "AnalyticsEnabled",
+                          "PhoneNumber",
+                          "CreatorPermissionLevel", "MainCharacterId")
+                 select uuid_generate_v4(),
+                        'friend-author-3-42ca5aa541644709917b9fc5d49976d4@frever-test.com',
+                        true,
+                        g."Id",
+                        true,
+                        null,
+                        array []::bigint[],
+                        111
+                 from g
+                 returning *),
+     activity as (
+         insert into "UserActivity" ("GroupId", "OccurredAt", "ActionType")
+             select g."Id", '2024-07-02T13:00:20.5797296Z', 'Login'
+             from g
+             where '2024-07-02T13:00:20.5797296Z' is not null)
+select *
+from u;
+Information [20101]: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+
+with g as (
+    insert into "Group" ("NickName",
+                         "TaxationCountryId",
+                         "DefaultLanguageId",
+                         "BirthDate",
+                         "Gender"
+        )
+        values ('friend-author-3-42ca5aa541644709917b9fc5d49976d4',
+                (select "Id" from "Country" where "ISOName" = 'swe'),
+                (select "Id" from "Language" where "IsoCode" = 'swe'),
+                '1991-12-24T00:00:00.0000000',
+                1)
+        returning *),
+     u as (
+         insert
+             into "User" ("IdentityServerId", "Email", "DataCollection", "MainGroupId", "AnalyticsEnabled",
+                          "PhoneNumber",
+                          "CreatorPermissionLevel", "MainCharacterId")
+                 select uuid_generate_v4(),
+                        'friend-author-3-42ca5aa541644709917b9fc5d49976d4@frever-test.com',
+                        true,
+                        g."Id",
+                        true,
+                        null,
+                        array []::bigint[],
+                        111
+                 from g
+                 returning *),
+     activity as (
+         insert into "UserActivity" ("GroupId", "OccurredAt", "ActionType")
+             select g."Id", '2024-07-02T13:00:20.5797296Z', 'Login'
+             from g
+             where '2024-07-02T13:00:20.5797296Z' is not null)
+select *
+from u;
+Debug [10806]: Context 'TestReadWriteDbContext' started tracking 'User' entity with key '{Id: 189777}'.
+Debug [20301]: Closing data reader to 'frevertest' on server 'tcp://postgres-frever-it:5432'.
+Debug [20300]: A data reader for 'frevertest' on server 'tcp://postgres-frever-it:5432' is being disposed after spending 0ms reading results.
+Debug [10111]: Compiling query expression: 
+'DbSet&lt;User&gt;().FromSql(
+with g as (
+    insert into "Group" ("NickName",
+                         "TaxationCountryId",
+                         "DefaultLanguageId",
+                         "BirthDate",
+                         "Gender"
+        )
+        values ('friend-author-4-825a3c402ddc464a8b5a0ec7ede12be5',
+                (select "Id" from "Country" where "ISOName" = 'swe'),
+                (select "Id" from "Language" where "IsoCode" = 'swe'),
+                '1992-02-26T00:00:00.0000000',
+                1)
+        returning *),
+     u as (
+         insert
+             into "User" ("IdentityServerId", "Email", "DataCollection", "MainGroupId", "AnalyticsEnabled",
+                          "PhoneNumber",
+                          "CreatorPermissionLevel", "MainCharacterId")
+                 select uuid_generate_v4(),
+                        'friend-author-4-825a3c402ddc464a8b5a0ec7ede12be5@frever-test.com',
+                        true,
+                        g."Id",
+                        true,
+                        null,
+                        array []::bigint[],
+                        111
+                 from g
+                 returning *),
+     activity as (
+         insert into "UserActivity" ("GroupId", "OccurredAt", "ActionType")
+             select g."Id", '2024-07-02T13:00:20.5797302Z', 'Login'
+             from g
+             where '2024-07-02T13:00:20.5797302Z' is not null)
+select *
+from u;, __p_0)
+'
+Debug [10107]: Generated query execution expression: 
+'queryContext =&gt; new FromSqlQueryingEnumerable&lt;User&gt;(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -&gt; Dictionary&lt;IProperty, int&gt; { [Property: User.Id (long) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: User.AnalyticsEnabled (bool) Required, 1], [Property: User.AppleId (string), 2], [Property: User.CreatedTime (DateTime) Required ValueGenerated.OnAdd, 3], [Property: User.CreatorPermissionLevel (long[]) Element type: long Required, 4], [Property: User.DataCollection (bool?), 5], [Property: User.Email (string) Index, 6], [Property: User.GoogleId (string), 7], [Property: User.IdentityServerId (Guid) Required Index, 8], [Property: User.IsFeatured (bool) Required, 9], [Property: User.MainCharacterId (long?) FK Index, 10], [Property: User.MainGroupId (long) Required FK Index, 11], [Property: User.ModifiedTime (DateTime) Required, 12], [Property: User.PhoneNumber (string) Index, 13] }
+        SELECT f.Id, f.AnalyticsEnabled, f.AppleId, f.CreatedTime, f.CreatorPermissionLevel, f.DataCollection, f.Email, f.GoogleId, f.IdentityServerId, f.IsFeatured, f.MainCharacterId, f.MainGroupId, f.ModifiedTime, f.PhoneNumber
+        FROM 
+with g as (
+    insert into "Group" ("NickName",
+                         "TaxationCountryId",
+                         "DefaultLanguageId",
+                         "BirthDate",
+                         "Gender"
+        )
+        values ('friend-author-4-825a3c402ddc464a8b5a0ec7ede12be5',
+                (select "Id" from "Country" where "ISOName" = 'swe'),
+                (select "Id" from "Language" where "IsoCode" = 'swe'),
+                '1992-02-26T00:00:00.0000000',
+                1)
+        returning *),
+     u as (
+         insert
+             into "User" ("IdentityServerId", "Email", "DataCollection", "MainGroupId", "AnalyticsEnabled",
+                          "PhoneNumber",
+                          "CreatorPermissionLevel", "MainCharacterId")
+                 select uuid_generate_v4(),
+                        'friend-author-4-825a3c402ddc464a8b5a0ec7ede12be5@frever-test.com',
+                        true,
+                        g."Id",
+                        true,
+                        null,
+                        array []::bigint[],
+                        111
+                 from g
+                 returning *),
+     activity as (
+         insert into "UserActivity" ("GroupId", "OccurredAt", "ActionType")
+             select g."Id", '2024-07-02T13:00:20.5797302Z', 'Login'
+             from g
+             where '2024-07-02T13:00:20.5797302Z' is not null)
+select *
+from u;), 
+    null, 
+    List&lt;string&gt; { "Id", "AnalyticsEnabled", "AppleId", "CreatedTime", "CreatorPermissionLevel", "DataCollection", "Email", "GoogleId", "IdentityServerId", "IsFeatured", "MainCharacterId", "MainGroupId", "ModifiedTime", "PhoneNumber" }, 
+    Func&lt;QueryContext, DbDataReader, int[], User&gt;, 
+    Frever.Common.IntegrationTesting.TestReadWriteDbContext, 
+    False, 
+    False, 
+    True
+)'
+Debug [20103]: Creating DbCommand for 'ExecuteReader'.
+Debug [20104]: Created DbCommand for 'ExecuteReader' (0ms).
+Debug [20106]: Initialized DbCommand for 'ExecuteReader' (0ms).
+Debug [20100]: Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='60']
+
+with g as (
+    insert into "Group" ("NickName",
+                         "TaxationCountryId",
+                         "DefaultLanguageId",
+                         "BirthDate",
+                         "Gender"
+        )
+        values ('friend-author-4-825a3c402ddc464a8b5a0ec7ede12be5',
+                (select "Id" from "Country" where "ISOName" = 'swe'),
+                (select "Id" from "Language" where "IsoCode" = 'swe'),
+                '1992-02-26T00:00:00.0000000',
+                1)
+        returning *),
+     u as (
+         insert
+             into "User" ("IdentityServerId", "Email", "DataCollection", "MainGroupId", "AnalyticsEnabled",
+                          "PhoneNumber",
+                          "CreatorPermissionLevel", "MainCharacterId")
+                 select uuid_generate_v4(),
+                        'friend-author-4-825a3c402ddc464a8b5a0ec7ede12be5@frever-test.com',
+                        true,
+                        g."Id",
+                        true,
+                        null,
+                        array []::bigint[],
+                        111
+                 from g
+                 returning *),
+     activity as (
+         insert into "UserActivity" ("GroupId", "OccurredAt", "ActionType")
+             select g."Id", '2024-07-02T13:00:20.5797302Z', 'Login'
+             from g
+             where '2024-07-02T13:00:20.5797302Z' is not null)
+select *
+from u;
+Information [20101]: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+
+with g as (
+    insert into "Group" ("NickName",
+                         "TaxationCountryId",
+                         "DefaultLanguageId",
+                         "BirthDate",
+                         "Gender"
+        )
+        values ('friend-author-4-825a3c402ddc464a8b5a0ec7ede12be5',
+                (select "Id" from "Country" where "ISOName" = 'swe'),
+                (select "Id" from "Language" where "IsoCode" = 'swe'),
+                '1992-02-26T00:00:00.0000000',
+                1)
+        returning *),
+     u as (
+         insert
+             into "User" ("IdentityServerId", "Email", "DataCollection", "MainGroupId", "AnalyticsEnabled",
+                          "PhoneNumber",
+                          "CreatorPermissionLevel", "MainCharacterId")
+                 select uuid_generate_v4(),
+                        'friend-author-4-825a3c402ddc464a8b5a0ec7ede12be5@frever-test.com',
+                        true,
+                        g."Id",
+                        true,
+                        null,
+                        array []::bigint[],
+                        111
+                 from g
+                 returning *),
+     activity as (
+         insert into "UserActivity" ("GroupId", "OccurredAt", "ActionType")
+             select g."Id", '2024-07-02T13:00:20.5797302Z', 'Login'
+             from g
+             where '2024-07-02T13:00:20.5797302Z' is not null)
+select *
+from u;
+Debug [10806]: Context 'TestReadWriteDbContext' started tracking 'User' entity with key '{Id: 189778}'.
+Debug [20301]: Closing data reader to 'frevertest' on server 'tcp://postgres-frever-it:5432'.
+Debug [20300]: A data reader for 'frevertest' on server 'tcp://postgres-frever-it:5432' is being disposed after spending 0ms reading results.
+Debug [10111]: Compiling query expression: 
+'DbSet&lt;User&gt;().FromSql(
+with g as (
+    insert into "Group" ("NickName",
+                         "TaxationCountryId",
+                         "DefaultLanguageId",
+                         "BirthDate",
+                         "Gender"
+        )
+        values ('friend-author-5-cfdfe526abf045cc95e4cf405acb3bf4',
+                (select "Id" from "Country" where "ISOName" = 'swe'),
+                (select "Id" from "Language" where "IsoCode" = 'swe'),
+                '1992-09-21T00:00:00.0000000',
+                1)
+        returning *),
+     u as (
+         insert
+             into "User" ("IdentityServerId", "Email", "DataCollection", "MainGroupId", "AnalyticsEnabled",
+                          "PhoneNumber",
+                          "CreatorPermissionLevel", "MainCharacterId")
+                 select uuid_generate_v4(),
+                        'friend-author-5-cfdfe526abf045cc95e4cf405acb3bf4@frever-test.com',
+                        true,
+                        g."Id",
+                        true,
+                        null,
+                        array []::bigint[],
+                        111
+                 from g
+                 returning *),
+     activity as (
+         insert into "UserActivity" ("GroupId", "OccurredAt", "ActionType")
+             select g."Id", '2024-07-02T13:00:20.5797308Z', 'Login'
+             from g
+             where '2024-07-02T13:00:20.5797308Z' is not null)
+select *
+from u;, __p_0)
+'
+Debug [10107]: Generated query execution expression: 
+'queryContext =&gt; new FromSqlQueryingEnumerable&lt;User&gt;(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -&gt; Dictionary&lt;IProperty, int&gt; { [Property: User.Id (long) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: User.AnalyticsEnabled (bool) Required, 1], [Property: User.AppleId (string), 2], [Property: User.CreatedTime (DateTime) Required ValueGenerated.OnAdd, 3], [Property: User.CreatorPermissionLevel (long[]) Element type: long Required, 4], [Property: User.DataCollection (bool?), 5], [Property: User.Email (string) Index, 6], [Property: User.GoogleId (string), 7], [Property: User.IdentityServerId (Guid) Required Index, 8], [Property: User.IsFeatured (bool) Required, 9], [Property: User.MainCharacterId (long?) FK Index, 10], [Property: User.MainGroupId (long) Required FK Index, 11], [Property: User.ModifiedTime (DateTime) Required, 12], [Property: User.PhoneNumber (string) Index, 13] }
+        SELECT f.Id, f.AnalyticsEnabled, f.AppleId, f.CreatedTime, f.CreatorPermissionLevel, f.DataCollection, f.Email, f.GoogleId, f.IdentityServerId, f.IsFeatured, f.MainCharacterId, f.MainGroupId, f.ModifiedTime, f.PhoneNumber
+        FROM 
+with g as (
+    insert into "Group" ("NickName",
+                         "TaxationCountryId",
+                         "DefaultLanguageId",
+                         "BirthDate",
+                         "Gender"
+        )
+        values ('friend-author-5-cfdfe526abf045cc95e4cf405acb3bf4',
+                (select "Id" from "Country" where "ISOName" = 'swe'),
+                (select "Id" from "Language" where "IsoCode" = 'swe'),
+                '1992-09-21T00:00:00.0000000',
+                1)
+        returning *),
+     u as (
+         insert
+             into "User" ("IdentityServerId", "Email", "DataCollection", "MainGroupId", "AnalyticsEnabled",
+                          "PhoneNumber",
+                          "CreatorPermissionLevel", "MainCharacterId")
+                 select uuid_generate_v4(),
+                        'friend-author-5-cfdfe526abf045cc95e4cf405acb3bf4@frever-test.com',
+                        true,
+                        g."Id",
+                        true,
+                        null,
+                        array []::bigint[],
+                        111
+                 from g
+                 returning *),
+     activity as (
+         insert into "UserActivity" ("GroupId", "OccurredAt", "ActionType")
+             select g."Id", '2024-07-02T13:00:20.5797308Z', 'Login'
+             from g
+             where '2024-07-02T13:00:20.5797308Z' is not null)
+select *
+from u;), 
+    null, 
+    List&lt;string&gt; { "Id", "AnalyticsEnabled", "AppleId", "CreatedTime", "CreatorPermissionLevel", "DataCollection", "Email", "GoogleId", "IdentityServerId", "IsFeatured", "MainCharacterId", "MainGroupId", "ModifiedTime", "PhoneNumber" }, 
+    Func&lt;QueryContext, DbDataReader, int[], User&gt;, 
+    Frever.Common.IntegrationTesting.TestReadWriteDbContext, 
+    False, 
+    False, 
+    True
+)'
+Debug [20103]: Creating DbCommand for 'ExecuteReader'.
+Debug [20104]: Created DbCommand for 'ExecuteReader' (0ms).
+Debug [20106]: Initialized DbCommand for 'ExecuteReader' (0ms).
+Debug [20100]: Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='60']
+
+with g as (
+    insert into "Group" ("NickName",
+                         "TaxationCountryId",
+                         "DefaultLanguageId",
+                         "BirthDate",
+                         "Gender"
+        )
+        values ('friend-author-5-cfdfe526abf045cc95e4cf405acb3bf4',
+                (select "Id" from "Country" where "ISOName" = 'swe'),
+                (select "Id" from "Language" where "IsoCode" = 'swe'),
+                '1992-09-21T00:00:00.0000000',
+                1)
+        returning *),
+     u as (
+         insert
+             into "User" ("IdentityServerId", "Email", "DataCollection", "MainGroupId", "AnalyticsEnabled",
+                          "PhoneNumber",
+                          "CreatorPermissionLevel", "MainCharacterId")
+                 select uuid_generate_v4(),
+                        'friend-author-5-cfdfe526abf045cc95e4cf405acb3bf4@frever-test.com',
+                        true,
+                        g."Id",
+                        true,
+                        null,
+                        array []::bigint[],
+                        111
+                 from g
+                 returning *),
+     activity as (
+         insert into "UserActivity" ("GroupId", "OccurredAt", "ActionType")
+             select g."Id", '2024-07-02T13:00:20.5797308Z', 'Login'
+             from g
+             where '2024-07-02T13:00:20.5797308Z' is not null)
+select *
+from u;
+Information [20101]: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+
+with g as (
+    insert into "Group" ("NickName",
+                         "TaxationCountryId",
+                         "DefaultLanguageId",
+                         "BirthDate",
+                         "Gender"
+        )
+        values ('friend-author-5-cfdfe526abf045cc95e4cf405acb3bf4',
+                (select "Id" from "Country" where "ISOName" = 'swe'),
+                (select "Id" from "Language" where "IsoCode" = 'swe'),
+                '1992-09-21T00:00:00.0000000',
+                1)
+        returning *),
+     u as (
+         insert
+             into "User" ("IdentityServerId", "Email", "DataCollection", "MainGroupId", "AnalyticsEnabled",
+                          "PhoneNumber",
+                          "CreatorPermissionLevel", "MainCharacterId")
+                 select uuid_generate_v4(),
+                        'friend-author-5-cfdfe526abf045cc95e4cf405acb3bf4@frever-test.com',
+                        true,
+                        g."Id",
+                        true,
+                        null,
+                        array []::bigint[],
+                        111
+                 from g
+                 returning *),
+     activity as (
+         insert into "UserActivity" ("GroupId", "OccurredAt", "ActionType")
+             select g."Id", '2024-07-02T13:00:20.5797308Z', 'Login'
+             from g
+             where '2024-07-02T13:00:20.5797308Z' is not null)
+select *
+from u;
+Debug [10806]: Context 'TestReadWriteDbContext' started tracking 'User' entity with key '{Id: 189779}'.
+Debug [20301]: Closing data reader to 'frevertest' on server 'tcp://postgres-frever-it:5432'.
+Debug [20300]: A data reader for 'frevertest' on server 'tcp://postgres-frever-it:5432' is being disposed after spending 0ms reading results.
+Debug [10111]: Compiling query expression: 
+'DbSet&lt;User&gt;().FromSql(
+with g as (
+    insert into "Group" ("NickName",
+                         "TaxationCountryId",
+                         "DefaultLanguageId",
+                         "BirthDate",
+                         "Gender"
+        )
+        values ('friend-author-6-adf2778fcc5d458da987329faae76c83',
+                (select "Id" from "Country" where "ISOName" = 'swe'),
+                (select "Id" from "Language" where "IsoCode" = 'swe'),
+                '1990-11-16T00:00:00.0000000',
+                1)
+        returning *),
+     u as (
+         insert
+             into "User" ("IdentityServerId", "Email", "DataCollection", "MainGroupId", "AnalyticsEnabled",
+                          "PhoneNumber",
+                          "CreatorPermissionLevel", "MainCharacterId")
+                 select uuid_generate_v4(),
+                        'friend-author-6-adf2778fcc5d458da987329faae76c83@frever-test.com',
+                        true,
+                        g."Id",
+                        true,
+                        null,
+                        array []::bigint[],
+                        111
+                 from g
+                 returning *),
+     activity as (
+         insert into "UserActivity" ("GroupId", "OccurredAt", "ActionType")
+             select g."Id", '2024-07-02T13:00:20.5797314Z', 'Login'
+             from g
+             where '2024-07-02T13:00:20.5797314Z' is not null)
+select *
+from u;, __p_0)
+'
+Debug [10107]: Generated query execution expression: 
+'queryContext =&gt; new FromSqlQueryingEnumerable&lt;User&gt;(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -&gt; Dictionary&lt;IProperty, int&gt; { [Property: User.Id (long) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: User.AnalyticsEnabled (bool) Required, 1], [Property: User.AppleId (string), 2], [Property: User.CreatedTime (DateTime) Required ValueGenerated.OnAdd, 3], [Property: User.CreatorPermissionLevel (long[]) Element type: long Required, 4], [Property: User.DataCollection (bool?), 5], [Property: User.Email (string) Index, 6], [Property: User.GoogleId (string), 7], [Property: User.IdentityServerId (Guid) Required Index, 8], [Property: User.IsFeatured (bool) Required, 9], [Property: User.MainCharacterId (long?) FK Index, 10], [Property: User.MainGroupId (long) Required FK Index, 11], [Property: User.ModifiedTime (DateTime) Required, 12], [Property: User.PhoneNumber (string) Index, 13] }
+        SELECT f.Id, f.AnalyticsEnabled, f.AppleId, f.CreatedTime, f.CreatorPermissionLevel, f.DataCollection, f.Email, f.GoogleId, f.IdentityServerId, f.IsFeatured, f.MainCharacterId, f.MainGroupId, f.ModifiedTime, f.PhoneNumber
+        FROM 
+with g as (
+    insert into "Group" ("NickName",
+                         "TaxationCountryId",
+                         "DefaultLanguageId",
+                         "BirthDate",
+                         "Gender"
+        )
+        values ('friend-author-6-adf2778fcc5d458da987329faae76c83',
+                (select "Id" from "Country" where "ISOName" = 'swe'),
+                (select "Id" from "Language" where "IsoCode" = 'swe'),
+                '1990-11-16T00:00:00.0000000',
+                1)
+        returning *),
+     u as (
+         insert
+             into "User" ("IdentityServerId", "Email", "DataCollection", "MainGroupId", "AnalyticsEnabled",
+                          "PhoneNumber",
+                          "CreatorPermissionLevel", "MainCharacterId")
+                 select uuid_generate_v4(),
+                        'friend-author-6-adf2778fcc5d458da987329faae76c83@frever-test.com',
+                        true,
+                        g."Id",
+                        true,
+                        null,
+                        array []::bigint[],
+                        111
+                 from g
+                 returning *),
+     activity as (
+         insert into "UserActivity" ("GroupId", "OccurredAt", "ActionType")
+             select g."Id", '2024-07-02T13:00:20.5797314Z', 'Login'
+             from g
+             where '2024-07-02T13:00:20.5797314Z' is not null)
+select *
+from u;), 
+    null, 
+    List&lt;string&gt; { "Id", "AnalyticsEnabled", "AppleId", "CreatedTime", "CreatorPermissionLevel", "DataCollection", "Email", "GoogleId", "IdentityServerId", "IsFeatured", "MainCharacterId", "MainGroupId", "ModifiedTime", "PhoneNumber" }, 
+    Func&lt;QueryContext, DbDataReader, int[], User&gt;, 
+    Frever.Common.IntegrationTesting.TestReadWriteDbContext, 
+    False, 
+    False, 
+    True
+)'
+Debug [20103]: Creating DbCommand for 'ExecuteReader'.
+Debug [20104]: Created DbCommand for 'ExecuteReader' (0ms).
+Debug [20106]: Initialized DbCommand for 'ExecuteReader' (0ms).
+Debug [20100]: Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='60']
+
+with g as (
+    insert into "Group" ("NickName",
+                         "TaxationCountryId",
+                         "DefaultLanguageId",
+                         "BirthDate",
+                         "Gender"
+        )
+        values ('friend-author-6-adf2778fcc5d458da987329faae76c83',
+                (select "Id" from "Country" where "ISOName" = 'swe'),
+                (select "Id" from "Language" where "IsoCode" = 'swe'),
+                '1990-11-16T00:00:00.0000000',
+                1)
+        returning *),
+     u as (
+         insert
+             into "User" ("IdentityServerId", "Email", "DataCollection", "MainGroupId", "AnalyticsEnabled",
+                          "PhoneNumber",
+                          "CreatorPermissionLevel", "MainCharacterId")
+                 select uuid_generate_v4(),
+                        'friend-author-6-adf2778fcc5d458da987329faae76c83@frever-test.com',
+                        true,
+                        g."Id",
+                        true,
+                        null,
+                        array []::bigint[],
+                        111
+                 from g
+                 returning *),
+     activity as (
+         insert into "UserActivity" ("GroupId", "OccurredAt", "ActionType")
+             select g."Id", '2024-07-02T13:00:20.5797314Z', 'Login'
+             from g
+             where '2024-07-02T13:00:20.5797314Z' is not null)
+select *
+from u;
+Information [20101]: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+
+with g as (
+    insert into "Group" ("NickName",
+                         "TaxationCountryId",
+                         "DefaultLanguageId",
+                         "BirthDate",
+                         "Gender"
+        )
+        values ('friend-author-6-adf2778fcc5d458da987329faae76c83',
+                (select "Id" from "Country" where "ISOName" = 'swe'),
+                (select "Id" from "Language" where "IsoCode" = 'swe'),
+                '1990-11-16T00:00:00.0000000',
+                1)
+        returning *),
+     u as (
+         insert
+             into "User" ("IdentityServerId", "Email", "DataCollection", "MainGroupId", "AnalyticsEnabled",
+                          "PhoneNumber",
+                          "CreatorPermissionLevel", "MainCharacterId")
+                 select uuid_generate_v4(),
+                        'friend-author-6-adf2778fcc5d458da987329faae76c83@frever-test.com',
+                        true,
+                        g."Id",
+                        true,
+                        null,
+                        array []::bigint[],
+                        111
+                 from g
+                 returning *),
+     activity as (
+         insert into "UserActivity" ("GroupId", "OccurredAt", "ActionType")
+             select g."Id", '2024-07-02T13:00:20.5797314Z', 'Login'
+             from g
+             where '2024-07-02T13:00:20.5797314Z' is not null)
+select *
+from u;
+Debug [10806]: Context 'TestReadWriteDbContext' started tracking 'User' entity with key '{Id: 189780}'.
+Debug [20301]: Closing data reader to 'frevertest' on server 'tcp://postgres-frever-it:5432'.
+Debug [20300]: A data reader for 'frevertest' on server 'tcp://postgres-frever-it:5432' is being disposed after spending 0ms reading results.
+Debug [10111]: Compiling query expression: 
+'DbSet&lt;User&gt;().FromSql(
+with g as (
+    insert into "Group" ("NickName",
+                         "TaxationCountryId",
+                         "DefaultLanguageId",
+                         "BirthDate",
+                         "Gender"
+        )
+        values ('friend-author-7-4411399a716145aca71a8eb573794c87',
+                (select "Id" from "Country" where "ISOName" = 'swe'),
+                (select "Id" from "Language" where "IsoCode" = 'swe'),
+                '1992-09-14T00:00:00.0000000',
+                1)
+        returning *),
+     u as (
+         insert
+             into "User" ("IdentityServerId", "Email", "DataCollection", "MainGroupId", "AnalyticsEnabled",
+                          "PhoneNumber",
+                          "CreatorPermissionLevel", "MainCharacterId")
+                 select uuid_generate_v4(),
+                        'friend-author-7-4411399a716145aca71a8eb573794c87@frever-test.com',
+                        true,
+                        g."Id",
+                        true,
+                        null,
+                        array []::bigint[],
+                        111
+                 from g
+                 returning *),
+     activity as (
+         insert into "UserActivity" ("GroupId", "OccurredAt", "ActionType")
+             select g."Id", '2024-07-02T13:00:20.5797328Z', 'Login'
+             from g
+             where '2024-07-02T13:00:20.5797328Z' is not null)
+select *
+from u;, __p_0)
+'
+Debug [10107]: Generated query execution expression: 
+'queryContext =&gt; new FromSqlQueryingEnumerable&lt;User&gt;(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -&gt; Dictionary&lt;IProperty, int&gt; { [Property: User.Id (long) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: User.AnalyticsEnabled (bool) Required, 1], [Property: User.AppleId (string), 2], [Property: User.CreatedTime (DateTime) Required ValueGenerated.OnAdd, 3], [Property: User.CreatorPermissionLevel (long[]) Element type: long Required, 4], [Property: User.DataCollection (bool?), 5], [Property: User.Email (string) Index, 6], [Property: User.GoogleId (string), 7], [Property: User.IdentityServerId (Guid) Required Index, 8], [Property: User.IsFeatured (bool) Required, 9], [Property: User.MainCharacterId (long?) FK Index, 10], [Property: User.MainGroupId (long) Required FK Index, 11], [Property: User.ModifiedTime (DateTime) Required, 12], [Property: User.PhoneNumber (string) Index, 13] }
+        SELECT f.Id, f.AnalyticsEnabled, f.AppleId, f.CreatedTime, f.CreatorPermissionLevel, f.DataCollection, f.Email, f.GoogleId, f.IdentityServerId, f.IsFeatured, f.MainCharacterId, f.MainGroupId, f.ModifiedTime, f.PhoneNumber
+        FROM 
+with g as (
+    insert into "Group" ("NickName",
+                         "TaxationCountryId",
+                         "DefaultLanguageId",
+                         "BirthDate",
+                         "Gender"
+        )
+        values ('friend-author-7-4411399a716145aca71a8eb573794c87',
+                (select "Id" from "Country" where "ISOName" = 'swe'),
+                (select "Id" from "Language" where "IsoCode" = 'swe'),
+                '1992-09-14T00:00:00.0000000',
+                1)
+        returning *),
+     u as (
+         insert
+             into "User" ("IdentityServerId", "Email", "DataCollection", "MainGroupId", "AnalyticsEnabled",
+                          "PhoneNumber",
+                          "CreatorPermissionLevel", "MainCharacterId")
+                 select uuid_generate_v4(),
+                        'friend-author-7-4411399a716145aca71a8eb573794c87@frever-test.com',
+                        true,
+                        g."Id",
+                        true,
+                        null,
+                        array []::bigint[],
+                        111
+                 from g
+                 returning *),
+     activity as (
+         insert into "UserActivity" ("GroupId", "OccurredAt", "ActionType")
+             select g."Id", '2024-07-02T13:00:20.5797328Z', 'Login'
+             from g
+             where '2024-07-02T13:00:20.5797328Z' is not null)
+select *
+from u;), 
+    null, 
+    List&lt;string&gt; { "Id", "AnalyticsEnabled", "AppleId", "CreatedTime", "CreatorPermissionLevel", "DataCollection", "Email", "GoogleId", "IdentityServerId", "IsFeatured", "MainCharacterId", "MainGroupId", "ModifiedTime", "PhoneNumber" }, 
+    Func&lt;QueryContext, DbDataReader, int[], User&gt;, 
+    Frever.Common.IntegrationTesting.TestReadWriteDbContext, 
+    False, 
+    False, 
+    True
+)'
+Debug [20103]: Creating DbCommand for 'ExecuteReader'.
+Debug [20104]: Created DbCommand for 'ExecuteReader' (0ms).
+Debug [20106]: Initialized DbCommand for 'ExecuteReader' (0ms).
+Debug [20100]: Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='60']
+
+with g as (
+    insert into "Group" ("NickName",
+                         "TaxationCountryId",
+                         "DefaultLanguageId",
+                         "BirthDate",
+                         "Gender"
+        )
+        values ('friend-author-7-4411399a716145aca71a8eb573794c87',
+                (select "Id" from "Country" where "ISOName" = 'swe'),
+                (select "Id" from "Language" where "IsoCode" = 'swe'),
+                '1992-09-14T00:00:00.0000000',
+                1)
+        returning *),
+     u as (
+         insert
+             into "User" ("IdentityServerId", "Email", "DataCollection", "MainGroupId", "AnalyticsEnabled",
+                          "PhoneNumber",
+                          "CreatorPermissionLevel", "MainCharacterId")
+                 select uuid_generate_v4(),
+                        'friend-author-7-4411399a716145aca71a8eb573794c87@frever-test.com',
+                        true,
+                        g."Id",
+                        true,
+                        null,
+                        array []::bigint[],
+                        111
+                 from g
+                 returning *),
+     activity as (
+         insert into "UserActivity" ("GroupId", "OccurredAt", "ActionType")
+             select g."Id", '2024-07-02T13:00:20.5797328Z', 'Login'
+             from g
+             where '2024-07-02T13:00:20.5797328Z' is not null)
+select *
+from u;
+Information [20101]: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+
+with g as (
+    insert into "Group" ("NickName",
+                         "TaxationCountryId",
+                         "DefaultLanguageId",
+                         "BirthDate",
+                         "Gender"
+        )
+        values ('friend-author-7-4411399a716145aca71a8eb573794c87',
+                (select "Id" from "Country" where "ISOName" = 'swe'),
+                (select "Id" from "Language" where "IsoCode" = 'swe'),
+                '1992-09-14T00:00:00.0000000',
+                1)
+        returning *),
+     u as (
+         insert
+             into "User" ("IdentityServerId", "Email", "DataCollection", "MainGroupId", "AnalyticsEnabled",
+                          "PhoneNumber",
+                          "CreatorPermissionLevel", "MainCharacterId")
+                 select uuid_generate_v4(),
+                        'friend-author-7-4411399a716145aca71a8eb573794c87@frever-test.com',
+                        true,
+                        g."Id",
+                        true,
+                        null,
+                        array []::bigint[],
+                        111
+                 from g
+                 returning *),
+     activity as (
+         insert into "UserActivity" ("GroupId", "OccurredAt", "ActionType")
+             select g."Id", '2024-07-02T13:00:20.5797328Z', 'Login'
+             from g
+             where '2024-07-02T13:00:20.5797328Z' is not null)
+select *
+from u;
+Debug [10806]: Context 'TestReadWriteDbContext' started tracking 'User' entity with key '{Id: 189781}'.
+Debug [20301]: Closing data reader to 'frevertest' on server 'tcp://postgres-frever-it:5432'.
+Debug [20300]: A data reader for 'frevertest' on server 'tcp://postgres-frever-it:5432' is being disposed after spending 0ms reading results.
+Debug [10111]: Compiling query expression: 
+'DbSet&lt;User&gt;().FromSql(
+with g as (
+    insert into "Group" ("NickName",
+                         "TaxationCountryId",
+                         "DefaultLanguageId",
+                         "BirthDate",
+                         "Gender"
+        )
+        values ('friend-author-8-0b458f80e94a41a896a3c58813c52deb',
+                (select "Id" from "Country" where "ISOName" = 'swe'),
+                (select "Id" from "Language" where "IsoCode" = 'swe'),
+                '1991-11-01T00:00:00.0000000',
+                1)
+        returning *),
+     u as (
+         insert
+             into "User" ("IdentityServerId", "Email", "DataCollection", "MainGroupId", "AnalyticsEnabled",
+                          "PhoneNumber",
+                          "CreatorPermissionLevel", "MainCharacterId")
+                 select uuid_generate_v4(),
+                        'friend-author-8-0b458f80e94a41a896a3c58813c52deb@frever-test.com',
+                        true,
+                        g."Id",
+                        true,
+                        null,
+                        array []::bigint[],
+                        111
+                 from g
+                 returning *),
+     activity as (
+         insert into "UserActivity" ("GroupId", "OccurredAt", "ActionType")
+             select g."Id", '2024-07-02T13:00:20.5797334Z', 'Login'
+             from g
+             where '2024-07-02T13:00:20.5797334Z' is not null)
+select *
+from u;, __p_0)
+'
+Debug [10107]: Generated query execution expression: 
+'queryContext =&gt; new FromSqlQueryingEnumerable&lt;User&gt;(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -&gt; Dictionary&lt;IProperty, int&gt; { [Property: User.Id (long) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: User.AnalyticsEnabled (bool) Required, 1], [Property: User.AppleId (string), 2], [Property: User.CreatedTime (DateTime) Required ValueGenerated.OnAdd, 3], [Property: User.CreatorPermissionLevel (long[]) Element type: long Required, 4], [Property: User.DataCollection (bool?), 5], [Property: User.Email (string) Index, 6], [Property: User.GoogleId (string), 7], [Property: User.IdentityServerId (Guid) Required Index, 8], [Property: User.IsFeatured (bool) Required, 9], [Property: User.MainCharacterId (long?) FK Index, 10], [Property: User.MainGroupId (long) Required FK Index, 11], [Property: User.ModifiedTime (DateTime) Required, 12], [Property: User.PhoneNumber (string) Index, 13] }
+        SELECT f.Id, f.AnalyticsEnabled, f.AppleId, f.CreatedTime, f.CreatorPermissionLevel, f.DataCollection, f.Email, f.GoogleId, f.IdentityServerId, f.IsFeatured, f.MainCharacterId, f.MainGroupId, f.ModifiedTime, f.PhoneNumber
+        FROM 
+with g as (
+    insert into "Group" ("NickName",
+                         "TaxationCountryId",
+                         "DefaultLanguageId",
+                         "BirthDate",
+                         "Gender"
+        )
+        values ('friend-author-8-0b458f80e94a41a896a3c58813c52deb',
+                (select "Id" from "Country" where "ISOName" = 'swe'),
+                (select "Id" from "Language" where "IsoCode" = 'swe'),
+                '1991-11-01T00:00:00.0000000',
+                1)
+        returning *),
+     u as (
+         insert
+             into "User" ("IdentityServerId", "Email", "DataCollection", "MainGroupId", "AnalyticsEnabled",
+                          "PhoneNumber",
+                          "CreatorPermissionLevel", "MainCharacterId")
+                 select uuid_generate_v4(),
+                        'friend-author-8-0b458f80e94a41a896a3c58813c52deb@frever-test.com',
+                        true,
+                        g."Id",
+                        true,
+                        null,
+                        array []::bigint[],
+                        111
+                 from g
+                 returning *),
+     activity as (
+         insert into "UserActivity" ("GroupId", "OccurredAt", "ActionType")
+             select g."Id", '2024-07-02T13:00:20.5797334Z', 'Login'
+             from g
+             where '2024-07-02T13:00:20.5797334Z' is not null)
+select *
+from u;), 
+    null, 
+    List&lt;string&gt; { "Id", "AnalyticsEnabled", "AppleId", "CreatedTime", "CreatorPermissionLevel", "DataCollection", "Email", "GoogleId", "IdentityServerId", "IsFeatured", "MainCharacterId", "MainGroupId", "ModifiedTime", "PhoneNumber" }, 
+    Func&lt;QueryContext, DbDataReader, int[], User&gt;, 
+    Frever.Common.IntegrationTesting.TestReadWriteDbContext, 
+    False, 
+    False, 
+    True
+)'
+Debug [20103]: Creating DbCommand for 'ExecuteReader'.
+Debug [20104]: Created DbCommand for 'ExecuteReader' (0ms).
+Debug [20106]: Initialized DbCommand for 'ExecuteReader' (0ms).
+Debug [20100]: Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='60']
+
+with g as (
+    insert into "Group" ("NickName",
+                         "TaxationCountryId",
+                         "DefaultLanguageId",
+                         "BirthDate",
+                         "Gender"
+        )
+        values ('friend-author-8-0b458f80e94a41a896a3c58813c52deb',
+                (select "Id" from "Country" where "ISOName" = 'swe'),
+                (select "Id" from "Language" where "IsoCode" = 'swe'),
+                '1991-11-01T00:00:00.0000000',
+                1)
+        returning *),
+     u as (
+         insert
+             into "User" ("IdentityServerId", "Email", "DataCollection", "MainGroupId", "AnalyticsEnabled",
+                          "PhoneNumber",
+                          "CreatorPermissionLevel", "MainCharacterId")
+                 select uuid_generate_v4(),
+                        'friend-author-8-0b458f80e94a41a896a3c58813c52deb@frever-test.com',
+                        true,
+                        g."Id",
+                        true,
+                        null,
+                        array []::bigint[],
+                        111
+                 from g
+                 returning *),
+     activity as (
+         insert into "UserActivity" ("GroupId", "OccurredAt", "ActionType")
+             select g."Id", '2024-07-02T13:00:20.5797334Z', 'Login'
+             from g
+             where '2024-07-02T13:00:20.5797334Z' is not null)
+select *
+from u;
+Information [20101]: Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+
+with g as (
+    insert into "Group" ("NickName",
+                         "TaxationCountryId",
+                         "DefaultLanguageId",
+                         "BirthDate",
+                         "Gender"
+        )
+        values ('friend-author-8-0b458f80e94a41a896a3c58813c52deb',
+                (select "Id" from "Country" where "ISOName" = 'swe'),
+                (select "Id" from "Language" where "IsoCode" = 'swe'),
+                '1991-11-01T00:00:00.0000000',
+                1)
+        returning *),
+     u as (
+         insert
+             into "User" ("IdentityServerId", "Email", "DataCollection", "MainGroupId", "AnalyticsEnabled",
+                          "PhoneNumber",
+                          "CreatorPermissionLevel", "MainCharacterId")
+                 select uuid_generate_v4(),
+                        'friend-author-8-0b458f80e94a41a896a3c58813c52deb@frever-test.com',
+                        true,
+                        g."Id",
+                        true,
+                        null,
+                        array []::bigint[],
+                        111
+                 from g
+                 returning *),
+     activity as (
+         insert into "UserActivity" ("GroupId", "OccurredAt", "ActionType")
+             select g."Id", '2024-07-02T13:00:20.5797334Z', 'Login'
+             from g
+             where '2024-07-02T13:00:20.5797334Z' is not null)
+select *
+from u;
+Debug [10806]: Context 'TestReadWriteDbContext' started tracking 'User' entity with key '{Id: 189782}'.
+Debug [20301]: Closing data reader to 'frevertest' on server 'tcp://postgres-frever-it:5432'.
+Debug [20300]: A data reader for 'frevertest' on server 'tcp://postgres-frever-it:5432' is being disposed after spending 0ms reading results.
+Debug [10111]: Compiling query expression: 
+'DbSet&lt;User&gt;().FromSql(
+with g as (
+    insert into "Group" ("NickName",
+                         "TaxationCountryId",
+                         "DefaultLanguageId",
+                         "BirthDate",
+                         "Gender"
+        )
+        values ('friend-author-9-7142270273294e2687cf8a9a4f5da307',
+                (select "Id" from "Country" where "ISOName" = 'swe'),
+                (select "Id" from "Language" where "IsoCode" = 'swe'),
+                '1992-01-13T00:00:00.0000000',
+                1)
+        returning *),
+     u as (
+         insert
+             into "User" ("IdentityServerId", "Email", "DataCollection", "MainGroupId", "AnalyticsEnabled",
+                          "PhoneNumber",
+                          "CreatorPermissionLevel", "MainCharacterId")
+                 select uuid_generate_v4(),
+                        'friend-author-9-7142270273294e2687cf8a9a4f5da307@frever-test.com',
+                        true,
+                        g."Id",
+                        true,
+                        null,
+                        array []::bigint[],
+                        111
+                 from g
+                 returning *),
+     activity as (
+         insert into "UserActivity" ("GroupId", "OccurredAt", "ActionType")
+             select g."Id", '2024-07-02T13:00:20.5797340Z', 'Login'
+             from g
+             where '2024-07-02T13:00:20.5797340Z' is not null)
+select *
+from u;, __p_0)
+'
+Debug [10107]: Generated query execution expression: 
+'queryContext =&gt; new FromSqlQueryingEnumerable&lt;User&gt;(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -&gt; Dictionary&lt;IProperty, int&gt; { [Property: User.Id (long) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: User.AnalyticsEnabled (bool) Required, 1], [Property: User.AppleId (string), 2], [Property: User.CreatedTime (DateTime) Required ValueGenerated.OnAdd, 3], [Property: User.CreatorPermissionLevel (long[]) Element type: long Required, 4], [Property: User.DataCollection (bool?), 5], [Property: User.Email (string) Index, 6], [Property: User.GoogleId (string), 7], [Property: User.IdentityServerId (Guid) Required Index, 8], [Property: User.IsFeatured (bool) Required, 9], [Property: User.MainCharacterId (long?) FK Index, 10], [Property: User.MainGroupId (long) Required FK Index, 11], [Property: User.ModifiedTime (DateTime) Required, 12], [Property: User.PhoneNumber (string) Index, 13] }
+        SELECT f.Id, f.AnalyticsEnabled, f.AppleId, f.CreatedTime, f.CreatorPermissionLevel, f.DataCollection, f.Email, f.GoogleId, f.IdentityServerId, f.IsFeatured, f.MainCharacterId, f.MainGroupId, f.ModifiedTime, f.PhoneNumber
+        FROM 
+with g as (
+    insert into "Group" ("NickName",
+                         "TaxationCountryId",
+                         "DefaultLanguageId",
+                         "BirthDate",
+                         "Gender"
+        )
+        values ('friend-author-9-7142270273294e2687cf8a9a4f5da307',
+                (select "Id" from "Country" where "ISOName" = 'swe'),
+                (select "Id" from "Language" where "IsoCode" = 'swe'),
+                '1992-01-13T00:00:00.0000000',
+                1)
+        returning *),
+     u as (
+         insert
+             into "User" ("IdentityServerId", "Email", "DataCollection", "MainGroupId", "AnalyticsEnabled",
+                          "PhoneNumber",
+                          "CreatorPermissionLevel", "MainCharacterId")
+                 select uuid_generate_v4(),
+                        'friend-author-9-7142270273294e2687cf8a9a4f5da307@frever-test.com',
+                        true,
+                        g."Id",
+                        true,
+                        null,
+                        array []::bigint[],
+                        111
+                 from g
+                 returning *),
+     activity as (
+         insert into "UserActivity" ("GroupId", "OccurredAt", "ActionType")
+             select g."Id", '2024-07-02T13:00:20.5797340Z', 'Login'
+             from g
+             where '2024-07-02T13:00:20.5797340Z' is not null)
+select *
+from u;), 
+    null, 
+    List&lt;string&gt; { "Id", "AnalyticsEnabled", "AppleId", "CreatedTime", "CreatorPermissionLevel", "DataCollection", "Email", "GoogleId", "IdentityServerId", "IsFeatured", "MainCharacterId", "MainGroupId", "ModifiedTime", "PhoneNumber" }, 
+    Func&lt;QueryContext, DbDataReader, int[], User&gt;, 
+    Frever.Common.IntegrationTesting.TestReadWriteDbContext, 
+    False, 
+    False, 
+    True
+)'
+Debug [20103]: Creating DbCommand for 'ExecuteReader'.
+Debug [20104]: Created DbCommand for 'ExecuteReader' (0ms).
+Debug [20106]: Initialized DbCommand for 'ExecuteReader' (0ms).
+Debug [20100]: Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='60']
+
+with g as (
+    insert into "Group" ("NickName",
+                         "TaxationCountryId",
+                         "DefaultLanguageId",
+                         "BirthDate",
+                         "Gender"
+        )
+        values ('friend-author-9-7142270273294e2687cf8a9a4f5da307',
+                (select "Id" from "Country" where "ISOName" = 'swe'),
+                (select "Id" from "Language" where "IsoCode" = 'swe'),
+                '1992-01-13T00:00:00.0000000',
+                1)
+        returning *),
+     u as (
+         insert
+             into "User" ("IdentityServerId", "Email", "DataCollection", "MainGroupId", "AnalyticsEnabled",
+                          "PhoneNumber",
+                          "CreatorPermissionLevel", "MainCharacterId")
+                 select uuid_generate_v4(),
+                        'friend-author-9-7142270273294e2687cf8a9a4f5da307@frever-test.com',
+                        true,
+                        g."Id",
+                        true,
+                        null,
+                        array []::bigint[],
+                        111
+                 from g
+                 returning *),
+     activity as (
+         insert into "UserActivity" ("GroupId", "OccurredAt", "ActionType")
+             select g."Id", '2024-07-02T13:00:20.5797340Z', 'Login'
+             from g
+             where '2024-07-02T13:00:20.5797340Z' is not null)
+select *
+from u;
+Information [20101]: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+
+with g as (
+    insert into "Group" ("NickName",
+                         "TaxationCountryId",
+                         "DefaultLanguageId",
+                         "BirthDate",
+                         "Gender"
+        )
+        values ('friend-author-9-7142270273294e2687cf8a9a4f5da307',
+                (select "Id" from "Country" where "ISOName" = 'swe'),
+                (select "Id" from "Language" where "IsoCode" = 'swe'),
+                '1992-01-13T00:00:00.0000000',
+                1)
+        returning *),
+     u as (
+         insert
+             into "User" ("IdentityServerId", "Email", "DataCollection", "MainGroupId", "AnalyticsEnabled",
+                          "PhoneNumber",
+                          "CreatorPermissionLevel", "MainCharacterId")
+                 select uuid_generate_v4(),
+                        'friend-author-9-7142270273294e2687cf8a9a4f5da307@frever-test.com',
+                        true,
+                        g."Id",
+                        true,
+                        null,
+                        array []::bigint[],
+                        111
+                 from g
+                 returning *),
+     activity as (
+         insert into "UserActivity" ("GroupId", "OccurredAt", "ActionType")
+             select g."Id", '2024-07-02T13:00:20.5797340Z', 'Login'
+             from g
+             where '2024-07-02T13:00:20.5797340Z' is not null)
+select *
+from u;
+Debug [10806]: Context 'TestReadWriteDbContext' started tracking 'User' entity with key '{Id: 189783}'.
+Debug [20301]: Closing data reader to 'frevertest' on server 'tcp://postgres-frever-it:5432'.
+Debug [20300]: A data reader for 'frevertest' on server 'tcp://postgres-frever-it:5432' is being disposed after spending 0ms reading results.
+Debug [10111]: Compiling query expression: 
+'DbSet&lt;Character&gt;().FromSql(with ins as (
+    insert into "Character" ("GenderId",
+                             "CharacterStyleId",
+                             "GroupId",
+                             "Name",
+                             "FilesInfo",
+                             "PublicForCreation",
+                             "PublicForBackgroundDancing",
+                             "Size",
+                             "PolyCount",
+                             "IsDefault",
+                             "SortOrder")
+        values (1,
+                1,
+                189831,
+                'character-189831',
+                '[]'::json,
+                false,
+                false,
+                10100,
+                2003,
+                true,
+                1)
+        returning *),
+     update_main_character as (
+         update "User"
+             set "MainCharacterId" = (select "Id" from ins)
+             where "MainGroupId" in (select "GroupId"
+                                     from ins
+                                     where "IsDefault" = true))
+select *
+from ins, __p_0)
+'
+Debug [10107]: Generated query execution expression: 
+'queryContext =&gt; new FromSqlQueryingEnumerable&lt;Character&gt;(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -&gt; Dictionary&lt;IProperty, int&gt; { [Property: Character.Id (long) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Character.CharacterStyleId (long) Required FK Index, 1], [Property: Character.CreatedTime (DateTime) Required ValueGenerated.OnAdd, 2], [Property: Character.Files (List&lt;FileInfo&gt;), 3], [Property: Character.GenderId (long) Required FK Index, 4], [Property: Character.GroupId (long) Required FK Index, 5], [Property: Character.IsDefault (bool) Required, 6], [Property: Character.IsDeleted (bool) Required, 7], [Property: Character.ModifiedTime (DateTime) Required ValueGenerated.OnAdd, 8], [Property: Character.Name (string) Required ValueGenerated.OnAdd, 9], [Property: Character.PolyCount (int?), 10], [Property: Character.PublicForBackgroundDancing (bool) Required, 11], [Property: Character.PublicForCreation (bool) Required, 12], [Property: Character.ReadinessId (long) Required FK Index, 13], [Property: Character.Size (long?), 14], [Property: Character.SortOrder (int) Required, 15], [Property: Character.UploaderUserId (long) Required FK Index ValueGenerated.OnAdd, 16], [Property: Character.Version (Guid) Required, 17] }
+        SELECT f.Id, f.CharacterStyleId, f.CreatedTime, f.FilesInfo, f.GenderId, f.GroupId, f.IsDefault, f.IsDeleted, f.ModifiedTime, f.Name, f.PolyCount, f.PublicForBackgroundDancing, f.PublicForCreation, f.ReadinessId, f.Size, f.SortOrder, f.UploaderUserId, f.Version
+        FROM with ins as (
+    insert into "Character" ("GenderId",
+                             "CharacterStyleId",
+                             "GroupId",
+                             "Name",
+                             "FilesInfo",
+                             "PublicForCreation",
+                             "PublicForBackgroundDancing",
+                             "Size",
+                             "PolyCount",
+                             "IsDefault",
+                             "SortOrder")
+        values (1,
+                1,
+                189831,
+                'character-189831',
+                '[]'::json,
+                false,
+                false,
+                10100,
+                2003,
+                true,
+                1)
+        returning *),
+     update_main_character as (
+         update "User"
+             set "MainCharacterId" = (select "Id" from ins)
+             where "MainGroupId" in (select "GroupId"
+                                     from ins
+                                     where "IsDefault" = true))
+select *
+from ins), 
+    null, 
+    List&lt;string&gt; { "Id", "CharacterStyleId", "CreatedTime", "FilesInfo", "GenderId", "GroupId", "IsDefault", "IsDeleted", "ModifiedTime", "Name", "PolyCount", "PublicForBackgroundDancing", "PublicForCreation", "ReadinessId", "Size", "SortOrder", "UploaderUserId", "Version" }, 
+    Func&lt;QueryContext, DbDataReader, int[], Character&gt;, 
+    Frever.Common.IntegrationTesting.TestReadWriteDbContext, 
+    False, 
+    False, 
+    True
+)'
+Debug [20103]: Creating DbCommand for 'ExecuteReader'.
+Debug [20104]: Created DbCommand for 'ExecuteReader' (0ms).
+Debug [20106]: Initialized DbCommand for 'ExecuteReader' (0ms).
+Debug [20100]: Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='60']
+with ins as (
+    insert into "Character" ("GenderId",
+                             "CharacterStyleId",
+                             "GroupId",
+                             "Name",
+                             "FilesInfo",
+                             "PublicForCreation",
+                             "PublicForBackgroundDancing",
+                             "Size",
+                             "PolyCount",
+                             "IsDefault",
+                             "SortOrder")
+        values (1,
+                1,
+                189831,
+                'character-189831',
+                '[]'::json,
+                false,
+                false,
+                10100,
+                2003,
+                true,
+                1)
+        returning *),
+     update_main_character as (
+         update "User"
+             set "MainCharacterId" = (select "Id" from ins)
+             where "MainGroupId" in (select "GroupId"
+                                     from ins
+                                     where "IsDefault" = true))
+select *
+from ins
+Information [20101]: Executed DbCommand (8ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+with ins as (
+    insert into "Character" ("GenderId",
+                             "CharacterStyleId",
+                             "GroupId",
+                             "Name",
+                             "FilesInfo",
+                             "PublicForCreation",
+                             "PublicForBackgroundDancing",
+                             "Size",
+                             "PolyCount",
+                             "IsDefault",
+                             "SortOrder")
+        values (1,
+                1,
+                189831,
+                'character-189831',
+                '[]'::json,
+                false,
+                false,
+                10100,
+                2003,
+                true,
+                1)
+        returning *),
+     update_main_character as (
+         update "User"
+             set "MainCharacterId" = (select "Id" from ins)
+             where "MainGroupId" in (select "GroupId"
+                                     from ins
+                                     where "IsDefault" = true))
+select *
+from ins
+Debug [10806]: Context 'TestReadWriteDbContext' started tracking 'Character' entity with key '{Id: 305074}'.
+Debug [20301]: Closing data reader to 'frevertest' on server 'tcp://postgres-frever-it:5432'.
+Debug [20300]: A data reader for 'frevertest' on server 'tcp://postgres-frever-it:5432' is being disposed after spending 19ms reading results.
+Debug [10111]: Compiling query expression: 
+'DbSet&lt;Character&gt;().FromSql(with ins as (
+    insert into "Character" ("GenderId",
+                             "CharacterStyleId",
+                             "GroupId",
+                             "Name",
+                             "FilesInfo",
+                             "PublicForCreation",
+                             "PublicForBackgroundDancing",
+                             "Size",
+                             "PolyCount",
+                             "IsDefault",
+                             "SortOrder")
+        values (1,
+                1,
+                189832,
+                'character-189832',
+                '[]'::json,
+                false,
+                false,
+                10100,
+                2003,
+                true,
+                1)
+        returning *),
+     update_main_character as (
+         update "User"
+             set "MainCharacterId" = (select "Id" from ins)
+             where "MainGroupId" in (select "GroupId"
+                                     from ins
+                                     where "IsDefault" = true))
+select *
+from ins, __p_0)
+'
+Debug [10107]: Generated query execution expression: 
+'queryContext =&gt; new FromSqlQueryingEnumerable&lt;Character&gt;(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -&gt; Dictionary&lt;IProperty, int&gt; { [Property: Character.Id (long) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Character.CharacterStyleId (long) Required FK Index, 1], [Property: Character.CreatedTime (DateTime) Required ValueGenerated.OnAdd, 2], [Property: Character.Files (List&lt;FileInfo&gt;), 3], [Property: Character.GenderId (long) Required FK Index, 4], [Property: Character.GroupId (long) Required FK Index, 5], [Property: Character.IsDefault (bool) Required, 6], [Property: Character.IsDeleted (bool) Required, 7], [Property: Character.ModifiedTime (DateTime) Required ValueGenerated.OnAdd, 8], [Property: Character.Name (string) Required ValueGenerated.OnAdd, 9], [Property: Character.PolyCount (int?), 10], [Property: Character.PublicForBackgroundDancing (bool) Required, 11], [Property: Character.PublicForCreation (bool) Required, 12], [Property: Character.ReadinessId (long) Required FK Index, 13], [Property: Character.Size (long?), 14], [Property: Character.SortOrder (int) Required, 15], [Property: Character.UploaderUserId (long) Required FK Index ValueGenerated.OnAdd, 16], [Property: Character.Version (Guid) Required, 17] }
+        SELECT f.Id, f.CharacterStyleId, f.CreatedTime, f.FilesInfo, f.GenderId, f.GroupId, f.IsDefault, f.IsDeleted, f.ModifiedTime, f.Name, f.PolyCount, f.PublicForBackgroundDancing, f.PublicForCreation, f.ReadinessId, f.Size, f.SortOrder, f.UploaderUserId, f.Version
+        FROM with ins as (
+    insert into "Character" ("GenderId",
+                             "CharacterStyleId",
+                             "GroupId",
+                             "Name",
+                             "FilesInfo",
+                             "PublicForCreation",
+                             "PublicForBackgroundDancing",
+                             "Size",
+                             "PolyCount",
+                             "IsDefault",
+                             "SortOrder")
+        values (1,
+                1,
+                189832,
+                'character-189832',
+                '[]'::json,
+                false,
+                false,
+                10100,
+                2003,
+                true,
+                1)
+        returning *),
+     update_main_character as (
+         update "User"
+             set "MainCharacterId" = (select "Id" from ins)
+             where "MainGroupId" in (select "GroupId"
+                                     from ins
+                                     where "IsDefault" = true))
+select *
+from ins), 
+    null, 
+    List&lt;string&gt; { "Id", "CharacterStyleId", "CreatedTime", "FilesInfo", "GenderId", "GroupId", "IsDefault", "IsDeleted", "ModifiedTime", "Name", "PolyCount", "PublicForBackgroundDancing", "PublicForCreation", "ReadinessId", "Size", "SortOrder", "UploaderUserId", "Version" }, 
+    Func&lt;QueryContext, DbDataReader, int[], Character&gt;, 
+    Frever.Common.IntegrationTesting.TestReadWriteDbContext, 
+    False, 
+    False, 
+    True
+)'
+Debug [20103]: Creating DbCommand for 'ExecuteReader'.
+Debug [20104]: Created DbCommand for 'ExecuteReader' (0ms).
+Debug [20106]: Initialized DbCommand for 'ExecuteReader' (0ms).
+Debug [20100]: Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='60']
+with ins as (
+    insert into "Character" ("GenderId",
+                             "CharacterStyleId",
+                             "GroupId",
+                             "Name",
+                             "FilesInfo",
+                             "PublicForCreation",
+                             "PublicForBackgroundDancing",
+                             "Size",
+                             "PolyCount",
+                             "IsDefault",
+                             "SortOrder")
+        values (1,
+                1,
+                189832,
+                'character-189832',
+                '[]'::json,
+                false,
+                false,
+                10100,
+                2003,
+                true,
+                1)
+        returning *),
+     update_main_character as (
+         update "User"
+             set "MainCharacterId" = (select "Id" from ins)
+             where "MainGroupId" in (select "GroupId"
+                                     from ins
+                                     where "IsDefault" = true))
+select *
+from ins
+Information [20101]: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+with ins as (
+    insert into "Character" ("GenderId",
+                             "CharacterStyleId",
+                             "GroupId",
+                             "Name",
+                             "FilesInfo",
+                             "PublicForCreation",
+                             "PublicForBackgroundDancing",
+                             "Size",
+                             "PolyCount",
+                             "IsDefault",
+                             "SortOrder")
+        values (1,
+                1,
+                189832,
+                'character-189832',
+                '[]'::json,
+                false,
+                false,
+                10100,
+                2003,
+                true,
+                1)
+        returning *),
+     update_main_character as (
+         update "User"
+             set "MainCharacterId" = (select "Id" from ins)
+             where "MainGroupId" in (select "GroupId"
+                                     from ins
+                                     where "IsDefault" = true))
+select *
+from ins
+Debug [10806]: Context 'TestReadWriteDbContext' started tracking 'Character' entity with key '{Id: 305075}'.
+Debug [20301]: Closing data reader to 'frevertest' on server 'tcp://postgres-frever-it:5432'.
+Debug [20300]: A data reader for 'frevertest' on server 'tcp://postgres-frever-it:5432' is being disposed after spending 0ms reading results.
+Debug [10111]: Compiling query expression: 
+'DbSet&lt;Character&gt;().FromSql(with ins as (
+    insert into "Character" ("GenderId",
+                             "CharacterStyleId",
+                             "GroupId",
+                             "Name",
+                             "FilesInfo",
+                             "PublicForCreation",
+                             "PublicForBackgroundDancing",
+                             "Size",
+                             "PolyCount",
+                             "IsDefault",
+                             "SortOrder")
+        values (1,
+                1,
+                189833,
+                'character-189833',
+                '[]'::json,
+                false,
+                false,
+                10100,
+                2003,
+                true,
+                1)
+        returning *),
+     update_main_character as (
+         update "User"
+             set "MainCharacterId" = (select "Id" from ins)
+             where "MainGroupId" in (select "GroupId"
+                                     from ins
+                                     where "IsDefault" = true))
+select *
+from ins, __p_0)
+'
+Debug [10107]: Generated query execution expression: 
+'queryContext =&gt; new FromSqlQueryingEnumerable&lt;Character&gt;(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -&gt; Dictionary&lt;IProperty, int&gt; { [Property: Character.Id (long) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Character.CharacterStyleId (long) Required FK Index, 1], [Property: Character.CreatedTime (DateTime) Required ValueGenerated.OnAdd, 2], [Property: Character.Files (List&lt;FileInfo&gt;), 3], [Property: Character.GenderId (long) Required FK Index, 4], [Property: Character.GroupId (long) Required FK Index, 5], [Property: Character.IsDefault (bool) Required, 6], [Property: Character.IsDeleted (bool) Required, 7], [Property: Character.ModifiedTime (DateTime) Required ValueGenerated.OnAdd, 8], [Property: Character.Name (string) Required ValueGenerated.OnAdd, 9], [Property: Character.PolyCount (int?), 10], [Property: Character.PublicForBackgroundDancing (bool) Required, 11], [Property: Character.PublicForCreation (bool) Required, 12], [Property: Character.ReadinessId (long) Required FK Index, 13], [Property: Character.Size (long?), 14], [Property: Character.SortOrder (int) Required, 15], [Property: Character.UploaderUserId (long) Required FK Index ValueGenerated.OnAdd, 16], [Property: Character.Version (Guid) Required, 17] }
+        SELECT f.Id, f.CharacterStyleId, f.CreatedTime, f.FilesInfo, f.GenderId, f.GroupId, f.IsDefault, f.IsDeleted, f.ModifiedTime, f.Name, f.PolyCount, f.PublicForBackgroundDancing, f.PublicForCreation, f.ReadinessId, f.Size, f.SortOrder, f.UploaderUserId, f.Version
+        FROM with ins as (
+    insert into "Character" ("GenderId",
+                             "CharacterStyleId",
+                             "GroupId",
+                             "Name",
+                             "FilesInfo",
+                             "PublicForCreation",
+                             "PublicForBackgroundDancing",
+                             "Size",
+                             "PolyCount",
+                             "IsDefault",
+                             "SortOrder")
+        values (1,
+                1,
+                189833,
+                'character-189833',
+                '[]'::json,
+                false,
+                false,
+                10100,
+                2003,
+                true,
+                1)
+        returning *),
+     update_main_character as (
+         update "User"
+             set "MainCharacterId" = (select "Id" from ins)
+             where "MainGroupId" in (select "GroupId"
+                                     from ins
+                                     where "IsDefault" = true))
+select *
+from ins), 
+    null, 
+    List&lt;string&gt; { "Id", "CharacterStyleId", "CreatedTime", "FilesInfo", "GenderId", "GroupId", "IsDefault", "IsDeleted", "ModifiedTime", "Name", "PolyCount", "PublicForBackgroundDancing", "PublicForCreation", "ReadinessId", "Size", "SortOrder", "UploaderUserId", "Version" }, 
+    Func&lt;QueryContext, DbDataReader, int[], Character&gt;, 
+    Frever.Common.IntegrationTesting.TestReadWriteDbContext, 
+    False, 
+    False, 
+    True
+)'
+Debug [20103]: Creating DbCommand for 'ExecuteReader'.
+Debug [20104]: Created DbCommand for 'ExecuteReader' (0ms).
+Debug [20106]: Initialized DbCommand for 'ExecuteReader' (0ms).
+Debug [20100]: Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='60']
+with ins as (
+    insert into "Character" ("GenderId",
+                             "CharacterStyleId",
+                             "GroupId",
+                             "Name",
+                             "FilesInfo",
+                             "PublicForCreation",
+                             "PublicForBackgroundDancing",
+                             "Size",
+                             "PolyCount",
+                             "IsDefault",
+                             "SortOrder")
+        values (1,
+                1,
+                189833,
+                'character-189833',
+                '[]'::json,
+                false,
+                false,
+                10100,
+                2003,
+                true,
+                1)
+        returning *),
+     update_main_character as (
+         update "User"
+             set "MainCharacterId" = (select "Id" from ins)
+             where "MainGroupId" in (select "GroupId"
+                                     from ins
+                                     where "IsDefault" = true))
+select *
+from ins
+Information [20101]: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+with ins as (
+    insert into "Character" ("GenderId",
+                             "CharacterStyleId",
+                             "GroupId",
+                             "Name",
+                             "FilesInfo",
+                             "PublicForCreation",
+                             "PublicForBackgroundDancing",
+                             "Size",
+                             "PolyCount",
+                             "IsDefault",
+                             "SortOrder")
+        values (1,
+                1,
+                189833,
+                'character-189833',
+                '[]'::json,
+                false,
+                false,
+                10100,
+                2003,
+                true,
+                1)
+        returning *),
+     update_main_character as (
+         update "User"
+             set "MainCharacterId" = (select "Id" from ins)
+             where "MainGroupId" in (select "GroupId"
+                                     from ins
+                                     where "IsDefault" = true))
+select *
+from ins
+Debug [10806]: Context 'TestReadWriteDbContext' started tracking 'Character' entity with key '{Id: 305076}'.
+Debug [20301]: Closing data reader to 'frevertest' on server 'tcp://postgres-frever-it:5432'.
+Debug [20300]: A data reader for 'frevertest' on server 'tcp://postgres-frever-it:5432' is being disposed after spending 0ms reading results.
+Debug [10111]: Compiling query expression: 
+'DbSet&lt;Character&gt;().FromSql(with ins as (
+    insert into "Character" ("GenderId",
+                             "CharacterStyleId",
+                             "GroupId",
+                             "Name",
+                             "FilesInfo",
+                             "PublicForCreation",
+                             "PublicForBackgroundDancing",
+                             "Size",
+                             "PolyCount",
+                             "IsDefault",
+                             "SortOrder")
+        values (1,
+                1,
+                189834,
+                'character-189834',
+                '[]'::json,
+                false,
+                false,
+                10100,
+                2003,
+                true,
+                1)
+        returning *),
+     update_main_character as (
+         update "User"
+             set "MainCharacterId" = (select "Id" from ins)
+             where "MainGroupId" in (select "GroupId"
+                                     from ins
+                                     where "IsDefault" = true))
+select *
+from ins, __p_0)
+'
+Debug [10107]: Generated query execution expression: 
+'queryContext =&gt; new FromSqlQueryingEnumerable&lt;Character&gt;(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -&gt; Dictionary&lt;IProperty, int&gt; { [Property: Character.Id (long) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Character.CharacterStyleId (long) Required FK Index, 1], [Property: Character.CreatedTime (DateTime) Required ValueGenerated.OnAdd, 2], [Property: Character.Files (List&lt;FileInfo&gt;), 3], [Property: Character.GenderId (long) Required FK Index, 4], [Property: Character.GroupId (long) Required FK Index, 5], [Property: Character.IsDefault (bool) Required, 6], [Property: Character.IsDeleted (bool) Required, 7], [Property: Character.ModifiedTime (DateTime) Required ValueGenerated.OnAdd, 8], [Property: Character.Name (string) Required ValueGenerated.OnAdd, 9], [Property: Character.PolyCount (int?), 10], [Property: Character.PublicForBackgroundDancing (bool) Required, 11], [Property: Character.PublicForCreation (bool) Required, 12], [Property: Character.ReadinessId (long) Required FK Index, 13], [Property: Character.Size (long?), 14], [Property: Character.SortOrder (int) Required, 15], [Property: Character.UploaderUserId (long) Required FK Index ValueGenerated.OnAdd, 16], [Property: Character.Version (Guid) Required, 17] }
+        SELECT f.Id, f.CharacterStyleId, f.CreatedTime, f.FilesInfo, f.GenderId, f.GroupId, f.IsDefault, f.IsDeleted, f.ModifiedTime, f.Name, f.PolyCount, f.PublicForBackgroundDancing, f.PublicForCreation, f.ReadinessId, f.Size, f.SortOrder, f.UploaderUserId, f.Version
+        FROM with ins as (
+    insert into "Character" ("GenderId",
+                             "CharacterStyleId",
+                             "GroupId",
+                             "Name",
+                             "FilesInfo",
+                             "PublicForCreation",
+                             "PublicForBackgroundDancing",
+                             "Size",
+                             "PolyCount",
+                             "IsDefault",
+                             "SortOrder")
+        values (1,
+                1,
+                189834,
+                'character-189834',
+                '[]'::json,
+                false,
+                false,
+                10100,
+                2003,
+                true,
+                1)
+        returning *),
+     update_main_character as (
+         update "User"
+             set "MainCharacterId" = (select "Id" from ins)
+             where "MainGroupId" in (select "GroupId"
+                                     from ins
+                                     where "IsDefault" = true))
+select *
+from ins), 
+    null, 
+    List&lt;string&gt; { "Id", "CharacterStyleId", "CreatedTime", "FilesInfo", "GenderId", "GroupId", "IsDefault", "IsDeleted", "ModifiedTime", "Name", "PolyCount", "PublicForBackgroundDancing", "PublicForCreation", "ReadinessId", "Size", "SortOrder", "UploaderUserId", "Version" }, 
+    Func&lt;QueryContext, DbDataReader, int[], Character&gt;, 
+    Frever.Common.IntegrationTesting.TestReadWriteDbContext, 
+    False, 
+    False, 
+    True
+)'
+Debug [20103]: Creating DbCommand for 'ExecuteReader'.
+Debug [20104]: Created DbCommand for 'ExecuteReader' (0ms).
+Debug [20106]: Initialized DbCommand for 'ExecuteReader' (0ms).
+Debug [20100]: Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='60']
+with ins as (
+    insert into "Character" ("GenderId",
+                             "CharacterStyleId",
+                             "GroupId",
+                             "Name",
+                             "FilesInfo",
+                             "PublicForCreation",
+                             "PublicForBackgroundDancing",
+                             "Size",
+                             "PolyCount",
+                             "IsDefault",
+                             "SortOrder")
+        values (1,
+                1,
+                189834,
+                'character-189834',
+                '[]'::json,
+                false,
+                false,
+                10100,
+                2003,
+                true,
+                1)
+        returning *),
+     update_main_character as (
+         update "User"
+             set "MainCharacterId" = (select "Id" from ins)
+             where "MainGroupId" in (select "GroupId"
+                                     from ins
+                                     where "IsDefault" = true))
+select *
+from ins
+Information [20101]: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+with ins as (
+    insert into "Character" ("GenderId",
+                             "CharacterStyleId",
+                             "GroupId",
+                             "Name",
+                             "FilesInfo",
+                             "PublicForCreation",
+                             "PublicForBackgroundDancing",
+                             "Size",
+                             "PolyCount",
+                             "IsDefault",
+                             "SortOrder")
+        values (1,
+                1,
+                189834,
+                'character-189834',
+                '[]'::json,
+                false,
+                false,
+                10100,
+                2003,
+                true,
+                1)
+        returning *),
+     update_main_character as (
+         update "User"
+             set "MainCharacterId" = (select "Id" from ins)
+             where "MainGroupId" in (select "GroupId"
+                                     from ins
+                                     where "IsDefault" = true))
+select *
+from ins
+Debug [10806]: Context 'TestReadWriteDbContext' started tracking 'Character' entity with key '{Id: 305077}'.
+Debug [20301]: Closing data reader to 'frevertest' on server 'tcp://postgres-frever-it:5432'.
+Debug [20300]: A data reader for 'frevertest' on server 'tcp://postgres-frever-it:5432' is being disposed after spending 0ms reading results.
+Debug [10111]: Compiling query expression: 
+'DbSet&lt;Character&gt;().FromSql(with ins as (
+    insert into "Character" ("GenderId",
+                             "CharacterStyleId",
+                             "GroupId",
+                             "Name",
+                             "FilesInfo",
+                             "PublicForCreation",
+                             "PublicForBackgroundDancing",
+                             "Size",
+                             "PolyCount",
+                             "IsDefault",
+                             "SortOrder")
+        values (1,
+                1,
+                189835,
+                'character-189835',
+                '[]'::json,
+                false,
+                false,
+                10100,
+                2003,
+                true,
+                1)
+        returning *),
+     update_main_character as (
+         update "User"
+             set "MainCharacterId" = (select "Id" from ins)
+             where "MainGroupId" in (select "GroupId"
+                                     from ins
+                                     where "IsDefault" = true))
+select *
+from ins, __p_0)
+'
+Debug [10107]: Generated query execution expression: 
+'queryContext =&gt; new FromSqlQueryingEnumerable&lt;Character&gt;(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -&gt; Dictionary&lt;IProperty, int&gt; { [Property: Character.Id (long) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Character.CharacterStyleId (long) Required FK Index, 1], [Property: Character.CreatedTime (DateTime) Required ValueGenerated.OnAdd, 2], [Property: Character.Files (List&lt;FileInfo&gt;), 3], [Property: Character.GenderId (long) Required FK Index, 4], [Property: Character.GroupId (long) Required FK Index, 5], [Property: Character.IsDefault (bool) Required, 6], [Property: Character.IsDeleted (bool) Required, 7], [Property: Character.ModifiedTime (DateTime) Required ValueGenerated.OnAdd, 8], [Property: Character.Name (string) Required ValueGenerated.OnAdd, 9], [Property: Character.PolyCount (int?), 10], [Property: Character.PublicForBackgroundDancing (bool) Required, 11], [Property: Character.PublicForCreation (bool) Required, 12], [Property: Character.ReadinessId (long) Required FK Index, 13], [Property: Character.Size (long?), 14], [Property: Character.SortOrder (int) Required, 15], [Property: Character.UploaderUserId (long) Required FK Index ValueGenerated.OnAdd, 16], [Property: Character.Version (Guid) Required, 17] }
+        SELECT f.Id, f.CharacterStyleId, f.CreatedTime, f.FilesInfo, f.GenderId, f.GroupId, f.IsDefault, f.IsDeleted, f.ModifiedTime, f.Name, f.PolyCount, f.PublicForBackgroundDancing, f.PublicForCreation, f.ReadinessId, f.Size, f.SortOrder, f.UploaderUserId, f.Version
+        FROM with ins as (
+    insert into "Character" ("GenderId",
+                             "CharacterStyleId",
+                             "GroupId",
+                             "Name",
+                             "FilesInfo",
+                             "PublicForCreation",
+                             "PublicForBackgroundDancing",
+                             "Size",
+                             "PolyCount",
+                             "IsDefault",
+                             "SortOrder")
+        values (1,
+                1,
+                189835,
+                'character-189835',
+                '[]'::json,
+                false,
+                false,
+                10100,
+                2003,
+                true,
+                1)
+        returning *),
+     update_main_character as (
+         update "User"
+             set "MainCharacterId" = (select "Id" from ins)
+             where "MainGroupId" in (select "GroupId"
+                                     from ins
+                                     where "IsDefault" = true))
+select *
+from ins), 
+    null, 
+    List&lt;string&gt; { "Id", "CharacterStyleId", "CreatedTime", "FilesInfo", "GenderId", "GroupId", "IsDefault", "IsDeleted", "ModifiedTime", "Name", "PolyCount", "PublicForBackgroundDancing", "PublicForCreation", "ReadinessId", "Size", "SortOrder", "UploaderUserId", "Version" }, 
+    Func&lt;QueryContext, DbDataReader, int[], Character&gt;, 
+    Frever.Common.IntegrationTesting.TestReadWriteDbContext, 
+    False, 
+    False, 
+    True
+)'
+Debug [20103]: Creating DbCommand for 'ExecuteReader'.
+Debug [20104]: Created DbCommand for 'ExecuteReader' (0ms).
+Debug [20106]: Initialized DbCommand for 'ExecuteReader' (0ms).
+Debug [20100]: Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='60']
+with ins as (
+    insert into "Character" ("GenderId",
+                             "CharacterStyleId",
+                             "GroupId",
+                             "Name",
+                             "FilesInfo",
+                             "PublicForCreation",
+                             "PublicForBackgroundDancing",
+                             "Size",
+                             "PolyCount",
+                             "IsDefault",
+                             "SortOrder")
+        values (1,
+                1,
+                189835,
+                'character-189835',
+                '[]'::json,
+                false,
+                false,
+                10100,
+                2003,
+                true,
+                1)
+        returning *),
+     update_main_character as (
+         update "User"
+             set "MainCharacterId" = (select "Id" from ins)
+             where "MainGroupId" in (select "GroupId"
+                                     from ins
+                                     where "IsDefault" = true))
+select *
+from ins
+Information [20101]: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+with ins as (
+    insert into "Character" ("GenderId",
+                             "CharacterStyleId",
+                             "GroupId",
+                             "Name",
+                             "FilesInfo",
+                             "PublicForCreation",
+                             "PublicForBackgroundDancing",
+                             "Size",
+                             "PolyCount",
+                             "IsDefault",
+                             "SortOrder")
+        values (1,
+                1,
+                189835,
+                'character-189835',
+                '[]'::json,
+                false,
+                false,
+                10100,
+                2003,
+                true,
+                1)
+        returning *),
+     update_main_character as (
+         update "User"
+             set "MainCharacterId" = (select "Id" from ins)
+             where "MainGroupId" in (select "GroupId"
+                                     from ins
+                                     where "IsDefault" = true))
+select *
+from ins
+Debug [10806]: Context 'TestReadWriteDbContext' started tracking 'Character' entity with key '{Id: 305078}'.
+Debug [20301]: Closing data reader to 'frevertest' on server 'tcp://postgres-frever-it:5432'.
+Debug [20300]: A data reader for 'frevertest' on server 'tcp://postgres-frever-it:5432' is being disposed after spending 0ms reading results.
+Debug [10111]: Compiling query expression: 
+'DbSet&lt;Character&gt;().FromSql(with ins as (
+    insert into "Character" ("GenderId",
+                             "CharacterStyleId",
+                             "GroupId",
+                             "Name",
+                             "FilesInfo",
+                             "PublicForCreation",
+                             "PublicForBackgroundDancing",
+                             "Size",
+                             "PolyCount",
+                             "IsDefault",
+                             "SortOrder")
+        values (1,
+                1,
+                189836,
+                'character-189836',
+                '[]'::json,
+                false,
+                false,
+                10100,
+                2003,
+                true,
+                1)
+        returning *),
+     update_main_character as (
+         update "User"
+             set "MainCharacterId" = (select "Id" from ins)
+             where "MainGroupId" in (select "GroupId"
+                                     from ins
+                                     where "IsDefault" = true))
+select *
+from ins, __p_0)
+'
+Debug [10107]: Generated query execution expression: 
+'queryContext =&gt; new FromSqlQueryingEnumerable&lt;Character&gt;(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -&gt; Dictionary&lt;IProperty, int&gt; { [Property: Character.Id (long) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Character.CharacterStyleId (long) Required FK Index, 1], [Property: Character.CreatedTime (DateTime) Required ValueGenerated.OnAdd, 2], [Property: Character.Files (List&lt;FileInfo&gt;), 3], [Property: Character.GenderId (long) Required FK Index, 4], [Property: Character.GroupId (long) Required FK Index, 5], [Property: Character.IsDefault (bool) Required, 6], [Property: Character.IsDeleted (bool) Required, 7], [Property: Character.ModifiedTime (DateTime) Required ValueGenerated.OnAdd, 8], [Property: Character.Name (string) Required ValueGenerated.OnAdd, 9], [Property: Character.PolyCount (int?), 10], [Property: Character.PublicForBackgroundDancing (bool) Required, 11], [Property: Character.PublicForCreation (bool) Required, 12], [Property: Character.ReadinessId (long) Required FK Index, 13], [Property: Character.Size (long?), 14], [Property: Character.SortOrder (int) Required, 15], [Property: Character.UploaderUserId (long) Required FK Index ValueGenerated.OnAdd, 16], [Property: Character.Version (Guid) Required, 17] }
+        SELECT f.Id, f.CharacterStyleId, f.CreatedTime, f.FilesInfo, f.GenderId, f.GroupId, f.IsDefault, f.IsDeleted, f.ModifiedTime, f.Name, f.PolyCount, f.PublicForBackgroundDancing, f.PublicForCreation, f.ReadinessId, f.Size, f.SortOrder, f.UploaderUserId, f.Version
+        FROM with ins as (
+    insert into "Character" ("GenderId",
+                             "CharacterStyleId",
+                             "GroupId",
+                             "Name",
+                             "FilesInfo",
+                             "PublicForCreation",
+                             "PublicForBackgroundDancing",
+                             "Size",
+                             "PolyCount",
+                             "IsDefault",
+                             "SortOrder")
+        values (1,
+                1,
+                189836,
+                'character-189836',
+                '[]'::json,
+                false,
+                false,
+                10100,
+                2003,
+                true,
+                1)
+        returning *),
+     update_main_character as (
+         update "User"
+             set "MainCharacterId" = (select "Id" from ins)
+             where "MainGroupId" in (select "GroupId"
+                                     from ins
+                                     where "IsDefault" = true))
+select *
+from ins), 
+    null, 
+    List&lt;string&gt; { "Id", "CharacterStyleId", "CreatedTime", "FilesInfo", "GenderId", "GroupId", "IsDefault", "IsDeleted", "ModifiedTime", "Name", "PolyCount", "PublicForBackgroundDancing", "PublicForCreation", "ReadinessId", "Size", "SortOrder", "UploaderUserId", "Version" }, 
+    Func&lt;QueryContext, DbDataReader, int[], Character&gt;, 
+    Frever.Common.IntegrationTesting.TestReadWriteDbContext, 
+    False, 
+    False, 
+    True
+)'
+Debug [20103]: Creating DbCommand for 'ExecuteReader'.
+Debug [20104]: Created DbCommand for 'ExecuteReader' (0ms).
+Debug [20106]: Initialized DbCommand for 'ExecuteReader' (0ms).
+Debug [20100]: Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='60']
+with ins as (
+    insert into "Character" ("GenderId",
+                             "CharacterStyleId",
+                             "GroupId",
+                             "Name",
+                             "FilesInfo",
+                             "PublicForCreation",
+                             "PublicForBackgroundDancing",
+                             "Size",
+                             "PolyCount",
+                             "IsDefault",
+                             "SortOrder")
+        values (1,
+                1,
+                189836,
+                'character-189836',
+                '[]'::json,
+                false,
+                false,
+                10100,
+                2003,
+                true,
+                1)
+        returning *),
+     update_main_character as (
+         update "User"
+             set "MainCharacterId" = (select "Id" from ins)
+             where "MainGroupId" in (select "GroupId"
+                                     from ins
+                                     where "IsDefault" = true))
+select *
+from ins
+Information [20101]: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+with ins as (
+    insert into "Character" ("GenderId",
+                             "CharacterStyleId",
+                             "GroupId",
+                             "Name",
+                             "FilesInfo",
+                             "PublicForCreation",
+                             "PublicForBackgroundDancing",
+                             "Size",
+                             "PolyCount",
+                             "IsDefault",
+                             "SortOrder")
+        values (1,
+                1,
+                189836,
+                'character-189836',
+                '[]'::json,
+                false,
+                false,
+                10100,
+                2003,
+                true,
+                1)
+        returning *),
+     update_main_character as (
+         update "User"
+             set "MainCharacterId" = (select "Id" from ins)
+             where "MainGroupId" in (select "GroupId"
+                                     from ins
+                                     where "IsDefault" = true))
+select *
+from ins
+Debug [10806]: Context 'TestReadWriteDbContext' started tracking 'Character' entity with key '{Id: 305079}'.
+Debug [20301]: Closing data reader to 'frevertest' on server 'tcp://postgres-frever-it:5432'.
+Debug [20300]: A data reader for 'frevertest' on server 'tcp://postgres-frever-it:5432' is being disposed after spending 0ms reading results.
+Debug [10111]: Compiling query expression: 
+'DbSet&lt;Character&gt;().FromSql(with ins as (
+    insert into "Character" ("GenderId",
+                             "CharacterStyleId",
+                             "GroupId",
+                             "Name",
+                             "FilesInfo",
+                             "PublicForCreation",
+                             "PublicForBackgroundDancing",
+                             "Size",
+                             "PolyCount",
+                             "IsDefault",
+                             "SortOrder")
+        values (1,
+                1,
+                189837,
+                'character-189837',
+                '[]'::json,
+                false,
+                false,
+                10100,
+                2003,
+                true,
+                1)
+        returning *),
+     update_main_character as (
+         update "User"
+             set "MainCharacterId" = (select "Id" from ins)
+             where "MainGroupId" in (select "GroupId"
+                                     from ins
+                                     where "IsDefault" = true))
+select *
+from ins, __p_0)
+'
+Debug [10107]: Generated query execution expression: 
+'queryContext =&gt; new FromSqlQueryingEnumerable&lt;Character&gt;(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -&gt; Dictionary&lt;IProperty, int&gt; { [Property: Character.Id (long) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Character.CharacterStyleId (long) Required FK Index, 1], [Property: Character.CreatedTime (DateTime) Required ValueGenerated.OnAdd, 2], [Property: Character.Files (List&lt;FileInfo&gt;), 3], [Property: Character.GenderId (long) Required FK Index, 4], [Property: Character.GroupId (long) Required FK Index, 5], [Property: Character.IsDefault (bool) Required, 6], [Property: Character.IsDeleted (bool) Required, 7], [Property: Character.ModifiedTime (DateTime) Required ValueGenerated.OnAdd, 8], [Property: Character.Name (string) Required ValueGenerated.OnAdd, 9], [Property: Character.PolyCount (int?), 10], [Property: Character.PublicForBackgroundDancing (bool) Required, 11], [Property: Character.PublicForCreation (bool) Required, 12], [Property: Character.ReadinessId (long) Required FK Index, 13], [Property: Character.Size (long?), 14], [Property: Character.SortOrder (int) Required, 15], [Property: Character.UploaderUserId (long) Required FK Index ValueGenerated.OnAdd, 16], [Property: Character.Version (Guid) Required, 17] }
+        SELECT f.Id, f.CharacterStyleId, f.CreatedTime, f.FilesInfo, f.GenderId, f.GroupId, f.IsDefault, f.IsDeleted, f.ModifiedTime, f.Name, f.PolyCount, f.PublicForBackgroundDancing, f.PublicForCreation, f.ReadinessId, f.Size, f.SortOrder, f.UploaderUserId, f.Version
+        FROM with ins as (
+    insert into "Character" ("GenderId",
+                             "CharacterStyleId",
+                             "GroupId",
+                             "Name",
+                             "FilesInfo",
+                             "PublicForCreation",
+                             "PublicForBackgroundDancing",
+                             "Size",
+                             "PolyCount",
+                             "IsDefault",
+                             "SortOrder")
+        values (1,
+                1,
+                189837,
+                'character-189837',
+                '[]'::json,
+                false,
+                false,
+                10100,
+                2003,
+                true,
+                1)
+        returning *),
+     update_main_character as (
+         update "User"
+             set "MainCharacterId" = (select "Id" from ins)
+             where "MainGroupId" in (select "GroupId"
+                                     from ins
+                                     where "IsDefault" = true))
+select *
+from ins), 
+    null, 
+    List&lt;string&gt; { "Id", "CharacterStyleId", "CreatedTime", "FilesInfo", "GenderId", "GroupId", "IsDefault", "IsDeleted", "ModifiedTime", "Name", "PolyCount", "PublicForBackgroundDancing", "PublicForCreation", "ReadinessId", "Size", "SortOrder", "UploaderUserId", "Version" }, 
+    Func&lt;QueryContext, DbDataReader, int[], Character&gt;, 
+    Frever.Common.IntegrationTesting.TestReadWriteDbContext, 
+    False, 
+    False, 
+    True
+)'
+Debug [20103]: Creating DbCommand for 'ExecuteReader'.
+Debug [20104]: Created DbCommand for 'ExecuteReader' (0ms).
+Debug [20106]: Initialized DbCommand for 'ExecuteReader' (0ms).
+Debug [20100]: Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='60']
+with ins as (
+    insert into "Character" ("GenderId",
+                             "CharacterStyleId",
+                             "GroupId",
+                             "Name",
+                             "FilesInfo",
+                             "PublicForCreation",
+                             "PublicForBackgroundDancing",
+                             "Size",
+                             "PolyCount",
+                             "IsDefault",
+                             "SortOrder")
+        values (1,
+                1,
+                189837,
+                'character-189837',
+                '[]'::json,
+                false,
+                false,
+                10100,
+                2003,
+                true,
+                1)
+        returning *),
+     update_main_character as (
+         update "User"
+             set "MainCharacterId" = (select "Id" from ins)
+             where "MainGroupId" in (select "GroupId"
+                                     from ins
+                                     where "IsDefault" = true))
+select *
+from ins
+Information [20101]: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+with ins as (
+    insert into "Character" ("GenderId",
+                             "CharacterStyleId",
+                             "GroupId",
+                             "Name",
+                             "FilesInfo",
+                             "PublicForCreation",
+                             "PublicForBackgroundDancing",
+                             "Size",
+                             "PolyCount",
+                             "IsDefault",
+                             "SortOrder")
+        values (1,
+                1,
+                189837,
+                'character-189837',
+                '[]'::json,
+                false,
+                false,
+                10100,
+                2003,
+                true,
+                1)
+        returning *),
+     update_main_character as (
+         update "User"
+             set "MainCharacterId" = (select "Id" from ins)
+             where "MainGroupId" in (select "GroupId"
+                                     from ins
+                                     where "IsDefault" = true))
+select *
+from ins
+Debug [10806]: Context 'TestReadWriteDbContext' started tracking 'Character' entity with key '{Id: 305080}'.
+Debug [20301]: Closing data reader to 'frevertest' on server 'tcp://postgres-frever-it:5432'.
+Debug [20300]: A data reader for 'frevertest' on server 'tcp://postgres-frever-it:5432' is being disposed after spending 0ms reading results.
+Debug [10111]: Compiling query expression: 
+'DbSet&lt;Character&gt;().FromSql(with ins as (
+    insert into "Character" ("GenderId",
+                             "CharacterStyleId",
+                             "GroupId",
+                             "Name",
+                             "FilesInfo",
+                             "PublicForCreation",
+                             "PublicForBackgroundDancing",
+                             "Size",
+                             "PolyCount",
+                             "IsDefault",
+                             "SortOrder")
+        values (1,
+                1,
+                189838,
+                'character-189838',
+                '[]'::json,
+                false,
+                false,
+                10100,
+                2003,
+                true,
+                1)
+        returning *),
+     update_main_character as (
+         update "User"
+             set "MainCharacterId" = (select "Id" from ins)
+             where "MainGroupId" in (select "GroupId"
+                                     from ins
+                                     where "IsDefault" = true))
+select *
+from ins, __p_0)
+'
+Debug [10107]: Generated query execution expression: 
+'queryContext =&gt; new FromSqlQueryingEnumerable&lt;Character&gt;(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -&gt; Dictionary&lt;IProperty, int&gt; { [Property: Character.Id (long) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Character.CharacterStyleId (long) Required FK Index, 1], [Property: Character.CreatedTime (DateTime) Required ValueGenerated.OnAdd, 2], [Property: Character.Files (List&lt;FileInfo&gt;), 3], [Property: Character.GenderId (long) Required FK Index, 4], [Property: Character.GroupId (long) Required FK Index, 5], [Property: Character.IsDefault (bool) Required, 6], [Property: Character.IsDeleted (bool) Required, 7], [Property: Character.ModifiedTime (DateTime) Required ValueGenerated.OnAdd, 8], [Property: Character.Name (string) Required ValueGenerated.OnAdd, 9], [Property: Character.PolyCount (int?), 10], [Property: Character.PublicForBackgroundDancing (bool) Required, 11], [Property: Character.PublicForCreation (bool) Required, 12], [Property: Character.ReadinessId (long) Required FK Index, 13], [Property: Character.Size (long?), 14], [Property: Character.SortOrder (int) Required, 15], [Property: Character.UploaderUserId (long) Required FK Index ValueGenerated.OnAdd, 16], [Property: Character.Version (Guid) Required, 17] }
+        SELECT f.Id, f.CharacterStyleId, f.CreatedTime, f.FilesInfo, f.GenderId, f.GroupId, f.IsDefault, f.IsDeleted, f.ModifiedTime, f.Name, f.PolyCount, f.PublicForBackgroundDancing, f.PublicForCreation, f.ReadinessId, f.Size, f.SortOrder, f.UploaderUserId, f.Version
+        FROM with ins as (
+    insert into "Character" ("GenderId",
+                             "CharacterStyleId",
+                             "GroupId",
+                             "Name",
+                             "FilesInfo",
+                             "PublicForCreation",
+                             "PublicForBackgroundDancing",
+                             "Size",
+                             "PolyCount",
+                             "IsDefault",
+                             "SortOrder")
+        values (1,
+                1,
+                189838,
+                'character-189838',
+                '[]'::json,
+                false,
+                false,
+                10100,
+                2003,
+                true,
+                1)
+        returning *),
+     update_main_character as (
+         update "User"
+             set "MainCharacterId" = (select "Id" from ins)
+             where "MainGroupId" in (select "GroupId"
+                                     from ins
+                                     where "IsDefault" = true))
+select *
+from ins), 
+    null, 
+    List&lt;string&gt; { "Id", "CharacterStyleId", "CreatedTime", "FilesInfo", "GenderId", "GroupId", "IsDefault", "IsDeleted", "ModifiedTime", "Name", "PolyCount", "PublicForBackgroundDancing", "PublicForCreation", "ReadinessId", "Size", "SortOrder", "UploaderUserId", "Version" }, 
+    Func&lt;QueryContext, DbDataReader, int[], Character&gt;, 
+    Frever.Common.IntegrationTesting.TestReadWriteDbContext, 
+    False, 
+    False, 
+    True
+)'
+Debug [20103]: Creating DbCommand for 'ExecuteReader'.
+Debug [20104]: Created DbCommand for 'ExecuteReader' (0ms).
+Debug [20106]: Initialized DbCommand for 'ExecuteReader' (0ms).
+Debug [20100]: Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='60']
+with ins as (
+    insert into "Character" ("GenderId",
+                             "CharacterStyleId",
+                             "GroupId",
+                             "Name",
+                             "FilesInfo",
+                             "PublicForCreation",
+                             "PublicForBackgroundDancing",
+                             "Size",
+                             "PolyCount",
+                             "IsDefault",
+                             "SortOrder")
+        values (1,
+                1,
+                189838,
+                'character-189838',
+                '[]'::json,
+                false,
+                false,
+                10100,
+                2003,
+                true,
+                1)
+        returning *),
+     update_main_character as (
+         update "User"
+             set "MainCharacterId" = (select "Id" from ins)
+             where "MainGroupId" in (select "GroupId"
+                                     from ins
+                                     where "IsDefault" = true))
+select *
+from ins
+Information [20101]: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+with ins as (
+    insert into "Character" ("GenderId",
+                             "CharacterStyleId",
+                             "GroupId",
+                             "Name",
+                             "FilesInfo",
+                             "PublicForCreation",
+                             "PublicForBackgroundDancing",
+                             "Size",
+                             "PolyCount",
+                             "IsDefault",
+                             "SortOrder")
+        values (1,
+                1,
+                189838,
+                'character-189838',
+                '[]'::json,
+                false,
+                false,
+                10100,
+                2003,
+                true,
+                1)
+        returning *),
+     update_main_character as (
+         update "User"
+             set "MainCharacterId" = (select "Id" from ins)
+             where "MainGroupId" in (select "GroupId"
+                                     from ins
+                                     where "IsDefault" = true))
+select *
+from ins
+Debug [10806]: Context 'TestReadWriteDbContext' started tracking 'Character' entity with key '{Id: 305081}'.
+Debug [20301]: Closing data reader to 'frevertest' on server 'tcp://postgres-frever-it:5432'.
+Debug [20300]: A data reader for 'frevertest' on server 'tcp://postgres-frever-it:5432' is being disposed after spending 0ms reading results.
+Debug [10111]: Compiling query expression: 
+'DbSet&lt;Character&gt;().FromSql(with ins as (
+    insert into "Character" ("GenderId",
+                             "CharacterStyleId",
+                             "GroupId",
+                             "Name",
+                             "FilesInfo",
+                             "PublicForCreation",
+                             "PublicForBackgroundDancing",
+                             "Size",
+                             "PolyCount",
+                             "IsDefault",
+                             "SortOrder")
+        values (1,
+                1,
+                189839,
+                'character-189839',
+                '[]'::json,
+                false,
+                false,
+                10100,
+                2003,
+                true,
+                1)
+        returning *),
+     update_main_character as (
+         update "User"
+             set "MainCharacterId" = (select "Id" from ins)
+             where "MainGroupId" in (select "GroupId"
+                                     from ins
+                                     where "IsDefault" = true))
+select *
+from ins, __p_0)
+'
+Debug [10107]: Generated query execution expression: 
+'queryContext =&gt; new FromSqlQueryingEnumerable&lt;Character&gt;(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -&gt; Dictionary&lt;IProperty, int&gt; { [Property: Character.Id (long) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Character.CharacterStyleId (long) Required FK Index, 1], [Property: Character.CreatedTime (DateTime) Required ValueGenerated.OnAdd, 2], [Property: Character.Files (List&lt;FileInfo&gt;), 3], [Property: Character.GenderId (long) Required FK Index, 4], [Property: Character.GroupId (long) Required FK Index, 5], [Property: Character.IsDefault (bool) Required, 6], [Property: Character.IsDeleted (bool) Required, 7], [Property: Character.ModifiedTime (DateTime) Required ValueGenerated.OnAdd, 8], [Property: Character.Name (string) Required ValueGenerated.OnAdd, 9], [Property: Character.PolyCount (int?), 10], [Property: Character.PublicForBackgroundDancing (bool) Required, 11], [Property: Character.PublicForCreation (bool) Required, 12], [Property: Character.ReadinessId (long) Required FK Index, 13], [Property: Character.Size (long?), 14], [Property: Character.SortOrder (int) Required, 15], [Property: Character.UploaderUserId (long) Required FK Index ValueGenerated.OnAdd, 16], [Property: Character.Version (Guid) Required, 17] }
+        SELECT f.Id, f.CharacterStyleId, f.CreatedTime, f.FilesInfo, f.GenderId, f.GroupId, f.IsDefault, f.IsDeleted, f.ModifiedTime, f.Name, f.PolyCount, f.PublicForBackgroundDancing, f.PublicForCreation, f.ReadinessId, f.Size, f.SortOrder, f.UploaderUserId, f.Version
+        FROM with ins as (
+    insert into "Character" ("GenderId",
+                             "CharacterStyleId",
+                             "GroupId",
+                             "Name",
+                             "FilesInfo",
+                             "PublicForCreation",
+                             "PublicForBackgroundDancing",
+                             "Size",
+                             "PolyCount",
+                             "IsDefault",
+                             "SortOrder")
+        values (1,
+                1,
+                189839,
+                'character-189839',
+                '[]'::json,
+                false,
+                false,
+                10100,
+                2003,
+                true,
+                1)
+        returning *),
+     update_main_character as (
+         update "User"
+             set "MainCharacterId" = (select "Id" from ins)
+             where "MainGroupId" in (select "GroupId"
+                                     from ins
+                                     where "IsDefault" = true))
+select *
+from ins), 
+    null, 
+    List&lt;string&gt; { "Id", "CharacterStyleId", "CreatedTime", "FilesInfo", "GenderId", "GroupId", "IsDefault", "IsDeleted", "ModifiedTime", "Name", "PolyCount", "PublicForBackgroundDancing", "PublicForCreation", "ReadinessId", "Size", "SortOrder", "UploaderUserId", "Version" }, 
+    Func&lt;QueryContext, DbDataReader, int[], Character&gt;, 
+    Frever.Common.IntegrationTesting.TestReadWriteDbContext, 
+    False, 
+    False, 
+    True
+)'
+Debug [20103]: Creating DbCommand for 'ExecuteReader'.
+Debug [20104]: Created DbCommand for 'ExecuteReader' (0ms).
+Debug [20106]: Initialized DbCommand for 'ExecuteReader' (0ms).
+Debug [20100]: Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='60']
+with ins as (
+    insert into "Character" ("GenderId",
+                             "CharacterStyleId",
+                             "GroupId",
+                             "Name",
+                             "FilesInfo",
+                             "PublicForCreation",
+                             "PublicForBackgroundDancing",
+                             "Size",
+                             "PolyCount",
+                             "IsDefault",
+                             "SortOrder")
+        values (1,
+                1,
+                189839,
+                'character-189839',
+                '[]'::json,
+                false,
+                false,
+                10100,
+                2003,
+                true,
+                1)
+        returning *),
+     update_main_character as (
+         update "User"
+             set "MainCharacterId" = (select "Id" from ins)
+             where "MainGroupId" in (select "GroupId"
+                                     from ins
+                                     where "IsDefault" = true))
+select *
+from ins
+Information [20101]: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+with ins as (
+    insert into "Character" ("GenderId",
+                             "CharacterStyleId",
+                             "GroupId",
+                             "Name",
+                             "FilesInfo",
+                             "PublicForCreation",
+                             "PublicForBackgroundDancing",
+                             "Size",
+                             "PolyCount",
+                             "IsDefault",
+                             "SortOrder")
+        values (1,
+                1,
+                189839,
+                'character-189839',
+                '[]'::json,
+                false,
+                false,
+                10100,
+                2003,
+                true,
+                1)
+        returning *),
+     update_main_character as (
+         update "User"
+             set "MainCharacterId" = (select "Id" from ins)
+             where "MainGroupId" in (select "GroupId"
+                                     from ins
+                                     where "IsDefault" = true))
+select *
+from ins
+Debug [10806]: Context 'TestReadWriteDbContext' started tracking 'Character' entity with key '{Id: 305082}'.
+Debug [20301]: Closing data reader to 'frevertest' on server 'tcp://postgres-frever-it:5432'.
+Debug [20300]: A data reader for 'frevertest' on server 'tcp://postgres-frever-it:5432' is being disposed after spending 0ms reading results.
+Debug [10111]: Compiling query expression: 
+'DbSet&lt;Character&gt;().FromSql(with ins as (
+    insert into "Character" ("GenderId",
+                             "CharacterStyleId",
+                             "GroupId",
+                             "Name",
+                             "FilesInfo",
+                             "PublicForCreation",
+                             "PublicForBackgroundDancing",
+                             "Size",
+                             "PolyCount",
+                             "IsDefault",
+                             "SortOrder")
+        values (1,
+                1,
+                189840,
+                'character-189840',
+                '[]'::json,
+                false,
+                false,
+                10100,
+                2003,
+                true,
+                1)
+        returning *),
+     update_main_character as (
+         update "User"
+             set "MainCharacterId" = (select "Id" from ins)
+             where "MainGroupId" in (select "GroupId"
+                                     from ins
+                                     where "IsDefault" = true))
+select *
+from ins, __p_0)
+'
+Debug [10107]: Generated query execution expression: 
+'queryContext =&gt; new FromSqlQueryingEnumerable&lt;Character&gt;(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -&gt; Dictionary&lt;IProperty, int&gt; { [Property: Character.Id (long) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Character.CharacterStyleId (long) Required FK Index, 1], [Property: Character.CreatedTime (DateTime) Required ValueGenerated.OnAdd, 2], [Property: Character.Files (List&lt;FileInfo&gt;), 3], [Property: Character.GenderId (long) Required FK Index, 4], [Property: Character.GroupId (long) Required FK Index, 5], [Property: Character.IsDefault (bool) Required, 6], [Property: Character.IsDeleted (bool) Required, 7], [Property: Character.ModifiedTime (DateTime) Required ValueGenerated.OnAdd, 8], [Property: Character.Name (string) Required ValueGenerated.OnAdd, 9], [Property: Character.PolyCount (int?), 10], [Property: Character.PublicForBackgroundDancing (bool) Required, 11], [Property: Character.PublicForCreation (bool) Required, 12], [Property: Character.ReadinessId (long) Required FK Index, 13], [Property: Character.Size (long?), 14], [Property: Character.SortOrder (int) Required, 15], [Property: Character.UploaderUserId (long) Required FK Index ValueGenerated.OnAdd, 16], [Property: Character.Version (Guid) Required, 17] }
+        SELECT f.Id, f.CharacterStyleId, f.CreatedTime, f.FilesInfo, f.GenderId, f.GroupId, f.IsDefault, f.IsDeleted, f.ModifiedTime, f.Name, f.PolyCount, f.PublicForBackgroundDancing, f.PublicForCreation, f.ReadinessId, f.Size, f.SortOrder, f.UploaderUserId, f.Version
+        FROM with ins as (
+    insert into "Character" ("GenderId",
+                             "CharacterStyleId",
+                             "GroupId",
+                             "Name",
+                             "FilesInfo",
+                             "PublicForCreation",
+                             "PublicForBackgroundDancing",
+                             "Size",
+                             "PolyCount",
+                             "IsDefault",
+                             "SortOrder")
+        values (1,
+                1,
+                189840,
+                'character-189840',
+                '[]'::json,
+                false,
+                false,
+                10100,
+                2003,
+                true,
+                1)
+        returning *),
+     update_main_character as (
+         update "User"
+             set "MainCharacterId" = (select "Id" from ins)
+             where "MainGroupId" in (select "GroupId"
+                                     from ins
+                                     where "IsDefault" = true))
+select *
+from ins), 
+    null, 
+    List&lt;string&gt; { "Id", "CharacterStyleId", "CreatedTime", "FilesInfo", "GenderId", "GroupId", "IsDefault", "IsDeleted", "ModifiedTime", "Name", "PolyCount", "PublicForBackgroundDancing", "PublicForCreation", "ReadinessId", "Size", "SortOrder", "UploaderUserId", "Version" }, 
+    Func&lt;QueryContext, DbDataReader, int[], Character&gt;, 
+    Frever.Common.IntegrationTesting.TestReadWriteDbContext, 
+    False, 
+    False, 
+    True
+)'
+Debug [20103]: Creating DbCommand for 'ExecuteReader'.
+Debug [20104]: Created DbCommand for 'ExecuteReader' (0ms).
+Debug [20106]: Initialized DbCommand for 'ExecuteReader' (0ms).
+Debug [20100]: Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='60']
+with ins as (
+    insert into "Character" ("GenderId",
+                             "CharacterStyleId",
+                             "GroupId",
+                             "Name",
+                             "FilesInfo",
+                             "PublicForCreation",
+                             "PublicForBackgroundDancing",
+                             "Size",
+                             "PolyCount",
+                             "IsDefault",
+                             "SortOrder")
+        values (1,
+                1,
+                189840,
+                'character-189840',
+                '[]'::json,
+                false,
+                false,
+                10100,
+                2003,
+                true,
+                1)
+        returning *),
+     update_main_character as (
+         update "User"
+             set "MainCharacterId" = (select "Id" from ins)
+             where "MainGroupId" in (select "GroupId"
+                                     from ins
+                                     where "IsDefault" = true))
+select *
+from ins
+Information [20101]: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+with ins as (
+    insert into "Character" ("GenderId",
+                             "CharacterStyleId",
+                             "GroupId",
+                             "Name",
+                             "FilesInfo",
+                             "PublicForCreation",
+                             "PublicForBackgroundDancing",
+                             "Size",
+                             "PolyCount",
+                             "IsDefault",
+                             "SortOrder")
+        values (1,
+                1,
+                189840,
+                'character-189840',
+                '[]'::json,
+                false,
+                false,
+                10100,
+                2003,
+                true,
+                1)
+        returning *),
+     update_main_character as (
+         update "User"
+             set "MainCharacterId" = (select "Id" from ins)
+             where "MainGroupId" in (select "GroupId"
+                                     from ins
+                                     where "IsDefault" = true))
+select *
+from ins
+Debug [10806]: Context 'TestReadWriteDbContext' started tracking 'Character' entity with key '{Id: 305083}'.
+Debug [20301]: Closing data reader to 'frevertest' on server 'tcp://postgres-frever-it:5432'.
+Debug [20300]: A data reader for 'frevertest' on server 'tcp://postgres-frever-it:5432' is being disposed after spending 0ms reading results.
+Debug [10111]: Compiling query expression: 
+'DbSet&lt;Character&gt;().FromSql(select c.*,
+       (select max(ua."OccurredAt")
+        from "UserActivity" ua
+        where ua."GroupId" = c."GroupId"
+          and ua."ActionType" = 'Login') active_at
+from "Character" c
+where c."IsDeleted" = false
+  and c."ReadinessId" = 2
+  and exists (select 1 from "User" u where u."MainCharacterId" = c."Id")
+  and not exists (select 1 from "CharacterBakedView" bv where bv."CharacterId" = c."Id" and bv."CharacterVersion" = c."Version")
+order by c."PublicForBackgroundDancing" desc, active_at desc nulls last, random()
+limit 50, __p_0)
+'
+Debug [10107]: Generated query execution expression: 
+'queryContext =&gt; new FromSqlQueryingEnumerable&lt;Character&gt;(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -&gt; Dictionary&lt;IProperty, int&gt; { [Property: Character.Id (long) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Character.CharacterStyleId (long) Required FK Index, 1], [Property: Character.CreatedTime (DateTime) Required ValueGenerated.OnAdd, 2], [Property: Character.Files (List&lt;FileInfo&gt;), 3], [Property: Character.GenderId (long) Required FK Index, 4], [Property: Character.GroupId (long) Required FK Index, 5], [Property: Character.IsDefault (bool) Required, 6], [Property: Character.IsDeleted (bool) Required, 7], [Property: Character.ModifiedTime (DateTime) Required ValueGenerated.OnAdd, 8], [Property: Character.Name (string) Required ValueGenerated.OnAdd, 9], [Property: Character.PolyCount (int?), 10], [Property: Character.PublicForBackgroundDancing (bool) Required, 11], [Property: Character.PublicForCreation (bool) Required, 12], [Property: Character.ReadinessId (long) Required FK Index, 13], [Property: Character.Size (long?), 14], [Property: Character.SortOrder (int) Required, 15], [Property: Character.UploaderUserId (long) Required FK Index ValueGenerated.OnAdd, 16], [Property: Character.Version (Guid) Required, 17] }
+        SELECT f.Id, f.CharacterStyleId, f.CreatedTime, f.FilesInfo, f.GenderId, f.GroupId, f.IsDefault, f.IsDeleted, f.ModifiedTime, f.Name, f.PolyCount, f.PublicForBackgroundDancing, f.PublicForCreation, f.ReadinessId, f.Size, f.SortOrder, f.UploaderUserId, f.Version
+        FROM select c.*,
+       (select max(ua."OccurredAt")
+        from "UserActivity" ua
+        where ua."GroupId" = c."GroupId"
+          and ua."ActionType" = 'Login') active_at
+from "Character" c
+where c."IsDeleted" = false
+  and c."ReadinessId" = 2
+  and exists (select 1 from "User" u where u."MainCharacterId" = c."Id")
+  and not exists (select 1 from "CharacterBakedView" bv where bv."CharacterId" = c."Id" and bv."CharacterVersion" = c."Version")
+order by c."PublicForBackgroundDancing" desc, active_at desc nulls last, random()
+limit 50), 
+    null, 
+    List&lt;string&gt; { "Id", "CharacterStyleId", "CreatedTime", "FilesInfo", "GenderId", "GroupId", "IsDefault", "IsDeleted", "ModifiedTime", "Name", "PolyCount", "PublicForBackgroundDancing", "PublicForCreation", "ReadinessId", "Size", "SortOrder", "UploaderUserId", "Version" }, 
+    Func&lt;QueryContext, DbDataReader, int[], Character&gt;, 
+    Frever.Common.IntegrationTesting.TestReadWriteDbContext, 
+    False, 
+    False, 
+    True
+)'
+Debug [20103]: Creating DbCommand for 'ExecuteReader'.
+Debug [20104]: Created DbCommand for 'ExecuteReader' (0ms).
+Debug [20106]: Initialized DbCommand for 'ExecuteReader' (0ms).
+Debug [20100]: Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='60']
+select c.*,
+       (select max(ua."OccurredAt")
+        from "UserActivity" ua
+        where ua."GroupId" = c."GroupId"
+          and ua."ActionType" = 'Login') active_at
+from "Character" c
+where c."IsDeleted" = false
+  and c."ReadinessId" = 2
+  and exists (select 1 from "User" u where u."MainCharacterId" = c."Id")
+  and not exists (select 1 from "CharacterBakedView" bv where bv."CharacterId" = c."Id" and bv."CharacterVersion" = c."Version")
+order by c."PublicForBackgroundDancing" desc, active_at desc nulls last, random()
+limit 50
+Information [20101]: Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+select c.*,
+       (select max(ua."OccurredAt")
+        from "UserActivity" ua
+        where ua."GroupId" = c."GroupId"
+          and ua."ActionType" = 'Login') active_at
+from "Character" c
+where c."IsDeleted" = false
+  and c."ReadinessId" = 2
+  and exists (select 1 from "User" u where u."MainCharacterId" = c."Id")
+  and not exists (select 1 from "CharacterBakedView" bv where bv."CharacterId" = c."Id" and bv."CharacterVersion" = c."Version")
+order by c."PublicForBackgroundDancing" desc, active_at desc nulls last, random()
+limit 50
+Debug [20301]: Closing data reader to 'frevertest' on server 'tcp://postgres-frever-it:5432'.
+Debug [20300]: A data reader for 'frevertest' on server 'tcp://postgres-frever-it:5432' is being disposed after spending 0ms reading results.
+Debug [20103]: Creating DbCommand for 'ExecuteReader'.
+Debug [20104]: Created DbCommand for 'ExecuteReader' (0ms).
+Debug [20106]: Initialized DbCommand for 'ExecuteReader' (0ms).
+Debug [20100]: Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='60']
+select c.*,
+       (select max(ua."OccurredAt")
+        from "UserActivity" ua
+        where ua."GroupId" = c."GroupId"
+          and ua."ActionType" = 'Login') active_at
+from "Character" c
+where c."IsDeleted" = false
+  and c."ReadinessId" = 2
+  and exists (select 1 from "User" u where u."MainCharacterId" = c."Id")
+  and not exists (select 1 from "CharacterBakedView" bv where bv."CharacterId" = c."Id" and bv."CharacterVersion" = c."Version")
+order by c."PublicForBackgroundDancing" desc, active_at desc nulls last, random()
+limit 50
+Information [20101]: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+select c.*,
+       (select max(ua."OccurredAt")
+        from "UserActivity" ua
+        where ua."GroupId" = c."GroupId"
+          and ua."ActionType" = 'Login') active_at
+from "Character" c
+where c."IsDeleted" = false
+  and c."ReadinessId" = 2
+  and exists (select 1 from "User" u where u."MainCharacterId" = c."Id")
+  and not exists (select 1 from "CharacterBakedView" bv where bv."CharacterId" = c."Id" and bv."CharacterVersion" = c."Version")
+order by c."PublicForBackgroundDancing" desc, active_at desc nulls last, random()
+limit 50
+Debug [20301]: Closing data reader to 'frevertest' on server 'tcp://postgres-frever-it:5432'.
+Debug [20300]: A data reader for 'frevertest' on server 'tcp://postgres-frever-it:5432' is being disposed after spending 0ms reading results.
+Debug [20204]: Disposing transaction.
+Debug [20002]: Closing connection to database 'frevertest' on server 'tcp://postgres-frever-it:5432'.
+Debug [20003]: Closed connection to database 'frevertest' on server 'tcp://postgres-frever-it:5432' (0ms).</StdOut>
+      </Output>
+    </UnitTestResult>
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="Frever.Admin.Core.IntegrationTests.Features.Baking.CharacterBakingIntegrationTest.CharacterBakingTest" storage="/source/microservices/admin/frever.admin.core.integrationtests/bin/debug/net8.0/frever.admin.core.integrationtests.dll" id="2db3fec2-e524-0a07-b847-0425598a351b">
+      <Execution id="dc8fe7ff-fb99-42b4-bf59-71ed4ed7bb3b" />
+      <TestMethod codeBase="/source/Microservices/Admin/Frever.Admin.Core.IntegrationTests/bin/Debug/net8.0/Frever.Admin.Core.IntegrationTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Admin.Core.IntegrationTests.Features.Baking.CharacterBakingIntegrationTest" name="CharacterBakingTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="2db3fec2-e524-0a07-b847-0425598a351b" executionId="dc8fe7ff-fb99-42b4-bf59-71ed4ed7bb3b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.8.0+6438bb880a (64-bit .NET 8.0.6)
+[xUnit.net 00:00:00.08]   Discovering: Frever.Admin.Core.IntegrationTests
+[xUnit.net 00:00:00.11]   Discovered:  Frever.Admin.Core.IntegrationTests
+[xUnit.net 00:00:00.11]   Starting:    Frever.Admin.Core.IntegrationTests
+[xUnit.net 00:00:12.11]   Finished:    Frever.Admin.Core.IntegrationTests
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>

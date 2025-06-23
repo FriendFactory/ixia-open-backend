@@ -1,0 +1,103 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "volumes": [
+        {
+            "name": "cassandra-db",
+            "host": {
+                "sourcePath": "/var/app/current/cassandra-db"
+            }
+        }
+    ],
+    "containerDefinitions": [
+        {
+            "name": "cassandra",
+            "image": "cassandra:3.9",
+            "essential": true,
+            "memory": 8192,
+            "mountPoints": [
+                {
+                    "sourceVolume": "cassandra-db",
+                    "containerPath": "/var/lib/cassandra",
+                    "readOnly": false
+                }
+            ],
+            "portMappings": [
+                {
+                    "hostPort": 9042,
+                    "containerPort": 9042
+                }
+            ]
+        },
+        {
+            "name": "cassandra-schema",
+            "image": "jaegertracing/jaeger-cassandra-schema",
+            "essential": false,
+            "memory": 1024,
+            "links": [
+                "cassandra"
+            ],
+            "dependsOn": [
+                {
+                    "containerName": "cassandra",
+                    "condition": "START"
+                }
+            ]
+        },
+        {
+            "name": "jaeger-collector",
+            "image": "jaegertracing/jaeger-collector",
+            "command": [
+                "--cassandra.keyspace=jaeger_v1_dc1",
+                "--cassandra.servers=cassandra",
+                "--collector.zipkin.host-port=9411"
+            ],
+            "portMappings": [
+                {
+                    "hostPort": 14268,
+                    "containerPort": 14268
+                },
+                {
+                    "hostPort": 9411,
+                    "containerPort": 9411
+                }
+            ],
+            "essential": false,
+            "memory": 4096,
+            "links": [
+                "cassandra"
+            ],
+            "dependsOn": [
+                {
+                    "containerName": "cassandra-schema",
+                    "condition": "SUCCESS"
+                }
+            ]
+        },
+        {
+            "name": "jaeger-query",
+            "image": "jaegertracing/jaeger-query",
+            "command": [
+                "--cassandra.keyspace=jaeger_v1_dc1",
+                "--cassandra.servers=cassandra"
+            ],
+            "portMappings": [
+                {
+                    "hostPort": 16686,
+                    "containerPort": 16686
+                }
+            ],
+            "essential": true,
+            "memory": 2048,
+            "links": [
+                "cassandra",
+                "jaeger-collector"
+            ],
+            "dependsOn": [
+                {
+                    "containerName": "cassandra-schema",
+                    "condition": "SUCCESS"
+                }
+            ]
+        }
+    ]
+}

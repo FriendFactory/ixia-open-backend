@@ -1,0 +1,61 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: verdaccio
+  labels:
+    app: verdaccio
+data:
+  config.yaml: |-
+    #
+    # This is the config file used for the docker images.
+    # It allows all users to do anything, so don't use it on production systems.
+    #
+    # Do not configure host and port under `listen` in this file
+    # as it will be ignored when using docker.
+    # see https://github.com/verdaccio/verdaccio/blob/master/wiki/docker.md#docker-and-custom-port-configuration
+    #
+    # Look here for more config file examples:
+    # https://github.com/verdaccio/verdaccio/tree/master/conf
+    #
+
+    # path to a directory with all packages
+    storage: /verdaccio/storage
+    # path to a directory with plugins to include
+    plugins: /verdaccio/plugins
+
+    web:
+      # WebUI is enabled as default, if you want disable it, just uncomment this line
+      #enable: false
+      title: Verdaccio
+    url_prefix: https://package-registry.frever-api.com
+
+    auth:
+      htpasswd:
+        file: /verdaccio/conf/htpasswd
+        # Maximum amount of users allowed to register, defaults to "+infinity".
+        # You can set this to -1 to disable registration.
+        max_users: 2
+
+    # a list of other known repositories we can talk to
+    uplinks:
+      npmjs:
+        url: https://registry.npmjs.org/
+
+    packages:
+      '**':
+        access: $authenticated
+        publish: frever
+        proxy: npmjs
+        
+    # To use `npm audit` uncomment the following section
+    middlewares:
+      audit:
+        enabled: true
+
+    # log settings
+    logs:
+      - {type: stdout, format: pretty, level: http}
+      #- {type: file, path: verdaccio.log, level: info}
+  htpasswd: |-
+    frever:$2y$05$wy2eDvwNq6E.csOfQ7R7HuO0PML1jd2M317vLC2VB352O80mIRlBa
+    frever-reader:$2y$05$R.eiDSCR97.d0F4CN2GvlefBXTDb0MdIF.gzlMqghuWTzGVqKjoSm

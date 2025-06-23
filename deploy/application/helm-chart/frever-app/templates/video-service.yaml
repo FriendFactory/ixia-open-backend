@@ -1,0 +1,179 @@
+{{- $videoService := (merge (dict "Service" "video" "Dll" "Frever.Video.Api.dll" ) . ) -}}
+{{- include "frever-app.net-service-ingress" $videoService }}
+---
+{{- include "frever-app.net-service-service" $videoService }}
+---
+{{- include "frever-app.net-horizontal-pod-autoscaler" $videoService }}
+---
+{{- include "frever-app.net-service-deployment" $videoService }}
+            - name: AuthenticationApiName
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: auth.apiName
+            - name: AuthenticationServerUrl
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: auth.authServer
+            - name: MainServerUrl
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: svc.main
+            - name: VideoFeedServiceUrl
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: svc.videoFeed
+            - name: ConvertJobRoleArn
+              value: "xxxxxxxxx"
+            - name: ConvertJobTemplateName
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: videoConversion.mediaConverterJobName
+            - name: VideoThumbnailJobTemplateName
+              value: "video-thumbnail"
+            - name: TranscodingJobTemplateName
+              value: "ExtractMp3FromVideo"
+            - name: DestinationVideoS3BucketName
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: aws.bucket
+            - name: EmailSending__FromEmail
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: email.info
+            - name: VideoConversionSqsQueue
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: videoConversion.sqsQueue
+            - name: ConversionJobSqsQueue
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: videoConversion.createJobQueue
+            - name: MediaConverterQueue
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: videoConversion.mediaConverterQueue
+            - name: ExtractAudioQueue
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: videoConversion.extractAudioQueue
+            - name: IngestVideoS3BucketName
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: videoConversion.ingestBucket
+            - name: NotificationServerUrl
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: svc.notification
+            - name: RunMigrations
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: runMigrations
+            - name: TrendingVideoListLength
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: video.trendingVideoListLength
+            - name: VideoPlayerPageUrl
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: video.videoPlayerPageUrl
+            - name: VideoReportNotificationEmail
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: email.videoReportNotification
+            - name: SwaggerUserName
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: swagger.username
+                  optional: true
+            - name: SwaggerPassword
+              valueFrom:
+                secretKeyRef:
+                  name: ssm-secrets
+                  key: swagger.password
+                  optional: true
+            - name: NewFeedViewsExpirationDays
+              value: "30"
+            - name: OnboardingOptions__LikeVideoTaskSortOrder
+              value: "2"
+            - name: OnboardingOptions__FreverOfficialEmail
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: onboardingSettings.freverOfficialEmail
+            - name: OnboardingOptions__RequiredVideoCount
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: onboardingSettings.requiredVideoCount
+            - name: OnboardingOptions__RequiredTaskCount
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: onboardingSettings.requiredTaskCount
+            - name: Templates__ThumbnailConversionJob
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: template.conversionJob
+            - name: Templates__UserTemplatesSubCategoryName
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: templateAutoCreation.templateSubcategoryName
+            - name: Templates__ConversionJobRoleArn
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: template.conversionJobRoleArn
+            - name: MusicProviderOAuthSettings__OAuthConsumerKey
+              valueFrom:
+                secretKeyRef:
+                  name: ssm-secrets
+                  key: musicProvider.OAuth.consumerKey
+            - name: MusicProviderOAuthSettings__OAuthConsumerSecret
+              valueFrom:
+                secretKeyRef:
+                  name: ssm-secrets
+                  key: musicProvider.OAuth.consumerSecret
+            - name: MusicProviderApiSettings__TrackDetailsUrl
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: musicProviderApiSettings.trackDetailsUrl
+            - name: MusicProviderApiSettings__ApiUrl
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: musicProviderApiSettings.apiUrl
+            - name: MusicProviderApiSettings__CountryCode
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: musicProviderApiSettings.countryCode
+            - name: MusicProviderApiSettings__UsageTypes
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: musicProviderApiSettings.usageTypes
+            - name: MusicProviderOAuthSettings__OAuthSignatureMethod
+              value: "HMAC-SHA1"
+            - name: MusicProviderOAuthSettings__OAuthVersion
+              value: "1.0"

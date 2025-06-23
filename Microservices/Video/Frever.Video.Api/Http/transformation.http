@@ -1,0 +1,199 @@
+@auth_server=http://localhost:5002
+#@auth_server=https://dev.frever-api.com/latest/auth
+
+### Authenticate
+# @name auth
+POST {{auth_server}}/connect/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=password&username=horun@gmail.com&password=123456&client_id=Server&scope=friends_factory.creators_api+offline_access&client_secret=g'KpB#[_(<KP;Et25]a__J*mh;?(=h%NPd('=Z9KpC2xQ.F-E5{Sd>*AtK!t!t9-_Zq9-{.r
+
+###
+@asset_server={{auth.response.body.asset_server}}
+@admin_server={{auth.response.body.assetmanager_server}}
+@client_server={{auth.response.body.client_server}}
+@video_server={{auth.response.body.video_server}}
+
+###
+POST {{admin_server}}api/cache/reset
+Authorization: Bearer {{auth.response.body.access_token}}
+
+
+### MAKE UP
+
+###
+GET {{video_server}}make-up
+Authorization: Bearer {{auth.response.body.access_token}}
+
+###
+GET {{video_server}}make-up/category
+Authorization: Bearer {{auth.response.body.access_token}}
+
+###
+GET {{asset_server}}api/Cdn/MakeUp/1/MainFile/iOS/20250212T104007U474f9426a30d42a5aaf6bdb916ad3674
+Authorization: Bearer {{auth.response.body.access_token}}
+
+
+
+### PHOTO TRANSFORMATION (SINGLE RESULT)
+
+###
+POST {{video_server}}photo/transformation/text-to-image
+Authorization: Bearer {{auth.response.body.access_token}}
+Content-Type: application/json
+
+{
+    "promptText": "girl on the beach"
+}
+
+###
+POST {{video_server}}photo/transformation/image-to-image
+Authorization: Bearer {{auth.response.body.access_token}}
+Content-Type: multipart/form-data; boundary=8c25ed5e-a43e-41da-ba90-3fac45402d75
+
+--8c25ed5e-a43e-41da-ba90-3fac45402d75
+Content-Disposition: form-data; name="files"; filename="1.jpg"
+
+< 1.jpg
+--8c25ed5e-a43e-41da-ba90-3fac45402d75
+Content-Disposition: form-data; name="PromptText"
+
+text
+--8c25ed5e-a43e-41da-ba90-3fac45402d75--
+
+###
+POST {{video_server}}photo/transformation/style
+Authorization: Bearer {{auth.response.body.access_token}}
+Content-Type: multipart/form-data; boundary=8c25ed5e-a43e-41da-ba90-3fac45402d75
+
+--8c25ed5e-a43e-41da-ba90-3fac45402d75
+Content-Disposition: form-data; name="inputFile"; filename="InputImage.jpeg"
+
+< InputImage.jpeg
+--8c25ed5e-a43e-41da-ba90-3fac45402d75
+Content-Disposition: form-data; name="sourceFile"; filename="SourceImage.png"
+
+< SourceImage.png
+--8c25ed5e-a43e-41da-ba90-3fac45402d75--
+
+###
+POST {{video_server}}photo/transformation/wardrobe
+Authorization: Bearer {{auth.response.body.access_token}}
+Content-Type: multipart/form-data; boundary=8c25ed5e-a43e-41da-ba90-3fac45402d75
+
+--8c25ed5e-a43e-41da-ba90-3fac45402d75
+Content-Disposition: form-data; name="inputFile"; filename="InputImage.jpg"
+
+< InputImage.jpg
+--8c25ed5e-a43e-41da-ba90-3fac45402d75
+Content-Disposition: form-data; name="sourceFile"; filename="SourceImage.jpg"
+
+< SourceImage.jpg
+--8c25ed5e-a43e-41da-ba90-3fac45402d75--
+
+###
+POST {{video_server}}photo/transformation/make-up/149?key=photo-ace-plus%7C132fb899-55b8-4e45-8d84-819ca7044b49%7Cfrever-dev%7CAi-Photo%2F16%2F79fac9029e844c1caa6b5a8c3306bf101.jpg
+Authorization: Bearer {{auth.response.body.access_token}}
+
+###
+POST {{video_server}}photo/transformation/lip-sync
+Authorization: Bearer {{auth.response.body.access_token}}
+Content-Type: application/json
+
+{
+    "generatedImageId": 30,
+    "songId": 116
+}
+
+###
+POST {{video_server}}photo/transformation/background/audio
+Authorization: Bearer {{auth.response.body.access_token}}
+Content-Type: application/json
+
+{
+    "generatedImageId": 30,
+    "promptText": "Say something"
+}
+
+###
+GET {{video_server}}photo/transformation/result/urls?key=flux-prompt%7C%7C%7C87634d3daaba430492e5f3ef750ec628.jpg
+Authorization: Bearer {{auth.response.body.access_token}}
+
+### VIDEO TRANSFORMATION
+
+###
+POST {{video_server}}style-transformation/6871/lip-sync
+Authorization: Bearer {{auth.response.body.access_token}}
+Content-Type: application/json
+
+{
+    "externalSongId": 29305484
+}
+
+###
+POST {{video_server}}video/transformation/lip-sync
+Authorization: Bearer {{auth.response.body.access_token}}
+Content-Type: application/json
+
+{
+    "generatedVideoId": 28,
+    "songId": 116
+}
+
+###
+POST {{video_server}}video/transformation/background/audio
+Authorization: Bearer {{auth.response.body.access_token}}
+Content-Type: application/json
+
+{
+    "generatedVideoId": 28,
+    "promptText": "Say something"
+}
+
+###
+POST {{video_server}}video/transformation/music-gen
+Authorization: Bearer {{auth.response.body.access_token}}
+Content-Type: application/json
+
+{
+    "generatedVideoId": 100,
+    "promptText": "bug band jazz",
+    "context": 2
+}
+
+###
+POST {{video_server}}video/transformation/sfx
+Authorization: Bearer {{auth.response.body.access_token}}
+Content-Type: application/json
+
+{
+    "videoId": 32332,
+    "promptText": "text prompt",
+    "audioPromptMode": 1,
+    "audioAudioMode": 1
+}
+
+###
+GET {{video_server}}video/transformation/result/urls?key=video-live-portrait%7Cf1253310-2157-4805-af19-37f7c24b3e7c%7Cfrever-dev%7Cixia%2Ffiles%2FAiGeneratedVideo%2F28%2Fmain%2F20250319_011429_99a1a16760244acb8066ac40398483e8%2FThumbnail_content.mp4
+Authorization: Bearer {{auth.response.body.access_token}}
+
+### PixVerse
+
+###
+POST {{video_server}}video/transformation/pix-verse
+Authorization: Bearer {{auth.response.body.access_token}}
+Content-Type: multipart/form-data; boundary=8c25ed5e-a43e-41da-ba90-3fac45402d75
+
+--8c25ed5e-a43e-41da-ba90-3fac45402d75
+Content-Disposition: form-data; name="Prompt"
+
+one person hike in snow mountains
+--8c25ed5e-a43e-41da-ba90-3fac45402d75
+Content-Disposition: form-data; name="Duration"
+
+5
+--8c25ed5e-a43e-41da-ba90-3fac45402d75--
+
+###
+GET {{video_server}}video/transformation/pix-verse/result/330505926902272
+Authorization: Bearer {{auth.response.body.access_token}}

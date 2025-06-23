@@ -1,0 +1,183 @@
+@auth_server=http://localhost:5002
+#@auth_server=https://dev.frever-api.com/latest/auth
+
+### Authenticate
+# @name auth
+POST {{auth_server}}/connect/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=password&username=horun@gmail.com&password=123456&client_id=Server&scope=friends_factory.creators_api+offline_access&client_secret=g'KpB#[_(<KP;Et25]a__J*mh;?(=h%NPd('=Z9KpC2xQ.F-E5{Sd>*AtK!t!t9-_Zq9-{.r
+
+###
+@asset_server={{auth.response.body.asset_server}}
+@admin_server={{auth.response.body.assetmanager_server}}
+@client_server={{auth.response.body.client_server}}
+
+###
+POST {{admin_server}}api/cache/reset
+Authorization: Bearer {{auth.response.body.access_token}}
+
+### IMAGE
+
+###
+# @name initUploading
+GET {{client_server}}api/file/uploading-url/jpeg
+Authorization: Bearer {{auth.response.body.access_token}}
+
+###
+PUT {{initUploading.response.body.uploadUrl}}
+
+< InputImage.jpeg
+
+###
+POST {{client_server}}api/ai/image/generation/text-to-image
+Authorization: Bearer {{auth.response.body.access_token}}
+Content-Type: application/json
+
+{
+    "promptText": "..."
+}
+
+###
+POST {{client_server}}api/ai/image/generation/image-to-image
+Authorization: Bearer {{auth.response.body.access_token}}
+Content-Type: application/json
+
+{
+    "promptText": "...",
+    "fileUrls": {
+        "input1": "..."
+    }
+}
+
+###
+POST {{client_server}}api/ai/image/generation/style
+Authorization: Bearer {{auth.response.body.access_token}}
+Content-Type: application/json
+
+{
+    "aiGeneratedContentId": 2979,
+    "fileUrls": {
+        "style": "...",
+    }
+}
+
+###
+POST {{client_server}}api/ai/image/generation/wardrobe
+Authorization: Bearer {{auth.response.body.access_token}}
+Content-Type: application/json
+
+{
+    "wardrobeModeId": 1,
+    "fileUrls": {
+        "target": "...",
+        "outfit": "...",
+    }
+}
+
+###
+POST {{client_server}}api/ai/image/generation/makeup/13
+Authorization: Bearer {{auth.response.body.access_token}}
+Content-Type: application/json
+
+{
+    "aiGeneratedContentId": 2975
+}
+
+###
+POST {{client_server}}api/ai/image/generation/lip-sync
+Authorization: Bearer {{auth.response.body.access_token}}
+Content-Type: application/json
+
+{
+    "aiGeneratedContentId": 2980,
+    "songId": 116
+}
+
+###
+POST {{client_server}}api/ai/image/generation/background/audio
+Authorization: Bearer {{auth.response.body.access_token}}
+Content-Type: application/json
+
+{
+    "aiGeneratedContentId": 2943,
+    "promptText": "..."
+}
+
+###
+GET {{client_server}}api/ai/image/generation/result?key=flux-prompt|97f3ab98-564e-4a72-8ebd-dfc04e0d75ab||
+Authorization: Bearer {{auth.response.body.access_token}}
+
+### VIDEO
+
+###
+POST {{client_server}}api/ai/video/generation/lip-sync
+Authorization: Bearer {{auth.response.body.access_token}}
+Content-Type: application/json
+
+{
+    "aiGeneratedContentId": 2980,
+    "songId": 116
+}
+
+###
+POST {{client_server}}api/ai/video/generation/background/audio
+Authorization: Bearer {{auth.response.body.access_token}}
+Content-Type: application/json
+
+{
+    "aiGeneratedContentId": 28,
+    "promptText": "..."
+}
+
+###
+POST {{client_server}}api/ai/video/generation/music-gen
+Authorization: Bearer {{auth.response.body.access_token}}
+Content-Type: application/json
+
+{
+    "aiGeneratedContentId": 2966,
+    "promptText": "...",
+    "context": 2
+}
+
+###
+POST {{client_server}}api/ai/video/generation/sfx
+Authorization: Bearer {{auth.response.body.access_token}}
+Content-Type: application/json
+
+{
+    "aiGeneratedContentId": 32332,
+    "promptText": "...",
+    "audioPromptMode": 1,
+    "audioAudioMode": 1
+}
+
+###
+GET {{client_server}}api/ai/video/generation/result/urls?key=video-live-portrait%7Cf1253310-2157-4805-af19-37f7c24b3e7c%7Cfrever-dev%7Cixia%2Ffiles%2FAiGeneratedVideo%2F28%2Fmain%2F20250319_011429_99a1a16760244acb8066ac40398483e8%2FThumbnail_content.mp4
+Authorization: Bearer {{auth.response.body.access_token}}
+
+### PixVerse
+
+###
+POST {{client_server}}api/ai/video/generation/pix-verse
+Authorization: Bearer {{auth.response.body.access_token}}
+Content-Type: multipart/form-data; boundary=8c25ed5e-a43e-41da-ba90-3fac45402d75
+
+--8c25ed5e-a43e-41da-ba90-3fac45402d75
+Content-Disposition: form-data; name="Prompt"
+
+...
+--8c25ed5e-a43e-41da-ba90-3fac45402d75
+Content-Disposition: form-data; name="File"; filename="InputImage.jpeg"
+
+< InputImage.jpeg
+--8c25ed5e-a43e-41da-ba90-3fac45402d75
+Content-Disposition: form-data; name="Duration"
+
+5
+--8c25ed5e-a43e-41da-ba90-3fac45402d75--
+
+###
+GET {{client_server}}api/ai/video/generation/pix-verse/result/330505926902272
+Authorization: Bearer {{auth.response.body.access_token}}

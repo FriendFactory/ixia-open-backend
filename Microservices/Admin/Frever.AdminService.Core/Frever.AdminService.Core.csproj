@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <Sdk Name="Microsoft.Build.CentralPackageVersions" Version="2.1.3"/>
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <LangVersion>default</LangVersion>
+        <Configurations>Debug;Release;DebugValidationGen</Configurations>
+        <RootNamespace>Frever.AdminService.Core</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Remove="Validation\Generated\.gitignore"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AWSSDK.CloudFront"/>
+        <PackageReference Include="AWSSDK.Core"/>
+        <PackageReference Include="AWSSDK.Extensions.NETCore.Setup"/>
+        <PackageReference Include="AWSSDK.MediaConvert"/>
+        <PackageReference Include="AWSSDK.S3"/>
+        <PackageReference Include="AWSSDK.SQS"/>
+        <PackageReference Include="AWSSDK.SecurityToken"/>
+        <PackageReference Include="CsvHelper"/>
+        <PackageReference Include="FluentValidation"/>
+        <PackageReference Include="Microsoft.AspNetCore.OData" />
+        <PackageReference Include="Newtonsoft.Json"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\Common\Common.Infrastructure\Common.Infrastructure.csproj" />
+        <ProjectReference Include="..\..\..\Microservices\Assets\AssetServer.Shared\AssetServer.Shared.csproj"/>
+        <ProjectReference Include="..\..\..\Microservices\Authorization\AuthServer.Permissions\AuthServer.Permissions.csproj"/>
+        <ProjectReference Include="..\..\..\Microservices\Authorization\AuthServerShared\AuthServerShared.csproj"/>
+        <ProjectReference Include="..\..\..\Shared\Frever.Cache\Frever.Cache.csproj"/>
+        <ProjectReference Include="..\..\..\Shared\Frever.Shared.MainDb\Frever.Shared.MainDb.csproj"/>
+        <ProjectReference Include="..\..\..\Utils\AssetUrlGenerator\AssetStorage.PathProviding.csproj"/>
+        <ProjectReference Include="..\..\Authorization\AuthServer.DataAccess\AuthServer.DataAccess.csproj"/>
+        <ProjectReference Include="..\..\Client\Frever.Client.Core\Frever.Client.Core.csproj"/>
+        <ProjectReference Include="..\..\Client\Frever.Client.Shared\Frever.Client.Shared.csproj"/>
+        <ProjectReference Include="..\..\NotificationService\NotificationService.Client\NotificationService.Client.csproj"/>
+        <ProjectReference Include="..\..\Video\Frever.Video.Contract\Frever.Video.Contract.csproj"/>
+        <ProjectReference Include="..\..\Video\Frever.Video.Shared\Frever.Video.Shared.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="Installers\BackgroundServicesInstaller.cs" />
+    </ItemGroup>
+
+</Project>

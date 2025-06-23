@@ -1,0 +1,30 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: load-test-controller
+spec:
+  backoffLimit: 0
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: load-test-controller
+        image: "722913253728.dkr.ecr.eu-central-1.amazonaws.com/load-test-controller:latest"
+        imagePullPolicy: Always
+        env:
+          - name: "AWS_ACCESS_KEY_ID"
+            value: "xxxxxxxxx"
+          - name: "AWS_SECRET_ACCESS_KEY"
+            value: "xxxxxxxxx"
+          - name: "AWS_DEFAULT_REGION"
+            value: "eu-central-1"
+        args:
+          - "AllForOldApi.jmx"
+          - "-Gthreads=5"
+          - "-Giterations=1"
+          - "-Gserver=content-stage.frever-api.com"
+          - "-Genv=content-stage"
+        ports:
+          - name: rmi
+            containerPort: 1099
+            hostPort: 1099

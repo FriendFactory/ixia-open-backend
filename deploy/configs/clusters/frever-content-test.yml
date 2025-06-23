@@ -1,0 +1,49 @@
+serverInfo:
+  cpuPerNode: 1600
+  memoryPerNode: 3800
+settings:
+  client:
+    bridgeMinVersion: "1.8.109"
+  db:
+    main:
+      server: "xxxxxxxxx"
+      user: "FFAdmin"
+      password: "xxxxxxxxx"
+      db: "xxxxxxxxx"
+    auth:
+      server: "xxxxxxxxx"
+      user: "FFAdmin"
+      password: "xxxxxxxxx"
+      db: "xxxxxxxxx"
+    video:
+      server: "xxxxxxxxx"
+      user: "FFAdmin"
+      password: "xxxxxxxxx"
+      db: "xxxxxxxxx"
+  aws:
+    region: "eu-central-1"
+    bucket: "xxxxxxxxx"
+    queue: "xxxxxxxxx"
+  svc:
+    machineLearning: xxxxxxxxx
+  environmentType: "test"
+  videoConversion:
+    ingestBucket: "video-source-content-test"
+    sqsQueue: "xxxxxxxxx"
+    mediaConverterQueue: "content-test"
+    mediaConverterJobName: "video-conversion"
+  oneSignal:
+    androidChannelId: "xxxxxxxxx"
+  jaeger:
+    host: xxxxxxxxx
+  hardDeleteAccountSettings:
+    environmentInfo: "Content-Test"
+  sns:
+    videoTemplateMappingTopicArn: "xxxxxxxxx"
+    groupChangedTopicArn: "xxxxxxxxx"
+    templateUpdatedTopicArn: "xxxxxxxxx"
+    groupDeletedTopicArn: "xxxxxxxxx"
+    videoUnlikedTopicArn: "xxxxxxxxx"
+    groupUnfollowedTopicArn: "xxxxxxxxx"
+    groupFollowedTopicArn: "xxxxxxxxx"
+    outfitChangedTopicArn: "xxxxxxxxx"

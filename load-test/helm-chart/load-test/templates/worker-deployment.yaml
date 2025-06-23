@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: worker-deployment
+spec:
+  selector:
+    matchLabels:
+      app: load-test-worker
+  replicas: {{ .Values.workerCount }}
+  revisionHistoryLimit: 1
+  template:
+    metadata:
+      labels:
+        app: load-test-worker
+    spec:
+      containers:
+        - name: load-test-worker-container
+          image: "722913253728.dkr.ecr.eu-central-1.amazonaws.com/load-test-worker:{{ .Values.imageLabel }}"
+          imagePullPolicy: Always
+          resources:
+            limits:
+              memory: "5G"
+              cpu: "0.2"
+          ports:
+            - name: rmi
+              containerPort: 1099

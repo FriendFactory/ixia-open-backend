@@ -1,0 +1,169 @@
+def APPSERVICE_EXISTS=0
+def CURRENT_VERSION="0"
+pipeline {
+    agent { label 'master' }
+
+    environment {
+        APP_ENV = 'dev'
+        KUBECONFIG = './deploy/environment/frever/kubeconfig_dev'
+    }
+
+    stages {
+        stage('Parameters'){
+            steps {
+                script {
+                properties([
+                        parameters([
+                            string(
+                                defaultValue: 'origin/development',
+                                description: 'Commit hash or branch name to build and deploy',
+                                name: 'BranchOrCommit',
+                                trim: true,
+                            ),
+                            [$class: 'ChoiceParameter',
+                                choiceType: 'PT_SINGLE_SELECT',
+                                description: 'Whether overwrite the release policy with the choice below?',
+                                filterLength: 1,
+                                filterable: false,
+                                name: 'OVERWRITE_RELEASE_POLICY',
+                                script: [
+                                    $class: 'GroovyScript',
+                                    script: [
+                                        classpath: [],
+                                        sandbox: false,
+                                        script: '''
+                                            if (System.getenv('APP_ENV').equals("content-prod")) {
+                                                return ['no']
+                                            }
+                                            return ['no', 'yes']
+                                        '''
+                                    ]
+                                ]
+                            ],
+                            [$class: 'CascadeChoiceParameter',
+                                choiceType: 'PT_SINGLE_SELECT',
+                                description: 'Select an option.',
+                                name: 'ACTION_PLAN',
+                                referencedParameters: 'OVERWRITE_RELEASE_POLICY,BranchOrCommit',
+                                script:
+                                    [$class: 'GroovyScript',
+                                    fallbackScript: [
+                                            classpath: [],
+                                            sandbox: false,
+                                            script: "return ['Please WAIT while calculating ACTION_PLAN...']"
+                                            ],
+                                    script: [
+                                            classpath: [],
+                                            sandbox: false,
+                                            script: '''
+                                            if (OVERWRITE_RELEASE_POLICY.equals("yes")){
+                                                return ['patch', 'deploy_new_minor', 'breaking_changes', 'remove_oldest']
+                                            }
+                                            else if(OVERWRITE_RELEASE_POLICY.equals("no")){
+                                                if (!new File("/var/lib/jenkins/workspace/Dev-1-2/deploy/ci/calculate-action-plan.sh").exists()) {
+                                                    return ['patch', 'deploy_new_minor', 'breaking_changes', 'remove_oldest']
+                                                }
+                                                def command = $//var/lib/jenkins/workspace/Dev-1-2/deploy/ci/calculate-action-plan.sh dev $BranchOrCommit > /dev/null 2>&1
+                                                                /$
+                                                def proc = command.execute()
+                                                proc.waitFor()
+                                                def exitcode= proc.exitValue()
+                                                if (exitcode == 151) {
+                                                    return ["breaking_changes"]
+                                                }
+                                                else if (exitcode == 152) {
+                                                    return ["deploy_new_minor", "breaking_changes"]
+                                                }
+                                                else if (exitcode == 153) {
+                                                    return ["patch"]
+                                                }
+                                            }
+                                            return ['patch', 'deploy_new_minor', 'breaking_changes', 'remove_oldest']
+                                            '''
+                                        ]
+                                ]
+                            ]
+                        ])
+                    ])
+                }
+            }
+        }
+        stage('Checkout revision') {
+            steps {
+                sshagent(credentials: ['jenkinsbuilderfrever']) {
+                    sh "./deploy/ci/build-start.sh ${APP_ENV} ${params.BranchOrCommit}"
+                }
+                script {
+                  CURRENT_VERSION = sh (
+                    script: "grep version: ${env.WORKSPACE}/deploy/application/helm-chart/frever-app/Chart.yaml | cut -d \" \" -f 2",
+                    returnStdout: true
+                  ).trim()
+                  if (CURRENT_VERSION == "0") {
+                    error("Failed to get current version from deploy/application/helm-chart/frever-app/Chart.yaml")
+                  }
+                  APPSERVICE_EXISTS = sh (
+                    script: "${env.WORKSPACE}/deploy/ci/appservice-exists.sh ${APP_ENV} ${CURRENT_VERSION}",
+                    returnStatus: true)
+                  if (APPSERVICE_EXISTS == 0) {
+                    currentBuild.description = "${CURRENT_VERSION} - ${params.ACTION_PLAN}"
+                  } else {
+                    currentBuild.description = "${CURRENT_VERSION} - deploy_only"
+                  }
+                }
+            }
+        }
+        stage('Build Docker Image') {
+            when {
+                expression {
+                    return params.ACTION_PLAN != 'remove_oldest'
+                }
+            }
+            steps {
+                script {
+                    if (APPSERVICE_EXISTS == 0) {
+                        sh "./deploy/scripts/app/frever-build.sh ${APP_ENV}"
+                    } else {
+                        echo "Service already in ECR, skipping build."
+                    }
+                }
+            }
+        }
+        stage('Publish App') {
+            when {
+                expression {
+                    return params.ACTION_PLAN != 'remove_oldest'
+                }
+            }
+            steps {
+                sh "./deploy/scripts/app/frever-deploy.sh ${APP_ENV}"
+            }
+        }
+        stage('Restart k8s deployment') {
+            when {
+                expression {
+                    return params.ACTION_PLAN != 'remove_oldest'
+                }
+            }
+            steps {
+                sh "./deploy/scripts/app/frever-restart.sh ${APP_ENV}"
+            }
+        }
+        stage('Remove oldest version of running api.') {
+            when {
+                expression {
+                    return params.ACTION_PLAN == 'remove_oldest'
+                }
+            }
+            steps {
+                sh "./deploy/scripts/app/frever-destroy.sh ${APP_ENV}"
+            }
+        }
+        stage('Finish') {
+            steps {
+                sh "./deploy/ci/build-end.sh ${APP_ENV} ${params.BranchOrCommit}"
+            }
+        }
+    }
+
+
+}

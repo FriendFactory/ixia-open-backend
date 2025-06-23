@@ -1,0 +1,136 @@
+{{- $authService := (merge (dict "Service" "auth" "Dll" "AuthServer.dll") . ) -}}
+{{- include "frever-app.net-service-ingress" $authService }}
+---
+{{- include "frever-app.net-service-service" $authService }}
+---
+{{- include "frever-app.net-horizontal-pod-autoscaler" $authService }}
+---
+{{- include "frever-app.net-service-deployment" $authService }}
+            - name: IdentityServerConfiguration__IssuerUrl
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: auth.authServerIssuer
+            - name: IdentityServerConfiguration__AllowedRedirectUrls
+              value: "http://localhost:8080/auth/signed-in;http://frever-asset-migration-dev.s3-website.eu-central-1.amazonaws.com/auth/signed-in"
+            - name: IdentityServerConfiguration__ClientSecret
+              valueFrom:
+                secretKeyRef:
+                  name: ssm-secrets
+                  key: auth.clientSecret
+            - name: IdentityServerConfiguration__CertificateContentBase64
+              valueFrom:
+                secretKeyRef:
+                  name: ssm-secrets
+                  key: auth.certificate
+            - name: IdentityServerConfiguration__CertificatePassword
+              valueFrom:
+                secretKeyRef:
+                  name: ssm-secrets
+                  key: auth.certificatePassword
+            - name: ClientVersion__BridgeMaxVersion
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: version.bridge.max
+            - name: ClientVersion__BridgeMinVersion
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: version.bridge.min
+            - name: ClientVersion__FreverMaxBuild
+              value: "9999"
+            - name: ClientVersion__FreverMaxVersion
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: version.client.max
+            - name: ClientVersion__FreverMinBuild
+              value: "0"
+            - name: ClientVersion__FreverMinVersion
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: version.client.min
+            - name: ExternalUrls__Asset
+              value: {{ include "frever-app.service-external-url" (merge (dict "Service" "asset") . ) | quote }}
+            - name: ExternalUrls__Notification
+              value: {{ include "frever-app.service-external-url" (merge (dict "Service" "notification") . ) | quote }}
+            - name: ExternalUrls__Main
+              value: {{ include "frever-app.service-external-url" (merge (dict "Service" "main") . ) | quote }}
+            - name: ExternalUrls__Social
+              value: {{ include "frever-app.service-external-url" (merge (dict "Service" "social") . ) | quote }}
+            - name: ExternalUrls__Video
+              value: {{ include "frever-app.service-external-url" (merge (dict "Service" "video") . ) | quote }}
+            - name: ExternalUrls__AssetManager
+              value: {{ include "frever-app.service-external-url" (merge (dict "Service" "admin") . ) | quote }}
+            - name: ExternalUrls__Client
+              value: {{ include "frever-app.service-external-url" (merge (dict "Service" "client") . ) | quote }}
+            - name: ExternalUrls__Transcoding
+              value: {{ include "frever-app.service-external-url" (merge (dict "Service" "transcoding") . ) | quote }}
+            - name: ExternalUrls__Chat
+              value: {{ include "frever-app.service-external-url" (merge (dict "Service" "chat") . ) | quote }}
+            - name: Twilio__Secret
+              valueFrom:
+                secretKeyRef:
+                  name: ssm-secrets
+                  key: twilio.secret
+            - name: Twilio__MessagingServiceSid
+              valueFrom:
+                secretKeyRef:
+                  name: ssm-secrets
+                  key: twilio.messagingServiceSid
+            - name: Twilio__VerifyServiceSid
+              valueFrom:
+                secretKeyRef:
+                  name: ssm-secrets
+                  key: twilio.verifyServiceSid
+            - name: Twilio__Sid
+              valueFrom:
+                secretKeyRef:
+                  name: ssm-secrets
+                  key: twilio.sid
+            - name: EmailSending__FromEmail
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: email.validation
+            - name: MusicProviderOAuthSettings__OAuthConsumerKey
+              valueFrom:
+                secretKeyRef:
+                  name: ssm-secrets
+                  key: musicProvider.OAuth.consumerKey
+            - name: MusicProviderOAuthSettings__OAuthConsumerSecret
+              valueFrom:
+                secretKeyRef:
+                  name: ssm-secrets
+                  key: musicProvider.OAuth.consumerSecret
+            - name: MusicProviderApiSettings__TrackDetailsUrl
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: musicProviderApiSettings.trackDetailsUrl
+            - name: MusicProviderApiSettings__ApiUrl
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: musicProviderApiSettings.apiUrl
+            - name: MusicProviderApiSettings__CountryCode
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: musicProviderApiSettings.countryCode
+            - name: MusicProviderApiSettings__UsageTypes
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: musicProviderApiSettings.usageTypes
+            - name: MusicProviderOAuthSettings__OAuthSignatureMethod
+              value: "HMAC-SHA1"
+            - name: MusicProviderOAuthSettings__OAuthVersion
+              value: "1.0"
+            - name: OnboardingOptions__FreverOfficialEmail
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: onboardingSettings.freverOfficialEmail

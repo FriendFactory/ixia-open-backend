@@ -1,0 +1,178 @@
+[
+  {
+    "table": "BodyAnimationCategory"
+  },
+  {
+    "table": "BodyAnimationGroup"
+  },
+  {
+    "table": "BodyAnimation",
+    "asset-copying": ["/Assets/BodyAnimation/{id}"]
+  },
+  {
+    "table": "BodyAnimationAndBodyAnimationCategory",
+    "mode": "InsertOnly"
+  },
+  {
+    "table": "CameraAnimationType"
+  },
+  {
+    "table": "CameraCategory"
+  },
+  {
+    "table": "CameraAnimation",
+    "where": "\"GroupId\" = 1",
+    "asset-copying": ["/Assets/CameraAnimation/{id}"]
+  },
+  {
+    "table": "CameraAnimationTemplate"
+  },
+  {
+    "table": "CameraFilterCategory"
+  },
+  {
+    "table": "CameraFilterSubCategory"
+  },
+  {
+    "table": "LensFilterCategory"
+  },
+  {
+    "table": "ColorFilterCategory"
+  },
+  {
+    "table": "CameraFilter",
+    "asset-copying": ["/Assets/CameraFilter/{id}"]
+  },
+  {
+    "table": "CameraFilterVariant",
+    "asset-copying": ["/Assets/CameraFilterVariant/{id}"]
+  },
+  {
+    "table": "Character",
+    "where": "\"GroupId\" = 1",
+    "asset-copying": ["/Assets/Character/{id}"]
+  },
+  {
+    "table": "SpawnPositionSpaceSize"
+  },
+  {
+    "table": "SetLocationCategory"
+  },
+  {
+    "table": "SetLocationSubCategory"
+  },
+  {
+    "table": "SetLocationBundle"
+  },
+  {
+    "table": "SetLocation",
+    "asset-copying": ["/Assets/SetLocation/{id}"]
+  },
+  {
+    "table": "SetLocationBackground",
+    "asset-copying": ["/Assets/SetLocationBackground/{id}"]
+  },
+  {
+    "table": "SetLocationBackgroundSettings",
+    "asset-copying": ["/Assets/SetLocationBackgroundSettings/{id}"]
+  },
+  {
+    "table": "CharacterSpawnPosition"
+  },
+  {
+    "table": "LightSettings"
+  },
+  {
+    "table": "SetLocationAndCharacterSpawnPosition",
+    "mode": "InsertOnly"
+  },
+  {
+    "table": "FaceAnimationCategory"
+  },
+  {
+    "table": "FaceAnimation",
+    "where": "\"GroupId\" = 1"
+  },
+  {
+    "table": "Localization",
+    "id": "Key"
+  },
+  {
+    "table": "MovementType"
+  },
+  {
+    "table": "TagCategory"
+  },
+  {
+    "table": "Tag"
+  },
+  {
+    "table": "TemplateCategory"
+  },
+  {
+    "table": "TemplateSubCategory"
+  },
+  {
+    "table": "Template",
+    "asset-copying": ["/Assets/Template/{id}"]
+  },
+  {
+    "table": "AssetWardrobeSlot"
+  },
+  {
+    "table": "WardrobeCategory",
+    "asset-copying": ["/Assets/WardrobeCategory/{id}"]
+  },
+  {
+    "table": "UmaSharedColor"
+  },
+  {
+    "table": "WardrobeColor"
+  },
+  {
+    "table": "WardrobeFit"
+  },
+  {
+    "table": "WardrobeGenderGroup"
+  },
+  {
+    "table": "WardrobeSubCategory"
+  },
+  {
+    "table": "WardrobeSubCategoryAndUmaAdjustment",
+    "mode": "InsertOnly"
+  },
+  {
+    "table": "Wardrobe",
+    "asset-copying": ["/Assets/Wardrobe/{id}"]
+  },
+  {
+    "table": "UmaBundle",
+    "asset-copying": ["/Assets/UmaBundle/{id}"]
+  },
+  {
+    "table": "UmaAsset"
+  },
+  {
+    "table": "UmaAssetFile"
+  },
+  {
+    "table": "UmaAssetFileAndUnityAssetType",
+    "mode": "InsertOnly"
+  },
+  {
+    "table": "UmaBundleAllDependency",
+    "mode": "InsertOnly"
+  },
+  {
+    "table": "UmaBundleDirectDependency",
+    "mode": "InsertOnly"
+  },
+  {
+    "table": "UmaRecipe"
+  },
+  {
+    "table": "UmaRecipeAndWardrobe",
+    "mode": "InsertOnly"
+  }
+]

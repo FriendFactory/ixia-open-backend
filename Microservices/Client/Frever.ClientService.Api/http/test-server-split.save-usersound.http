@@ -1,0 +1,52 @@
+@auth_server=http://localhost:5002
+# @auth_server=https://dev-1.frever-api.com/auth
+
+### Authenticate
+# @name auth
+POST {{auth_server}}/connect/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=password&username=xxxxxxxxx&password=123456&client_id=Server&scope=friends_factory.creators_api+offline_access&client_secret=xxxxxxxxx
+
+###
+@asset_server={{auth.response.body.asset_server}}
+@main_server={{auth.response.body.server_url}}
+@assetmanager_server={{auth.response.body.assetmanager_server}}
+@client_server={{auth.response.body.client_server}}
+@video_server={{auth.response.body.video_server}}
+@social_server={{auth.response.body.social_server}}
+@notification_server={{auth.response.body.notification_server}}
+
+###
+# @name my
+POST {{client_server}}api/assets/usersound/my
+Authorization: Bearer {{auth.response.body.access_token}}
+Content-Type: application/json
+
+{
+  "take": 10,
+  "skip": 0
+}
+
+###
+POST {{client_server}}api/assets/usersound
+Authorization: Bearer {{auth.response.body.access_token}}
+Content-Type: application/json
+
+{
+  "duration": 1000,
+  "size": 1,
+  "files": [
+    {
+      "source": {
+        "uploadId": "d5d39265-bb3f-4914-9606-68ba6f8b7cee",
+        "copyFrom": null
+      },
+      "version": "20220615T123246U484b064abea443cda704f7a5ab1cde08",
+      "file": 0,
+      "extension": 1,
+      "resolution": null,
+      "platform": null
+    }
+  ]
+}

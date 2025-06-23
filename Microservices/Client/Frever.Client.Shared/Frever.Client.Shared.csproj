@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <Sdk Name="Microsoft.Build.CentralPackageVersions" Version="2.1.3"/>
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\Shared\Frever.Cache\Frever.Cache.csproj"/>
+        <ProjectReference Include="..\..\..\Shared\Frever.Shared.AssetStore\Frever.Shared.AssetStore.csproj"/>
+        <ProjectReference Include="..\..\..\Shared\Frever.Shared.MainDb\Frever.Shared.MainDb.csproj"/>
+        <ProjectReference Include="..\..\..\Utils\AssetUrlGenerator\AssetStorage.PathProviding.csproj"/>
+        <ProjectReference Include="..\..\Assets\AssetServer.Shared\AssetServer.Shared.csproj"/>
+        <ProjectReference Include="..\..\Authorization\AuthServer.Permissions\AuthServer.Permissions.csproj"/>
+        <ProjectReference Include="..\..\Authorization\AuthServerShared\AuthServerShared.csproj"/>
+        <ProjectReference Include="..\Frever.ClientService.Contract\Frever.ClientService.Contract.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AutoMapper"/>
+        <PackageReference Include="AWSSDK.MediaConvert"/>
+        <PackageReference Include="AWSSDK.S3"/>
+        <PackageReference Include="AWS.Messaging"/>
+        <PackageReference Include="Microsoft.Extensions.Configuration"/>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection"/>
+        <PackageReference Include="jose-jwt"/>
+    </ItemGroup>
+
+
+</Project>

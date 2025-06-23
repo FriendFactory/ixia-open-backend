@@ -1,0 +1,106 @@
+# Default values for frever-app.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+repository: ""
+serverDomain: ""
+clusterName: ""
+apiIdentifier: "x.y"
+latestApiId: "x.y"
+nodeGroup: "frever"
+imageLabel: latest
+deployInfo:
+    branch: "unknown"
+    commit: "undefined"
+    deployedBy: "unknown_user"
+    deployedAt: "unknown"
+    deployedFrom: "unknown_mac"
+serverInfo:
+    limitResources: true
+    memoryThreshold: 0.8
+    cpuThreshold: 0.8
+    compactRatio: 3
+    serviceCount: 9
+    minReplicas: 2
+    maxReplicas: 6
+    minNodeCount: 3
+    cpuPerNode: 1800
+    memoryPerNode: 7500
+    cpuTargetUtilization: 450
+sslCertificateArn: ""
+createDbService: true # True to create NodePort service to connect internal db server
+settings:
+    aws:
+        region: "eu-central-1"
+        bucket: ""
+        queue: "xxxxxxxxx"
+    environmentType: ""
+    cdn:
+        host: ""
+        urlSignatureLifetimeMin: 3600
+        certificatePrivateKey: "xxxxxxxxx"
+        certificateKeyPairId: "xxxxxxxxx"
+        distributionId: ""
+    redis:
+        host: ""
+        enableCaching: true
+    email:
+        info: "xxxxxxxxx"
+        validation: "xxxxxxxxx"
+        videoReportNotification: "xxxxxxxxx"
+    phoneNumberAuth:
+        allowUniversalOTP: true
+    client:
+        bridgeMinVersion: "1.8.258"
+        freverMinVersion: "0.5.0"
+        freverMaxVersion: "0.6.0"
+    svc:
+        machineLearning: xxxxxxxxx
+    runMigrations: true
+    jaeger:
+        host: xxxxxxxxx
+    videoConversion:
+        ingestBucket: ""
+        sqsQueue: "xxxxxxxxx"
+        createJobQueue: ""
+        mediaConverterQueue: ""
+        extractAudioQueue: "Default"
+    autoCreateTemplate:
+        templateSubcategoryName: "NDN"
+        createOnBehalfOfEmail: "xxxxxxxxx"
+    hardDeleteAccountSettings:
+        deletedDaysAgo: 25
+        deletionErrorEmailRecipients: "xxxxxxxxx"
+        environmentInfo: "production"
+    musicProviderApiSettings:
+        trackDetailsUrl: "https://api.7digital.com/1.2/track/details"
+        apiUrl: "https://api.7digital.com/1.2"
+        countryCode: "GB,US,SE"
+        usageTypes: "download,subscriptionstreaming,adsupportedstreaming"
+    emailSending:
+        fromEmail: "xxxxxxxxx"
+    onboardingSettings:
+        freverOfficialEmail: "xxxxxxxxx"
+        requiredVideoCount: 5
+        requiredTaskCount: 2
+    inAppPurchases:
+        isProduction: false
+    oneSignal:
+        androidChannelId: ""
+    ratelimit:
+        enabled: true
+        freverVideoAndAssetDownload: 10
+        sevenDigitalSongDownload: 5
+        hardLimitPerUserPerHour: 10000
+    sns:
+        videoTemplateMappingTopicArn: ""
+        groupChangedTopicArn: ""
+        templateUpdatedTopicArn: ""
+        groupDeletedTopicArn: ""
+        videoUnlikedTopicArn: ""
+        groupUnfollowedTopicArn: ""
+        groupFollowedTopicArn: ""
+        outfitChangedTopicArn: ""
+    comfyUi:
+        queueUrl: "xxxxxxxxx"
+        responseQueueUrl: "xxxxxxxxx"

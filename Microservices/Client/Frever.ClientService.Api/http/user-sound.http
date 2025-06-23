@@ -1,0 +1,69 @@
+# Works together with Frever.Impersonate CLI util to generate tokens.
+# Supports both local and remote environment
+@version=latest
+@env=content-stage
+
+@auth_server=https://{{env}}.frever-api.com/{{version}}/auth/
+@asset_server=https://{{env}}.frever-api.com/{{version}}/asset/
+@admin_server=https://{{env}}.frever-api.com/{{version}}/admin/
+@client_server=https://{{env}}.frever-api.com/{{version}}/client/
+@video_server=https://{{env}}.frever-api.com/{{version}}/video/
+@notification_server=https://{{env}}.frever-api.com/{{version}}/notification/
+@token_dev_16=xxxxxxxxx
+@token_stage_16=xxxxxxxxx
+@token_stage_32312=xxxxxxxxx
+@token={{token_stage_16}}
+
+
+
+###
+@auth_server=http://localhost:5002/
+@asset_server=http://localhost:5004/file-storage/
+@admin_server=http://localhost:5010/admin/
+@client_server=http://localhost:5011/client/
+@video_server=http://localhost:5005/video/
+@notification_server=http://localhost:5008/notification/
+@token_stage_16=xxxxxxxxx
+@token_dev_16=xxxxxxxxx
+@token_stage_32312=xxxxxxxxx
+@token={{token_stage_32312}}
+
+
+############ END ##############
+
+###
+# @name trending
+GET {{client_server}}api/assets/usersound/trending?take=200
+Authorization: Bearer {{token}}
+
+###
+POST {{client_server}}api/assets/usersound/my
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{}
+
+###
+PATCH {{client_server}}api/assets/usersound/400
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "test-1"
+}
+
+###
+POST {{client_server}}api/assets/usersound/my
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+}
+
+###
+@id={{trending.response.body.$[0].userSound.id}}
+@fileVersion={{trending.response.body.$[0].userSound.files[0].version}}
+
+###
+GET {{asset_server}}api/Cdn/UserSound/{{id}}/MainFile/iOS/{{fileVersion}}
+Authorization: Bearer {{token}}

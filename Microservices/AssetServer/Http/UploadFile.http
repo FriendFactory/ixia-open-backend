@@ -1,0 +1,10 @@
+﻿# Use VS Code and this extension https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+
+@assetServerLocal =http://localhost:44304
+
+###
+POST {{assetServerLocal}}/api/File
+Content-Type: multipart/form-data
+
+Authorization: Bearer {{auth.response.body.access_token}}
+

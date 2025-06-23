@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <Sdk Name="Microsoft.Build.CentralPackageVersions" Version="2.1.3"/>
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\Common\Common.Models\Common.Models.csproj" />
+        <ProjectReference Include="..\..\..\Shared\Frever.Shared.MainDb\Frever.Shared.MainDb.csproj"/>
+        <ProjectReference Include="..\..\Client\Frever.ClientService.Contract\Frever.ClientService.Contract.csproj" />
+    </ItemGroup>
+
+</Project>

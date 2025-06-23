@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="c275bed7-3fa9-4876-a085-c98ddf04e635" name="@5955a5bf5f87 2024-07-02 13:00:20" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2024-07-02T13:00:20.8741729+00:00" queuing="2024-07-02T13:00:20.8741730+00:00" start="2024-07-02T13:00:08.1328230+00:00" finish="2024-07-02T13:00:27.1754502+00:00" />
+  <TestSettings name="default" id="c27c4df6-d732-4adf-9bef-0ef2c5c5058f">
+    <Deployment runDeploymentRoot="_5955a5bf5f87_2024-07-02_13_00_20" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="ca646319-fdc1-49b7-b538-2075067e6e46" testId="8589725f-94a3-db7d-e31b-773f88e80adc" testName="Frever.Video.Core.IntegrationTest.Features.TemplateFeedIntegrationTest.TemplateFeedVideo_EnsureOk" computerName="5955a5bf5f87" duration="00:00:03.9744224" startTime="2024-07-02T13:00:24.8345614+00:00" endTime="2024-07-02T13:00:24.8345615+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ca646319-fdc1-49b7-b538-2075067e6e46" />
+    <UnitTestResult executionId="689f0301-9941-4cbd-a940-accb880f01de" testId="f9041a58-bed5-f5c6-0a25-57d4233cd407" testName="Frever.Video.Core.IntegrationTest.Features.TrendingFeedIntegrationTest.TrendingFeed_EnsureOk" computerName="5955a5bf5f87" duration="00:00:01.9724231" startTime="2024-07-02T13:00:27.1335957+00:00" endTime="2024-07-02T13:00:27.1335957+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="689f0301-9941-4cbd-a940-accb880f01de" />
+    <UnitTestResult executionId="5b6ad770-ffe9-4967-9f42-7792458b8722" testId="7ca35b6c-e9b5-146a-2418-02bdb06ffc68" testName="Frever.Video.Core.IntegrationTest.Features.HashtagFeedIntegrationTest.HashtagFeedVideo_EnsureOk" computerName="5955a5bf5f87" duration="00:00:06.5046368" startTime="2024-07-02T13:00:20.5505799+00:00" endTime="2024-07-02T13:00:20.5505925+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5b6ad770-ffe9-4967-9f42-7792458b8722" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="Frever.Video.Core.IntegrationTest.Features.TrendingFeedIntegrationTest.TrendingFeed_EnsureOk" storage="/source/microservices/video/frever.video.core.integrationtest/bin/debug/net8.0/frever.video.core.integrationtest.dll" id="f9041a58-bed5-f5c6-0a25-57d4233cd407">
+      <Execution id="689f0301-9941-4cbd-a940-accb880f01de" />
+      <TestMethod codeBase="/source/Microservices/Video/Frever.Video.Core.IntegrationTest/bin/Debug/net8.0/Frever.Video.Core.IntegrationTest.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Video.Core.IntegrationTest.Features.TrendingFeedIntegrationTest" name="TrendingFeed_EnsureOk" />
+    </UnitTest>
+    <UnitTest name="Frever.Video.Core.IntegrationTest.Features.HashtagFeedIntegrationTest.HashtagFeedVideo_EnsureOk" storage="/source/microservices/video/frever.video.core.integrationtest/bin/debug/net8.0/frever.video.core.integrationtest.dll" id="7ca35b6c-e9b5-146a-2418-02bdb06ffc68">
+      <Execution id="5b6ad770-ffe9-4967-9f42-7792458b8722" />
+      <TestMethod codeBase="/source/Microservices/Video/Frever.Video.Core.IntegrationTest/bin/Debug/net8.0/Frever.Video.Core.IntegrationTest.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Video.Core.IntegrationTest.Features.HashtagFeedIntegrationTest" name="HashtagFeedVideo_EnsureOk" />
+    </UnitTest>
+    <UnitTest name="Frever.Video.Core.IntegrationTest.Features.TemplateFeedIntegrationTest.TemplateFeedVideo_EnsureOk" storage="/source/microservices/video/frever.video.core.integrationtest/bin/debug/net8.0/frever.video.core.integrationtest.dll" id="8589725f-94a3-db7d-e31b-773f88e80adc">
+      <Execution id="ca646319-fdc1-49b7-b538-2075067e6e46" />
+      <TestMethod codeBase="/source/Microservices/Video/Frever.Video.Core.IntegrationTest/bin/Debug/net8.0/Frever.Video.Core.IntegrationTest.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Video.Core.IntegrationTest.Features.TemplateFeedIntegrationTest" name="TemplateFeedVideo_EnsureOk" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="8589725f-94a3-db7d-e31b-773f88e80adc" executionId="ca646319-fdc1-49b7-b538-2075067e6e46" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f9041a58-bed5-f5c6-0a25-57d4233cd407" executionId="689f0301-9941-4cbd-a940-accb880f01de" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7ca35b6c-e9b5-146a-2418-02bdb06ffc68" executionId="5b6ad770-ffe9-4967-9f42-7792458b8722" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="3" executed="3" passed="3" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.8.0+6438bb880a (64-bit .NET 8.0.6)
+[xUnit.net 00:00:00.09]   Discovering: Frever.Video.Core.IntegrationTest
+[xUnit.net 00:00:00.12]   Discovered:  Frever.Video.Core.IntegrationTest
+[xUnit.net 00:00:00.13]   Starting:    Frever.Video.Core.IntegrationTest
+[xUnit.net 00:00:18.46]   Finished:    Frever.Video.Core.IntegrationTest
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>

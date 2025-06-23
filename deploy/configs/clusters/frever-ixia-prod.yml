@@ -1,0 +1,45 @@
+serverInfo:
+  minNodeCount: 5
+  minReplicas: 3
+  maxReplicas: 18
+  cpuPerNode: 3500
+  memoryPerNode: 15000
+  cpuTargetUtilization: 300
+settings:
+  client:
+    freverMinVersion: "0.5.0"
+    freverMaxVersion: "0.6.0"
+  aws:
+    region: "eu-central-1"
+    bucket: "xxxxxxxxx"
+    queue: "xxxxxxxxx"
+  environmentType: "production"
+  videoConversion:
+    ingestBucket: "xxxxxxxxx"
+    sqsQueue: "xxxxxxxxx"
+    mediaConverterQueue: "prod"
+    mediaConverterJobName: "video-conversion"
+  oneSignal:
+    androidChannelId: "xxxxxxxxx"
+  autoCreateTemplate:
+    templateSubcategoryName: "Frever Stars"
+    createOnBehalfOfEmail: "xxxxxxxxx"
+  inAppPurchases:
+    isProduction: true
+  jaeger:
+    host: xxxxxxxxx
+  ratelimit:
+    freverVideoAndAssetDownload: 50
+    sevenDigitalSongDownload: 50
+  sns:
+    videoTemplateMappingTopicArn: "xxxxxxxxx"
+    groupChangedTopicArn: "xxxxxxxxx"
+    templateUpdatedTopicArn: "xxxxxxxxx"
+    groupDeletedTopicArn: "xxxxxxxxx"
+    videoUnlikedTopicArn: "xxxxxxxxx"
+    groupUnfollowedTopicArn: "xxxxxxxxx"
+    groupFollowedTopicArn: "xxxxxxxxx"
+    outfitChangedTopicArn: "xxxxxxxxx"
+  comfyUi:
+    queueUrl: "xxxxxxxxx"
+    responseQueueUrl: "xxxxxxxxx"

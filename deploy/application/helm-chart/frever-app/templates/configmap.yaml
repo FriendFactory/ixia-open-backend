@@ -1,0 +1,85 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config
+data:
+{{- with .Values.settings }}
+  ASPNETCORE_ENVIRONMENT: Production
+  ASPNETCORE_URLS: "http://+:80"
+  svc.asset: "http://asset-service/{{ $.Values.apiIdentifier }}/asset"
+  svc.auth: "http://auth-service/{{ $.Values.apiIdentifier }}/auth"
+  svc.client: "http://client-service/{{ $.Values.apiIdentifier }}/client"
+  svc.main: "http://main-service/{{ $.Values.apiIdentifier }}/main"
+  svc.notification: "http://notification-service/{{ $.Values.apiIdentifier }}/notification"
+  svc.video: "http://video-service/{{ $.Values.apiIdentifier }}/video"
+  svc.videoFeed: "http://video-feed-service/{{ $.Values.apiIdentifier }}/video-feed"
+  svc.chat: "http://chat-service/{{ $.Values.apiIdentifier }}/chat"
+  svc.machineLearning: {{ .svc.machineLearning | quote }}
+  svc.modulAiRecommendations: "http://recsysapp-service.modulai"
+  runMigrations: {{ .runMigrations | quote }}
+  auth.apiName: "friends_factory.creators_api"
+  auth.authServer: http://auth-service/{{ $.Values.apiIdentifier }}/auth
+  auth.authServerIssuer: http://auth-service
+  phoneNumberAuth.allowUniversalOTP: {{ .phoneNumberAuth.allowUniversalOTP | quote }}
+  aws.region: {{ .aws.region | quote }}
+  aws.bucket: {{ required "AWS Bucket is required" .aws.bucket | quote }}
+  aws.queue: {{ .aws.queue | quote }}
+  environmentType: {{ .environmentType | quote }}
+  cdn.domain: "https://{{ .cdn.host }}"
+  cdn.host: {{ required "CDN hostname required" .cdn.host | quote }}
+  cdn.urlSignatureLifetimeMin: {{ .cdn.urlSignatureLifetimeMin | quote }}
+  cdn.certificatePrivateKey: {{ .cdn.certificatePrivateKey | quote }}
+  cdn.certificateKeyPairId: {{ .cdn.certificateKeyPairId | quote }}
+  cdn.distributionId: {{ required "CloudFront Distribution ID is required" .cdn.distributionId | quote }}
+  version.bridge.min: {{ .client.bridgeMinVersion | quote }}
+  version.bridge.max: ""
+  version.client.min: {{ .client.freverMinVersion | quote }}
+  version.client.max: {{ .client.freverMaxVersion | quote }}
+  email.info: {{ .email.info | quote  }}
+  email.validation: {{ .email.validation | quote  }}
+  email.videoReportNotification: {{ .email.videoReportNotification | quote  }}
+  video.trendingVideoListLength: "100"
+  video.videoPlayerPageUrl: "https://ixia-web.frever-api.com//video/"
+  jaeger.endpoint: "{{ .jaeger.host }}:4317"
+  jaeger.enable: "true"
+  jaeger.detailed: "true"
+  redis.host: "{{ .redis.host }},allowAdmin=true,syncTimeout=30000"
+  redis.enableCaching: {{ .redis.enableCaching | quote }}
+  videoConversion.ingestBucket: {{ required "Video Conversion ingest bucket" .videoConversion.ingestBucket | quote }}
+  videoConversion.sqsQueue: {{ required "Video Conversion SQS Queue" .videoConversion.sqsQueue | quote }}
+  videoConversion.createJobQueue: {{ required "Video Conversion Create Job Queue" .videoConversion.createJobQueue | quote }}
+  videoConversion.mediaConverterQueue: {{ .videoConversion.mediaConverterQueue }}
+  videoConversion.mediaConverterJobName: {{ .videoConversion.mediaConverterJobName | quote }}
+  videoConversion.extractAudioQueue: {{ .videoConversion.extractAudioQueue }}
+  template.conversionJob: "template-thumbnail"
+  template.conversionJobRoleArn: "xxxxxxxxx"
+  templateAutoCreation.templateSubcategoryName: {{ required "Template Sub Category for auto creating template is required" .autoCreateTemplate.templateSubcategoryName | quote }}
+  templateAutoCreation.createOnBehalfOfEmail: {{ required "Email for auto creating template is required" .autoCreateTemplate.createOnBehalfOfEmail | quote }}
+  hardDeleteAccountSettings.deletedDaysAgo: {{ .hardDeleteAccountSettings.deletedDaysAgo | quote }}
+  hardDeleteAccountSettings.deletionErrorEmailRecipients: {{ .hardDeleteAccountSettings.deletionErrorEmailRecipients }}
+  hardDeleteAccountSettings.environmentInfo: {{ .hardDeleteAccountSettings.environmentInfo | quote }}
+  musicProviderApiSettings.trackDetailsUrl: {{ .musicProviderApiSettings.trackDetailsUrl | quote }}
+  musicProviderApiSettings.apiUrl: {{ .musicProviderApiSettings.apiUrl | quote }}
+  musicProviderApiSettings.countryCode: {{ .musicProviderApiSettings.countryCode | quote }}
+  musicProviderApiSettings.usageTypes: {{ .musicProviderApiSettings.usageTypes | quote }}
+  emailSending.fromEmail: {{ .emailSending.fromEmail }}
+  onboardingSettings.freverOfficialEmail: {{ .onboardingSettings.freverOfficialEmail }}
+  onboardingSettings.requiredVideoCount: {{ .onboardingSettings.requiredVideoCount | quote }}
+  onboardingSettings.requiredTaskCount: {{ .onboardingSettings.requiredTaskCount | quote }}
+  inAppPurchases.isProduction: {{ .inAppPurchases.isProduction | quote }}
+  oneSignal.androidChannelId: {{ .oneSignal.androidChannelId | quote }}
+  ratelimit.enabled: {{ .ratelimit.enabled | quote }}
+  ratelimit.freverVideoAndAssetDownload: {{ .ratelimit.freverVideoAndAssetDownload | quote }}
+  ratelimit.sevenDigitalSongDownload: {{ .ratelimit.sevenDigitalSongDownload | quote }}
+  ratelimit.hardLimitPerUserPerHour: {{ .ratelimit.hardLimitPerUserPerHour | quote }}
+  sns.videoTemplateMappingTopicArn: {{ .sns.videoTemplateMappingTopicArn | quote }}
+  sns.groupChangedTopicArn: {{ .sns.groupChangedTopicArn | quote }}
+  sns.templateUpdatedTopicArn: {{ .sns.templateUpdatedTopicArn | quote }}
+  sns.groupDeletedTopicArn: {{ .sns.groupDeletedTopicArn | quote }}
+  sns.videoUnlikedTopicArn: {{ .sns.videoUnlikedTopicArn | quote }}
+  sns.groupUnfollowedTopicArn: {{ .sns.groupUnfollowedTopicArn | quote }}
+  sns.groupFollowedTopicArn: {{ .sns.groupFollowedTopicArn | quote }}
+  sns.outfitChangedTopicArn: {{ .sns.outfitChangedTopicArn | quote }}
+  comfyUi.queueUrl: {{ .comfyUi.queueUrl | quote }}
+  comfyUi.responseQueueUrl: {{ .comfyUi.responseQueueUrl | quote }}
+{{- end }}

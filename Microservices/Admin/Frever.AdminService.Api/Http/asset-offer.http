@@ -1,0 +1,35 @@
+@auth_server=http://localhost:5002
+@auth_server=https://dev-1.frever-api.com/auth
+
+### Authenticate
+# @name auth
+POST {{auth_server}}/connect/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=password&username=xxxxxxxxx&password=123456&client_id=Server&scope=friends_factory.creators_api+offline_access&client_secret=xxxxxxxxx
+
+###
+@asset_server={{auth.response.body.asset_server}}
+@main_server={{auth.response.body.server_url}}
+@assetmanager_server={{auth.response.body.assetmanager_server}}
+@client_server={{auth.response.body.client_server}}
+@video_server={{auth.response.body.video_server}}
+@social_server={{auth.response.body.social_server}}
+@notification_server={{auth.response.body.notification_server}}
+
+### Get API base url
+@assetmanager_server={{auth.response.body.assetmanager_server}}
+
+###
+POST  {{assetmanager_server}}api/asset-offer
+Authorization: Bearer {{auth.response.body.access_token}}
+Content-Type: application/json
+
+{
+  "AssetId": 36,
+  "AssetType": "CameraFilter",
+  "Title": "Camera Filter 36",
+  "Description": "CF 66",
+  "SoftCurrencyPrice": null,
+  "HardCurrencyPrice": 10
+}

@@ -1,0 +1,107 @@
+@env=Content-Test
+
+@auth_server=http://authserver-{{env}}.eu-central-1.elasticbeanstalk.com
+#@auth_server=http://localhost:5002
+
+### Authenticate
+# @name auth
+POST {{auth_server}}/connect/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=password&username=xxxxxxxxx&password=123456&client_id=Server&scope=friends_factory.creators_api&client_secret=xxxxxxxxx
+
+###
+@asset_server={{auth.response.body.asset_server}}
+@main_server={{auth.response.body.server_url}}
+@video_server={{auth.response.body.video_server}}
+@social_server={{auth.response.body.social_server}}
+
+# @main_server=http://localhost:5001/
+@asset_server=http://localhost:5004/
+# @video_server=http://localhost:5005/
+# @social_server=http://localhost:5007/
+
+###
+# @name initUpload
+GET {{asset_server}}api/File/PreUploadingUrl
+Authorization: Bearer {{auth.response.body.access_token}}
+
+###
+# @name uploadFile
+PUT {{initUpload.response.body.$.uploadUrl}}
+
+< ./Thumbnail_128x128.png
+
+###
+PATCH {{main_server}}api/CharacterSpawnPosition
+Content-Type: application/json
+Authorization: Bearer {{auth.response.body.access_token}}
+
+{
+    "id": 511,
+    "files": [
+        {
+            "file": "Thumbnail",
+            "extension": "Png",
+            "resolution": "128x128",
+            "source": {
+                "uploadId": "{{initUpload.response.body.$.uploadId}}"
+            }
+        }
+    ]
+}
+
+###
+PATCH {{main_server}}api/CharacterSpawnPosition
+Content-Type: application/json
+Authorization: Bearer {{auth.response.body.access_token}}
+
+{
+  "id": 511,
+  "files": [
+    {
+      "file": "Thumbnail",
+      "extension": "Png",
+      "resolution": "256x256",
+      "source": {
+        "copyFrom": {
+          "assetType": "CharacterSpawnPosition",
+          "id": 510,
+          "version": "uLDNc55I8y.DFKwKzBg1QPFETDraFMtw"
+        }
+      }
+    }
+  ]
+}
+
+###
+PATCH {{main_server}}api/CharacterSpawnPosition
+Content-Type: application/json
+Authorization: Bearer {{auth.response.body.access_token}}
+
+{
+  "id": 511,
+  "files": [
+    {
+      "file": "Thumbnail",
+      "extension": "Png",
+      "resolution": "256x256",
+      "source": {
+        "copyFrom": {
+          "assetType": "CharacterSpawnPosition",
+          "id": 511,
+          "version": "20210524T153742U437758a4f61346d188ec02d5aff4d151"
+        }
+      }
+    }
+  ]
+}
+
+###
+GET {{main_server}}api/CharacterSpawnPosition/511
+Authorization: Bearer {{auth.response.body.access_token}}
+
+
+###
+GET {{asset_server}}api/Cdn/CharacterSpawnPosition/511/Thumbnail/128x128/20210524T152206Uee879e7799ce41068894629ef98dc66f
+Authorization: Bearer {{auth.response.body.access_token}}

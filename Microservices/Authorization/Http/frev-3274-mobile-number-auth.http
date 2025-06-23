@@ -1,0 +1,94 @@
+@env=Development-3
+@auth_server=http://AuthServer-{{env}}.eu-central-1.elasticbeanstalk.com
+@auth_server=http://localhost:5002
+
+####
+GET {{auth_server}}/.well-known/openid-configuration
+
+###
+POST {{auth_server}}/api/verify-phone-number
+Content-Type: application/json
+
+{
+    "phoneNumber": "xxxxxxxxx"
+}
+
+
+### Login
+# @name auth
+POST {{auth_server}}/connect/token
+Content-Type: application/x-www-form-urlencoded
+
+phone_number=xxxxxxxxx&verification_token=742579&grant_type=phone_number_token&client_id=Server&scope=friends_factory.creators_api&client_secret=xxxxxxxxx
+
+
+###
+@main_server={{auth.response.body.server_url}}
+
+
+###
+# @name setLocationBundles
+GET {{main_server}}api/SetLocationBundle
+Authorization: Bearer {{auth.response.body.access_token}}
+
+
+### Registration with email
+POST {{auth_server}}/account/register
+Content-Type: application/json
+
+{
+    "email": "xxxxxxxxx",
+    "password": "123456",
+    "userName": "xxxxxxxxx",
+    "birthDate": "1984-02-12",
+    "analyticsEnabled": false
+}
+
+### Login with registered email
+POST {{auth_server}}/connect/token
+Content-Type: application/x-www-form-urlencoded
+
+username=xxxxxxxxx&password=123456&grant_type=password&client_id=Server&scope=friends_factory.creators_api&client_secret=xxxxxxxxx
+
+
+### Registration with phone
+# @name reg
+POST {{auth_server}}/account/register
+Content-Type: application/json
+
+{
+    "phoneNumber": "xxxxxxxxx",
+    "verificationCode": "unicode",
+    "userName": "xxxxxxxxx",
+    "birthDate": "xxxxxxxxx",
+    "analyticsEnabled": false
+}
+
+### Login with registered account
+POST {{auth_server}}/connect/token
+Content-Type: application/x-www-form-urlencoded
+
+phone_number=%2B4675555539&verification_token=unicode&grant_type=phone_number_token&client_id=Server&scope=friends_factory.creators_api&client_secret=xxxxxxxxx
+
+
+### Registration with both phone and email
+# @name reg
+POST {{auth_server}}/account/register
+Content-Type: application/json
+
+{
+    "email": "xxxxxxxxx",
+    "password": "123456",
+    "phoneNumber": "xxxxxxxxx",
+    "verificationCode": "unicode",
+    "userName": "xxxxxxxxx",
+    "birthDate": "xxxxxxxxx",
+    "analyticsEnabled": false
+}
+
+### Login with registered phone
+POST {{auth_server}}/connect/token
+Content-Type: application/x-www-form-urlencoded
+
+phone_number=xxxxxxxxx&verification_token=unicode&grant_type=phone_number_token&client_id=Server&scope=friends_factory.creators_api&client_secret=xxxxxxxxx
+

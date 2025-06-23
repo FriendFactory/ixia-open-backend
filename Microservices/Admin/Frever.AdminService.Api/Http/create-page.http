@@ -1,0 +1,60 @@
+@auth_server=http://localhost:5002
+# @auth_server=https://dev.frever-api.com/latest/auth
+# @auth_server=https://content-stage.frever-api.com/latest/auth
+
+### Authenticate
+# @name auth
+POST {{auth_server}}/connect/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=password&username=xxxxxxxxx&password=123456&client_id=Server&scope=friends_factory.creators_api+offline_access&client_secret=xxxxxxxxx
+
+###
+@admin_server={{auth.response.body.assetmanager_server}}
+@video_server={{auth.response.body.video_server}}
+
+###
+GET {{video_server}}create-page/content
+Authorization: Bearer {{auth.response.body.access_token}}
+# X-Forwarded-For: 188.157.22.68
+
+###
+GET {{video_server}}create-page/row/1/hashtags?target=&takeNext=5
+Authorization: Bearer {{auth.response.body.access_token}}
+
+###
+GET {{video_server}}create-page/row/9/songs?target=&takeNext=5
+Authorization: Bearer {{auth.response.body.access_token}}
+# X-Forwarded-For: 188.157.22.68
+
+###
+GET {{video_server}}create-page/row/4/templates?target=&takeNext=5
+Authorization: Bearer {{auth.response.body.access_token}}
+
+###
+GET {{video_server}}create-page/row/2/videos?target=3722&takeNext=5
+Authorization: Bearer {{auth.response.body.access_token}}
+
+###
+POST {{admin_server}}api/cache/reset
+Authorization: Bearer {{auth.response.body.access_token}}
+
+###
+GET {{admin_server}}api/create-page/moderation
+Authorization: Bearer {{auth.response.body.access_token}}
+
+###
+POST {{admin_server}}api/create-page/moderation
+Authorization: Bearer {{auth.response.body.access_token}}
+Content-Type: application/json
+
+{
+    "id": 0,
+    "title": "test",
+    "sortOrder": 10,
+    "testGroup": null,
+    "contentType": null,
+    "contentIds": null,
+    "contentQuery": null,
+    "isEnabled": false
+}

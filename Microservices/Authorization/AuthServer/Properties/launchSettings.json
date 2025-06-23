@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "auth": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Local"
+      },
+      "nativeDebugging": true,
+      "applicationUrl": "http://localhost:5002"
+    }
+  }
+}

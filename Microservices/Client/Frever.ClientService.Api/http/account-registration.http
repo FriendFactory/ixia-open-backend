@@ -1,0 +1,76 @@
+# Works together with Frever.Impersonate CLI util to generate tokens.
+# Supports both local and remote environment
+# Works together with Frever.Impersonate CLI util to generate tokens.
+# Supports both local and remote environment
+@version=1.8
+@env=content-prod
+
+@auth_server=https://{{env}}.frever-api.com/{{version}}/auth/
+@asset_server=https://{{env}}.frever-api.com/{{version}}/asset/
+@admin_server=https://{{env}}.frever-api.com/{{version}}/admin/
+@client_server=https://{{env}}.frever-api.com/{{version}}/client/
+@video_server=https://{{env}}.frever-api.com/{{version}}/video/
+@notification_server=https://{{env}}.frever-api.com/{{version}}/notification/
+@token=xxxxxxxxx
+
+
+###
+@auth_server=http://localhost:5002/
+@asset_server=http://localhost:5004/file-storage/
+@admin_server=http://localhost:5010/admin/
+@client_server=http://localhost:5011/client/
+@video_server=http://localhost:5005/video/
+@notification_server=http://localhost:5008/notification/
+@token=xxxxxxxxx
+
+############ END ##############
+
+@email=xxxxxxxxx
+@email=xxxxxxxxx
+@pn=xxxxxxxxx
+
+###
+POST {{auth_server}}api/verify-email
+Content-Type: application/json
+
+{
+  "email": "{{email}}"
+}
+
+###
+POST {{auth_server}}api/verify-phone-number
+Content-Type: application/json
+
+{
+  "phoneNumber": "xxxxxxxxx"
+}
+
+
+### Registration with both phone and email
+# @name reg
+POST {{auth_server}}account/register
+Content-Type: application/json
+
+{
+    "phoneNumber": "xxxxxxxxx",
+    "password": "123456",
+    "verificationCode": "xxxxxxxxx",
+    "userName": "xxxxxxxxx",
+    "birthDate": "xxxxxxxxx",
+    "analyticsEnabled": false,
+    "country": "SWE",
+    "defaultLanguage": "swe"
+}
+
+### Authenticate
+# @name auth
+POST {{auth_server}}connect/token
+Content-Type: application/x-www-form-urlencoded
+
+verification_token=653168&email=xxxxxxxxx&grant_type=email_auth_token&client_id=Server&scope=friends_factory.creators_api+offline_access&client_secret=xxxxxxxxx
+
+### Authenticate
+POST {{auth_server}}connect/token
+Content-Type: application/x-www-form-urlencoded
+
+phone_number=xxxxxxxxx&verification_token=564973&grant_type=phone_number_token&client_id=Server&scope=friends_factory.creators_api&client_secret=xxxxxxxxx

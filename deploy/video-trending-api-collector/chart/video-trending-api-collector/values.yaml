@@ -1,0 +1,11 @@
+# Default values for video-trending-api-collector.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+repository: "xxxxxxxxx"
+release: "latest"
+frever_api: "https://content-prod.frever-api.com/auth"
+s3_upload_path: "xxxxxxxxx"
+aws_access_key_id: "xxxxxxxxx"
+aws_secret_access_key: "xxxxxxxxx"
+schedule: "0 20 * * *" # https://crontab.guru/#*_*_*_*_*

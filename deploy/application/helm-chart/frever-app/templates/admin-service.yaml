@@ -1,0 +1,120 @@
+{{- $adminService := (merge (dict "Service" "admin" "Dll" "Frever.AdminService.Api.dll" ) . ) -}}
+{{- include "frever-app.net-service-ingress" $adminService }}
+---
+{{- include "frever-app.net-service-service" $adminService }}
+---
+{{- include "frever-app.net-horizontal-pod-autoscaler" $adminService }}
+---
+{{- include "frever-app.net-service-deployment" $adminService }}
+            - name: AWS__AssetCopyingQueue
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: aws.queue
+            - name: Templates__ThumbnailConversionJob
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: template.conversionJob
+            - name: Templates__ConversionJobRoleArn
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: template.conversionJobRoleArn
+            - name: IngestVideoS3BucketName
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: videoConversion.ingestBucket
+            - name: RunMigrations
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: runMigrations
+            - name: Redis__EnableCaching
+              value: "false"
+            - name: AutoCreateTemplateConfiguration__TemplateSubCategoryName
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: templateAutoCreation.templateSubcategoryName
+            - name: AutoCreateTemplateConfiguration__CreateTemplateOnBehalfOfUserEmail
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: templateAutoCreation.createOnBehalfOfEmail
+            - name: HardDeleteAccountSettings__DeletedDaysAgo
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: hardDeleteAccountSettings.deletedDaysAgo
+            - name: HardDeleteAccountSettings__DeletionErrorEmailRecipients
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: hardDeleteAccountSettings.deletionErrorEmailRecipients
+            - name: HardDeleteAccountSettings__EnvironmentInfo
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: hardDeleteAccountSettings.environmentInfo
+            - name: EmailSending__FromEmail
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: emailSending.fromEmail
+            - name: MusicProviderOAuthSettings__OAuthConsumerKey
+              valueFrom:
+                secretKeyRef:
+                  name: ssm-secrets
+                  key: musicProvider.OAuth.consumerKey
+            - name: MusicProviderOAuthSettings__OAuthConsumerSecret
+              valueFrom:
+                secretKeyRef:
+                  name: ssm-secrets
+                  key: musicProvider.OAuth.consumerSecret
+            - name: MusicProviderOAuthSettings__OAuthSignatureMethod
+              value: "HMAC-SHA1"
+            - name: MusicProviderOAuthSettings__OAuthVersion
+              value: "1.0"
+            - name: ConversionJobSqsQueue
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: videoConversion.createJobQueue
+            - name: MediaConverterQueue
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: videoConversion.mediaConverterQueue
+            - name: ConvertJobRoleArn
+              value: "xxxxxxxxx"
+            - name: ConvertJobTemplateName
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: videoConversion.mediaConverterJobName
+            - name: VideoThumbnailJobTemplateName
+              value: "video-thumbnail"
+            - name: DestinationVideoS3BucketName
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: aws.bucket
+            - name: TranscodingJobTemplateName
+              value: "ExtractMp3FromVideo"
+            - name: VideoPlayerPageUrl
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: video.videoPlayerPageUrl
+            - name: VideoReportNotificationEmail
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: email.videoReportNotification
+            - name: VideoConversionSqsQueue
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: videoConversion.sqsQueue

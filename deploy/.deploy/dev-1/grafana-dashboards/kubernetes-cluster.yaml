@@ -1,0 +1,703 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kubernetes-cluster-dashboard
+  namespace: prometheus
+  labels:
+     grafana_dashboard: "1"
+data:
+  k8s-dashboard.json: |-
+       {
+            "annotations": {
+                "list": [
+                {
+                    "builtIn": 1,
+                    "datasource": "-- Grafana --",
+                    "enable": true,
+                    "hide": true,
+                    "iconColor": "rgba(0, 211, 255, 1)",
+                    "name": "Annotations & Alerts",
+                    "type": "dashboard"
+                }
+                ]
+            },
+            "editable": true,
+            "gnetId": null,
+            "graphTooltip": 0,
+            "links": [],
+            "panels": [
+                {
+                "collapsed": true,
+                "datasource": null,
+                "gridPos": {
+                    "h": 1,
+                    "w": 24,
+                    "x": 0,
+                    "y": 0
+                },
+                "id": 18,
+                "panels": [
+                    {
+                    "datasource": null,
+                    "fieldConfig": {
+                        "defaults": {
+                        "color": {
+                            "mode": "thresholds"
+                        },
+                        "custom": {
+                            "align": null,
+                            "displayMode": "color-background",
+                            "filterable": false
+                        },
+                        "mappings": [
+                            {
+                            "from": "",
+                            "id": 1,
+                            "text": "No",
+                            "to": "",
+                            "type": 1,
+                            "value": "1"
+                            },
+                            {
+                            "from": "",
+                            "id": 2,
+                            "text": "Yes",
+                            "to": "",
+                            "type": 1,
+                            "value": "0"
+                            }
+                        ],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            },
+                            {
+                                "color": "red",
+                                "value": 0
+                            },
+                            {
+                                "color": "green",
+                                "value": 1
+                            }
+                            ]
+                        }
+                        },
+                        "overrides": []
+                    },
+                    "gridPos": {
+                        "h": 12,
+                        "w": 12,
+                        "x": 0,
+                        "y": 2
+                    },
+                    "id": 8,
+                    "options": {
+                        "showHeader": true
+                    },
+                    "pluginVersion": "7.5.5",
+                    "targets": [
+                        {
+                        "exemplar": true,
+                        "expr": "max_over_time( kube_node_status_condition {condition!=\"Ready\"}[1m]) > 0  ",
+                        "format": "time_series",
+                        "instant": true,
+                        "interval": "",
+                        "legendFormat": "",
+                        "refId": "A"
+                        }
+                    ],
+                    "title": "Node Pressure",
+                    "transformations": [
+                        {
+                        "id": "labelsToFields",
+                        "options": {
+                            "valueLabel": "condition"
+                        }
+                        },
+                        {
+                        "id": "organize",
+                        "options": {
+                            "excludeByName": {
+                            "Time": true,
+                            "app_kubernetes_io_instance": true,
+                            "app_kubernetes_io_managed_by": true,
+                            "app_kubernetes_io_name": true,
+                            "helm_sh_chart": true,
+                            "instance": true,
+                            "job": true,
+                            "kubernetes_name": true,
+                            "kubernetes_namespace": true,
+                            "kubernetes_node": true,
+                            "status": true
+                            },
+                            "indexByName": {},
+                            "renameByName": {
+                            "DiskPressure": "Disk",
+                            "MemoryPressure": "Memory",
+                            "PIDPressure": "PID",
+                            "node": "Node"
+                            }
+                        }
+                        }
+                    ],
+                    "type": "table"
+                    },
+                    {
+                    "datasource": null,
+                    "fieldConfig": {
+                        "defaults": {
+                        "color": {
+                            "mode": "thresholds"
+                        },
+                        "mappings": [],
+                        "max": 100,
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            },
+                            {
+                                "color": "red",
+                                "value": 80
+                            }
+                            ]
+                        }
+                        },
+                        "overrides": []
+                    },
+                    "gridPos": {
+                        "h": 6,
+                        "w": 12,
+                        "x": 12,
+                        "y": 2
+                    },
+                    "id": 4,
+                    "options": {
+                        "displayMode": "gradient",
+                        "orientation": "auto",
+                        "reduceOptions": {
+                        "calcs": [
+                            "lastNotNull"
+                        ],
+                        "fields": "",
+                        "values": false
+                        },
+                        "showUnfilled": true,
+                        "text": {}
+                    },
+                    "pluginVersion": "7.5.5",
+                    "targets": [
+                        {
+                        "exemplar": true,
+                        "expr": "100-(node_memory_MemFree_bytes/ node_memory_MemTotal_bytes)*100",
+                        "interval": "",
+                        "legendFormat": "{{kubernetes_node}}",
+                        "refId": "A"
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "Node Memory Usage %",
+                    "type": "bargauge"
+                    },
+                    {
+                    "datasource": null,
+                    "description": "",
+                    "fieldConfig": {
+                        "defaults": {
+                        "color": {
+                            "mode": "thresholds"
+                        },
+                        "mappings": [],
+                        "max": 10,
+                        "min": 0,
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                            {
+                                "color": "red",
+                                "value": null
+                            },
+                            {
+                                "color": "yellow",
+                                "value": 2
+                            },
+                            {
+                                "color": "green",
+                                "value": 5
+                            }
+                            ]
+                        },
+                        "unit": "decgbytes"
+                        },
+                        "overrides": []
+                    },
+                    "gridPos": {
+                        "h": 6,
+                        "w": 12,
+                        "x": 12,
+                        "y": 8
+                    },
+                    "id": 6,
+                    "options": {
+                        "displayMode": "gradient",
+                        "orientation": "auto",
+                        "reduceOptions": {
+                        "calcs": [
+                            "lastNotNull"
+                        ],
+                        "fields": "",
+                        "values": false
+                        },
+                        "showUnfilled": true,
+                        "text": {}
+                    },
+                    "pluginVersion": "7.5.5",
+                    "targets": [
+                        {
+                        "exemplar": true,
+                        "expr": "min by (kubernetes_node) (node_filesystem_avail_bytes/1024/1024/1024)",
+                        "interval": "",
+                        "legendFormat": "{{instance}}",
+                        "refId": "A"
+                        }
+                    ],
+                    "timeFrom": null,
+                    "timeShift": null,
+                    "title": "Node Disk Free Space",
+                    "type": "bargauge"
+                    }
+                ],
+                "title": "Nodes",
+                "type": "row"
+                },
+                {
+                "collapsed": true,
+                "datasource": null,
+                "gridPos": {
+                    "h": 1,
+                    "w": 24,
+                    "x": 0,
+                    "y": 1
+                },
+                "id": 16,
+                "panels": [
+                    {
+                    "datasource": null,
+                    "fieldConfig": {
+                        "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisLabel": "",
+                            "axisPlacement": "auto",
+                            "barAlignment": 0,
+                            "drawStyle": "line",
+                            "fillOpacity": 7,
+                            "gradientMode": "hue",
+                            "hideFrom": {
+                            "graph": false,
+                            "legend": false,
+                            "tooltip": false
+                            },
+                            "lineInterpolation": "linear",
+                            "lineStyle": {
+                            "fill": "solid"
+                            },
+                            "lineWidth": 1,
+                            "pointSize": 5,
+                            "scaleDistribution": {
+                            "type": "linear"
+                            },
+                            "showPoints": "never",
+                            "spanNulls": true
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            },
+                            {
+                                "color": "red",
+                                "value": 80
+                            }
+                            ]
+                        },
+                        "unit": "short"
+                        },
+                        "overrides": []
+                    },
+                    "gridPos": {
+                        "h": 8,
+                        "w": 24,
+                        "x": 0,
+                        "y": 2
+                    },
+                    "id": 10,
+                    "options": {
+                        "graph": {},
+                        "legend": {
+                        "calcs": [],
+                        "displayMode": "list",
+                        "placement": "bottom"
+                        },
+                        "tooltipOptions": {
+                        "mode": "single"
+                        }
+                    },
+                    "pluginVersion": "7.5.3",
+                    "targets": [
+                        {
+                        "exemplar": true,
+                        "expr": "sum by (container) (rate(container_cpu_usage_seconds_total{ namespace=\"dev-1\", container!=\"POD\",container!=\"\" }[5m]))",
+                        "interval": "",
+                        "legendFormat": "{{container}}",
+                        "refId": "A"
+                        }
+                    ],
+                    "title": "Container CPU usage",
+                    "type": "timeseries"
+                    }
+                ],
+                "title": "CPU",
+                "type": "row"
+                },
+                {
+                "collapsed": false,
+                "datasource": null,
+                "gridPos": {
+                    "h": 1,
+                    "w": 24,
+                    "x": 0,
+                    "y": 2
+                },
+                "id": 20,
+                "panels": [],
+                "title": "Application Load Balancer",
+                "type": "row"
+                },
+                {
+                "aliasColors": {},
+                "bars": false,
+                "dashLength": 10,
+                "dashes": false,
+                "datasource": null,
+                "fieldConfig": {
+                    "defaults": {},
+                    "overrides": []
+                },
+                "fill": 1,
+                "fillGradient": 0,
+                "gridPos": {
+                    "h": 8,
+                    "w": 24,
+                    "x": 0,
+                    "y": 3
+                },
+                "hiddenSeries": false,
+                "id": 22,
+                "legend": {
+                    "avg": false,
+                    "current": false,
+                    "max": false,
+                    "min": false,
+                    "show": true,
+                    "total": false,
+                    "values": false
+                },
+                "lines": true,
+                "linewidth": 1,
+                "nullPointMode": "null",
+                "options": {
+                    "alertThreshold": true
+                },
+                "percentage": false,
+                "pluginVersion": "7.5.5",
+                "pointradius": 2,
+                "points": false,
+                "renderer": "flot",
+                "seriesOverrides": [],
+                "spaceLength": 10,
+                "stack": false,
+                "steppedLine": false,
+                "targets": [
+                    {
+                    "exemplar": true,
+                    "expr": "avg by (tag_kubernetes_io_ingress_name)  (aws_alb_target_response_time_average{tag_kubernetes_io_namespace=\"dev-1\"})",
+                    "interval": "",
+                    "legendFormat": "{{tag_kubernetes_io_ingress_name}}",
+                    "refId": "A"
+                    }
+                ],
+                "thresholds": [],
+                "timeRegions": [],
+                "title": "Avg Target Response Time",
+                "tooltip": {
+                    "shared": true,
+                    "sort": 0,
+                    "value_type": "individual"
+                },
+                "type": "graph",
+                "xaxis": {
+                    "buckets": null,
+                    "mode": "time",
+                    "name": null,
+                    "show": true,
+                    "values": []
+                },
+                "yaxes": [
+                    {
+                    "$$hashKey": "object:106",
+                    "decimals": null,
+                    "format": "s",
+                    "label": null,
+                    "logBase": 1,
+                    "max": "10",
+                    "min": null,
+                    "show": true
+                    },
+                    {
+                    "$$hashKey": "object:107",
+                    "format": "short",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                    }
+                ],
+                "yaxis": {
+                    "align": false,
+                    "alignLevel": null
+                }
+                },
+                {
+                "aliasColors": {},
+                "bars": false,
+                "dashLength": 10,
+                "dashes": false,
+                "datasource": null,
+                "description": "",
+                "fieldConfig": {
+                    "defaults": {
+                    "unit": "short"
+                    },
+                    "overrides": []
+                },
+                "fill": 1,
+                "fillGradient": 0,
+                "gridPos": {
+                    "h": 8,
+                    "w": 12,
+                    "x": 0,
+                    "y": 11
+                },
+                "hiddenSeries": false,
+                "id": 14,
+                "legend": {
+                    "avg": false,
+                    "current": false,
+                    "max": false,
+                    "min": false,
+                    "show": true,
+                    "total": false,
+                    "values": false
+                },
+                "lines": true,
+                "linewidth": 1,
+                "nullPointMode": "null as zero",
+                "options": {
+                    "alertThreshold": true
+                },
+                "percentage": false,
+                "pluginVersion": "7.5.5",
+                "pointradius": 2,
+                "points": true,
+                "renderer": "flot",
+                "seriesOverrides": [],
+                "spaceLength": 10,
+                "stack": false,
+                "steppedLine": false,
+                "targets": [
+                    {
+                    "exemplar": true,
+                    "expr": "sum by (tag_kubernetes_io_ingress_name) (rate( aws_alb_httpcode_target_5_xx_count_sum{tag_kubernetes_io_namespace=\"dev-1\"}[5m]))",
+                    "interval": "",
+                    "legendFormat": "{{tag_kubernetes_io_ingress_name}}",
+                    "refId": "A"
+                    },
+                    {
+                    "exemplar": true,
+                    "expr": "sum by (tag_kubernetes_io_ingress_name) (rate( aws_alb_httpcode_elb_5_xx_count_sum{tag_kubernetes_io_namespace=\"dev-1\"}[5m]))",
+                    "hide": false,
+                    "interval": "",
+                    "legendFormat": "{{tag_kubernetes_io_ingress_name}}",
+                    "refId": "B"
+                    }
+                ],
+                "thresholds": [],
+                "timeFrom": null,
+                "timeRegions": [],
+                "timeShift": null,
+                "title": "ALB 5XX (Target and ELB)",
+                "tooltip": {
+                    "shared": true,
+                    "sort": 0,
+                    "value_type": "individual"
+                },
+                "type": "graph",
+                "xaxis": {
+                    "buckets": null,
+                    "mode": "time",
+                    "name": null,
+                    "show": true,
+                    "values": []
+                },
+                "yaxes": [
+                    {
+                    "$$hashKey": "object:134",
+                    "decimals": 0,
+                    "format": "short",
+                    "label": "",
+                    "logBase": 1,
+                    "max": null,
+                    "min": "0",
+                    "show": true
+                    },
+                    {
+                    "$$hashKey": "object:135",
+                    "format": "short",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                    }
+                ],
+                "yaxis": {
+                    "align": false,
+                    "alignLevel": null
+                }
+                },
+                {
+                "aliasColors": {},
+                "bars": false,
+                "dashLength": 10,
+                "dashes": false,
+                "datasource": null,
+                "fieldConfig": {
+                    "defaults": {},
+                    "overrides": []
+                },
+                "fill": 1,
+                "fillGradient": 0,
+                "gridPos": {
+                    "h": 8,
+                    "w": 12,
+                    "x": 12,
+                    "y": 11
+                },
+                "hiddenSeries": false,
+                "id": 12,
+                "legend": {
+                    "avg": false,
+                    "current": false,
+                    "max": false,
+                    "min": false,
+                    "show": true,
+                    "total": false,
+                    "values": false
+                },
+                "lines": true,
+                "linewidth": 1,
+                "nullPointMode": "null",
+                "options": {
+                    "alertThreshold": true
+                },
+                "percentage": false,
+                "pluginVersion": "7.5.5",
+                "pointradius": 2,
+                "points": false,
+                "renderer": "flot",
+                "seriesOverrides": [],
+                "spaceLength": 10,
+                "stack": false,
+                "steppedLine": false,
+                "targets": [
+                    {
+                    "exemplar": true,
+                    "expr": "aws_alb_active_connection_count_average{tag_kubernetes_io_namespace=\"dev-1\"}",
+                    "interval": "",
+                    "legendFormat": "{{tag_kubernetes_io_ingress_name}}",
+                    "refId": "A"
+                    }
+                ],
+                "thresholds": [],
+                "timeFrom": null,
+                "timeRegions": [],
+                "timeShift": null,
+                "title": "Avg Active Connections",
+                "tooltip": {
+                    "shared": true,
+                    "sort": 0,
+                    "value_type": "individual"
+                },
+                "type": "graph",
+                "xaxis": {
+                    "buckets": null,
+                    "mode": "time",
+                    "name": null,
+                    "show": true,
+                    "values": []
+                },
+                "yaxes": [
+                    {
+                    "$$hashKey": "object:32",
+                    "format": "short",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                    },
+                    {
+                    "$$hashKey": "object:33",
+                    "format": "short",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                    }
+                ],
+                "yaxis": {
+                    "align": false,
+                    "alignLevel": null
+                }
+                }
+            ],
+            "schemaVersion": 27,
+            "style": "dark",
+            "tags": [],
+            "templating": {
+                "list": []
+            },
+            "time": {
+                "from": "now-1h",
+                "to": "now"
+            },
+            "timepicker": {},
+            "timezone": "",
+            "title": "Cluster Info",
+            "uid": "wXWHPo9Gk",
+            "version": 1
+            }

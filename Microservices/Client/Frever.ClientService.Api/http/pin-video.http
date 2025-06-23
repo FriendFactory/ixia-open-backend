@@ -1,0 +1,62 @@
+# Works together with Frever.Impersonate CLI util to generate tokens.
+# Supports both local and remote environment
+@version=latest
+@env=dev-1
+
+@auth_server=https://{{env}}.frever-api.com/{{version}}/auth/
+@asset_server=https://{{env}}.frever-api.com/{{version}}/asset/
+@admin_server=https://{{env}}.frever-api.com/{{version}}/admin/
+@client_server=https://{{env}}.frever-api.com/{{version}}/client/
+@video_server=https://{{env}}.frever-api.com/{{version}}/video/
+@notification_server=https://{{env}}.frever-api.com/{{version}}/notification/
+@token=xxxxxxxxx
+
+
+###
+@auth_server=http://localhost:5002/
+@asset_server=http://localhost:5004/file-storage/
+@admin_server=http://localhost:5010/admin/
+@client_server=http://localhost:5011/client/
+@video_server=http://localhost:5005/video/
+@notification_server=http://localhost:5008/notification/
+@token=xxxxxxxxx
+
+
+############ END ##############
+
+###
+# @name my
+GET {{video_server}}video/my-videos
+Authorization: Bearer {{token}}
+
+
+###
+GET {{video_server}}video/my-videos
+    ?$targetVideo=4743
+    &$takeNext=3
+    &$takePrevious=3
+Authorization: Bearer {{token}}
+
+
+###
+GET {{video_server}}video/by-group/16
+Authorization: Bearer {{token}}
+
+###
+GET {{video_server}}video/by-group/16
+    ?$targetVideo=4743
+    &$takeNext=3
+    &$takePrevious=3
+Authorization: Bearer {{token}}
+
+###
+@videoId={{my.response.body.$[0].id}}
+@videoId=1771
+
+###
+PUT {{video_server}}video/{{videoId}}/pin
+Authorization: Bearer {{token}}
+
+###
+DELETE {{video_server}}video/{{videoId}}/pin
+Authorization: Bearer {{token}}

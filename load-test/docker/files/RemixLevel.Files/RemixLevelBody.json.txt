@@ -1,0 +1,1538 @@
+{
+  "id": 0,
+  "groupId": 742,
+  "originalGroupId": 742,
+  "createdTime": "2021-06-01T10:21:03.798016",
+  "modifiedTime": "2021-06-01T10:21:03.800999",
+  "levelTemplateId": 2,
+  "verticalCategoryId": 1,
+  "languageId": 1,
+  "remixedFromLevelId": 32425,
+  "isDeleted": false,
+  "isDraft": true,
+  "group": null,
+  "language": null,
+  "levelTemplate": null,
+  "originalGroup": null,
+  "remixedFromLevel": null,
+  "verticalCategory": null,
+  "event": [
+    {
+      "id": 0,
+      "groupId": 742,
+      "createdTime": "2021-06-01T10:21:03.798024",
+      "modifiedTime": "2021-06-01T10:21:04.017143",
+      "levelId": 0,
+      "levelSequence": 1,
+      "autoclipId": null,
+      "targetCharacterSequenceNumber": 0,
+      "filesInfo": null,
+      "length": 2450,
+      "characterSpawnPositionId": 401,
+      "characterSpawnPositionFormationId": 1,
+      "autoclip": null,
+      "characterSpawnPosition": null,
+      "characterSpawnPositionFormation": null,
+      "group": null,
+      "level": null,
+      "cameraController": [
+        {
+          "id": 0,
+          "eventId": 0,
+          "controllerSequenceNumber": 0,
+          "activationCue": 0,
+          "endCue": 0,
+          "cameraAnimationTemplateId": 42,
+          "spawnIndex": 0,
+          "startDepthOfFieldOffset": 65000,
+          "endDepthOfFieldOffset": 0,
+          "startFocusDistance": 0,
+          "endFocusDistance": 0,
+          "followSpawnPositionIndex": null,
+          "followAll": true,
+          "lookAtIndex": 1,
+          "cameraNoiseSettingsIndex": 0,
+          "autoFocus": false,
+          "autoRoll": false,
+          "followZoom": false,
+          "cameraAnimationId": null,
+          "cameraAnimation": {
+            "id": 0,
+            "groupId": 1,
+            "createdTime": "2021-06-01T10:21:03.798032",
+            "modifiedTime": "2021-06-01T10:21:03.927583",
+            "filesInfo": null,
+            "group": null,
+            "cameraAnimationTemplate": null,
+            "cameraController": [],
+            "files": [
+              {
+                "filePath": "/Users/ninasappar123/Library/Application Support/Friend Factory/savedcacheProdd/Cache/Production/CameraAnimation/89122/CameraAnimation.txt",
+                "state": 1,
+                "file": 0,
+                "resolution": null,
+                "source": {
+                  "uploadId": "06cebd2f-8f9d-43f4-aa66-e2c35543dbf7",
+                  "copyFrom": null
+                },
+                "version": null,
+                "extension": 6
+              }
+            ]
+          },
+          "cameraAnimationTemplate": null,
+          "event": null
+        }
+      ],
+      "cameraFilterController": [],
+      "characterController": [
+        {
+          "id": 0,
+          "eventId": 0,
+          "controllerSequenceNumber": 0,
+          "characterId": 5029,
+          "activationCue": 0,
+          "endCue": 0,
+          "rotation": 0,
+          "outfitId": null,
+          "character": null,
+          "event": null,
+          "outfit": null,
+          "characterControllerBackgroundDancer": null,
+          "characterControllerBodyAnimation": [
+            {
+              "id": 0,
+              "characterControllerId": 0,
+              "controllerSequenceNumber": 0,
+              "primaryBodyAnimationId": 351,
+              "lowerBodyAnimationId": null,
+              "animationSpeed": 0,
+              "activationCue": 3783,
+              "endCue": 6233,
+              "locomotion": false,
+              "looping": false,
+              "characterController": null,
+              "lowerBodyAnimation": null,
+              "primaryBodyAnimation": null
+            }
+          ],
+          "characterControllerFaceVoice": [
+            {
+              "id": 0,
+              "characterControllerId": 0,
+              "controllerSequenceNumber": 0,
+              "voiceTrackId": null,
+              "faceAnimationId": null,
+              "voiceFilterId": 7,
+              "activationCue": 0,
+              "endCue": 0,
+              "extremeExpressionId": null,
+              "faceVfxId": null,
+              "voiceSoundVolume": 100,
+              "characterController": null,
+              "extremeExpression": null,
+              "faceAnimation": {
+                "id": 0,
+                "assetStoreInfoId": null,
+                "groupId": 742,
+                "createdTime": "2021-06-01T10:21:03.798041",
+                "modifiedTime": "2021-06-01T10:21:03.875512",
+                "faceAnimationCategoryId": 1,
+                "size": null,
+                "duration": 2483,
+                "frameRate": 30,
+                "uploaderUserId": 691,
+                "tags": null,
+                "filesInfo": null,
+                "assetStoreInfo": null,
+                "faceAnimationCategory": null,
+                "group": null,
+                "uploaderUser": null,
+                "characterControllerBackgroundDancer": null,
+                "characterControllerFaceVoice": [],
+                "qaComments": null,
+                "files": [
+                  {
+                    "filePath": "/Users/ninasappar123/Library/Application Support/Friend Factory/savedcacheProdd/Cache/Production/FaceAnimation/85606/FaceAnimation.txt",
+                    "state": 1,
+                    "file": 0,
+                    "resolution": null,
+                    "source": {
+                      "uploadId": "c0fcd554-bfaf-4d5d-9072-92ae6202f94f",
+                      "copyFrom": null
+                    },
+                    "version": null,
+                    "extension": 6
+                  }
+                ]
+              },
+              "faceVfx": null,
+              "voiceFilter": null,
+              "voiceTrack": {
+                "files": [
+                  {
+                    "filePath": "/Users/ninasappar123/Library/Application Support/Friend Factory/savedcacheProdd/Cache/Production/VoiceTrack/56966/Audio.wav",
+                    "state": 1,
+                    "file": 0,
+                    "resolution": null,
+                    "source": {
+                      "uploadId": "502036a4-e7db-4709-99e5-fd14e14a46a9",
+                      "copyFrom": null
+                    },
+                    "version": null,
+                    "extension": 3
+                  }
+                ],
+                "id": 0,
+                "assetStoreInfoId": null,
+                "languageId": 1,
+                "groupId": 742,
+                "createdTime": "2021-06-01T10:21:03.798047",
+                "modifiedTime": "2021-06-01T10:21:03.90214",
+                "size": null,
+                "channels": null,
+                "samplingSize": null,
+                "duration": 0,
+                "samplingFrequency": null,
+                "filesInfo": null,
+                "assetStoreInfo": null,
+                "group": null,
+                "language": null,
+                "characterControllerFaceVoice": []
+              }
+            }
+          ],
+          "characterControllerUmaRecipe": [],
+          "orderNumber": 0
+        }
+      ],
+      "eventAndEventSpecialAssetbundle": null,
+      "musicController": [],
+      "propController": null,
+      "setLocationController": [
+        {
+          "id": 0,
+          "eventId": 0,
+          "controllerSequenceNumber": 0,
+          "setLocationId": 184,
+          "activationCue": 15925,
+          "endCue": 18375,
+          "timeOfDay": null,
+          "weatherId": 1,
+          "crowdId": null,
+          "crowdMovementId": null,
+          "maxCrowds": null,
+          "timelapseSpeed": null,
+          "npeAnimationSpeed": null,
+          "videoClipId": null,
+          "photoId": null,
+          "videoActivationCue": null,
+          "videoEndCue": null,
+          "videoSoundVolume": 0,
+          "crowd": null,
+          "crowdMovement": null,
+          "event": null,
+          "setLocation": null,
+          "weather": null,
+          "videoClip": null,
+          "photo": null
+        }
+      ],
+      "sfxController": null,
+      "stickerController": null,
+      "vfxController": [],
+      "files": [
+        {
+          "filePath": "/Users/ninasappar123/Library/Application Support/Friend Factory/savedcacheProdd/EventThumbnails/89912__512x512.png",
+          "state": 1,
+          "file": 1,
+          "resolution": "512x512",
+          "source": {
+            "uploadId": "f79ac392-afa5-4913-9ee8-6707b28cc535",
+            "copyFrom": null
+          },
+          "version": null,
+          "extension": 5
+        },
+        {
+          "filePath": "/Users/ninasappar123/Library/Application Support/Friend Factory/savedcacheProdd/EventThumbnails/89912__128x128.png",
+          "state": 1,
+          "file": 1,
+          "resolution": "128x128",
+          "source": {
+            "uploadId": "39fde6f3-3607-446c-aa87-e4ed7d5ad883",
+            "copyFrom": null
+          },
+          "version": null,
+          "extension": 5
+        }
+      ],
+      "orderNumber": 1
+    },
+    {
+      "id": 0,
+      "groupId": 742,
+      "createdTime": "2021-06-01T10:21:03.798058",
+      "modifiedTime": "2021-06-01T10:21:04.115821",
+      "levelId": 0,
+      "levelSequence": 2,
+      "autoclipId": null,
+      "targetCharacterSequenceNumber": 0,
+      "filesInfo": null,
+      "length": 2083,
+      "characterSpawnPositionId": 401,
+      "characterSpawnPositionFormationId": 1,
+      "autoclip": null,
+      "characterSpawnPosition": null,
+      "characterSpawnPositionFormation": null,
+      "group": null,
+      "level": null,
+      "cameraController": [
+        {
+          "id": 0,
+          "eventId": 0,
+          "controllerSequenceNumber": 0,
+          "activationCue": 0,
+          "endCue": 0,
+          "cameraAnimationTemplateId": 42,
+          "spawnIndex": 0,
+          "startDepthOfFieldOffset": 65000,
+          "endDepthOfFieldOffset": 0,
+          "startFocusDistance": 0,
+          "endFocusDistance": 0,
+          "followSpawnPositionIndex": null,
+          "followAll": true,
+          "lookAtIndex": 1,
+          "cameraNoiseSettingsIndex": 0,
+          "autoFocus": false,
+          "autoRoll": false,
+          "followZoom": false,
+          "cameraAnimationId": null,
+          "cameraAnimation": {
+            "id": 0,
+            "groupId": 1,
+            "createdTime": "2021-06-01T10:21:03.798065",
+            "modifiedTime": "2021-06-01T10:21:04.094089",
+            "filesInfo": null,
+            "group": null,
+            "cameraAnimationTemplate": null,
+            "cameraController": [],
+            "files": [
+              {
+                "filePath": "/Users/ninasappar123/Library/Application Support/Friend Factory/savedcacheProdd/Cache/Production/CameraAnimation/89124/CameraAnimation.txt",
+                "state": 1,
+                "file": 0,
+                "resolution": null,
+                "source": {
+                  "uploadId": "c2741f7a-e400-4362-bfea-eaa02fd046ba",
+                  "copyFrom": null
+                },
+                "version": null,
+                "extension": 6
+              }
+            ]
+          },
+          "cameraAnimationTemplate": null,
+          "event": null
+        }
+      ],
+      "cameraFilterController": [],
+      "characterController": [
+        {
+          "id": 0,
+          "eventId": 0,
+          "controllerSequenceNumber": 0,
+          "characterId": 5029,
+          "activationCue": 0,
+          "endCue": 0,
+          "rotation": 0,
+          "outfitId": null,
+          "character": null,
+          "event": null,
+          "outfit": null,
+          "characterControllerBackgroundDancer": null,
+          "characterControllerBodyAnimation": [
+            {
+              "id": 0,
+              "characterControllerId": 0,
+              "controllerSequenceNumber": 0,
+              "primaryBodyAnimationId": 511,
+              "lowerBodyAnimationId": null,
+              "animationSpeed": 0,
+              "activationCue": 11466,
+              "endCue": 13549,
+              "locomotion": false,
+              "looping": false,
+              "characterController": null,
+              "lowerBodyAnimation": null,
+              "primaryBodyAnimation": null
+            }
+          ],
+          "characterControllerFaceVoice": [
+            {
+              "id": 0,
+              "characterControllerId": 0,
+              "controllerSequenceNumber": 0,
+              "voiceTrackId": null,
+              "faceAnimationId": null,
+              "voiceFilterId": 7,
+              "activationCue": 0,
+              "endCue": 0,
+              "extremeExpressionId": null,
+              "faceVfxId": null,
+              "voiceSoundVolume": 100,
+              "characterController": null,
+              "extremeExpression": null,
+              "faceAnimation": {
+                "id": 0,
+                "assetStoreInfoId": null,
+                "groupId": 742,
+                "createdTime": "2021-06-01T10:21:03.798073",
+                "modifiedTime": "2021-06-01T10:21:04.043473",
+                "faceAnimationCategoryId": 1,
+                "size": null,
+                "duration": 2112,
+                "frameRate": 30,
+                "uploaderUserId": 691,
+                "tags": null,
+                "filesInfo": null,
+                "assetStoreInfo": null,
+                "faceAnimationCategory": null,
+                "group": null,
+                "uploaderUser": null,
+                "characterControllerBackgroundDancer": null,
+                "characterControllerFaceVoice": [],
+                "qaComments": null,
+                "files": [
+                  {
+                    "filePath": "/Users/ninasappar123/Library/Application Support/Friend Factory/savedcacheProdd/Cache/Production/FaceAnimation/85607/FaceAnimation.txt",
+                    "state": 1,
+                    "file": 0,
+                    "resolution": null,
+                    "source": {
+                      "uploadId": "156e6142-3efe-4013-aaaa-8986dc140348",
+                      "copyFrom": null
+                    },
+                    "version": null,
+                    "extension": 6
+                  }
+                ]
+              },
+              "faceVfx": null,
+              "voiceFilter": null,
+              "voiceTrack": {
+                "files": [
+                  {
+                    "filePath": "/Users/ninasappar123/Library/Application Support/Friend Factory/savedcacheProdd/Cache/Production/VoiceTrack/56965/Audio.wav",
+                    "state": 1,
+                    "file": 0,
+                    "resolution": null,
+                    "source": {
+                      "uploadId": "a15d64b3-0170-440a-adea-550adf5b2c26",
+                      "copyFrom": null
+                    },
+                    "version": null,
+                    "extension": 3
+                  }
+                ],
+                "id": 0,
+                "assetStoreInfoId": null,
+                "languageId": 1,
+                "groupId": 742,
+                "createdTime": "2021-06-01T10:21:03.798078",
+                "modifiedTime": "2021-06-01T10:21:04.069646",
+                "size": null,
+                "channels": null,
+                "samplingSize": null,
+                "duration": 0,
+                "samplingFrequency": null,
+                "filesInfo": null,
+                "assetStoreInfo": null,
+                "group": null,
+                "language": null,
+                "characterControllerFaceVoice": []
+              }
+            }
+          ],
+          "characterControllerUmaRecipe": [],
+          "orderNumber": 0
+        }
+      ],
+      "eventAndEventSpecialAssetbundle": null,
+      "musicController": [],
+      "propController": null,
+      "setLocationController": [
+        {
+          "id": 0,
+          "eventId": 0,
+          "controllerSequenceNumber": 0,
+          "setLocationId": 184,
+          "activationCue": 18375,
+          "endCue": 20458,
+          "timeOfDay": null,
+          "weatherId": 1,
+          "crowdId": null,
+          "crowdMovementId": null,
+          "maxCrowds": null,
+          "timelapseSpeed": null,
+          "npeAnimationSpeed": null,
+          "videoClipId": null,
+          "photoId": null,
+          "videoActivationCue": null,
+          "videoEndCue": null,
+          "videoSoundVolume": 0,
+          "crowd": null,
+          "crowdMovement": null,
+          "event": null,
+          "setLocation": null,
+          "weather": null,
+          "videoClip": null,
+          "photo": null
+        }
+      ],
+      "sfxController": null,
+      "stickerController": null,
+      "vfxController": [],
+      "files": [
+        {
+          "filePath": "/Users/ninasappar123/Library/Application Support/Friend Factory/savedcacheProdd/EventThumbnails/89913__512x512.png",
+          "state": 1,
+          "file": 1,
+          "resolution": "512x512",
+          "source": {
+            "uploadId": "8bb5e107-01e9-44ec-9ec0-95587deaa883",
+            "copyFrom": null
+          },
+          "version": null,
+          "extension": 5
+        },
+        {
+          "filePath": "/Users/ninasappar123/Library/Application Support/Friend Factory/savedcacheProdd/EventThumbnails/89913__128x128.png",
+          "state": 1,
+          "file": 1,
+          "resolution": "128x128",
+          "source": {
+            "uploadId": "9f8d6a71-25df-4352-abb9-462a641b5bb5",
+            "copyFrom": null
+          },
+          "version": null,
+          "extension": 5
+        }
+      ],
+      "orderNumber": 2
+    },
+    {
+      "id": 0,
+      "groupId": 742,
+      "createdTime": "2021-06-01T10:21:03.798088",
+      "modifiedTime": "2021-06-01T10:21:04.292046",
+      "levelId": 0,
+      "levelSequence": 3,
+      "autoclipId": null,
+      "targetCharacterSequenceNumber": 0,
+      "filesInfo": null,
+      "length": 2850,
+      "characterSpawnPositionId": 401,
+      "characterSpawnPositionFormationId": 1,
+      "autoclip": null,
+      "characterSpawnPosition": null,
+      "characterSpawnPositionFormation": null,
+      "group": null,
+      "level": null,
+      "cameraController": [
+        {
+          "id": 0,
+          "eventId": 0,
+          "controllerSequenceNumber": 0,
+          "activationCue": 0,
+          "endCue": 0,
+          "cameraAnimationTemplateId": 42,
+          "spawnIndex": 0,
+          "startDepthOfFieldOffset": 65000,
+          "endDepthOfFieldOffset": 0,
+          "startFocusDistance": 0,
+          "endFocusDistance": 0,
+          "followSpawnPositionIndex": null,
+          "followAll": true,
+          "lookAtIndex": 1,
+          "cameraNoiseSettingsIndex": 0,
+          "autoFocus": false,
+          "autoRoll": false,
+          "followZoom": false,
+          "cameraAnimationId": null,
+          "cameraAnimation": {
+            "id": 0,
+            "groupId": 1,
+            "createdTime": "2021-06-01T10:21:03.798094",
+            "modifiedTime": "2021-06-01T10:21:04.194435",
+            "filesInfo": null,
+            "group": null,
+            "cameraAnimationTemplate": null,
+            "cameraController": [],
+            "files": [
+              {
+                "filePath": "/Users/ninasappar123/Library/Application Support/Friend Factory/savedcacheProdd/Cache/Production/CameraAnimation/89125/CameraAnimation.txt",
+                "state": 1,
+                "file": 0,
+                "resolution": null,
+                "source": {
+                  "uploadId": "9e73d429-fd1a-40c7-9dd3-33265dc12ef9",
+                  "copyFrom": null
+                },
+                "version": null,
+                "extension": 6
+              }
+            ]
+          },
+          "cameraAnimationTemplate": null,
+          "event": null
+        }
+      ],
+      "cameraFilterController": [],
+      "characterController": [
+        {
+          "id": 0,
+          "eventId": 0,
+          "controllerSequenceNumber": 0,
+          "characterId": 5029,
+          "activationCue": 0,
+          "endCue": 0,
+          "rotation": 0,
+          "outfitId": null,
+          "character": null,
+          "event": null,
+          "outfit": null,
+          "characterControllerBackgroundDancer": null,
+          "characterControllerBodyAnimation": [
+            {
+              "id": 0,
+              "characterControllerId": 0,
+              "controllerSequenceNumber": 0,
+              "primaryBodyAnimationId": 511,
+              "lowerBodyAnimationId": null,
+              "animationSpeed": 0,
+              "activationCue": 13549,
+              "endCue": 16399,
+              "locomotion": false,
+              "looping": false,
+              "characterController": null,
+              "lowerBodyAnimation": null,
+              "primaryBodyAnimation": null
+            }
+          ],
+          "characterControllerFaceVoice": [
+            {
+              "id": 0,
+              "characterControllerId": 0,
+              "controllerSequenceNumber": 0,
+              "voiceTrackId": null,
+              "faceAnimationId": null,
+              "voiceFilterId": 7,
+              "activationCue": 0,
+              "endCue": 0,
+              "extremeExpressionId": null,
+              "faceVfxId": null,
+              "voiceSoundVolume": 100,
+              "characterController": null,
+              "extremeExpression": null,
+              "faceAnimation": {
+                "id": 0,
+                "assetStoreInfoId": null,
+                "groupId": 742,
+                "createdTime": "2021-06-01T10:21:03.798103",
+                "modifiedTime": "2021-06-01T10:21:04.142638",
+                "faceAnimationCategoryId": 1,
+                "size": null,
+                "duration": 2882,
+                "frameRate": 30,
+                "uploaderUserId": 691,
+                "tags": null,
+                "filesInfo": null,
+                "assetStoreInfo": null,
+                "faceAnimationCategory": null,
+                "group": null,
+                "uploaderUser": null,
+                "characterControllerBackgroundDancer": null,
+                "characterControllerFaceVoice": [],
+                "qaComments": null,
+                "files": [
+                  {
+                    "filePath": "/Users/ninasappar123/Library/Application Support/Friend Factory/savedcacheProdd/Cache/Production/FaceAnimation/85608/FaceAnimation.txt",
+                    "state": 1,
+                    "file": 0,
+                    "resolution": null,
+                    "source": {
+                      "uploadId": "36cf491a-2ec1-48db-8dda-7c4eabdbc371",
+                      "copyFrom": null
+                    },
+                    "version": null,
+                    "extension": 6
+                  }
+                ]
+              },
+              "faceVfx": null,
+              "voiceFilter": null,
+              "voiceTrack": {
+                "files": [
+                  {
+                    "filePath": "/Users/ninasappar123/Library/Application Support/Friend Factory/savedcacheProdd/Cache/Production/VoiceTrack/56964/Audio.wav",
+                    "state": 1,
+                    "file": 0,
+                    "resolution": null,
+                    "source": {
+                      "uploadId": "8be46135-c188-423c-820b-3518bbe65b4b",
+                      "copyFrom": null
+                    },
+                    "version": null,
+                    "extension": 3
+                  }
+                ],
+                "id": 0,
+                "assetStoreInfoId": null,
+                "languageId": 1,
+                "groupId": 742,
+                "createdTime": "2021-06-01T10:21:03.798107",
+                "modifiedTime": "2021-06-01T10:21:04.16949",
+                "size": null,
+                "channels": null,
+                "samplingSize": null,
+                "duration": 0,
+                "samplingFrequency": null,
+                "filesInfo": null,
+                "assetStoreInfo": null,
+                "group": null,
+                "language": null,
+                "characterControllerFaceVoice": []
+              }
+            }
+          ],
+          "characterControllerUmaRecipe": [],
+          "orderNumber": 0
+        }
+      ],
+      "eventAndEventSpecialAssetbundle": null,
+      "musicController": [],
+      "propController": null,
+      "setLocationController": [
+        {
+          "id": 0,
+          "eventId": 0,
+          "controllerSequenceNumber": 0,
+          "setLocationId": 184,
+          "activationCue": 20458,
+          "endCue": 23308,
+          "timeOfDay": null,
+          "weatherId": 1,
+          "crowdId": null,
+          "crowdMovementId": null,
+          "maxCrowds": null,
+          "timelapseSpeed": null,
+          "npeAnimationSpeed": null,
+          "videoClipId": null,
+          "photoId": null,
+          "videoActivationCue": null,
+          "videoEndCue": null,
+          "videoSoundVolume": 0,
+          "crowd": null,
+          "crowdMovement": null,
+          "event": null,
+          "setLocation": null,
+          "weather": null,
+          "videoClip": null,
+          "photo": null
+        }
+      ],
+      "sfxController": null,
+      "stickerController": null,
+      "vfxController": [],
+      "files": [
+        {
+          "filePath": "/Users/ninasappar123/Library/Application Support/Friend Factory/savedcacheProdd/EventThumbnails/89914__512x512.png",
+          "state": 1,
+          "file": 1,
+          "resolution": "512x512",
+          "source": {
+            "uploadId": "b5fef0ff-ccff-4473-ab10-5a220725565f",
+            "copyFrom": null
+          },
+          "version": null,
+          "extension": 5
+        },
+        {
+          "filePath": "/Users/ninasappar123/Library/Application Support/Friend Factory/savedcacheProdd/EventThumbnails/89914__128x128.png",
+          "state": 1,
+          "file": 1,
+          "resolution": "128x128",
+          "source": {
+            "uploadId": "77bf9182-9a39-4c4c-ad9d-7d93ebc1bdd0",
+            "copyFrom": null
+          },
+          "version": null,
+          "extension": 5
+        }
+      ],
+      "orderNumber": 3
+    },
+    {
+      "id": 0,
+      "groupId": 742,
+      "createdTime": "2021-06-01T10:21:03.798117",
+      "modifiedTime": "2021-06-01T10:21:04.417264",
+      "levelId": 0,
+      "levelSequence": 4,
+      "autoclipId": null,
+      "targetCharacterSequenceNumber": 0,
+      "filesInfo": null,
+      "length": 2817,
+      "characterSpawnPositionId": 401,
+      "characterSpawnPositionFormationId": 1,
+      "autoclip": null,
+      "characterSpawnPosition": null,
+      "characterSpawnPositionFormation": null,
+      "group": null,
+      "level": null,
+      "cameraController": [
+        {
+          "id": 0,
+          "eventId": 0,
+          "controllerSequenceNumber": 0,
+          "activationCue": 0,
+          "endCue": 0,
+          "cameraAnimationTemplateId": 42,
+          "spawnIndex": 0,
+          "startDepthOfFieldOffset": 65000,
+          "endDepthOfFieldOffset": 0,
+          "startFocusDistance": 0,
+          "endFocusDistance": 0,
+          "followSpawnPositionIndex": null,
+          "followAll": true,
+          "lookAtIndex": 1,
+          "cameraNoiseSettingsIndex": 0,
+          "autoFocus": false,
+          "autoRoll": false,
+          "followZoom": false,
+          "cameraAnimationId": null,
+          "cameraAnimation": {
+            "id": 0,
+            "groupId": 1,
+            "createdTime": "2021-06-01T10:21:03.798124",
+            "modifiedTime": "2021-06-01T10:21:04.393492",
+            "filesInfo": null,
+            "group": null,
+            "cameraAnimationTemplate": null,
+            "cameraController": [],
+            "files": [
+              {
+                "filePath": "/Users/ninasappar123/Library/Application Support/Friend Factory/savedcacheProdd/Cache/Production/CameraAnimation/89126/CameraAnimation.txt",
+                "state": 1,
+                "file": 0,
+                "resolution": null,
+                "source": {
+                  "uploadId": "48a070b4-ccb2-4679-a2a1-40cd20d24acc",
+                  "copyFrom": null
+                },
+                "version": null,
+                "extension": 6
+              }
+            ]
+          },
+          "cameraAnimationTemplate": null,
+          "event": null
+        }
+      ],
+      "cameraFilterController": [],
+      "characterController": [
+        {
+          "id": 0,
+          "eventId": 0,
+          "controllerSequenceNumber": 0,
+          "characterId": 5029,
+          "activationCue": 0,
+          "endCue": 0,
+          "rotation": 0,
+          "outfitId": null,
+          "character": null,
+          "event": null,
+          "outfit": null,
+          "characterControllerBackgroundDancer": null,
+          "characterControllerBodyAnimation": [
+            {
+              "id": 0,
+              "characterControllerId": 0,
+              "controllerSequenceNumber": 0,
+              "primaryBodyAnimationId": 379,
+              "lowerBodyAnimationId": null,
+              "animationSpeed": 0,
+              "activationCue": 149,
+              "endCue": 2966,
+              "locomotion": false,
+              "looping": false,
+              "characterController": null,
+              "lowerBodyAnimation": null,
+              "primaryBodyAnimation": null
+            }
+          ],
+          "characterControllerFaceVoice": [
+            {
+              "id": 0,
+              "characterControllerId": 0,
+              "controllerSequenceNumber": 0,
+              "voiceTrackId": null,
+              "faceAnimationId": null,
+              "voiceFilterId": 7,
+              "activationCue": 0,
+              "endCue": 0,
+              "extremeExpressionId": null,
+              "faceVfxId": null,
+              "voiceSoundVolume": 100,
+              "characterController": null,
+              "extremeExpression": null,
+              "faceAnimation": {
+                "id": 0,
+                "assetStoreInfoId": null,
+                "groupId": 742,
+                "createdTime": "2021-06-01T10:21:03.798132",
+                "modifiedTime": "2021-06-01T10:21:04.318963",
+                "faceAnimationCategoryId": 1,
+                "size": null,
+                "duration": 2848,
+                "frameRate": 30,
+                "uploaderUserId": 691,
+                "tags": null,
+                "filesInfo": null,
+                "assetStoreInfo": null,
+                "faceAnimationCategory": null,
+                "group": null,
+                "uploaderUser": null,
+                "characterControllerBackgroundDancer": null,
+                "characterControllerFaceVoice": [],
+                "qaComments": null,
+                "files": [
+                  {
+                    "filePath": "/Users/ninasappar123/Library/Application Support/Friend Factory/savedcacheProdd/Cache/Production/FaceAnimation/85610/FaceAnimation.txt",
+                    "state": 1,
+                    "file": 0,
+                    "resolution": null,
+                    "source": {
+                      "uploadId": "99a0441c-4e9b-4068-aaba-aa85ffa81963",
+                      "copyFrom": null
+                    },
+                    "version": null,
+                    "extension": 6
+                  }
+                ]
+              },
+              "faceVfx": null,
+              "voiceFilter": null,
+              "voiceTrack": {
+                "files": [
+                  {
+                    "filePath": "/Users/ninasappar123/Library/Application Support/Friend Factory/savedcacheProdd/Cache/Production/VoiceTrack/56967/Audio.wav",
+                    "state": 1,
+                    "file": 0,
+                    "resolution": null,
+                    "source": {
+                      "uploadId": "79c12d73-e0f7-4147-b27c-060ef83f71ce",
+                      "copyFrom": null
+                    },
+                    "version": null,
+                    "extension": 3
+                  }
+                ],
+                "id": 0,
+                "assetStoreInfoId": null,
+                "languageId": 1,
+                "groupId": 742,
+                "createdTime": "2021-06-01T10:21:03.798137",
+                "modifiedTime": "2021-06-01T10:21:04.345523",
+                "size": null,
+                "channels": null,
+                "samplingSize": null,
+                "duration": 0,
+                "samplingFrequency": null,
+                "filesInfo": null,
+                "assetStoreInfo": null,
+                "group": null,
+                "language": null,
+                "characterControllerFaceVoice": []
+              }
+            }
+          ],
+          "characterControllerUmaRecipe": [],
+          "orderNumber": 0
+        }
+      ],
+      "eventAndEventSpecialAssetbundle": null,
+      "musicController": [],
+      "propController": null,
+      "setLocationController": [
+        {
+          "id": 0,
+          "eventId": 0,
+          "controllerSequenceNumber": 0,
+          "setLocationId": 184,
+          "activationCue": 23308,
+          "endCue": 26125,
+          "timeOfDay": null,
+          "weatherId": 1,
+          "crowdId": null,
+          "crowdMovementId": null,
+          "maxCrowds": null,
+          "timelapseSpeed": null,
+          "npeAnimationSpeed": null,
+          "videoClipId": null,
+          "photoId": null,
+          "videoActivationCue": null,
+          "videoEndCue": null,
+          "videoSoundVolume": 0,
+          "crowd": null,
+          "crowdMovement": null,
+          "event": null,
+          "setLocation": null,
+          "weather": null,
+          "videoClip": null,
+          "photo": null
+        }
+      ],
+      "sfxController": null,
+      "stickerController": null,
+      "vfxController": [],
+      "files": [
+        {
+          "filePath": "/Users/ninasappar123/Library/Application Support/Friend Factory/savedcacheProdd/EventThumbnails/89915__512x512.png",
+          "state": 1,
+          "file": 1,
+          "resolution": "512x512",
+          "source": {
+            "uploadId": "3907aa5f-8444-42ca-809d-3e86f54366fd",
+            "copyFrom": null
+          },
+          "version": null,
+          "extension": 5
+        },
+        {
+          "filePath": "/Users/ninasappar123/Library/Application Support/Friend Factory/savedcacheProdd/EventThumbnails/89915__128x128.png",
+          "state": 1,
+          "file": 1,
+          "resolution": "128x128",
+          "source": {
+            "uploadId": "8c2bdede-6bb3-4174-8eaa-ba80209d655a",
+            "copyFrom": null
+          },
+          "version": null,
+          "extension": 5
+        }
+      ],
+      "orderNumber": 4
+    },
+    {
+      "id": 0,
+      "groupId": 742,
+      "createdTime": "2021-06-01T10:21:03.798144",
+      "modifiedTime": "2021-06-01T10:21:04.51997",
+      "levelId": 0,
+      "levelSequence": 5,
+      "autoclipId": null,
+      "targetCharacterSequenceNumber": 0,
+      "filesInfo": null,
+      "length": 2867,
+      "characterSpawnPositionId": 401,
+      "characterSpawnPositionFormationId": 1,
+      "autoclip": null,
+      "characterSpawnPosition": null,
+      "characterSpawnPositionFormation": null,
+      "group": null,
+      "level": null,
+      "cameraController": [
+        {
+          "id": 0,
+          "eventId": 0,
+          "controllerSequenceNumber": 0,
+          "activationCue": 0,
+          "endCue": 0,
+          "cameraAnimationTemplateId": 42,
+          "spawnIndex": 0,
+          "startDepthOfFieldOffset": 65000,
+          "endDepthOfFieldOffset": 0,
+          "startFocusDistance": 0,
+          "endFocusDistance": 0,
+          "followSpawnPositionIndex": null,
+          "followAll": true,
+          "lookAtIndex": 1,
+          "cameraNoiseSettingsIndex": 0,
+          "autoFocus": false,
+          "autoRoll": false,
+          "followZoom": false,
+          "cameraAnimationId": null,
+          "cameraAnimation": {
+            "id": 0,
+            "groupId": 1,
+            "createdTime": "2021-06-01T10:21:03.798153",
+            "modifiedTime": "2021-06-01T10:21:04.497179",
+            "filesInfo": null,
+            "group": null,
+            "cameraAnimationTemplate": null,
+            "cameraController": [],
+            "files": [
+              {
+                "filePath": "/Users/ninasappar123/Library/Application Support/Friend Factory/savedcacheProdd/Cache/Production/CameraAnimation/89127/CameraAnimation.txt",
+                "state": 1,
+                "file": 0,
+                "resolution": null,
+                "source": {
+                  "uploadId": "cded16e5-584c-4b97-bfc5-203c78b48039",
+                  "copyFrom": null
+                },
+                "version": null,
+                "extension": 6
+              }
+            ]
+          },
+          "cameraAnimationTemplate": null,
+          "event": null
+        }
+      ],
+      "cameraFilterController": [],
+      "characterController": [
+        {
+          "id": 0,
+          "eventId": 0,
+          "controllerSequenceNumber": 0,
+          "characterId": 5029,
+          "activationCue": 0,
+          "endCue": 0,
+          "rotation": 0,
+          "outfitId": null,
+          "character": null,
+          "event": null,
+          "outfit": null,
+          "characterControllerBackgroundDancer": null,
+          "characterControllerBodyAnimation": [
+            {
+              "id": 0,
+              "characterControllerId": 0,
+              "controllerSequenceNumber": 0,
+              "primaryBodyAnimationId": 291,
+              "lowerBodyAnimationId": null,
+              "animationSpeed": 0,
+              "activationCue": 4099,
+              "endCue": 6966,
+              "locomotion": false,
+              "looping": false,
+              "characterController": null,
+              "lowerBodyAnimation": null,
+              "primaryBodyAnimation": null
+            }
+          ],
+          "characterControllerFaceVoice": [
+            {
+              "id": 0,
+              "characterControllerId": 0,
+              "controllerSequenceNumber": 0,
+              "voiceTrackId": null,
+              "faceAnimationId": null,
+              "voiceFilterId": 7,
+              "activationCue": 0,
+              "endCue": 0,
+              "extremeExpressionId": null,
+              "faceVfxId": null,
+              "voiceSoundVolume": 100,
+              "characterController": null,
+              "extremeExpression": null,
+              "faceAnimation": {
+                "id": 0,
+                "assetStoreInfoId": null,
+                "groupId": 742,
+                "createdTime": "2021-06-01T10:21:03.798161",
+                "modifiedTime": "2021-06-01T10:21:04.444122",
+                "faceAnimationCategoryId": 1,
+                "size": null,
+                "duration": 2902,
+                "frameRate": 30,
+                "uploaderUserId": 691,
+                "tags": null,
+                "filesInfo": null,
+                "assetStoreInfo": null,
+                "faceAnimationCategory": null,
+                "group": null,
+                "uploaderUser": null,
+                "characterControllerBackgroundDancer": null,
+                "characterControllerFaceVoice": [],
+                "qaComments": null,
+                "files": [
+                  {
+                    "filePath": "/Users/ninasappar123/Library/Application Support/Friend Factory/savedcacheProdd/Cache/Production/FaceAnimation/85611/FaceAnimation.txt",
+                    "state": 1,
+                    "file": 0,
+                    "resolution": null,
+                    "source": {
+                      "uploadId": "657b26fd-3ce7-4fe4-9f49-9dc650aba6bf",
+                      "copyFrom": null
+                    },
+                    "version": null,
+                    "extension": 6
+                  }
+                ]
+              },
+              "faceVfx": null,
+              "voiceFilter": null,
+              "voiceTrack": {
+                "files": [
+                  {
+                    "filePath": "/Users/ninasappar123/Library/Application Support/Friend Factory/savedcacheProdd/Cache/Production/VoiceTrack/56963/Audio.wav",
+                    "state": 1,
+                    "file": 0,
+                    "resolution": null,
+                    "source": {
+                      "uploadId": "051915fc-c7d8-4693-a63e-158dfbe8ccdd",
+                      "copyFrom": null
+                    },
+                    "version": null,
+                    "extension": 3
+                  }
+                ],
+                "id": 0,
+                "assetStoreInfoId": null,
+                "languageId": 1,
+                "groupId": 742,
+                "createdTime": "2021-06-01T10:21:03.798166",
+                "modifiedTime": "2021-06-01T10:21:04.471772",
+                "size": null,
+                "channels": null,
+                "samplingSize": null,
+                "duration": 0,
+                "samplingFrequency": null,
+                "filesInfo": null,
+                "assetStoreInfo": null,
+                "group": null,
+                "language": null,
+                "characterControllerFaceVoice": []
+              }
+            }
+          ],
+          "characterControllerUmaRecipe": [],
+          "orderNumber": 0
+        }
+      ],
+      "eventAndEventSpecialAssetbundle": null,
+      "musicController": [],
+      "propController": null,
+      "setLocationController": [
+        {
+          "id": 0,
+          "eventId": 0,
+          "controllerSequenceNumber": 0,
+          "setLocationId": 184,
+          "activationCue": 26125,
+          "endCue": 28992,
+          "timeOfDay": null,
+          "weatherId": 1,
+          "crowdId": null,
+          "crowdMovementId": null,
+          "maxCrowds": null,
+          "timelapseSpeed": null,
+          "npeAnimationSpeed": null,
+          "videoClipId": null,
+          "photoId": null,
+          "videoActivationCue": null,
+          "videoEndCue": null,
+          "videoSoundVolume": 0,
+          "crowd": null,
+          "crowdMovement": null,
+          "event": null,
+          "setLocation": null,
+          "weather": null,
+          "videoClip": null,
+          "photo": null
+        }
+      ],
+      "sfxController": null,
+      "stickerController": null,
+      "vfxController": [],
+      "files": [
+        {
+          "filePath": "/Users/ninasappar123/Library/Application Support/Friend Factory/savedcacheProdd/EventThumbnails/89916__512x512.png",
+          "state": 1,
+          "file": 1,
+          "resolution": "512x512",
+          "source": {
+            "uploadId": "dcc79f3f-4332-466e-8f75-323848a11f83",
+            "copyFrom": null
+          },
+          "version": null,
+          "extension": 5
+        },
+        {
+          "filePath": "/Users/ninasappar123/Library/Application Support/Friend Factory/savedcacheProdd/EventThumbnails/89916__128x128.png",
+          "state": 1,
+          "file": 1,
+          "resolution": "128x128",
+          "source": {
+            "uploadId": "9441126f-119d-4a9d-819a-feef457f29dc",
+            "copyFrom": null
+          },
+          "version": null,
+          "extension": 5
+        }
+      ],
+      "orderNumber": 5
+    },
+    {
+      "id": 0,
+      "groupId": 742,
+      "createdTime": "2021-06-01T10:21:03.798174",
+      "modifiedTime": "2021-06-01T10:21:04.629032",
+      "levelId": 0,
+      "levelSequence": 6,
+      "autoclipId": null,
+      "targetCharacterSequenceNumber": 0,
+      "filesInfo": null,
+      "length": 1916,
+      "characterSpawnPositionId": 401,
+      "characterSpawnPositionFormationId": 1,
+      "autoclip": null,
+      "characterSpawnPosition": null,
+      "characterSpawnPositionFormation": null,
+      "group": null,
+      "level": null,
+      "cameraController": [
+        {
+          "id": 0,
+          "eventId": 0,
+          "controllerSequenceNumber": 0,
+          "activationCue": 0,
+          "endCue": 0,
+          "cameraAnimationTemplateId": 42,
+          "spawnIndex": 0,
+          "startDepthOfFieldOffset": 65000,
+          "endDepthOfFieldOffset": 0,
+          "startFocusDistance": 0,
+          "endFocusDistance": 0,
+          "followSpawnPositionIndex": null,
+          "followAll": true,
+          "lookAtIndex": 1,
+          "cameraNoiseSettingsIndex": 0,
+          "autoFocus": false,
+          "autoRoll": false,
+          "followZoom": false,
+          "cameraAnimationId": null,
+          "cameraAnimation": {
+            "id": 0,
+            "groupId": 1,
+            "createdTime": "2021-06-01T10:21:03.798182",
+            "modifiedTime": "2021-06-01T10:21:04.605414",
+            "filesInfo": null,
+            "group": null,
+            "cameraAnimationTemplate": null,
+            "cameraController": [],
+            "files": [
+              {
+                "filePath": "/Users/ninasappar123/Library/Application Support/Friend Factory/savedcacheProdd/Cache/Production/CameraAnimation/89123/CameraAnimation.txt",
+                "state": 1,
+                "file": 0,
+                "resolution": null,
+                "source": {
+                  "uploadId": "5ae207d1-a38e-47cc-88b7-9900ab0a7e91",
+                  "copyFrom": null
+                },
+                "version": null,
+                "extension": 6
+              }
+            ]
+          },
+          "cameraAnimationTemplate": null,
+          "event": null
+        }
+      ],
+      "cameraFilterController": [],
+      "characterController": [
+        {
+          "id": 0,
+          "eventId": 0,
+          "controllerSequenceNumber": 0,
+          "characterId": 5029,
+          "activationCue": 0,
+          "endCue": 0,
+          "rotation": 0,
+          "outfitId": null,
+          "character": null,
+          "event": null,
+          "outfit": null,
+          "characterControllerBackgroundDancer": null,
+          "characterControllerBodyAnimation": [
+            {
+              "id": 0,
+              "characterControllerId": 0,
+              "controllerSequenceNumber": 0,
+              "primaryBodyAnimationId": 165,
+              "lowerBodyAnimationId": null,
+              "animationSpeed": 0,
+              "activationCue": 82,
+              "endCue": 1998,
+              "locomotion": false,
+              "looping": false,
+              "characterController": null,
+              "lowerBodyAnimation": null,
+              "primaryBodyAnimation": null
+            }
+          ],
+          "characterControllerFaceVoice": [
+            {
+              "id": 0,
+              "characterControllerId": 0,
+              "controllerSequenceNumber": 0,
+              "voiceTrackId": null,
+              "faceAnimationId": null,
+              "voiceFilterId": 7,
+              "activationCue": 0,
+              "endCue": 0,
+              "extremeExpressionId": null,
+              "faceVfxId": null,
+              "voiceSoundVolume": 100,
+              "characterController": null,
+              "extremeExpression": null,
+              "faceAnimation": {
+                "id": 0,
+                "assetStoreInfoId": null,
+                "groupId": 742,
+                "createdTime": "2021-06-01T10:21:03.79819",
+                "modifiedTime": "2021-06-01T10:21:04.549048",
+                "faceAnimationCategoryId": 1,
+                "size": null,
+                "duration": 1946,
+                "frameRate": 30,
+                "uploaderUserId": 691,
+                "tags": null,
+                "filesInfo": null,
+                "assetStoreInfo": null,
+                "faceAnimationCategory": null,
+                "group": null,
+                "uploaderUser": null,
+                "characterControllerBackgroundDancer": null,
+                "characterControllerFaceVoice": [],
+                "qaComments": null,
+                "files": [
+                  {
+                    "filePath": "/Users/ninasappar123/Library/Application Support/Friend Factory/savedcacheProdd/Cache/Production/FaceAnimation/85609/FaceAnimation.txt",
+                    "state": 1,
+                    "file": 0,
+                    "resolution": null,
+                    "source": {
+                      "uploadId": "2f540366-5998-4712-98d0-2c2052d09e3a",
+                      "copyFrom": null
+                    },
+                    "version": null,
+                    "extension": 6
+                  }
+                ]
+              },
+              "faceVfx": null,
+              "voiceFilter": null,
+              "voiceTrack": {
+                "files": [
+                  {
+                    "filePath": "/Users/ninasappar123/Library/Application Support/Friend Factory/savedcacheProdd/Cache/Production/VoiceTrack/56968/Audio.wav",
+                    "state": 1,
+                    "file": 0,
+                    "resolution": null,
+                    "source": {
+                      "uploadId": "9108adee-3152-4516-bb06-970c6ff20230",
+                      "copyFrom": null
+                    },
+                    "version": null,
+                    "extension": 3
+                  }
+                ],
+                "id": 0,
+                "assetStoreInfoId": null,
+                "languageId": 1,
+                "groupId": 742,
+                "createdTime": "2021-06-01T10:21:03.798195",
+                "modifiedTime": "2021-06-01T10:21:04.577961",
+                "size": null,
+                "channels": null,
+                "samplingSize": null,
+                "duration": 0,
+                "samplingFrequency": null,
+                "filesInfo": null,
+                "assetStoreInfo": null,
+                "group": null,
+                "language": null,
+                "characterControllerFaceVoice": []
+              }
+            }
+          ],
+          "characterControllerUmaRecipe": [],
+          "orderNumber": 0
+        }
+      ],
+      "eventAndEventSpecialAssetbundle": null,
+      "musicController": [],
+      "propController": null,
+      "setLocationController": [
+        {
+          "id": 0,
+          "eventId": 0,
+          "controllerSequenceNumber": 0,
+          "setLocationId": 184,
+          "activationCue": 28992,
+          "endCue": 30908,
+          "timeOfDay": null,
+          "weatherId": 1,
+          "crowdId": null,
+          "crowdMovementId": null,
+          "maxCrowds": null,
+          "timelapseSpeed": null,
+          "npeAnimationSpeed": null,
+          "videoClipId": null,
+          "photoId": null,
+          "videoActivationCue": null,
+          "videoEndCue": null,
+          "videoSoundVolume": 0,
+          "crowd": null,
+          "crowdMovement": null,
+          "event": null,
+          "setLocation": null,
+          "weather": null,
+          "videoClip": null,
+          "photo": null
+        }
+      ],
+      "sfxController": null,
+      "stickerController": null,
+      "vfxController": [],
+      "files": [
+        {
+          "filePath": "/Users/ninasappar123/Library/Application Support/Friend Factory/savedcacheProdd/EventThumbnails/89917__512x512.png",
+          "state": 1,
+          "file": 1,
+          "resolution": "512x512",
+          "source": {
+            "uploadId": "8fc9049d-919e-4b95-9cca-bff9367b2d82",
+            "copyFrom": null
+          },
+          "version": null,
+          "extension": 5
+        },
+        {
+          "filePath": "/Users/ninasappar123/Library/Application Support/Friend Factory/savedcacheProdd/EventThumbnails/89917__128x128.png",
+          "state": 1,
+          "file": 1,
+          "resolution": "128x128",
+          "source": {
+            "uploadId": "138f49f1-0f43-48e2-bc3a-ea8744361ee3",
+            "copyFrom": null
+          },
+          "version": null,
+          "extension": 5
+        }
+      ],
+      "orderNumber": 6
+    }
+  ],
+  "groupAndLevel": null,
+  "inverseRemixedFromLevel": null,
+  "levelAbuseReport": null,
+  "levelAndHashtag": null,
+  "levelAndMultiLanguageLevel": null
+}

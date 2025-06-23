@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+    <Sdk Name="Microsoft.Build.CentralPackageVersions" Version="2.1.3" />
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <LangVersion>default</LangVersion>
+        <Configurations>Debug;Release;DebugValidationGen</Configurations>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AWSSDK.Core"/>
+        <PackageReference Include="AWSSDK.Extensions.NETCore.Setup"/>
+        <PackageReference Include="AWSSDK.S3"/>
+        <PackageReference Include="AWSSDK.CloudFront"/>
+        <PackageReference Include="AWSSDK.SecurityToken"/>
+        <PackageReference Include="ByteSize"/>
+        <PackageReference Include="FluentValidation"/>
+        <PackageReference Include="IdentityServer4.AccessTokenValidation"/>
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer"/>
+        <PackageReference Include="Microsoft.AspNetCore.Authorization"/>
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson"/>
+        <PackageReference Include="Microsoft.Extensions.Configuration"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\Common\Common.Infrastructure\Common.Infrastructure.csproj" />
+        <ProjectReference Include="..\..\Shared\Frever.Shared.MainDb\Frever.Shared.MainDb.csproj"/>
+        <ProjectReference Include="..\..\Utils\AssetUrlGenerator\AssetStorage.PathProviding.csproj"/>
+        <ProjectReference Include="..\Authorization\AuthServer.Permissions\AuthServer.Permissions.csproj"/>
+        <ProjectReference Include="..\Authorization\AuthServerShared\AuthServerShared.csproj"/>
+    </ItemGroup>
+
+</Project>

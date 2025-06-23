@@ -1,0 +1,15 @@
+﻿https://localhost:44304/api/File/song/92/ios/MainFile
+
+@assetServerLocal =http://localhost:44304
+
+# {url}/api/File/{assetType}/{id}/{platform}/{fileType}
+
+### 
+GET {{assetServerLocal}}/api/File/song/92/ios/MainFile
+Content-Type: multipart/form-data
+Authorization: Bearer {{auth.response.body.access_token}}
+
+### 
+GET {{assetServerLocal}}/api/File/song/92/ios/Thumbnail
+Content-Type: multipart/form-data
+Authorization: Bearer {{auth.response.body.access_token}}

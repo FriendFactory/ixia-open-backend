@@ -1,0 +1,128 @@
+{{- $clientService := (merge (dict "Service" "client" "Dll" "Frever.ClientService.Api.dll" ) . ) -}}
+{{- include "frever-app.net-service-ingress" $clientService }}
+---
+{{- include "frever-app.net-service-service" $clientService }}
+---
+{{- include "frever-app.net-horizontal-pod-autoscaler" $clientService }}
+---
+{{- include "frever-app.net-service-deployment" $clientService }}
+            - name: Templates__ThumbnailConversionJob
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: template.conversionJob
+            - name: Templates__UserTemplatesSubCategoryName
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: templateAutoCreation.templateSubcategoryName
+            - name: Templates__ConversionJobRoleArn
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: template.conversionJobRoleArn
+            - name: AWS__AssetCopyingQueue
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: aws.queue
+            - name: SwaggerUserName
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: swagger.username
+                  optional: true
+            - name: SwaggerPassword
+              valueFrom:
+                secretKeyRef:
+                  name: ssm-secrets
+                  key: swagger.password
+                  optional: true
+            - name: DataProtectorKey
+              valueFrom:
+                secretKeyRef:
+                  name: ssm-secrets
+                  key: data.protector.key
+            - name: ConnectionStrings__asset_server
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: svc.asset
+            - name: ConnectionStrings__video_server
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: svc.video
+            - name: RunMigrations
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: runMigrations
+            - name: Redis__EnableCaching
+              value: "false"
+            - name: AssetServerSettings__NewAssetDays
+              value: "9"
+            - name: EmailSending__FromEmail
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: email.validation
+            - name: MusicProviderApiSettings__TrackDetailsUrl
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: musicProviderApiSettings.trackDetailsUrl
+            - name: MusicProviderApiSettings__ApiUrl
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: musicProviderApiSettings.apiUrl
+            - name: MusicProviderApiSettings__CountryCode
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: musicProviderApiSettings.countryCode
+            - name: MusicProviderApiSettings__UsageTypes
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: musicProviderApiSettings.usageTypes
+            - name: MusicProviderOAuthSettings__OAuthConsumerKey
+              valueFrom:
+                secretKeyRef:
+                  name: ssm-secrets
+                  key: musicProvider.OAuth.consumerKey
+            - name: MusicProviderOAuthSettings__OAuthConsumerSecret
+              valueFrom:
+                secretKeyRef:
+                  name: ssm-secrets
+                  key: musicProvider.OAuth.consumerSecret
+            - name: MusicProviderOAuthSettings__OAuthSignatureMethod
+              value: "HMAC-SHA1"
+            - name: MusicProviderOAuthSettings__OAuthVersion
+              value: "1.0"
+            - name: DeleteAccountEmail
+              value: "xxxxxxxxx"
+            - name: FreverOfficialEmail
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: onboardingSettings.freverOfficialEmail
+            - name: RequiredVideoCount
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: onboardingSettings.requiredVideoCount
+            - name: IngestVideoS3BucketName
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: videoConversion.ingestBucket
+            - name: SpotifyPopularity__Bucket
+              value: "frever-analytics-misc"
+            - name: SpotifyPopularity__Prefix
+              value: "spotify/popularity"
+            - name: SpotifyPopularity__FullDataCsvFileName
+              value: "spotify_popularity_full.csv"
+            - name: OnboardingTemplateName
+              value: "My First Outfit \u2b50\ufe0f"

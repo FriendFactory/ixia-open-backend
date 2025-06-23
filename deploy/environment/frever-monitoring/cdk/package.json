@@ -1,0 +1,36 @@
+{
+  "name": "frever-monitoring",
+  "version": "0.1.0",
+  "bin": {
+    "frever-monitoring": "bin/frever-monitoring.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "jest",
+    "cdk": "cdk"
+  },
+  "devDependencies": {
+    "@aws-cdk/assertions": "1.139.0",
+    "@types/jest": "^26.0.10",
+    "@types/node": "10.17.27",
+    "aws-cdk": "1.139.0",
+    "jest": "^26.4.2",
+    "ts-jest": "^26.2.0",
+    "ts-node": "^9.0.0",
+    "typescript": "~3.9.7"
+  },
+  "dependencies": {
+    "@aws-cdk/aws-budgets": "^1.144.0",
+    "@aws-cdk/aws-cloudwatch": "^1.139.0",
+    "@aws-cdk/aws-cloudwatch-actions": "^1.139.0",
+    "@aws-cdk/aws-events-targets": "^1.139.0",
+    "@aws-cdk/aws-iam": "^1.139.0",
+    "@aws-cdk/aws-guardduty": "^1.139.0",
+    "@aws-cdk/aws-logs": "^1.139.0",
+    "@aws-cdk/aws-rds": "^1.139.0",
+    "@aws-cdk/aws-sqs": "^1.139.0",
+    "@aws-cdk/core": "^1.139.0",
+    "source-map-support": "^0.5.16"
+  }
+}

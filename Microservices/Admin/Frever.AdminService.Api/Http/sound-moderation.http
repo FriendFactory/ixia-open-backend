@@ -1,0 +1,45 @@
+@auth_server=http://localhost:5002
+# @auth_server=https://dev.frever-api.com/latest/auth
+
+### Authenticate
+# @name auth
+POST {{auth_server}}/connect/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=password&username=xxxxxxxxx&password=123456&client_id=Server&scope=friends_factory.creators_api+offline_access&client_secret=xxxxxxxxx
+
+###
+@admin_server={{auth.response.body.assetmanager_server}}
+
+###
+GET {{admin_server}}api/sound/moderation/song?$top=10&$orderby=id desc
+Authorization: Bearer {{auth.response.body.access_token}}
+
+###
+GET {{admin_server}}api/sound/moderation/user-sound?$top=10&$orderby=id desc
+Authorization: Bearer {{auth.response.body.access_token}}
+
+###
+GET {{admin_server}}api/sound/moderation/promoted-song?$top=10&$orderby=id desc
+Authorization: Bearer {{auth.response.body.access_token}}
+
+###
+GET {{admin_server}}api/sound/metadata/moderation/artist?$top=10&$orderby=id desc
+Authorization: Bearer {{auth.response.body.access_token}}
+
+###
+GET {{admin_server}}api/sound/metadata/moderation/album?$top=10&$orderby=id desc
+Authorization: Bearer {{auth.response.body.access_token}}
+
+###
+GET {{admin_server}}api/sound/metadata/moderation/genre?$top=10&$orderby=id desc
+Authorization: Bearer {{auth.response.body.access_token}}
+
+###
+GET {{admin_server}}api/sound/metadata/moderation/label?$top=10&$orderby=id desc
+Authorization: Bearer {{auth.response.body.access_token}}
+
+###
+GET {{admin_server}}api/sound/metadata/moderation/mood?$top=10&$orderby=id desc
+Authorization: Bearer {{auth.response.body.access_token}}
+

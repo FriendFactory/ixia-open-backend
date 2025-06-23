@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="65420473-26cd-4439-a035-ada0b26b9867" name="@5955a5bf5f87 2024-07-02 13:00:14" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2024-07-02T13:00:14.3176110+00:00" queuing="2024-07-02T13:00:14.3176110+00:00" start="2024-07-02T13:00:08.0517555+00:00" finish="2024-07-02T13:00:14.3232610+00:00" />
+  <TestSettings name="default" id="ff440098-de66-48e8-a4df-c310896ea07f">
+    <Deployment runDeploymentRoot="_5955a5bf5f87_2024-07-02_13_00_14" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="9c891104-2f13-4106-b1d8-26add10f5bc1" testId="f67d26a0-c0c8-dd0c-c9c3-4c1d4e8dd4fa" testName="Frever.Common.IntegrationTesting.CreateDatabaseIntegrationTest.CreateDatabaseTest" computerName="5955a5bf5f87" duration="00:00:00.1152064" startTime="2024-07-02T13:00:14.2555087+00:00" endTime="2024-07-02T13:00:14.2555211+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9c891104-2f13-4106-b1d8-26add10f5bc1" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="Frever.Common.IntegrationTesting.CreateDatabaseIntegrationTest.CreateDatabaseTest" storage="/source/shared/frever.common.integrationtesting/bin/debug/net8.0/frever.common.integrationtesting.dll" id="f67d26a0-c0c8-dd0c-c9c3-4c1d4e8dd4fa">
+      <Execution id="9c891104-2f13-4106-b1d8-26add10f5bc1" />
+      <TestMethod codeBase="/source/Shared/Frever.Common.IntegrationTesting/bin/Debug/net8.0/Frever.Common.IntegrationTesting.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Common.IntegrationTesting.CreateDatabaseIntegrationTest" name="CreateDatabaseTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="f67d26a0-c0c8-dd0c-c9c3-4c1d4e8dd4fa" executionId="9c891104-2f13-4106-b1d8-26add10f5bc1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.8.0+6438bb880a (64-bit .NET 8.0.6)
+[xUnit.net 00:00:00.10]   Discovering: Frever.Common.IntegrationTesting
+[xUnit.net 00:00:00.26]   Discovered:  Frever.Common.IntegrationTesting
+[xUnit.net 00:00:00.27]   Starting:    Frever.Common.IntegrationTesting
+[xUnit.net 00:00:05.84]   Finished:    Frever.Common.IntegrationTesting
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>

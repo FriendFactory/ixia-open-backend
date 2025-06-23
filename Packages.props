@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <ItemGroup Label="Microsoft Nugets">
+        <PackageReference Update="ACRCloudSdkCore.NativeAssets.Linux" Version="1.0.0" />
+        <PackageReference Update="ACRCloudSdkCore.NativeAssets.MacOS" Version="1.0.0" />
+        <PackageReference Update="Alturos.VideoInfo" Version="2.0.2"/>
+        <PackageReference Update="Amazon.Lambda.Core" Version="2.2.0"/>
+        <PackageReference Update="Amazon.Lambda.Serialization.Json" Version="2.2.2"/>
+        <PackageReference Update="Amazon.Lambda.S3Events" Version="3.1.0"/>
+        <PackageReference Update="Amazon.Lambda.SQSEvents" Version="2.2.0"/>
+        <PackageReference Update="AspNetCoreRateLimit" Version="5.0.0"/>
+        <PackageReference Update="AspNetCoreRateLimit.Redis" Version="2.0.0"/>
+        <PackageReference Update="AWSSDK.CloudFront" Version="3.7.400.4"/>
+        <PackageReference Update="AWSSDK.CloudWatchLogs" Version="3.7.401.2"/>
+        <PackageReference Update="AWSSDK.Core" Version="3.7.400.4"/>
+        <PackageReference Update="AWSSDK.ElasticTranscoder" Version="3.7.400.4"/>
+        <PackageReference Update="AWSSDK.Extensions.NETCore.Setup" Version="3.7.301"/>
+        <PackageReference Update="AWSSDK.MediaConvert" Version="3.7.400.4"/>
+        <PackageReference Update="AWSSDK.MediaPackage" Version="3.7.400.4"/>
+        <PackageReference Update="AWSSDK.SageMaker" Version="3.7.401.2"/>
+        <PackageReference Update="AWSSDK.SageMakerRuntime" Version="3.7.400.4"/>
+        <PackageReference Update="AWSSDK.S3" Version="3.7.400.4"/>
+        <PackageReference Update="AWSSDK.SecurityToken" Version="3.7.400.4"/>
+        <PackageReference Update="AWSSDK.SimpleEmail" Version="3.7.400.4"/>
+        <PackageReference Update="AWSSDK.SQS" Version="3.7.400.4"/>
+        <PackageReference Update="AWSSDK.SimpleNotificationService" Version="3.7.400.4"/>
+        <PackageReference Update="AWS.Messaging" Version="0.9.5" />
+        <PackageReference Update="ByteSize" Version="2.1.1"/>
+        <PackageReference Update="BouncyCastle.NetCore" Version="1.9.0"/>
+        <PackageReference Update="CsvHelper" Version="30.0.1"/>
+        <PackageReference Update="IdentityServer4" Version="3.1.4"/>
+        <PackageReference Update="IdentityServer4.AccessTokenValidation" Version="3.0.1"/>
+        <PackageReference Update="IdentityServer4.AspNetIdentity" Version="3.1.4"/>
+        <PackageReference Update="IdentityServer4.EntityFramework" Version="3.1.4"/>
+        <PackageReference Update="IdentityServer4.EntityFramework.Storage" Version="3.1.4"/>
+        <PackageReference Update="JsonModelBinder" Version="2.1.1"/>
+        <PackageReference Update="Microsoft.AspNetCore.OData" Version="7.5.16"/>
+        <PackageReference Update="Google.Apis" Version="1.58.0"/>
+        <PackageReference Update="Google.Apis.Auth" Version="1.58.0"/>
+        <PackageReference Update="Google.Apis.AndroidPublisher.v2" Version="1.47.0.2000"/>
+        <PackageReference Update="StackExchange.Redis" Version="2.8.0"/>
+        <PackageReference Update="Swashbuckle.AspNetCore" Version="6.2.3"/>
+        <PackageReference Update="System.IdentityModel.Tokens.Jwt" Version="6.22.0"/>
+        <PackageReference Update="System.Memory" Version="4.5.5"/>
+        <PackageReference Update="System.Reflection.Emit" Version="4.7.0"/>
+        <PackageReference Update="System.Reflection.Emit.Lightweight" Version="4.7.0"/>
+        <PackageReference Update="Twilio" Version="6.16.1"/>
+        <PackageReference Update="jose-jwt" Version="4.1.0"/>
+
+        <!-- .net 8.0 migration -->
+        <PackageReference Update="AutoMapper" Version="12.0.1"/>
+        <PackageReference Update="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1"/>
+        <PackageReference Update="FluentValidation" Version="11.9.0"/>
+        <PackageReference Update="Magick.NET-Q8-AnyCPU" Version="13.5.0"/>
+        <PackageReference Update="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.4"/>
+        <PackageReference Update="Microsoft.AspNetCore.Authorization" Version="8.0.4"/>
+        <PackageReference Update="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.4"/>
+        <PackageReference Update="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.4"/>
+        <PackageReference Update="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="8.0.4"/>
+        <PackageReference Update="Microsoft.EntityFrameworkCore.Design" Version="8.0.4"/>
+        <PackageReference Update="Microsoft.EntityFrameworkCore.Relational" Version="8.0.4"/>
+        <PackageReference Update="Microsoft.Extensions.Configuration" Version="8.0.0"/>
+        <PackageReference Update="Microsoft.Extensions.Configuration.Binder" Version="8.0.1"/>
+        <PackageReference Update="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="8.0.0"/>
+        <PackageReference Update="Microsoft.Extensions.Configuration.Json" Version="8.0.0"/>
+        <PackageReference Update="Microsoft.Extensions.DependencyInjection" Version="8.0.0"/>
+        <PackageReference Update="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0"/>
+        <PackageReference Update="Microsoft.Extensions.Http" Version="8.0.0"/>
+        <PackageReference Update="Microsoft.Extensions.Logging" Version="8.0.0"/>
+        <PackageReference Update="Microsoft.Extensions.Logging.Console" Version="8.0.0"/>
+        <PackageReference Update="Microsoft.Extensions.Logging.Debug" Version="8.0.0"/>
+        <PackageReference Update="Microsoft.CodeAnalysis" Version="4.5.0"/>
+        <PackageReference Update="Microsoft.CodeAnalysis.Common" Version="4.5.0"/>
+        <PackageReference Update="Microsoft.CodeAnalysis.Compilers" Version="4.5.0"/>
+        <PackageReference Update="Microsoft.CodeAnalysis.CSharp" Version="4.5.0"/>
+        <PackageReference Update="Microsoft.CodeAnalysis.Workspaces.Common" Version="4.5.0"/>
+        <PackageReference Update="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.2"/>
+        <PackageReference Update="Npgsql.EntityFrameworkCore.PostgreSQL.NetTopologySuite" Version="8.0.2"/>
+        <PackageReference Update="Newtonsoft.Json" Version="13.0.3"/>
+        <PackageReference Update="OpenTelemetry" Version="1.9.0" />
+        <PackageReference Update="OpenTelemetry.Api" Version="1.9.0" />
+        <PackageReference Update="OpenTelemetry.Extensions.Hosting" Version="1.9.0" />
+        <PackageReference Update="OpenTelemetry.Exporter.Console" Version="1.9.0" />
+        <PackageReference Update="OpenTelemetry.Exporter.OpenTelemetryProtocol" Version="1.9.0" />
+        <PackageReference Update="OpenTelemetry.Instrumentation.AspNetCore" Version="1.9.0" />
+        <PackageReference Update="OpenTelemetry.Instrumentation.Http" Version="1.9.0" />
+        <PackageReference Update="OpenTelemetry.Instrumentation.EntityFrameworkCore" Version="1.0.0-beta.12" />
+        <PackageReference Update="OpenTelemetry.Instrumentation.StackExchangeRedis" Version="1.9.0-beta.1" />
+        <PackageReference Update="OpenTelemetry.Exporter.Prometheus.AspNetCore" Version="1.9.0-beta.2" />
+        <PackageReference Update="protobuf-net" Version="3.2.30"/>
+        <PackageReference Update="protobuf-net.Core" Version="3.2.30"/>
+
+        <!-- Utils -->
+        <PackageReference Update="System.CommandLine" Version="2.0.0-beta4.22272.1" />
+
+        <!-- Test related packages -->
+        <PackageReference Update="BenchmarkDotNet" Version="0.13.1"/>
+        <PackageReference Update="FluentAssertions" Version="6.12.0"/>
+        <PackageReference Update="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.4"/>
+        <PackageReference Update="Microsoft.NET.Test.Sdk" Version="17.9.0"/>
+        <PackageReference Update="Moq" Version="4.20.70"/>
+        <PackageReference Update="MockQueryable.Moq" Version="7.0.1"/>
+        <PackageReference Update="xunit" Version="2.8.0"/>
+        <PackageReference Update="xunit.runner.visualstudio" Version="2.8.0"/>
+        <PackageReference Update="Neovolve.Logging.Xunit" Version="4.3.1"/>
+        <PackageReference Update="NunitXml.TestLogger" Version="3.1.20" />
+        <PackageReference Update="System.Security.Cryptography.Pkcs" Version="9.0.4" />
+    </ItemGroup>
+</Project>

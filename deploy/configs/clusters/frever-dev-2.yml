@@ -1,0 +1,14 @@
+settings:
+  aws:
+    region: "eu-central-1"
+    bucket: "xxxxxxxxx"
+    queue: "xxxxxxxxx"
+  environmentType: "dev"
+  videoConversion:
+    ingestBucket: "xxxxxxxxx"
+    sqsQueue: "xxxxxxxxx"
+    mediaConverterQueue: "dev-2"
+    mediaConverterJobName: "video-conversion-stage"
+  oneSignal:
+    apiKey: "xxxxxxxxx"
+    appId: "xxxxxxxxx"

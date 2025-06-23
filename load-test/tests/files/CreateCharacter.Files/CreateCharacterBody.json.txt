@@ -1,0 +1,94 @@
+{
+  "id": 0,
+  "assetStoreInfoId": null,
+  "genderId": 1,
+  "characterStyleId": 1,
+  "groupId": ${primary-group-id},
+  "readinessId": 0,
+  "publicForCreation": false,
+  "publicForBackgroundDancing": false,
+  "createdTime": "2021-06-29T14:08:07.126094+02:00",
+  "modifiedTime": "2021-06-29T14:08:07.126114+02:00",
+  "size": null,
+  "polyCount": null,
+  "uploaderUserId": 0,
+  "isDeleted": false,
+  "name": "loadTest${__UUID()}",
+  "defaultOutfitId": 2,
+  "isDefault": false,
+  "filesInfo": null,
+  "sortOrder": 0,
+  "assetStoreInfo": null,
+  "characterStyle": null,
+  "defaultOutfit": null,
+  "gender": null,
+  "group": null,
+  "readiness": null,
+  "uploaderUser": null,
+  "accountTransactionAndCharacter": null,
+  "bundleAndCharacter": null,
+  "characterAndUmaRecipe": [
+    {
+      "characterId": 0,
+      "umaRecipeId": 0,
+      "character": null,
+      "umaRecipe": {
+        "id": 0,
+        "globalId": "00000000-0000-0000-0000-000000000000",
+        "j": "eyJwYWNrZWRSZWNpcGVUeXBlIjoiRHluYW1pY0NoYXJhY3RlckF2YXRhciIsIm5hbWUiOiJGcmV2ZXJVTUFEeW5hbWljQ2hhcmFjdGVyQXZhdGFyKENsb25lKSIsInJhY2UiOiJNYWxlIEJhc2UiLCJkbmEiOlt7ImRuYVR5cGUiOiJEeW5hbWljVU1BRG5hIiwiZG5hVHlwZUhhc2giOjE5OTg0NDAxNDIsInBhY2tlZERuYSI6IntcImJEbmFBc3NldFwiOntcImluc3RhbmNlSURcIjoxMzc5ODZ9LFwiYkRuYUFzc2V0TmFtZVwiOlwiQm9keU1hbGVEbmFBc3NldFwiLFwiYkRuYVNldHRpbmdzXCI6W3tcIm5hbWVcIjpcIndlaWdodFwiLFwidmFsdWVcIjoxMjh9LHtcIm5hbWVcIjpcIm11c2NsZVwiLFwidmFsdWVcIjoxMjh9LHtcIm5hbWVcIjpcImdsdXRlU2l6ZVwiLFwidmFsdWVcIjoxMjh9LHtcIm5hbWVcIjpcImhpcFNpemVcIixcInZhbHVlXCI6MTI4fSx7XCJuYW1lXCI6XCJ0aGlnaFRoaWNrbmVzc1wiLFwidmFsdWVcIjoxMjh9LHtcIm5hbWVcIjpcImNhbGZUaGlja25lc3NcIixcInZhbHVlXCI6MTI4fSx7XCJuYW1lXCI6XCJiZWxseVNpemVcIixcInZhbHVlXCI6MTI4fSx7XCJuYW1lXCI6XCJuZWNrU2l6ZVwiLFwidmFsdWVcIjoxMjh9LHtcIm5hbWVcIjpcIndhaXN0U2l6ZVwiLFwidmFsdWVcIjoxMjh9LHtcIm5hbWVcIjpcInRyYXBleml1c1NpemVcIixcInZhbHVlXCI6MTI4fSx7XCJuYW1lXCI6XCJzaG91bGRlclNpemVcIixcInZhbHVlXCI6MTI4fSx7XCJuYW1lXCI6XCJhcm1UaGlja25lc3NcIixcInZhbHVlXCI6MTI4fSx7XCJuYW1lXCI6XCJmb3JlYXJtVGhpY2tuZXNzXCIsXCJ2YWx1ZVwiOjEyOH0se1wibmFtZVwiOlwicmliY2FnZVNpemVcIixcInZhbHVlXCI6MTI4fSx7XCJuYW1lXCI6XCJjaGVzdFNpemVcIixcInZhbHVlXCI6MTI4fSx7XCJuYW1lXCI6XCJicmVhc3RTaXplXCIsXCJ2YWx1ZVwiOjEyOH0se1wibmFtZVwiOlwiaGVpZ2h0XCIsXCJ2YWx1ZVwiOjEyOH1dfSJ9LHsiZG5hVHlwZSI6IkR5bmFtaWNVTUFEbmEiLCJkbmFUeXBlSGFzaCI6MTU4ODEwMTI5MywicGFja2VkRG5hIjoie1wiYkRuYUFzc2V0XCI6e1wiaW5zdGFuY2VJRFwiOjEzNzgxMH0sXCJiRG5hQXNzZXROYW1lXCI6XCJFeWVNYWxlRG5hQXNzZXRcIixcImJEbmFTZXR0aW5nc1wiOlt7XCJuYW1lXCI6XCJleWVTaXplXCIsXCJ2YWx1ZVwiOjEyOH0se1wibmFtZVwiOlwiZXllUG9zaXRpb25cIixcInZhbHVlXCI6MTI4fSx7XCJuYW1lXCI6XCJleWVXaWR0aFwiLFwidmFsdWVcIjoxMjh9LHtcIm5hbWVcIjpcImV5ZVJvdGF0ZVwiLFwidmFsdWVcIjoxMjh9LHtcIm5hbWVcIjpcImV5ZVNpemVXaWR0aFwiLFwidmFsdWVcIjoxMjh9LHtcIm5hbWVcIjpcImV5ZUxvd2VybGlkXCIsXCJ2YWx1ZVwiOjEyOH0se1wibmFtZVwiOlwiZXllVXBwZXJsaWRcIixcInZhbHVlXCI6MTI4fSx7XCJuYW1lXCI6XCJtb25vbGlkXCIsXCJ2YWx1ZVwiOjEyOH0se1wibmFtZVwiOlwiY3JlYXNlZGxpZFwiLFwidmFsdWVcIjoxMjh9LHtcIm5hbWVcIjpcImRvdWJsZWxpZFwiLFwidmFsdWVcIjoxMjh9LHtcIm5hbWVcIjpcImV5ZVVwcGVybGlkSW5uZXJWZXJ0aWNhbFwiLFwidmFsdWVcIjoxMjh9LHtcIm5hbWVcIjpcImV5ZVVwcGVybGlkSW5uZXJIb3Jpem9udGFsXCIsXCJ2YWx1ZVwiOjEyOH0se1wibmFtZVwiOlwiZXllVXBwZXJsaWRNaWRWZXJ0aWNhbFwiLFwidmFsdWVcIjoxMjh9LHtcIm5hbWVcIjpcImV5ZVVwcGVybGlkTWlkSG9yaXpvbnRhbFwiLFwidmFsdWVcIjoxMjh9LHtcIm5hbWVcIjpcImV5ZVVwcGVybGlkT3V0ZXJWZXJ0aWNhbFwiLFwidmFsdWVcIjoxMjh9LHtcIm5hbWVcIjpcImV5ZVVwcGVybGlkT3V0ZXJIb3Jpem9udGFsXCIsXCJ2YWx1ZVwiOjEyOH0se1wibmFtZVwiOlwiZXllTG93ZXJsaWRJbm5lclZlcnRpY2FsXCIsXCJ2YWx1ZVwiOjEyOH0se1wibmFtZVwiOlwiZXllTG93ZXJsaWRJbm5lckhvcml6b250YWxcIixcInZhbHVlXCI6MTI4fSx7XCJuYW1lXCI6XCJleWVMb3dlcmxpZE1pZFZlcnRpY2FsXCIsXCJ2YWx1ZVwiOjEyOH0se1wibmFtZVwiOlwiZXllTG93ZXJsaWRNaWRIb3Jpem9udGFsXCIsXCJ2YWx1ZVwiOjEyOH0se1wibmFtZVwiOlwiZXllTG93ZXJsaWRPdXRlclZlcnRpY2FsXCIsXCJ2YWx1ZVwiOjEyOH0se1wibmFtZVwiOlwiZXllTG93ZXJsaWRPdXRlckhvcml6b250YWxcIixcInZhbHVlXCI6MTI4fSx7XCJuYW1lXCI6XCJleWVJbm5lclwiLFwidmFsdWVcIjoxMjh9LHtcIm5hbWVcIjpcImV5ZU91dGVyXCIsXCJ2YWx1ZVwiOjEyOH0se1wibmFtZVwiOlwiZXllU2l6ZUxlZnRcIixcInZhbHVlXCI6MTI4fSx7XCJuYW1lXCI6XCJleWVTaXplUmlnaHRcIixcInZhbHVlXCI6MTI4fV19In0seyJkbmFUeXBlIjoiRHluYW1pY1VNQURuYSIsImRuYVR5cGVIYXNoIjo5NDc3ODQ4NDUsInBhY2tlZERuYSI6IntcImJEbmFBc3NldFwiOntcImluc3RhbmNlSURcIjoxMzc4Njh9LFwiYkRuYUFzc2V0TmFtZVwiOlwiRmFjZURuYUFzc2V0XCIsXCJiRG5hU2V0dGluZ3NcIjpbe1wibmFtZVwiOlwiY2hlZWtTaXplXCIsXCJ2YWx1ZVwiOjEyOH0se1wibmFtZVwiOlwiY2hlZWtCb25lU2l6ZVwiLFwidmFsdWVcIjoxMjh9LHtcIm5hbWVcIjpcImVhclNpemVcIixcInZhbHVlXCI6MTI4fSx7XCJuYW1lXCI6XCJjaGluTGVuZ3RoXCIsXCJ2YWx1ZVwiOjEyOH0se1wibmFtZVwiOlwiY2hpbkhlaWd0aFwiLFwidmFsdWVcIjoxMjh9LHtcIm5hbWVcIjpcImNoaW5XaWR0aFwiLFwidmFsdWVcIjoxMjh9LHtcIm5hbWVcIjpcImphd0xlbmd0aFwiLFwidmFsdWVcIjoxMjh9LHtcIm5hbWVcIjpcImphd1NpemVcIixcInZhbHVlXCI6MTI4fSx7XCJuYW1lXCI6XCJqYXdXaWR0aFwiLFwidmFsdWVcIjoxMjh9LHtcIm5hbWVcIjpcImphd2xpbmVcIixcInZhbHVlXCI6MTI4fSx7XCJuYW1lXCI6XCJmYWNlV2lkdGhcIixcInZhbHVlXCI6MTI4fSx7XCJuYW1lXCI6XCJmYWNlSGVpZ3RoXCIsXCJ2YWx1ZVwiOjEyOH0se1wibmFtZVwiOlwiaGVhZFNpemVcIixcInZhbHVlXCI6MTI4fSx7XCJuYW1lXCI6XCJlYXJQb3NpdGlvblwiLFwidmFsdWVcIjoxMjh9XX0ifSx7ImRuYVR5cGUiOiJEeW5hbWljVU1BRG5hIiwiZG5hVHlwZUhhc2giOjk2NTQ4ODc0NiwicGFja2VkRG5hIjoie1wiYkRuYUFzc2V0XCI6e1wiaW5zdGFuY2VJRFwiOjEzODE1Nn0sXCJiRG5hQXNzZXROYW1lXCI6XCJMaXBzRG5hQXNzZXRcIixcImJEbmFTZXR0aW5nc1wiOlt7XCJuYW1lXCI6XCJtb3V0aFNpemVcIixcInZhbHVlXCI6MTI4fSx7XCJuYW1lXCI6XCJtb3V0aFVwcGVybGlwU2l6ZVwiLFwidmFsdWVcIjoxMjh9LHtcIm5hbWVcIjpcIm1vdXRoTG93ZXJsaXBTaXplXCIsXCJ2YWx1ZVwiOjEyOH0se1wibmFtZVwiOlwibW91dGhDb3JuZXJzXCIsXCJ2YWx1ZVwiOjEyOH0se1wibmFtZVwiOlwibW91dGhQb3NpdGlvblwiLFwidmFsdWVcIjoxMjh9LHtcIm5hbWVcIjpcIm1vdXRoQ3VwaWRib3dcIixcInZhbHVlXCI6MTI4fSx7XCJuYW1lXCI6XCJtb3V0aEN1cGlkYm93QWRqdXN0XCIsXCJ2YWx1ZVwiOjEyOH0se1wibmFtZVwiOlwibW91dGhUZWFyZHJvcFwiLFwidmFsdWVcIjoxMjh9LHtcIm5hbWVcIjpcIm1vdXRoVGVhcmRyb3BBZGp1c3RcIixcInZhbHVlXCI6MTI4fSx7XCJuYW1lXCI6XCJtb3V0aENvcm5lcnNWZXJ0aWNhbFwiLFwidmFsdWVcIjoxMjh9LHtcIm5hbWVcIjpcIm1vdXRoUG91dFwiLFwidmFsdWVcIjoxMjh9XX0ifSx7ImRuYVR5cGUiOiJEeW5hbWljVU1BRG5hIiwiZG5hVHlwZUhhc2giOjIxNDA5ODgzODQsInBhY2tlZERuYSI6IntcImJEbmFBc3NldFwiOntcImluc3RhbmNlSURcIjoxMzc5ODR9LFwiYkRuYUFzc2V0TmFtZVwiOlwiTm9zZURuYUFzc2V0XCIsXCJiRG5hU2V0dGluZ3NcIjpbe1wibmFtZVwiOlwibm9zZVNpemVcIixcInZhbHVlXCI6MTI4fSx7XCJuYW1lXCI6XCJub3NlUG9zaXRpb25cIixcInZhbHVlXCI6MTI4fSx7XCJuYW1lXCI6XCJub3NlV2lkdGhcIixcInZhbHVlXCI6MTI4fSx7XCJuYW1lXCI6XCJub3NlTGVuZ3RoXCIsXCJ2YWx1ZVwiOjEyOH0se1wibmFtZVwiOlwibm9zZVRpcExlbmd0aFwiLFwidmFsdWVcIjoxMjh9LHtcIm5hbWVcIjpcIm5vc2VUaXBTaXplXCIsXCJ2YWx1ZVwiOjEyOH0se1wibmFtZVwiOlwibm9zZVdpbmdXaWR0aFwiLFwidmFsdWVcIjoxMjh9LHtcIm5hbWVcIjpcIm5vc2VXaW5nUG9zaXRpb25cIixcInZhbHVlXCI6MTI4fSx7XCJuYW1lXCI6XCJub3NlVGlwUm90YXRlXCIsXCJ2YWx1ZVwiOjEyOH1dfSJ9LHsiZG5hVHlwZSI6IkR5bmFtaWNVTUFEbmEiLCJkbmFUeXBlSGFzaCI6MTE0NzUxOTAwMCwicGFja2VkRG5hIjoie1wiYkRuYUFzc2V0XCI6e1wiaW5zdGFuY2VJRFwiOjEzNzkzNn0sXCJiRG5hQXNzZXROYW1lXCI6XCJFeWVicm93RG5hQXNzZXRcIixcImJEbmFTZXR0aW5nc1wiOlt7XCJuYW1lXCI6XCJleWVicm93U2l6ZVwiLFwidmFsdWVcIjoxMjh9LHtcIm5hbWVcIjpcImV5ZWJyb3dUaGlja25lc3NcIixcInZhbHVlXCI6MTI4fSx7XCJuYW1lXCI6XCJleWVicm93Um90YXRlXCIsXCJ2YWx1ZVwiOjEyOH0se1wibmFtZVwiOlwiZXllYnJvd1Bvc2l0aW9uXCIsXCJ2YWx1ZVwiOjEyOH0se1wibmFtZVwiOlwiZXllYnJvd1dpZHRoXCIsXCJ2YWx1ZVwiOjEyOH1dfSJ9LHsiZG5hVHlwZSI6IkR5bmFtaWNVTUFEbmEiLCJkbmFUeXBlSGFzaCI6Mjk2MDYxMTQzLCJwYWNrZWREbmEiOiJ7XCJiRG5hQXNzZXRcIjp7XCJpbnN0YW5jZUlEXCI6MTM3OTA2fSxcImJEbmFBc3NldE5hbWVcIjpcIkV5ZWxhc2hlc0ZlbWFsZURuYUFzc2V0XCIsXCJiRG5hU2V0dGluZ3NcIjpbe1wibmFtZVwiOlwiZXllbGFzaFNpemVcIixcInZhbHVlXCI6MTI4fV19In1dLCJjaGFyYWN0ZXJDb2xvcnMiOlt7Im5hbWUiOiJTa2luIiwiY29sb3JzIjpbMjU1LDIyOCwyMjUsMjU1LDAsMCwwLDAsMjU1LDI1NSwyNTUsMjU1LDAsMCwwLDAsMjU1LDI1NSwyNTUsMjU1LDAsMCwwLDBdfSx7Im5hbWUiOiJIYWlyIiwiY29sb3JzIjpbOTAsNTUsMzYsMjU1LDAsMCwwLDAsMjU1LDI1NSwyNTUsMjU1LDAsMCwwLDAsMjU1LDI1NSwyNTUsMjU1LDAsMCwwLDBdfSx7Im5hbWUiOiJFeWVzIiwiY29sb3JzIjpbMTAyLDE1MywxNzMsMjU1LDAsMCwwLDAsMjU1LDI1NSwyNTUsMjU1LDAsMCwwLDAsMjU1LDI1NSwyNTUsMjU1LDAsMCwwLDBdfSx7Im5hbWUiOiJFeWVicm93IiwiY29sb3JzIjpbNjksNDEsMzQsMjU1LDAsMCwwLDAsMjU1LDI1NSwyNTUsMjU1LDAsMCwwLDAsMjU1LDI1NSwyNTUsMjU1LDAsMCwwLDBdfV0sIndhcmRyb2JlU2V0IjpbXSwicmFjZUFuaW1hdG9yQ29udHJvbGxlciI6IkxvY29tb3Rpb24ifQ==",
+        "characterAndUmaRecipe": [],
+        "characterControllerBackgroundDancer": null,
+        "characterControllerUmaRecipe": null,
+        "umaRecipeAndWardrobe": []
+      }
+    }
+  ],
+  "characterController": null,
+  "characterControllerBackgroundDancer": null,
+  "characterGroupPermission": null,
+  "characterTeamPermission": null,
+  "deviceTypeAndCharacter": null,
+  "groupAndCharacter": null,
+  "priceruleAndCharacter": null,
+  "qaComments": null,
+  "seasonAndCharacter": null,
+  "user": null,
+  "files": [
+    {
+      "filePath": null,
+      "state": 1,
+      "file": 1,
+      "resolution": "128x128",
+      "source": {
+        "uploadId": "${thumb128-uploadId}",
+        "copyFrom": null
+      },
+      "version": null,
+      "extension": 5
+    },
+    {
+      "filePath": null,
+      "state": 1,
+      "file": 1,
+      "resolution": "256x256",
+      "source": {
+        "uploadId": "${thumb256-uploadId}",
+        "copyFrom": null
+      },
+      "version": null,
+      "extension": 5
+    },
+    {
+      "filePath": null,
+      "state": 1,
+      "file": 1,
+      "resolution": "512x512",
+      "source": {
+        "uploadId": "${thumb512-uploadId}",
+        "copyFrom": null
+      },
+      "version": null,
+      "extension": 5
+    }
+  ]
+}

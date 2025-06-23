@@ -1,0 +1,75 @@
+@env=Content-Test
+
+@auth_server=http://authserver-{{env}}.eu-central-1.elasticbeanstalk.com
+#@auth_server=http://localhost:5002
+@auth_server=https://auth-content-test.frever-api.com
+
+### Authenticate
+# @name auth
+POST {{auth_server}}/connect/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=password&username=xxxxxxxxx&password=123456&client_id=Server&scope=friends_factory.creators_api&client_secret=xxxxxxxxx
+
+###
+@asset_server={{auth.response.body.asset_server}}
+@main_server={{auth.response.body.server_url}}
+@video_server={{auth.response.body.video_server}}
+@social_server={{auth.response.body.social_server}}
+
+# @main_server=http://localhost:5001/
+# @asset_server=http://localhost:5004/
+# @video_server=http://localhost:5005/
+# @social_server=http://localhost:5007/
+
+###
+# @name levels
+GET {{main_server}}api/Level?$filter=groupId eq 16
+Authorization: Bearer {{auth.response.body.access_token}}
+
+
+###
+# @name initUpload
+GET {{asset_server}}api/File/PreUploadingUrl
+Authorization: Bearer {{auth.response.body.access_token}}
+
+###
+# @name uploadFile
+PUT {{initUpload.response.body.$.uploadUrl}}
+
+< ./test-file.txt
+
+###
+PATCH {{main_server}}/api/CharacterSpawnPosition
+Content-Type: application/json
+Authorization: Bearer {{auth.response.body.access_token}}
+
+{
+  "id": 250,
+  "files": [
+    {
+      "file": "Thumbnail",
+      "extension": "Png",
+      "resolution": "128x128",
+      "uploadId": "98d2ba4e-3695-4af0-bdb9-a97dd3dd6bce"
+    },
+    {
+      "file": "Thumbnail",
+      "extension": "Png",
+      "resolution": "256x256",
+      "uploadId": "98d2ba4e-3695-4af0-bdb9-a97dd3dd6bce"
+    },
+    {
+      "file": "Thumbnail",
+      "extension": "Png",
+      "resolution": "512x512",
+      "uploadId": "98d2ba4e-3695-4af0-bdb9-a97dd3dd6bce"
+    },
+    {
+      "file": "Thumbnail",
+      "extension": "Png",
+      "resolution": "1600x900",
+      "uploadId": "98d2ba4e-3695-4af0-bdb9-a97dd3dd6bce"
+    }
+  ]
+}

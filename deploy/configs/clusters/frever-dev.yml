@@ -1,0 +1,33 @@
+serverInfo:
+  maxReplicas: 5
+settings:
+  aws:
+    region: "eu-central-1"
+    bucket: "xxxxxxxxx"
+    queue: "xxxxxxxxx"
+  svc:
+    machineLearning: xxxxxxxxx
+  environmentType: "dev"
+  videoConversion:
+    ingestBucket: "video-source-development"
+    sqsQueue: "xxxxxxxxx"
+    mediaConverterQueue: "dev-1"
+    mediaConverterJobName: "video-conversion-stage"
+  oneSignal:
+    androidChannelId: "xxxxxxxxx"
+  someParamHere: "abc"
+  autoCreateTemplate:
+    templateSubcategoryName: "NDN"
+  jaeger:
+    host: xxxxxxxxx
+  hardDeleteAccountSettings:
+    environmentInfo: "dev"
+  sns:
+    videoTemplateMappingTopicArn: "xxxxxxxxx"
+    groupChangedTopicArn: "xxxxxxxxx"
+    templateUpdatedTopicArn: "xxxxxxxxx"
+    groupDeletedTopicArn: "xxxxxxxxx"
+    videoUnlikedTopicArn: "xxxxxxxxx"
+    groupUnfollowedTopicArn: "xxxxxxxxx"
+    groupFollowedTopicArn: "xxxxxxxxx"
+    outfitChangedTopicArn: "xxxxxxxxx"

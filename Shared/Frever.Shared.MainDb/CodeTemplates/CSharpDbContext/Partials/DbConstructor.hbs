@@ -1,0 +1,9 @@
+﻿{{spaces 8}}public {{class}}(ILoggerFactory loggerFactory)
+{{spaces 8}}{
+				_loggerFactory = loggerFactory;
+{{spaces 7}} }
+
+{{spaces 8}}public {{class}}(DbContextOptions<{{class}}>options, ILoggerFactory loggerFactory) : base(options)
+{{spaces 8}}{
+				_loggerFactory = loggerFactory;
+{{spaces 7}} }

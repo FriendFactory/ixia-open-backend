@@ -1,0 +1,29 @@
+@auth_server=http://localhost:5002
+# @auth_server=https://content-stage.frever-api.com/1.4/auth
+
+### Authenticate
+# @name auth
+POST {{auth_server}}/connect/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=password&username=xxxxxxxxx&password=123456&client_id=Server&scope=friends_factory.creators_api+offline_access&client_secret=xxxxxxxxx
+
+###
+@asset_server={{auth.response.body.asset_server}}
+@main_server={{auth.response.body.server_url}}
+@assetmanager_server={{auth.response.body.assetmanager_server}}
+@client_server={{auth.response.body.client_server}}
+@video_server={{auth.response.body.video_server}}
+@social_server={{auth.response.body.social_server}}
+@notification_server={{auth.response.body.notification_server}}
+
+
+###
+# @name myVideo
+GET {{video_server}}video/my-videos
+Authorization: Bearer {{auth.response.body.access_token}}
+
+
+###
+POST {{video_server}}video/{{myVideo.response.body.$[0].id}}/access/0
+Authorization: Bearer {{auth.response.body.access_token}}

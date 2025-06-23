@@ -1,0 +1,55 @@
+{{- $notificationService := (merge (dict "Service" "notification" "Dll" "NotificationService.dll" ) . ) -}}
+{{- include "frever-app.net-service-ingress" $notificationService }}
+---
+{{- include "frever-app.net-service-service" $notificationService }}
+---
+{{- include "frever-app.net-horizontal-pod-autoscaler" $notificationService }}
+---
+{{- include "frever-app.net-service-deployment" $notificationService }}
+            - name: Auth__ApiName
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: auth.apiName
+            - name: Auth__AuthServer
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: auth.authServer
+            - name: OneSignal__ApiKey
+              valueFrom:
+                secretKeyRef:
+                  name: ssm-secrets
+                  key: oneSignal.apiKey
+            - name: OneSignal__AppId
+              valueFrom:
+                secretKeyRef:
+                  name: ssm-secrets
+                  key: oneSignal.appId
+            - name: OneSignal__AndroidChannelId
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: oneSignal.androidChannelId
+            - name: Services__Main
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: svc.main
+            - name: Services__Video
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: svc.video
+            - name: SwaggerUserName
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: swagger.username
+                  optional: true
+            - name: SwaggerPassword
+              valueFrom:
+                secretKeyRef:
+                  name: ssm-secrets
+                  key: swagger.password
+                  optional: true

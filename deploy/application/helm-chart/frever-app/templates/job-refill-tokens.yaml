@@ -1,0 +1,135 @@
+{{- $params := (merge (dict "Job" "RefillTokens" "Schedule" "0 1 * * *") . ) -}}
+{{- include "frever-app.cron-job" $params }}
+                - name: Templates__ThumbnailConversionJob
+                  valueFrom:
+                    configMapKeyRef:
+                      name: config
+                      key: template.conversionJob
+                - name: Templates__UserTemplatesSubCategoryName
+                  valueFrom:
+                    configMapKeyRef:
+                      name: config
+                      key: templateAutoCreation.templateSubcategoryName
+                - name: Templates__ConversionJobRoleArn
+                  valueFrom:
+                    configMapKeyRef:
+                      name: config
+                      key: template.conversionJobRoleArn
+                - name: AWS__AssetCopyingQueue
+                  valueFrom:
+                    configMapKeyRef:
+                      name: config
+                      key: aws.queue
+                - name: SwaggerUserName
+                  valueFrom:
+                    configMapKeyRef:
+                      name: config
+                      key: swagger.username
+                      optional: true
+                - name: SwaggerPassword
+                  valueFrom:
+                    secretKeyRef:
+                      name: ssm-secrets
+                      key: swagger.password
+                      optional: true
+                - name: DataProtectorKey
+                  valueFrom:
+                    secretKeyRef:
+                      name: ssm-secrets
+                      key: data.protector.key
+                - name: RunMigrations
+                  valueFrom:
+                    configMapKeyRef:
+                      name: config
+                      key: runMigrations
+                - name: Redis__EnableCaching
+                  value: "false"
+                - name: AssetCopying__AssetCopyingQueueUrl
+                  valueFrom:
+                    configMapKeyRef:
+                      name: config
+                      key: aws.queue
+                - name: AssetCopying__BucketName
+                  valueFrom:
+                    configMapKeyRef:
+                      name: config
+                      key: aws.bucket
+                - name: AssetServerSettings__NewAssetDays
+                  value: "9"
+                - name: EmailSending__FromEmail
+                  valueFrom:
+                    configMapKeyRef:
+                      name: config
+                      key: email.validation
+                - name: MusicProviderApiSettings__TrackDetailsUrl
+                  valueFrom:
+                    configMapKeyRef:
+                      name: config
+                      key: musicProviderApiSettings.trackDetailsUrl
+                - name: MusicProviderApiSettings__ApiUrl
+                  valueFrom:
+                    configMapKeyRef:
+                      name: config
+                      key: musicProviderApiSettings.apiUrl
+                - name: MusicProviderApiSettings__CountryCode
+                  valueFrom:
+                    configMapKeyRef:
+                      name: config
+                      key: musicProviderApiSettings.countryCode
+                - name: MusicProviderApiSettings__UsageTypes
+                  valueFrom:
+                    configMapKeyRef:
+                      name: config
+                      key: musicProviderApiSettings.usageTypes
+                - name: MusicProviderOAuthSettings__OAuthConsumerKey
+                  valueFrom:
+                    secretKeyRef:
+                      name: ssm-secrets
+                      key: musicProvider.OAuth.consumerKey
+                - name: MusicProviderOAuthSettings__OAuthConsumerSecret
+                  valueFrom:
+                    secretKeyRef:
+                      name: ssm-secrets
+                      key: musicProvider.OAuth.consumerSecret
+                - name: MusicProviderOAuthSettings__OAuthSignatureMethod
+                  value: "HMAC-SHA1"
+                - name: MusicProviderOAuthSettings__OAuthVersion
+                  value: "1.0"
+                - name: DeleteAccountEmail
+                  value: "privacy@frever.com"
+                - name: FreverOfficialEmail
+                  valueFrom:
+                    configMapKeyRef:
+                      name: config
+                      key: onboardingSettings.freverOfficialEmail
+                - name: RequiredVideoCount
+                  valueFrom:
+                    configMapKeyRef:
+                      name: config
+                      key: onboardingSettings.requiredVideoCount
+                - name: CloudFrontCertPrivateKey
+                  valueFrom:
+                    configMapKeyRef:
+                      name: config
+                      key: cdn.certificatePrivateKey
+                - name: CloudFrontCertKeyPairId
+                  valueFrom:
+                    configMapKeyRef:
+                      name: config
+                      key: cdn.certificateKeyPairId
+                - name: CloudFrontHost
+                  valueFrom:
+                    configMapKeyRef:
+                      name: config
+                      key: cdn.domain
+                - name: IngestVideoS3BucketName
+                  valueFrom:
+                    configMapKeyRef:
+                      name: config
+                      key: videoConversion.ingestBucket
+                - name: SpotifyPopularity__Bucket
+                  value: "frever-analytics-misc"
+                - name: SpotifyPopularity__Prefix
+                  value: "spotify/popularity"
+                - name: SpotifyPopularity__FullDataCsvFileName
+                  value: "spotify_popularity_full.csv"

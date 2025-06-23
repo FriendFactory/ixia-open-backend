@@ -1,0 +1,52 @@
+pipeline {
+    agent { label 'master' }
+
+    stages {
+        stage('Parameters'){
+            steps {
+                script {
+                    properties([
+                            parameters([
+                                string(
+                                    defaultValue: 'development',
+                                    description: 'Commit hash or branch name to build and deploy',
+                                    name: 'BranchOrCommit',
+                                    trim: true,
+                                ),
+                                choice(
+                                    name: 'Src',
+                                    description: 'Copy from env',
+                                    choices: ["stage", "prod"],
+                                ),
+                                choice(
+                                    name: 'Dst',
+                                    description: 'Copy to env',
+                                    choices: ["dev", "stage"],
+                                    defaultValue: "dev"
+                                )
+                            ])
+                    ])
+                }
+            }
+         }
+        stage('Checkout') {
+            steps {
+                sh "git checkout ${params.BranchOrCommit} && git pull"
+            }
+        }
+        stage('Build docker image') {
+            steps {
+                script {
+                    sh "./deploy/data-cloning/build-image.sh"
+                }
+            }
+        }
+        stage('Clone') {
+            steps {
+                script {
+                    sh "./deploy/data-cloning/run-image.sh ${params.Src} ${params.Dst}"
+                }
+            }
+        }
+    }
+}

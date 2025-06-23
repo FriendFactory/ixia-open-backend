@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <Sdk Name="Microsoft.Build.CentralPackageVersions" Version="2.1.3"/>
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Newtonsoft.Json"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\Common\Common.Models\Common.Models.csproj" />
+        <ProjectReference Include="..\..\..\Shared\Frever.Shared.MainDb\Frever.Shared.MainDb.csproj"/>
+        <ProjectReference Include="..\..\Video\Frever.Video.Shared\Frever.Video.Shared.csproj" />
+    </ItemGroup>
+
+</Project>

@@ -1,0 +1,52 @@
+@auth_server=http://localhost:5002
+# @auth_server=https://dev-1.frever-api.com/1.7/auth
+
+### Authenticate
+# @name auth
+POST {{auth_server}}/connect/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=password&username=xxxxxxxxx&password=123456&client_id=Server&scope=friends_factory.creators_api+offline_access&client_secret=xxxxxxxxx
+
+###
+@assetmanager_server={{auth.response.body.assetmanager_server}}
+
+###
+# @name bot
+GET {{assetmanager_server}}api/geo-cluster?$filter=id eq 13
+Authorization: Bearer {{auth.response.body.access_token}}
+
+###
+POST {{assetmanager_server}}api/geo-cluster
+Authorization: Bearer {{auth.response.body.access_token}}
+Content-Type: application/json
+
+{
+  "id": 0,
+  "priority": 99,
+  "title": "test",
+  "isActive": false,
+  "includeVideoFromCountry": [],
+  "excludeVideoFromCountry": [],
+  "includeVideoWithLanguage": ["swe"],
+  "excludeVideoWithLanguage": [],
+  "showToUserFromCountry": [],
+  "hideForUserFromCountry": [],
+  "showForUserWithLanguage": ["ukr"],
+  "hideForUserWithLanguage": []
+},
+
+###
+PATCH {{assetmanager_server}}api/geo-cluster/13
+Authorization: Bearer {{auth.response.body.access_token}}
+Content-Type: application/json
+
+{
+  "isActive": false,
+  "showForUserWithLanguage": []
+}
+
+###
+DELETE {{assetmanager_server}}api/geo-cluster/13
+Authorization: Bearer {{auth.response.body.access_token}}
+

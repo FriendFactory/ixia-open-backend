@@ -1,0 +1,28 @@
+{{- $assetService := (merge (dict "Service" "asset" "Dll" "AssetServer.dll" ) . ) -}}
+{{- include "frever-app.net-service-ingress" $assetService }}
+---
+{{- include "frever-app.net-service-service" $assetService }}
+---
+{{- include "frever-app.net-horizontal-pod-autoscaler" $assetService }}
+---
+{{- include "frever-app.net-service-deployment" $assetService }}
+            - name: AssetService__AssetCdnHost
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: cdn.domain
+            - name: AssetService__AssetUrlLifetimeMinutes
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: cdn.urlSignatureLifetimeMin
+            - name: AssetService__CloudFrontCertificateKeyPairId
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: cdn.certificateKeyPairId
+            - name: AssetService__CloudFrontCertificatePrivateKey
+              valueFrom:
+                configMapKeyRef:
+                  name: config
+                  key: cdn.certificatePrivateKey

@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <Sdk Name="Microsoft.Build.CentralPackageVersions" Version="2.1.3" />
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net8.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Amazon.Lambda.Core"/>
+        <PackageReference Include="Amazon.Lambda.S3Events"/>
+        <PackageReference Include="Amazon.Lambda.Serialization.Json"/>
+        <PackageReference Include="AWSSDK.Core"/>
+        <PackageReference Include="AWSSDK.MediaConvert"/>
+        <PackageReference Include="AWSSDK.S3"/>
+        <PackageReference Include="AWSSDK.SecurityToken"/>
+        <PackageReference Include="Magick.NET-Q8-AnyCPU"/>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection"/>
+        <PackageReference Include="Microsoft.Extensions.Logging"/>
+        <PackageReference Include="Alturos.VideoInfo"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\Utils\AssetUrlGenerator\AssetStorage.PathProviding.csproj"/>
+    </ItemGroup>
+
+
+</Project>

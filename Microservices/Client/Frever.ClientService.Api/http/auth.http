@@ -1,0 +1,60 @@
+# Works together with Frever.Impersonate CLI util to generate tokens.
+# Supports both local and remote environment
+@version=latest
+@env=content-stage
+
+@auth_server=https://{{env}}.frever-api.com/{{version}}/auth/
+@asset_server=https://{{env}}.frever-api.com/{{version}}/asset/
+@admin_server=https://{{env}}.frever-api.com/{{version}}/admin/
+@client_server=https://{{env}}.frever-api.com/{{version}}/client/
+@video_server=https://{{env}}.frever-api.com/{{version}}/video/
+@notification_server=https://{{env}}.frever-api.com/{{version}}/notification/
+@token_dev_16=xxxxxxxxx
+@token={{token_dev_16}}
+
+
+# ###
+@auth_server=http://localhost:5002/
+@asset_server=http://localhost:5004/file-storage/
+@admin_server=http://localhost:5010/admin/
+@client_server=http://localhost:5011/client/
+@video_server=http://localhost:5005/video/
+@notification_server=http://localhost:5008/notification/
+@token_dev_16=xxxxxxxxx
+@token={{token_dev_16}}
+
+############ END ##############
+###
+GET {{auth_server}}api/client/urls
+
+### Validate registration info
+POST {{auth_server}}account/validateregistrationinfo
+Content-Type: application/json
+
+{
+  "userName": "oskarh1234"
+}
+
+### Registration with email
+# @name reg
+POST {{auth_server}}account/register
+Content-Type: application/json
+
+{
+  "userName": "fuck_you_trump",
+  "password": "TrumpElection2024",
+  "birthDate": "2020-02-12",
+  "analyticsEnabled": true,
+  "defaultLanguage": "eng",
+  "country": "usa"
+}
+
+### Registration with email
+# @name reg
+POST {{auth_server}}Account/ValidateRegistrationInfo
+Content-Type: application/json
+
+{"Email":null,"PhoneNumber":null,"UserName":"s2"}
+
+###
+POST {{auth_server}}account/suggestnicknames

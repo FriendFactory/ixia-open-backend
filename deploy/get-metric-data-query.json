@@ -1,0 +1,44 @@
+{
+    "MetricDataQueries": [
+        {
+            "Id": "m0",
+            "MetricStat": {
+                "Metric": {
+                    "Namespace": "AWS/EC2",
+                    "MetricName": "CPUUtilization",
+                    "Dimensions": [
+                        {
+                            "Name": "InstanceId",
+                            "Value": "i-0fe6fc757b1ddc696"
+                        }
+                    ]
+                },
+                "Period": 300,
+                "Stat": "Average"
+            },
+            "Label": "myRequestLabel",
+            "ReturnData": true
+        },
+        {
+            "Id": "m1",
+            "MetricStat": {
+                "Metric": {
+                    "Namespace": "AWS/ApplicationELB",
+                    "MetricName": "RequestCount",
+                    "Dimensions": [
+                        {
+                            "Name": "LoadBalancer",
+                            "Value": "app/0477f351-jaeger-jaegerquer-bd33/343bc5ef27e7c676"
+                        }
+                    ]
+                },
+                "Period": 300,
+                "Stat": "Sum"
+            },
+            "Label": "myRequestLabel2",
+            "ReturnData": true
+        }
+    ],
+    "StartTime": "2021-04-18T14:00:00Z",
+    "EndTime": "2021-04-18T18:00:00Z"
+}

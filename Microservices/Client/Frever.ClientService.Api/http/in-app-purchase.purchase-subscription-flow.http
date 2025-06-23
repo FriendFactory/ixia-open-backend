@@ -1,0 +1,60 @@
+# Works together with Frever.Impersonate CLI util to generate tokens.
+# Supports both local and remote environment
+# Works together with Frever.Impersonate CLI util to generate tokens.
+# Supports both local and remote environment
+@version=latest
+@env=dev
+
+@auth_server=https://{{env}}.frever-api.com/{{version}}/auth/
+@asset_server=https://{{env}}.frever-api.com/{{version}}/asset/
+@admin_server=https://{{env}}.frever-api.com/{{version}}/admin/
+@client_server=https://{{env}}.frever-api.com/{{version}}/client/
+@video_server=https://{{env}}.frever-api.com/{{version}}/video/
+@notification_server=https://{{env}}.frever-api.com/{{version}}/notification/
+@token_ixia_3352=eyJhbGciOiJSUzI1NiIsImtpZCI6IjlERkU1NTBERTc3MzNCQjUxRDJFQTE3RDUzQjdGQkMwRkRENTZGMTkiLCJ0eXAiOiJhdCtqd3QiLCJ4NXQiOiJuZjVWRGVkek83VWRMcUY5VTdmN3dQM1ZieGsifQ.eyJuYmYiOjE3NDczMjI0NDksImV4cCI6MTc0OTkxNDQ0OSwiaXNzIjoiaHR0cDovL2F1dGgtc2VydmljZSIsImF1ZCI6ImZyaWVuZHNfZmFjdG9yeS5jcmVhdG9yc19hcGkiLCJjbGllbnRfaWQiOiJTZXJ2ZXIiLCJzdWIiOiJjYTQyNjM0NC1mNjJlLTQ0NDgtYTI3Yy03NjljMTkyNDM4NzkiLCJhdXRoX3RpbWUiOjE3NDczMjI0NDksImlkcCI6ImxvY2FsIiwibmFtZSI6InRhbGx2aXJhbDY5OSIsIlVzZXJJZCI6IjMzMzIiLCJQcmltYXJ5R3JvdXBJZCI6IjMzNTIiLCJSZWdpc3RlcmVkV2l0aEFwcGxlSWQiOiJUcnVlIiwic2NvcGUiOlsib3BlbmlkIiwicHJvZmlsZSIsImZyaWVuZHNfZmFjdG9yeS5jcmVhdG9yc19hcGkiXX0.C5osqNRCoylk3XLlUupJM57K70Mz9j4UbCDHx2swsngtv2DK8TuVPvcQcl55WeoZaXcG3tuQkzmRDwgX8qYseoAXTeT9Gp08anL05VXv0swD1uHkGtAeJMK4OeLBdNiqjvS56nfftVSjRB8vdjX8YuxKxPcuPg75pNKaZ5jbexDevDLHNwtE5aOqQ7ef379lBbIUnygj8OqvMhQot-JHW-m6cMTRUbnf7VePnaBcb9iK9eASyP0EXTnNg9KvtpaE0ILZ_dl-g-fXgqKSdnbiLxmB1ql9rw_IeuCNJU0kFphDw0xN5UlJDbVca7wz2vREbV8Sdcp8xTm508U8_Cf68w
+@token={{token_ixia_3352}}
+
+
+###
+@auth_server=http://localhost:5002/
+@asset_server=http://localhost:5004/file-storage/
+@admin_server=http://localhost:5010/admin/
+@client_server=http://localhost:5011/client/
+@video_server=http://localhost:5005/video/
+@notification_server=http://localhost:5008/notification/
+@token_ixia_3352=eyJhbGciOiJSUzI1NiIsImtpZCI6IjJFOEZFREU3MkZEREE0NUREQ0FEN0NBMUJEMjdDMzJBMTZGQkE2MkQiLCJ0eXAiOiJhdCtqd3QiLCJ4NXQiOiJMb190NXlfZHBGM2NyWHlodlNmREtoYjdwaTAifQ.eyJuYmYiOjE3NDczMjI2MDIsImV4cCI6MTc0OTkxNDYwMiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAyIiwiYXVkIjoiZnJpZW5kc19mYWN0b3J5LmNyZWF0b3JzX2FwaSIsImNsaWVudF9pZCI6IlNlcnZlciIsInN1YiI6ImNhNDI2MzQ0LWY2MmUtNDQ0OC1hMjdjLTc2OWMxOTI0Mzg3OSIsImF1dGhfdGltZSI6MTc0NzMyMjYwMSwiaWRwIjoibG9jYWwiLCJuYW1lIjoidGFsbHZpcmFsNjk5IiwiVXNlcklkIjoiMzMzMiIsIlByaW1hcnlHcm91cElkIjoiMzM1MiIsIlJlZ2lzdGVyZWRXaXRoQXBwbGVJZCI6IlRydWUiLCJzY29wZSI6WyJvcGVuaWQiLCJwcm9maWxlIiwiZnJpZW5kc19mYWN0b3J5LmNyZWF0b3JzX2FwaSJdfQ.TeVRBsREfkgX1a-ZikJtmDmNUmQXshWHpUla-sqA5PePLd4TUVXoWV9GPKBFuGcfxzxHSsZEXEXsxEz_FoOMRyZbBxMzjeWnK1nCsO0Wp-zSfxglrUKpLE_94UWhXhR6m1T29Iu7Fdb057smsZKbH3TOfBAt3hGjNGALaFnU7IWtt1CzVP0ZKs6VPvlsONPmrmOXSXVVbf6RGvlRqs10WObbDHG4LqLi_Cpsi7CZGPfDJ1GYeOgEcPMtO3wfnL5l3o5VzK7WPSYl5seMINF9jNdcto1tI3OUeN87poOIqEv405PSoLywrnJDiJpMrzbzvBxVkoMY9Tf7qrPpEXx-ES-TcuRcSBjqBg9pXrFnTXC3K5MBnC1Hf5DVMgpWaU-MzksoJ6GpwKs7QJlpQU1Aidvm9BTEtb8XvDzCRsJJbifoMqtVTMr4kcqjFNPU4xUkNvcLNhbBpQV-4wFiFjmVzCbZtg1oP-zv3xu4UNBfsNFH76kn76TtPM5MK8xOamwrVXkCHaxhUbwqZ4_K1Ar9F7EiercblJcMIx6-bvrttI-uHmJ667SofkH263IaXBC1BTGhcomLzX3pZD_ZRhsOQy5Bq4ib_cjVLL9E3oRd3aUaE_ksPMIg03KEWGk9f2ZIX0q4TCirqVh0hyegwpoHtWRKcd8C9wi9hia4ifZLm6A
+@token={{token_ixia_3352}}
+
+
+@receipt=2000000919856656
+
+###
+# @name offers
+GET {{client_server}}api/in-app-purchase/offers
+Authorization: Bearer {{token}}
+
+
+###
+# @name premiumPassPreOrder
+POST {{client_server}}api/in-app-purchase/init
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "inAppProductOfferKey": "{{offers.response.body.subscriptionOffers[2].offerKey}}"
+}
+
+###
+POST {{client_server}}api/in-app-purchase/complete
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "pendingOrderId": "ae66fe2f-e093-422a-9063-97fa8e457bec",
+  "platform": "iOS",
+  "transactionData": "{{receipt}}"
+}
+
+###
+GET {{client_server}}api/me
+Authorization: Bearer {{token}}

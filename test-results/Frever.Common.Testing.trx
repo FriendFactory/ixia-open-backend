@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="b58b8ed8-4029-4488-adfc-5666c8b2d3f0" name="@5955a5bf5f87 2024-07-02 13:00:08" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2024-07-02T13:00:08.7939786+00:00" queuing="2024-07-02T13:00:08.7939787+00:00" start="2024-07-02T13:00:08.0650769+00:00" finish="2024-07-02T13:00:08.7944008+00:00" />
+  <TestSettings name="default" id="0821c85a-ca5a-411a-80ce-1a959e0aaed3">
+    <Deployment runDeploymentRoot="_5955a5bf5f87_2024-07-02_13_00_08" />
+  </TestSettings>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="0" executed="0" passed="0" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.8.0+6438bb880a (64-bit .NET 8.0.6)
+[xUnit.net 00:00:00.16]   Discovering: Frever.Common.Testing
+[xUnit.net 00:00:00.17]   Discovered:  Frever.Common.Testing
+</StdOut>
+    </Output>
+    <RunInfos>
+      <RunInfo computerName="5955a5bf5f87" outcome="Warning" timestamp="2024-07-02T13:00:08.6582085+00:00">
+        <Text>No test matches the given testcase filter `Test` in /source/Common/Frever.Common.Testing/bin/Debug/net8.0/Frever.Common.Testing.dll</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+</TestRun>

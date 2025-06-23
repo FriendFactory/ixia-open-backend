@@ -1,0 +1,67 @@
+@env=Development
+
+@auth_server=http://authserver-{{env}}.eu-central-1.elasticbeanstalk.com
+# @auth_server=http://localhost:5002
+
+### Authenticate
+# @name auth
+POST {{auth_server}}/connect/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=password&username=xxxxxxxxx&password=123456&client_id=Server&scope=friends_factory.creators_api&client_secret=xxxxxxxxx
+
+###
+@asset_server={{auth.response.body.asset_server}}
+@main_server={{auth.response.body.server_url}}
+@video_server={{auth.response.body.video_server}}
+@social_server={{auth.response.body.social_server}}
+@notification_server={{auth.response.body.notification_server}}
+
+# @main_server=http://localhost:5001/
+# @asset_server=http://localhost:5004/
+# @video_server=http://localhost:5005/
+# @social_server=http://social-content-stage.eba-w3sr2zza.eu-central-1.elasticbeanstalk.com/
+@notification_server=http://localhost:5008/
+
+### Authenticate
+# @name authUser2
+POST {{auth_server}}/connect/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=password&username=xxxxxxxxx&password=123456&client_id=Server&scope=friends_factory.creators_api&client_secret=xxxxxxxxx
+
+
+###
+# @name videos
+GET {{video_server}}video/feed
+Authorization: Bearer {{auth.response.body.access_token}}
+
+@videoId={{videos.response.body.$[0].id}}
+
+###
+GET {{video_server}}video/{{videoId}}/who-commented
+Authorization: Bearer {{auth.response.body.access_token}}
+
+###
+POST {{video_server}}video/{{videoId}}/comment
+Authorization: Bearer {{authUser2.response.body.access_token}}
+Content-Type: application/json
+
+{
+  "Text": "First comment"
+}
+
+
+###
+POST {{video_server}}video/{{videoId}}/comment
+Authorization: Bearer {{auth.response.body.access_token}}
+Content-Type: application/json
+
+{
+  "Text": "Other user comment"
+}
+
+###
+GET {{notification_server}}api/notifications
+Authorization: Bearer {{auth.response.body.access_token}}
+# Accept: application/vnd.google.protobuf

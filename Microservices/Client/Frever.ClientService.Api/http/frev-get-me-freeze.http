@@ -1,0 +1,37 @@
+@auth_server=http://localhost:5002
+#@auth_server=https://dev-1.frever-api.com/0.2/auth
+# @auth_server=https://content-stage.frever-api.com/1.4/auth
+
+###
+POST {{auth_server}}/api/verify-email
+Content-Type: application/json
+
+{
+  "email": "xxxxxxxxx"
+}
+
+### Authenticate
+# @name auth
+POST {{auth_server}}/connect/token
+Content-Type: application/x-www-form-urlencoded
+
+verification_token=828201&email=xxxxxxxxx&grant_type=email_auth_token&client_id=Server&scope=friends_factory.creators_api+offline_access&client_secret=xxxxxxxxx
+
+
+###
+@asset_server={{auth.response.body.asset_server}}
+@main_server={{auth.response.body.server_url}}
+@assetmanager_server={{auth.response.body.assetmanager_server}}
+@client_server={{auth.response.body.client_server}}
+@video_server={{auth.response.body.video_server}}
+@social_server={{auth.response.body.social_server}}
+@notification_server={{auth.response.body.notification_server}}
+
+###
+GET {{client_server}}api/me
+Authorization: Bearer {{auth.response.body.access_token}}
+# Accept: application/vnd.google.protobuf
+
+###
+GET http://content-stage.frever-api.com/1.5/client/api/me HTTP/1.1
+Authorization: Bearer xxxxxxxxx

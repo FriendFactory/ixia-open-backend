@@ -1,0 +1,253 @@
+{{- define "frever-app.cron-job" }}
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ .Job | kebabcase | quote}}
+  annotations:
+    meta.frever.com/deployed-from-branch: {{ .Values.deployInfo.branch | quote }}
+    meta.frever.com/deployed-from-commit: {{ .Values.deployInfo.commit | quote }}
+    meta.frever.com/deployed-by-user: {{ .Values.deployInfo.deployedBy | quote }}
+    meta.frever.com/deployed-at: {{ .Values.deployInfo.deployedAt | quote }}
+    meta.frever.com/deployed-from-computer: {{ .Values.deployInfo.deployedFrom | quote }}
+spec:
+  schedule: "{{ .Schedule }}"
+  failedJobsHistoryLimit: 3
+  successfulJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          nodeSelector:
+            AppGroup: {{ .Values.nodeGroup }}
+          volumes:
+            - name: secrets-store-inline
+              csi:
+                driver: secrets-store.csi.k8s.io
+                readOnly: true
+                volumeAttributes:
+                  secretProviderClass: app-secrets
+          restartPolicy: Never
+          containers:
+            - name: "{{ .Job | kebabcase }}-container"
+              image: "{{ dir .Values.repository }}/appservice:{{ .Values.imageLabel }}"
+              imagePullPolicy: Always
+              command:
+                  - dotnet
+              args:
+                  - /app/jobs/{{ .Job }}/Ixia.Job.{{ .Job }}.dll
+              volumeMounts:
+                - mountPath: "/mnt/ssm"
+                  name: secrets-store-inline
+                  readOnly: true
+              env:
+                - name: Environment
+                  value: "{{ .Release.Namespace }}"
+                - name: ApiIdentifier
+                  value: "{{ .Values.apiIdentifier }}"
+                - name: Logging__LogLevel__Microsoft
+                  value: "Warning"
+                - name: Logging__LogLevel__IdentityServer4
+                  value: "Warning"
+                - name: Logging__LogLevel__AWSSDK
+                  value: "Warning"
+                - name: AcrCloud__Host
+                  value: "xxxxxxxxx"
+                - name: AcrCloud__AccessKey
+                  value: "xxxxxxxxx"
+                - name: AcrCloud__AccessSecret
+                  value: "xxxxxxxxx"
+                - name: AbstractApi__ApiKey
+                  value: "xxxxxxxxx"
+                - name: ASPNETCORE_ENVIRONMENT
+                  valueFrom:
+                    configMapKeyRef:
+                      name: config
+                      key: ASPNETCORE_ENVIRONMENT
+                - name: ASPNETCORE_URLS
+                  valueFrom:
+                    configMapKeyRef:
+                      name: config
+                      key: ASPNETCORE_URLS
+                - name: XTargetId
+                  valueFrom:
+                    fieldRef:
+                      fieldPath: metadata.name
+                - name: AWS_REGION
+                  valueFrom:
+                    configMapKeyRef:
+                      name: config
+                      key: aws.region
+                - name: AWS__bucket_name
+                  valueFrom:
+                    configMapKeyRef:
+                      name: config
+                      key: aws.bucket
+                - name: EnvironmentType
+                  valueFrom:
+                    configMapKeyRef:
+                      name: config
+                      key: environmentType
+                - name: InAppPurchases__GoogleApiKeyBase64
+                  valueFrom:
+                    secretKeyRef:
+                      name: ssm-secrets
+                      key: google.apiKey
+                - name: InAppPurchases__IsProduction
+                  valueFrom:
+                    configMapKeyRef:
+                      name: config
+                      key: inAppPurchases.isProduction
+                - name: JAEGER_ENDPOINT
+                  valueFrom:
+                    configMapKeyRef:
+                      name: config
+                      key: jaeger.endpoint
+                - name: JAEGER_REPORTER_LOG_SPANS
+                  value: "false"
+                - name: JAEGER_REPORTER_MAX_QUEUE_SIZE
+                  value: "100000"
+                - name: JAEGER_SERVICE_NAME
+                  value: {{ .Release.Namespace }}.{{ .Service }}
+                - name: JAEGER_SAMPLER_TYPE
+                  value: "const"
+                - name: JAEGER_SAMPLER_PARAM
+                  value: "1"
+                - name: JAEGER_TRACEID_128BIT
+                  value: "false"
+                - name: JAEGER_SENDER_FACTORY
+                  value: "thrift"
+                - name: JAEGER_ENABLE
+                  valueFrom:
+                    configMapKeyRef:
+                      name: config
+                      key: jaeger.enable
+                - name: JAEGER_DETAILED_TRACING
+                  valueFrom:
+                    configMapKeyRef:
+                      name: config
+                      key: jaeger.detailed
+                - name: BasePath
+                  value: "/{{ .Values.apiIdentifier }}/{{ .Service }}"
+                - name: Redis__ConnectionString
+                  valueFrom:
+                    configMapKeyRef:
+                      name: config
+                      key: redis.host
+                - name: Redis__ClientIdentifier
+                  valueFrom:
+                    fieldRef:
+                      fieldPath: metadata.name
+                - name: ConnectionStrings__MainDbWritable
+                  valueFrom:
+                    secretKeyRef:
+                      name: ssm-secrets
+                      key: cs.main
+                - name: ConnectionStrings__MainDbReadReplica
+                  valueFrom:
+                    secretKeyRef:
+                      name: ssm-secrets
+                      key: cs.main
+                - name: ConnectionStrings__AuthDbWritable
+                  valueFrom:
+                    secretKeyRef:
+                      name: ssm-secrets
+                      key: cs.auth
+                - name: ServiceDiscovery__Asset
+                  valueFrom:
+                    configMapKeyRef:
+                      name: config
+                      key: svc.asset
+                - name: ServiceDiscovery__Auth
+                  valueFrom:
+                    configMapKeyRef:
+                      name: config
+                      key: svc.auth
+                - name: ServiceDiscovery__Client
+                  valueFrom:
+                    configMapKeyRef:
+                      name: config
+                      key: svc.client
+                - name: ServiceDiscovery__Main
+                  valueFrom:
+                    configMapKeyRef:
+                      name: config
+                      key: svc.main
+                - name: ServiceDiscovery__Notification
+                  valueFrom:
+                    configMapKeyRef:
+                      name: config
+                      key: svc.notification
+                - name: ServiceDiscovery__Video
+                  valueFrom:
+                    configMapKeyRef:
+                      name: config
+                      key: svc.video
+                - name: ServiceDiscovery__VideoFeed
+                  valueFrom:
+                    configMapKeyRef:
+                      name: config
+                      key: svc.videoFeed
+                - name: ServiceDiscovery__MachineLearning
+                  valueFrom:
+                    configMapKeyRef:
+                      name: config
+                      key: svc.machineLearning
+                - name: ServiceDiscovery__Chat
+                  valueFrom:
+                    configMapKeyRef:
+                      name: config
+                      key: svc.chat
+                - name: RateLimit__FreverVideoAndAssetDownload
+                  valueFrom:
+                    configMapKeyRef:
+                      name: config
+                      key: ratelimit.freverVideoAndAssetDownload
+                - name: RateLimit__SevenDigitalSongDownload
+                  valueFrom:
+                    configMapKeyRef:
+                      name: config
+                      key: ratelimit.sevenDigitalSongDownload
+                - name: RateLimit__HardLimitPerUserPerHour
+                  valueFrom:
+                    configMapKeyRef:
+                      name: config
+                      key: ratelimit.hardLimitPerUserPerHour
+                - name: Blokur__ApiToken
+                  valueFrom:
+                    secretKeyRef:
+                      name: ssm-secrets
+                      key: blokur.apiToken
+                - name: Blokur__SevenDigitalProviderIdentifier
+                  value: "123456"
+                - name: Blokur__TempFolder
+                  value: "/tmp/"
+                - name: ModerationProviderApiSettings__HiveTextModerationKey
+                  valueFrom:
+                    secretKeyRef:
+                      name: ssm-secrets
+                      key: hive.text.moderation.key
+                - name: ModerationProviderApiSettings__HiveVisualModerationKey
+                  valueFrom:
+                    secretKeyRef:
+                      name: ssm-secrets
+                      key: hive.visual.moderation.key
+                - name: AppsFlyerSettings__AppleAppId
+                  value: "xxxxxxxxx"
+                - name: AppsFlyerSettings__AndroidAppId
+                  value: "xxxxxxxxx"
+                - name: AppsFlyerSettings__Token
+                  valueFrom:
+                    secretKeyRef:
+                      name: ssm-secrets
+                      key: appsFlyer.token
+                - name: AI__StableDiffusionApiKey
+                  valueFrom:
+                    secretKeyRef:
+                      name: ssm-secrets
+                      key: stableDiffusion.apiKey
+                - name: AI__ReplicateApiKey
+                  valueFrom:
+                    secretKeyRef:
+                      name: ssm-secrets
+                      key: replicate.apiKey
+{{- end }}

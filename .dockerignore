@@ -1,0 +1,57 @@
+# Application-specific stuff
+deploy
+!deploy/data-cloning/asset-cloning-approach/script-generator
+load-test
+RedshiftImporter
+SQL
+test-results
+*.slnf
+*.sh
+*.ps1
+
+# Ignore build output directories
+**/bin
+**/obj
+
+# Ignore user-specific files
+**/*.user
+**/*.suo
+**/*.userosscache
+**/*.sln.docstates
+
+# Ignore logs and temporary files
+**/*.log
+**/logs
+**/temp
+**/tmp
+
+# Ignore IDE-specific files and directories
+**/.vscode
+**/.idea
+**/*.swp
+**/*.DotSettings
+
+# Ignore dependency caches
+**/node_modules
+**/packages
+
+# Ignore configuration and secrets
+**/.env
+
+# Ignore docker-related stuff
+**/*.Dockerfile
+
+
+# Ignore test projects' output (optional)
+**/TestResults
+**/*.Tests/bin
+**/*.Tests/obj
+
+# Ignore git-related files
+.git
+.gitignore
+
+# Ignore other unnecessary files
+**/*.bak
+**/*.tmp
+**/*.old

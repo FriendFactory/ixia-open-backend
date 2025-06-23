@@ -1,0 +1,185 @@
+# Works together with Frever.Impersonate CLI util to generate tokens.
+# Supports both local and remote environment
+@version=latest
+@env=content-prod
+
+@auth_server=https://{{env}}.frever-api.com/{{version}}/auth/
+@asset_server=https://{{env}}.frever-api.com/{{version}}/asset/
+@admin_server=https://{{env}}.frever-api.com/{{version}}/admin/
+@client_server=https://{{env}}.frever-api.com/{{version}}/client/
+@video_server=https://{{env}}.frever-api.com/{{version}}/video/
+@notification_server=https://{{env}}.frever-api.com/{{version}}/notification/
+@token_dev_admin=xxxxxxxxx
+@token_prod_899=xxxxxxxxx
+@token_prod_432=xxxxxxxxx
+@token_stage_16=xxxxxxxxx
+@token_dev_16=xxxxxxxxx
+@token={{token_stage_16}}
+
+###
+# @auth_server=http://localhost:5002/
+# @asset_server=http://localhost:5004/file-storage/
+# @admin_server=http://localhost:5010/admin/
+# @client_server=http://localhost:5011/client/
+# @video_server=http://localhost:5005/video/
+# @notification_server=http://localhost:5008/notification/
+# @token_dev_1863=xxxxxxxxx
+# @token_stage_899=xxxxxxxxx
+# @token={{token_stage_899}}
+
+############ END ##############
+
+### Authenticate
+# @name auth
+POST {{auth_server}}connect/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=password&username=horun@gmail.com&password=123456&client_id=Server&scope=friends_factory.creators_api+offline_access&client_secret=g'KpB#[_(<KP;Et25]a__J*mh;?(=h%NPd('=Z9KpC2xQ.F-E5{Sd>*AtK!t!t9-_Zq9-{.r
+
+
+###
+# @name signed
+POST {{client_server}}api/musicprovider/signurl
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "baseUrl": "https://api.7digital.com/1.2/track/details",
+  "httpMethod": "get",
+  "queryParameters": {
+    "trackId": "15833643",
+    "country": "SE",
+    "usageTypes": "download,subscriptionstreaming,adsupportedstreaming"
+  }
+}
+
+
+###
+# @name req
+POST {{client_server}}api/musicprovider/signurl
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "baseUrl": "https://api.7digital.com/1.2/playlists/",
+  "httpMethod": "get",
+  "queryParameters": {
+    "usageTypes": "download,subscriptionstreaming,adsupportedstreaming"
+  }
+}
+
+###
+GET {{req.response.body.url}}
+Accept: application/json
+
+###
+POST {{admin_server}}api/music-provider/request
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "baseUrl": "https://api.7digital.com/1.2/playlists",
+  "httpMethod": "get",
+  "queryParameters": {
+    "country": "UK",
+    "usageTypes": "download,subscriptionstreaming,adsupportedstreaming"
+  }
+}
+
+###
+POST {{admin_server}}api/music-provider/request
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "BaseUrl": "https://api.7digital.com/1.2/track/search",
+    "HttpMethod": "GET",
+    "QueryParameters": {
+        "country": "SE",
+        "usageTypes": "adsupportedstreaming",
+        "q": "CAW112400373"
+    }
+}
+
+
+###
+POST {{client_server}}api/musicprovider/signurl
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "BaseUrl": "https://api.7digital.com/1.2/track/search",
+    "HttpMethod": "GET",
+    "QueryParameters": {
+        "country": "SE",
+        "page": "1",
+        "pageSize": "150",
+        "usageTypes": "adsupportedstreaming",
+        "imageSize": "182",
+        "q": "USAT22409170"
+    }
+}
+
+
+###
+POST {{client_server}}api/musicprovider/signurl
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "baseUrl": "https://api.7digital.com/1.2/track/details",
+  "httpMethod": "get",
+  "queryParameters": {
+    "trackId": "49113105",
+    "country": "SE",
+    "usageTypes": "download,subscriptionstreaming,adsupportedstreaming"
+  }
+}
+
+###
+# @name signed
+POST {{client_server}}api/musicprovider/signurl
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "baseUrl": "https://api.7digital.com/1.2/playlists/633e885065c9a015780feac1",
+  "httpMethod": "get",
+  "queryParameters": {
+    "country": "SE",
+    "usageTypes": "download,subscriptionstreaming,adsupportedstreaming"
+  }
+}
+
+
+###
+GET {{signed.response.body.url}}
+Accept: application/json
+
+###
+POST {{client_server}}api/musicprovider/signurl
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "baseUrl": "https://previews.7digital.com/clip/233858",
+  "httpMethod": "get",
+  "queryParameters": {
+    "country": "SE"
+  }
+}
+
+###
+https://previews.7digital.com/clip/233858?country=SE&oauth_consumer_key=xxxxxxxxx&oauth_nonce=853750025&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1690283677&oauth_version=1.0&oauth_signature=g8mMIqJgK6myGoZrw6MIFQK9sls%3D
+
+
+###
+GET https://api.7digital.com/1.2/track/search?q=divide&country=SE&
+    usageTypes=download,subscriptionstreaming,adsupportedstreaming&oauth_consumer_key=xxxxxxxxx&
+    oauth_nonce=159540634&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1693469095&oauth_version=1.2&
+    oauth_signature=ex9SeZ3bini%2Fs7pwRqHwOmcbEgk%3D
+Accept: application/json
+
+###
+GET {{admin_server}}api/usersound/406
+Authorization: Bearer {{token}}

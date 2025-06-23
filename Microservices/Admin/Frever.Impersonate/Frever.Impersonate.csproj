@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net8.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\Common\Common.Infrastructure\Common.Infrastructure.csproj" />
+        <ProjectReference Include="..\..\Authorization\AuthServer.TokenGeneration\AuthServer.TokenGeneration.csproj"/>
+    </ItemGroup>
+
+    <Sdk Name="Microsoft.Build.CentralPackageVersions" Version="2.1.3"/>
+
+</Project>

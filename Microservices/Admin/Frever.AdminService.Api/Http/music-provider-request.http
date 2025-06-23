@@ -1,0 +1,64 @@
+@auth_server=https://dev-1.frever-api.com/1.7/auth
+
+### Authenticate
+# @name auth
+POST {{auth_server}}/connect/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=password&username=xxxxxxxxx&password=123456&client_id=Server&scope=friends_factory.creators_api+offline_access&client_secret=xxxxxxxxx
+
+###
+@admin_server={{auth.response.body.assetmanager_server}}
+
+###
+POST {{admin_server}}api/music-provider/request
+Authorization: Bearer {{auth.response.body.access_token}}
+Content-Type: application/json
+
+{
+  "baseUrl": "https://api.7digital.com/1.2/track/search",
+  "httpMethod": "get",
+  "queryParameters": {
+    "q": "happy",
+    "country": "SE",
+    "usageTypes": "download,subscriptionstreaming,adsupportedstreaming"
+  }
+}
+
+###
+POST {{admin_server}}api/music-provider/request
+Authorization: Bearer {{auth.response.body.access_token}}
+Content-Type: application/json
+
+{
+  "baseUrl": "https://api.7digital.com/1.2/playlists",
+  "httpMethod": "get",
+  "queryParameters": {"country": "SE", "pageSize": 22}
+}
+
+###
+POST {{admin_server}}api/music-provider/request
+Authorization: Bearer {{auth.response.body.access_token}}
+Content-Type: application/json
+
+{
+  "baseUrl": "https://api.7digital.com/1.2/playlists/6393794865c9a0173c4d4ef0/tracks",
+  "httpMethod": "get",
+  "queryParameters": {"country": "SE"}
+}
+
+###
+POST {{admin_server}}api/music-provider/request
+Authorization: Bearer {{auth.response.body.access_token}}
+Content-Type: application/json
+
+{
+  "baseUrl": "https://api.7digital.com/1.2/playlists/6393794865c9a0173c4d4ef0/tracks",
+  "httpMethod": "post",
+  "queryParameters": {
+    "country": "SE"
+  },
+  "body": '[{"trackId":"2235731","trackTitle":"Summertime Sadness (Lana Del Rey Vs. Cedric Gervais)","trackVersion":"Cedric Gervais Remix","artistAppearsAs":"Lana Del Rey, Cedric Gervais","releaseId":"2884616","releaseTitle":"Summertime Sadness [Lana Del Rey vs. Cedric Gervais]","releaseArtistAppearsAs":"Lana Del Rey, Cedric Gervais","releaseVersion":"Cedric Gervais Remix"}]'
+}
+
+

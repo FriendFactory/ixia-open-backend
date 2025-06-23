@@ -1,0 +1,349 @@
+@auth_server=http://localhost:5002
+# @auth_server=https://dev.frever-api.com/latest/auth
+# @auth_server=https://content-test.frever-api.com/latest/auth
+# @auth_server=https://content-prod.frever-api.com/latest/auth
+# @auth_server=https://ixia-prod.frever-api.com/latest/auth
+
+### Authenticate
+# @name auth
+POST {{auth_server}}/connect/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=password&username=xxxxxxxxx&password=123456&client_id=Server&scope=friends_factory.creators_api+offline_access&client_secret=xxxxxxxxx
+
+###
+POST {{auth_server}}/api/verify-phone-number
+Content-Type: application/json
+
+{
+  "phoneNumber": "xxxxxxxxx"
+}
+
+### Authenticate
+# @name auth
+POST {{auth_server}}/connect/token
+Content-Type: application/x-www-form-urlencoded
+
+phone_number=xxxxxxxxx&verification_token=223149&grant_type=phone_number_token&client_id=Server&scope=friends_factory.creators_api&client_secret=xxxxxxxxx
+
+###
+POST {{auth_server}}/api/verify-email
+Content-Type: application/json
+
+{
+  "email": "xxxxxxxxx"
+}
+
+### Authenticate
+# @name auth
+POST {{auth_server}}/connect/token
+Content-Type: application/x-www-form-urlencoded
+
+verification_token=512273&email=xxxxxxxxx&grant_type=email_auth_token&client_id=Server&scope=friends_factory.creators_api+offline_access&client_secret=xxxxxxxxx
+
+###
+@asset_server={{auth.response.body.asset_server}}
+@main_server={{auth.response.body.server_url}}
+@admin_server={{auth.response.body.assetmanager_server}}
+@chat_server={{auth.response.body.chat_server}}
+@client_server={{auth.response.body.client_server}}
+@video_server={{auth.response.body.video_server}}
+@notification_server={{auth.response.body.notification_server}}
+
+### HEALTHCHECKS
+GET {{auth_server}}/api/health
+
+###
+GET {{auth_server}}/.well-known/openid-configuration
+
+###
+GET {{auth_server}}/api/Client/SupportedVersions
+
+###
+POST {{admin_server}}api/cache/reset
+Authorization: Bearer {{auth.response.body.access_token}}
+
+### AUTH SERVER
+
+### Registration with email
+# @name auth
+POST {{auth_server}}/account/register
+Content-Type: application/json
+
+{
+  "email": "xxxxxxxxx",
+  "password": "xxxxxxxxx",
+  "userName": "xxxxxxxxx",
+  "birthDate": "2001-01-01",
+  "analyticsEnabled": true
+}
+
+### Registration with email
+# @name auth
+POST {{auth_server}}/account/RegisterTemporaryAccount
+Content-Type: application/json
+
+{
+  "country": "swe",
+  "defaultLanguage": "swe"
+}
+
+### Update data
+# @name auth1
+POST {{auth_server}}/account/UpdateTemporaryAccount
+Authorization: Bearer {{auth.response.body.access_token}}
+Content-Type: application/json
+
+{
+  "password": "testtesttest1",
+  "userName": "testtesttest2",
+  "birthDate": "2015-01-01"
+}
+
+### ADMIN SERVER
+
+###
+GET {{admin_server}}api/Song?$top=10&$orderby=id desc
+Authorization: Bearer {{auth.response.body.access_token}}
+
+###
+GET {{admin_server}}api/profile?$top=10&$orderby=id desc
+Authorization: Bearer {{auth.response.body.access_token}}
+
+###
+GET {{admin_server}}api/video/moderation?$top=10
+Authorization: Bearer {{auth.response.body.access_token}}
+
+###
+DELETE {{admin_server}}api/account/moderation/36461/hard-delete
+Authorization: Bearer {{auth.response.body.access_token}}
+
+### VIDEO SERVER
+
+###
+GET {{video_server}}video/trending?$targetVideo=&$takeNext=20
+Authorization: Bearer {{auth.response.body.access_token}}
+# Accept: application/vnd.google.protobuf
+
+###
+GET {{video_server}}video/hashtag/11?$targetVideo=&$takeNext=5
+Authorization: Bearer {{auth.response.body.access_token}}
+# Accept: application/vnd.google.protobuf
+
+###
+GET {{video_server}}video/sound/116/song?$targetVideo=&$takeNext=5
+Authorization: Bearer {{auth.response.body.access_token}}
+# Accept: application/vnd.google.protobuf
+
+###
+GET {{video_server}}video/tagged/433?$targetVideo=&$takeNext=5&$takePrevious=5
+Authorization: Bearer {{auth.response.body.access_token}}
+# Accept: application/vnd.google.protobuf
+
+###
+GET {{video_server}}video/7928/remixes?$targetVideo=&$takeNext=5&$takePrevious=5
+Authorization: Bearer {{auth.response.body.access_token}}
+#Accept: application/vnd.google.protobuf
+
+###
+GET {{video_server}}video/featured?$targetVideo=&$takeNext=5&$takePrevious=5
+Authorization: Bearer {{auth.response.body.access_token}}
+
+###
+GET {{video_server}}video/my-friends-videos?$targetVideo=&$takeNext=5&$takePrevious=5
+Authorization: Bearer {{auth.response.body.access_token}}
+# Accept: application/vnd.google.protobuf
+
+###
+GET {{video_server}}video/my-following?$targetVideo=&$takeNext=5&$takePrevious=5
+Authorization: Bearer {{auth.response.body.access_token}}
+# Accept: application/vnd.google.protobuf
+
+###
+GET {{video_server}}video/by-group/433?$targetVideo=&$takeNext=5&$takePrevious=5
+Authorization: Bearer {{auth.response.body.access_token}}
+#Accept: application/vnd.google.protobuf
+
+###
+GET {{video_server}}video/my-videos?$targetVideo=&$takeNext=5&$takePrevious=5
+Authorization: Bearer {{auth.response.body.access_token}}
+# Accept: application/vnd.google.protobuf
+
+###
+GET {{video_server}}video/fyp?$targetVideo=&$takeNext=10
+Authorization: Bearer {{auth.response.body.access_token}}
+# Accept: application/vnd.google.protobuf
+
+
+@videoId=33151
+
+###
+GET {{video_server}}video/{{videoId}}
+Authorization: Bearer {{auth.response.body.access_token}}
+#Accept: application/vnd.google.protobuf
+
+###
+GET {{video_server}}video/{{videoId}}/view
+Authorization: Bearer {{auth.response.body.access_token}}
+#Accept: application/vnd.google.protobuf
+
+###
+POST {{video_server}}video/{{videoId}}/like
+Authorization: Bearer {{auth.response.body.access_token}}
+
+###
+POST {{video_server}}video/{{videoId}}/unlike
+Authorization: Bearer {{auth.response.body.access_token}}
+
+###
+GET {{video_server}}video/{{videoId}}/comment/root
+Authorization: Bearer {{auth.response.body.access_token}}
+# Accept: application/vnd.google.protobuf
+
+###
+POST {{video_server}}video/{{videoId}}/comment
+Authorization: Bearer {{auth.response.body.access_token}}
+Content-Type: application/json
+
+{
+  "Text": "Test comment"
+}
+
+# -- uploading video --
+
+###
+# @name initUploading
+POST {{video_server}}video/upload
+Authorization: Bearer {{auth.response.body.access_token}}
+
+###
+# @name upload video
+PUT {{initUploading.response.body.uploadUrl}}
+
+< ./Server/Server.Api/Http/video.mp4
+
+###
+PUT {{video_server}}video/upload-non-level/{{initUploading.response.body.uploadId}}
+Authorization: Bearer {{auth.response.body.access_token}}
+Content-Type: application/json
+
+{
+  "size": 10318854,
+  "durationSec": 7,
+  "access": 3,
+  "videoOrientation": 1
+}
+
+### CLIENT
+
+###
+GET {{client_server}}api/group/top?nickname=ph&top=20
+Authorization: Bearer {{auth.response.body.access_token}}
+# Accept: application/vnd.google.protobuf
+
+###
+GET {{client_server}}api/group/16
+Authorization: Bearer {{auth.response.body.access_token}}
+# Accept: application/vnd.google.protobuf
+
+###
+GET {{client_server}}api/group/16/friends
+Authorization: Bearer {{auth.response.body.access_token}}
+
+###
+GET {{client_server}}api/me
+Authorization: Bearer {{auth.response.body.access_token}}
+#Accept: application/vnd.google.protobuf
+
+###
+GET {{client_server}}api/in-app-purchase/offers
+Authorization: Bearer {{auth.response.body.access_token}}
+
+###
+GET {{client_server}}api/localization/eng
+
+###
+POST {{client_server}}api/assets/song
+Authorization: Bearer {{auth.response.body.access_token}}
+Content-Type: application/json
+
+{
+  "Ids":[117,116,115,108,107,102,101,100,99,98,97,96,95,94,93,92,91,90,89,44]
+}
+
+###
+GET {{client_server}}api/assets/UserSound/trending?take=10
+Authorization: Bearer {{auth.response.body.access_token}}
+
+###
+GET {{client_server}}api/assets/favorite-sound
+Authorization: Bearer {{auth.response.body.access_token}}
+
+###
+GET {{client_server}}api/ai/character/my
+Authorization: Bearer {{auth.response.body.access_token}}
+
+###
+GET {{client_server}}api/ai/content/feed?groupId=433
+Authorization: Bearer {{auth.response.body.access_token}}
+
+###
+GET {{client_server}}api/ai/content/2943/status
+Authorization: Bearer {{auth.response.body.access_token}}
+
+###
+GET {{client_server}}api/ai/content/2985
+Authorization: Bearer {{auth.response.body.access_token}}
+
+###
+GET {{client_server}}api/ai/metadata
+Authorization: Bearer {{auth.response.body.access_token}}
+
+###
+GET {{client_server}}api/ai/metadata/workflow
+Authorization: Bearer {{auth.response.body.access_token}}
+
+###
+GET {{client_server}}api/ai/metadata/art-style?genderId=1&skip=0&take=10
+Authorization: Bearer {{auth.response.body.access_token}}
+
+###
+GET {{client_server}}api/ai/metadata/makeup?category=&skip=0&take=10
+Authorization: Bearer {{auth.response.body.access_token}}
+
+### NOTIFICATIONS
+
+###
+GET {{notification_server}}api/notifications?$top=10
+Authorization: Bearer {{auth.response.body.access_token}}
+# Accept: application/vnd.google.protobuf
+
+###
+# @name initUploading
+GET {{client_server}}api/file/uploading-url/mp3
+Authorization: Bearer {{auth.response.body.access_token}}
+
+###
+# @name upload video
+PUT {{initUploading.response.body.uploadUrl}}
+
+< content.mp3
+
+###
+POST {{client_server}}api/assets/UserSound
+Authorization: Bearer {{auth.response.body.access_token}}
+Content-Type: application/json
+
+{
+  "Name": "test 3",
+  "Size": 42240,
+  "Duration": 2160,
+  "Files": [
+      {
+      "type" : "main", 
+      "source": {
+        "sourceFile": "{{initUploading.response.body.uploadUrl}}"
+      }
+    }
+  ]
+}

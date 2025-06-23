@@ -1,0 +1,8 @@
+# Default values for frever-app.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+domain: ""
+nodeGroup: "jaeger"
+sslCertificateArn: ""
+jaegerQueryPassword: "12345"

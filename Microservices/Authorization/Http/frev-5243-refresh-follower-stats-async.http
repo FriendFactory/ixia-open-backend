@@ -1,0 +1,19 @@
+@auth_server=https://auth-content-test.frever-api.com
+
+### Registration with both phone and email
+# @name reg
+POST {{auth_server}}/account/register
+Content-Type: application/json
+
+{
+    "email": "xxxxxxxxx",
+    "password": "123456",
+    "phoneNumber": "xxxxxxxxx",
+    "verificationCode": "unicode",
+    "userName": "xxxxxxxxx",
+    "birthDate": "xxxxxxxxx",
+    "analyticsEnabled": false
+}
+
+###
+@video_server={{reg.response.body.video_server}}

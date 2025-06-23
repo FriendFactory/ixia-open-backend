@@ -1,0 +1,801 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="d7f27abc-1b62-4bfd-85e5-343ee34181b1" name="@5955a5bf5f87 2024-07-02 13:00:09" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2024-07-02T13:00:09.1033998+00:00" queuing="2024-07-02T13:00:09.1034000+00:00" start="2024-07-02T13:00:08.0313754+00:00" finish="2024-07-02T13:00:09.7700594+00:00" />
+  <TestSettings name="default" id="35a30578-e1f2-46ef-ac92-7b1de79869c3">
+    <Deployment runDeploymentRoot="_5955a5bf5f87_2024-07-02_13_00_09" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="f65aab3d-fd69-4d02-aa49-9d9d7ec60436" testId="8cb2a9b4-0844-30dc-32cc-483054873193" testName="\ud83d\udc4d\ud83d\udc4eCheck daily quest reward claim" computerName="5955a5bf5f87" duration="00:00:00.0097549" startTime="2024-07-02T13:00:09.1395341+00:00" endTime="2024-07-02T13:00:09.1395343+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f65aab3d-fd69-4d02-aa49-9d9d7ec60436">
+      <Output>
+        <StdOut>&lt;Scope: ClaimDailyQuest(groupId=2993, dailyQuestId=1)&gt;
+   Information [0]: Claiming daily quest
+   Information [0]: Claiming daily quest: likes received today 0, has claimed = False
+&lt;/Scope: ClaimDailyQuest(groupId=2993, dailyQuestId=1)&gt;</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="bcefb13c-5bc2-4a9f-985e-9c0ba269b1ba" testId="437e832b-7768-b5b0-66f8-4ed39956aad4" testName="\ud83d\udc4d\ud83d\udc4dCheck inviter reward claim: reward already claimed" computerName="5955a5bf5f87" duration="00:00:00.0034982" startTime="2024-07-02T13:00:09.1988058+00:00" endTime="2024-07-02T13:00:09.1988059+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bcefb13c-5bc2-4a9f-985e-9c0ba269b1ba">
+      <Output>
+        <StdOut>&lt;Scope: OnInviterRewardClaimed(groupId=1)&gt;
+   Information [0]: Claiming invitee reward
+   Warning [0]: Can't claim reward
+&lt;/Scope: OnInviterRewardClaimed(groupId=1)&gt;</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="92b22a9a-1be8-45dc-a06a-529b4332239e" testId="d0bd859c-a413-6c2c-919b-91e2fa697715" testName="\ud83d\udc4d\ud83d\udc4e\ud83d\udc4eInit in-app purchase should work" computerName="5955a5bf5f87" duration="00:00:00.0242132" startTime="2024-07-02T13:00:09.6315794+00:00" endTime="2024-07-02T13:00:09.6315798+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="92b22a9a-1be8-45dc-a06a-529b4332239e">
+      <Output>
+        <StdOut>Information [0]: Init purchasing premium pass for group 2993, product ID testoffer</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="ac1f14cd-c2c9-471f-9472-066eee233b07" testId="e0f9b732-3a37-c977-20ea-65ad978d2b43" testName="\ud83d\udc4d\ud83d\udc4d\ud83d\udc4dInit in-app purchase should reset existing pending order" computerName="5955a5bf5f87" duration="00:00:00.0750314" startTime="2024-07-02T13:00:09.4088960+00:00" endTime="2024-07-02T13:00:09.4088961+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ac1f14cd-c2c9-471f-9472-066eee233b07">
+      <Output>
+        <StdOut>Information [0]: Init purchasing premium pass for group 2993, product ID testoffer</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="8e6be394-a317-4f72-8573-5290f22c31cb" testId="1ec48c86-b003-7680-131c-5f9ec0a210da" testName="\ud83d\udc4d\ud83d\udc4dCheck onboarding reward claim: onboarding quest not completed" computerName="5955a5bf5f87" duration="00:00:00.0055186" startTime="2024-07-02T13:00:09.3061009+00:00" endTime="2024-07-02T13:00:09.3061011+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8e6be394-a317-4f72-8573-5290f22c31cb">
+      <Output>
+        <StdOut>&lt;Scope: ClaimOnboardingReward(groupId=2993, onboardingRewardId=1)&gt;
+   Information [0]: Claiming onboarding reward
+&lt;/Scope: ClaimOnboardingReward(groupId=2993, onboardingRewardId=1)&gt;</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="5ceafa3b-f152-4995-a14e-a983d55ebf4e" testId="10dac743-f600-e3cd-c40c-9423023483b0" testName="\ud83d\udc4d\ud83d\udc4dCheck creator level reward claim: group not found" computerName="5955a5bf5f87" duration="00:00:00.0036389" startTime="2024-07-02T13:00:09.0460051+00:00" endTime="2024-07-02T13:00:09.0460053+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5ceafa3b-f152-4995-a14e-a983d55ebf4e">
+      <Output>
+        <StdOut>&lt;Scope: OnCreatorScoreRewardClaimed(groupId=2993, seasonQuestId=1)&gt;
+   Information [0]: Claiming creator score reward
+&lt;/Scope: OnCreatorScoreRewardClaimed(groupId=2993, seasonQuestId=1)&gt;</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="a9f67035-9b00-4106-963f-a3f8bd74f06d" testId="a986bacb-3401-2901-619d-57a2fc94217e" testName="\ud83d\udc4d\ud83d\udc4eCheck claim reward: for asset reward" computerName="5955a5bf5f87" duration="00:00:00.0080339" startTime="2024-07-02T13:00:09.4218065+00:00" endTime="2024-07-02T13:00:09.4218070+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a9f67035-9b00-4106-963f-a3f8bd74f06d">
+      <Output>
+        <StdOut>Information [0]: Activity recorded for group=2993 type=0, xp=(null) [id=0]
+Information [0]: Claim activity created: ID=0
+Information [0]: Transferring asset ownership from reward 0 to 2993</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="301d1413-448f-4943-96f4-a0e9947b448f" testId="d7efa46d-616d-40ca-740a-2f2e93bb6eba" testName="\ud83d\udc4d\ud83d\udc4d\ud83d\udc4dComplete in-app purchase should fail on completing premium pass if no season" computerName="5955a5bf5f87" duration="00:00:00.0371529" startTime="2024-07-02T13:00:09.4755872+00:00" endTime="2024-07-02T13:00:09.4755874+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="301d1413-448f-4943-96f4-a0e9947b448f">
+      <Output>
+        <StdOut>Information [0]: Completing Premium pass Purchase. Order f242d036-4b32-4be3-b38e-7ba6783c64c9, group 2993</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="3b2adc40-ad6c-4a5d-bc65-eaca39583ccf" testId="a8b5aabb-e3fe-8161-9325-9de00f8a2775" testName="\ud83d\udc4d\ud83d\udc4d\ud83d\udc4dComplete in-app purchase should fail if receipt contains different product SKU(platform: Android)" computerName="5955a5bf5f87" duration="00:00:00.0176077" startTime="2024-07-02T13:00:09.5578563+00:00" endTime="2024-07-02T13:00:09.5578565+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3b2adc40-ad6c-4a5d-bc65-eaca39583ccf">
+      <Output>
+        <StdOut>Information [0]: Completing Premium pass Purchase. Order da989761-30cc-4aae-afbd-76e2531a7b0d, group 2993</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="82ceed68-6014-4379-8104-9b85cc1b1fc7" testId="30b96301-3f57-5cc8-78a6-e08790d6048b" testName="\ud83d\udc4d\ud83d\udc4eCheck season quest reward claim: for xp reward" computerName="5955a5bf5f87" duration="00:00:00.0216449" startTime="2024-07-02T13:00:09.3298122+00:00" endTime="2024-07-02T13:00:09.3298124+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="82ceed68-6014-4379-8104-9b85cc1b1fc7" />
+    <UnitTestResult executionId="d8a74c72-1aa3-41ba-b4ad-3be54f9b6d42" testId="39be7dab-3646-2dcf-bddf-c107c457f3db" testName="\ud83d\udc4d\ud83d\udc4e\ud83d\udc4eInit in-app purchase should work for season pass" computerName="5955a5bf5f87" duration="00:00:00.0264384" startTime="2024-07-02T13:00:09.7311493+00:00" endTime="2024-07-02T13:00:09.7311496+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d8a74c72-1aa3-41ba-b4ad-3be54f9b6d42">
+      <Output>
+        <StdOut>Information [0]: Init purchasing premium pass for group 2993, product ID testoffer</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="a259761e-a1e0-488c-9e09-671e77b2d8c7" testId="23157450-032c-d17f-8878-51fe07a6379e" testName="\ud83d\udc4d\ud83d\udc4dCheck crew reward claim: competition not found" computerName="5955a5bf5f87" duration="00:00:00.0065855" startTime="2024-07-02T13:00:09.1086465+00:00" endTime="2024-07-02T13:00:09.1086466+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a259761e-a1e0-488c-9e09-671e77b2d8c7">
+      <Output>
+        <StdOut>&lt;Scope: ClaimCrewReward(groupId=2993, reward=1)&gt;
+   Error [0]: No active competition
+&lt;/Scope: ClaimCrewReward(groupId=2993, reward=1)&gt;</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="970a7c77-9dce-4894-a4a2-ed31c68c92a5" testId="545bde0f-68df-6b5a-90a7-1aa353151b00" testName="\ud83d\udc4d\ud83d\udc4d\ud83d\udc4dInit in-app purchase: should fail on buying season pass if no season" computerName="5955a5bf5f87" duration="00:00:00.0188902" startTime="2024-07-02T13:00:09.5161288+00:00" endTime="2024-07-02T13:00:09.5161289+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="970a7c77-9dce-4894-a4a2-ed31c68c92a5">
+      <Output>
+        <StdOut>Information [0]: Init purchasing premium pass for group 2993, product ID testoffer</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="9dc5e92a-a9d6-4870-a31f-50132243455c" testId="3d91a4b4-8151-4474-92cf-64aa4d4ccaf1" testName="\ud83d\udc4d\ud83d\udc4eCheck claim reward: for soft currency reward" computerName="5955a5bf5f87" duration="00:00:00.0024872" startTime="2024-07-02T13:00:09.4144935+00:00" endTime="2024-07-02T13:00:09.4144936+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9dc5e92a-a9d6-4870-a31f-50132243455c">
+      <Output>
+        <StdOut>Information [0]: Activity recorded for group=2993 type=0, xp=(null) [id=0]
+Information [0]: Claim activity created: ID=0
+Information [0]: Soft currency payout done: 1</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="4c056d48-602c-46eb-8e07-c4a3df066201" testId="4ce95d4a-2a01-2aa4-1580-525ccb84be0d" testName="\ud83d\udc4d\ud83d\udc4dCheck season quest reward claim: season not found" computerName="5955a5bf5f87" duration="00:00:00.0025480" startTime="2024-07-02T13:00:09.3699190+00:00" endTime="2024-07-02T13:00:09.3699191+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4c056d48-602c-46eb-8e07-c4a3df066201">
+      <Output>
+        <StdOut>&lt;Scope: OnSeasonQuestClaimed(groupId=2993, seasonQuestId=1)&gt;
+   Information [0]: Claiming season quest
+   Error [0]: No active season
+&lt;/Scope: OnSeasonQuestClaimed(groupId=2993, seasonQuestId=1)&gt;</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="273a261a-b5f8-4c32-8369-6a41014ffa7c" testId="61850938-f45f-2c74-4bf9-3ea66ee2e802" testName="\ud83d\udc4d\ud83d\udc4d\ud83d\udc4dInit in-app purchase: should fail on buying season pass if user has season pass" computerName="5955a5bf5f87" duration="00:00:00.0297458" startTime="2024-07-02T13:00:09.4383855+00:00" endTime="2024-07-02T13:00:09.4383856+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="273a261a-b5f8-4c32-8369-6a41014ffa7c">
+      <Output>
+        <StdOut>Information [0]: Init purchasing premium pass for group 2993, product ID testoffer</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="6d1719cf-b33b-4146-8dd0-c04252d7770e" testId="83ba0708-34d8-7603-d26f-111e936df1a3" testName="\ud83d\udc4d\ud83d\udc4dCheck season quest reward claim: season quest not found" computerName="5955a5bf5f87" duration="00:00:00.0028173" startTime="2024-07-02T13:00:09.3841349+00:00" endTime="2024-07-02T13:00:09.3841350+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6d1719cf-b33b-4146-8dd0-c04252d7770e">
+      <Output>
+        <StdOut>&lt;Scope: OnSeasonQuestClaimed(groupId=2993, seasonQuestId=1)&gt;
+   Information [0]: Claiming season quest
+   Error [0]: Season quest is not found or inactive
+&lt;/Scope: OnSeasonQuestClaimed(groupId=2993, seasonQuestId=1)&gt;</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="1561e2e1-f7c6-4cba-8710-834336b67697" testId="451703e4-9acd-1942-d50c-c82f05ef82e6" testName="\ud83d\udc4d\ud83d\udc4dCheck level reward claim: not enough xp" computerName="5955a5bf5f87" duration="00:00:00.0085355" startTime="2024-07-02T13:00:09.2602904+00:00" endTime="2024-07-02T13:00:09.2602906+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1561e2e1-f7c6-4cba-8710-834336b67697">
+      <Output>
+        <StdOut>&lt;Scope: ClaimLevelReward(groupId=2993, reward=1)&gt;
+   Warning [0]: Can't claim reward, error code: ERROR_REWARD_NOT_ENOUGH_XP
+&lt;/Scope: ClaimLevelReward(groupId=2993, reward=1)&gt;</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="8b939adf-5964-4f17-90d6-493a7c08a4fe" testId="3a9d9758-c929-2779-800f-c2b6925b19eb" testName="\ud83d\udc4d\ud83d\udc4eCheck battle reward claim" computerName="5955a5bf5f87" duration="00:00:00.0169131" startTime="2024-07-02T13:00:09.0035515+00:00" endTime="2024-07-02T13:00:09.0035515+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8b939adf-5964-4f17-90d6-493a7c08a4fe">
+      <Output>
+        <StdOut>&lt;Scope: OnBattleRewardClaimed(groupId=2993, taskId=1)&gt;
+   Information [0]: Claiming battle reward
+&lt;/Scope: OnBattleRewardClaimed(groupId=2993, taskId=1)&gt;</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="d8c97123-0b2f-41c5-ba30-d434f1b82986" testId="1fefe05b-bd4d-7f82-2918-b3a53833dfd8" testName="\ud83d\udc4d\ud83d\udc4dCheck onboarding reward claim: reward not found" computerName="5955a5bf5f87" duration="00:00:00.0075132" startTime="2024-07-02T13:00:09.2839960+00:00" endTime="2024-07-02T13:00:09.2839962+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d8c97123-0b2f-41c5-ba30-d434f1b82986">
+      <Output>
+        <StdOut>&lt;Scope: ClaimOnboardingReward(groupId=2993, onboardingRewardId=1)&gt;
+   Information [0]: Claiming onboarding reward
+&lt;/Scope: ClaimOnboardingReward(groupId=2993, onboardingRewardId=1)&gt;</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="e8d51d6a-fafd-4546-b601-f3a0fddaf889" testId="f534cbf0-8e0d-e274-06a5-8ea30b468dd3" testName="\ud83d\udc4d\ud83d\udc4d\ud83d\udc4dComplete in-app purchase should fail if no in-app product" computerName="5955a5bf5f87" duration="00:00:00.6538205" startTime="2024-07-02T13:00:09.3361401+00:00" endTime="2024-07-02T13:00:09.3361401+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e8d51d6a-fafd-4546-b601-f3a0fddaf889">
+      <Output>
+        <StdOut>Information [0]: Completing Premium pass Purchase. Order 32f12bd5-3620-4640-81b1-7932e3eb4490, group 2993</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="38de4a5d-669e-47f6-972f-73723a8db8c1" testId="249e3799-4c26-2703-db45-e072a2bbd04a" testName="\ud83d\udc4d\ud83d\udc4dCheck season quest reward claim: reward already claimed" computerName="5955a5bf5f87" duration="00:00:00.0055923" startTime="2024-07-02T13:00:09.3667076+00:00" endTime="2024-07-02T13:00:09.3667084+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="38de4a5d-669e-47f6-972f-73723a8db8c1">
+      <Output>
+        <StdOut>&lt;Scope: OnSeasonQuestClaimed(groupId=2993, seasonQuestId=1)&gt;
+   Information [0]: Claiming season quest
+   Warning [0]: All available rewards already claimed
+   Warning [0]: Can't claim reward
+&lt;/Scope: OnSeasonQuestClaimed(groupId=2993, seasonQuestId=1)&gt;</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="acb3d6b5-311d-4555-b5c4-fa0f2fb4bd71" testId="eb740ac8-8050-9141-5098-4f7b20c02033" testName="\ud83d\udc4d\ud83d\udc4d\ud83d\udc4dInit in-app purchase: should fail on buying season pass if no season" computerName="5955a5bf5f87" duration="00:00:00.0173482" startTime="2024-07-02T13:00:09.6072377+00:00" endTime="2024-07-02T13:00:09.6072378+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="acb3d6b5-311d-4555-b5c4-fa0f2fb4bd71">
+      <Output>
+        <StdOut>Information [0]: Init purchasing premium pass for group 2993, product ID testoffer</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="78929d7f-f77f-4815-b496-a46322722d11" testId="aaa45368-aacf-f6f5-37d9-69673e72eaf7" testName="\ud83d\udc4d\ud83d\udc4dCheck onboarding reward claim: reward already claimed" computerName="5955a5bf5f87" duration="00:00:00.0086578" startTime="2024-07-02T13:00:09.2937092+00:00" endTime="2024-07-02T13:00:09.2937095+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="78929d7f-f77f-4815-b496-a46322722d11">
+      <Output>
+        <StdOut>&lt;Scope: ClaimOnboardingReward(groupId=2993, onboardingRewardId=1)&gt;
+   Information [0]: Claiming onboarding reward
+   Warning [0]: Can't claim reward
+&lt;/Scope: ClaimOnboardingReward(groupId=2993, onboardingRewardId=1)&gt;</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="8c44c863-d5f3-4b87-afde-fc549af464bb" testId="fa40b2f3-dc58-3b26-ba9f-6798e078aead" testName="\ud83d\udc4d\ud83d\udc4dCheck crew reward claim: crew not found" computerName="5955a5bf5f87" duration="00:00:00.0062403" startTime="2024-07-02T13:00:09.1187192+00:00" endTime="2024-07-02T13:00:09.1187193+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8c44c863-d5f3-4b87-afde-fc549af464bb">
+      <Output>
+        <StdOut>&lt;Scope: ClaimCrewReward(groupId=2993, reward=1)&gt;
+   Error [0]: User is not crew member
+&lt;/Scope: ClaimCrewReward(groupId=2993, reward=1)&gt;</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="35129609-e82e-4c7b-a6ca-793543acd466" testId="6699cdc6-5020-d8de-1bfb-704840864748" testName="\ud83d\udc4d\ud83d\udc4dCheck level reward claim: premium required" computerName="5955a5bf5f87" duration="00:00:00.0217149" startTime="2024-07-02T13:00:09.2503641+00:00" endTime="2024-07-02T13:00:09.2503643+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="35129609-e82e-4c7b-a6ca-793543acd466">
+      <Output>
+        <StdOut>&lt;Scope: ClaimLevelReward(groupId=2993, reward=1)&gt;
+   Warning [0]: Can't claim reward, error code: ERROR_PREMIUM_REQUIRED
+&lt;/Scope: ClaimLevelReward(groupId=2993, reward=1)&gt;</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="b288400d-e2ba-48db-b8f1-a97be266eaa0" testId="c0c2983d-596c-c7f3-3ced-0159b689fc5f" testName="\ud83d\udc4d\ud83d\udc4dCheck level reward claim: not enough level" computerName="5955a5bf5f87" duration="00:00:00.0235748" startTime="2024-07-02T13:00:09.2273585+00:00" endTime="2024-07-02T13:00:09.2273589+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b288400d-e2ba-48db-b8f1-a97be266eaa0">
+      <Output>
+        <StdOut>&lt;Scope: ClaimLevelReward(groupId=2993, reward=1)&gt;
+   Error [0]: Invalid level
+&lt;/Scope: ClaimLevelReward(groupId=2993, reward=1)&gt;</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="4c63bd78-1706-44de-a37e-ac904688229a" testId="e48702d7-ab6d-b66e-88ce-b105ffcb9b74" testName="\ud83d\udc4d\ud83d\udc4dCheck level reward claim: season not found" computerName="5955a5bf5f87" duration="00:00:00.0024789" startTime="2024-07-02T13:00:09.2761456+00:00" endTime="2024-07-02T13:00:09.2761458+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4c63bd78-1706-44de-a37e-ac904688229a">
+      <Output>
+        <StdOut>&lt;Scope: ClaimLevelReward(groupId=2993, reward=1)&gt;
+   Error [0]: No active season
+&lt;/Scope: ClaimLevelReward(groupId=2993, reward=1)&gt;</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="1baa8ecb-09be-48b3-b4cd-f6123a1b1eb1" testId="9f92ee52-eb17-dbcb-8298-bb1784893a85" testName="\ud83d\udc4d\ud83d\udc4dCheck daily quest reward claim: daily quest not found" computerName="5955a5bf5f87" duration="00:00:00.0025751" startTime="2024-07-02T13:00:09.1422906+00:00" endTime="2024-07-02T13:00:09.1422908+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1baa8ecb-09be-48b3-b4cd-f6123a1b1eb1">
+      <Output>
+        <StdOut>&lt;Scope: ClaimDailyQuest(groupId=2993, dailyQuestId=1)&gt;
+   Information [0]: Claiming daily quest
+   Error [0]: Daily quest is not found or inactive
+&lt;/Scope: ClaimDailyQuest(groupId=2993, dailyQuestId=1)&gt;</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="e9039582-2b53-40be-b7e6-c46b7b820e95" testId="d18ca102-c345-57bb-b795-ff51d7cb209e" testName="\ud83d\udc4d\ud83d\udc4d\ud83d\udc4dComplete in-app purchase should fail if receipt validation failed" computerName="5955a5bf5f87" duration="00:00:00.0289115" startTime="2024-07-02T13:00:09.7046431+00:00" endTime="2024-07-02T13:00:09.7046435+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e9039582-2b53-40be-b7e6-c46b7b820e95">
+      <Output>
+        <StdOut>Information [0]: Completing Premium pass Purchase. Order 6e239238-ad5e-420f-9713-15cb2e0ff7b3, group 2993</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="b018bc6c-8d8a-4b5d-985a-2fd3f711530d" testId="495e1e8b-2091-899e-5d5b-56d5ea8ba752" testName="\ud83d\udc4d\ud83d\udc4eCheck crew reward claim" computerName="5955a5bf5f87" duration="00:00:00.0199229" startTime="2024-07-02T13:00:09.0946042+00:00" endTime="2024-07-02T13:00:09.0946045+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b018bc6c-8d8a-4b5d-985a-2fd3f711530d">
+      <Output>
+        <StdOut>&lt;Scope: ClaimCrewReward(groupId=2993, reward=1)&gt;
+&lt;/Scope: ClaimCrewReward(groupId=2993, reward=1)&gt;</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="41a0e67d-68d6-4cfc-98e3-c6a42e34d5c7" testId="6818d405-a738-a3e0-81ed-2fa11ba46644" testName="\ud83d\udc4d\ud83d\udc4dCheck daily quest reward claim: unknown quest type" computerName="5955a5bf5f87" duration="00:00:00.0021963" startTime="2024-07-02T13:00:09.1476478+00:00" endTime="2024-07-02T13:00:09.1476478+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="41a0e67d-68d6-4cfc-98e3-c6a42e34d5c7">
+      <Output>
+        <StdOut>&lt;Scope: ClaimDailyQuest(groupId=2993, dailyQuestId=1)&gt;
+   Information [0]: Claiming daily quest
+   Warning [0]: Can't claim reward
+&lt;/Scope: ClaimDailyQuest(groupId=2993, dailyQuestId=1)&gt;</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="18606472-c4dc-4d03-b48d-ad4d2503f952" testId="b5df5109-3153-f91f-4f7c-3e5b2b4b730d" testName="\ud83d\udc4d\ud83d\udc4dCheck battle reward claim: video not found" computerName="5955a5bf5f87" duration="00:00:00.0032973" startTime="2024-07-02T13:00:09.0057338+00:00" endTime="2024-07-02T13:00:09.0057340+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="18606472-c4dc-4d03-b48d-ad4d2503f952">
+      <Output>
+        <StdOut>&lt;Scope: OnBattleRewardClaimed(groupId=2993, taskId=1)&gt;
+   Information [0]: Claiming battle reward
+   Error [0]: Video is not found or inactive
+&lt;/Scope: OnBattleRewardClaimed(groupId=2993, taskId=1)&gt;</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="2f035cdf-7b82-4b0e-8e86-3b622912197b" testId="4ec2342e-6a1c-2dd7-b8ed-776df041c6f4" testName="\ud83d\udc4d\ud83d\udc4eCheck season quest reward claim" computerName="5955a5bf5f87" duration="00:00:00.0043865" startTime="2024-07-02T13:00:09.3326359+00:00" endTime="2024-07-02T13:00:09.3326360+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2f035cdf-7b82-4b0e-8e86-3b622912197b" />
+    <UnitTestResult executionId="7bcbd6a6-8fda-4b3d-b8d4-3548ef572426" testId="72e08fff-cd44-b579-51bf-64dc8490ece4" testName="\ud83d\udc4d\ud83d\udc4d\ud83d\udc4dComplete in-app purchase should fail if order has been completed" computerName="5955a5bf5f87" duration="00:00:00.0194420" startTime="2024-07-02T13:00:09.6755851+00:00" endTime="2024-07-02T13:00:09.6755853+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7bcbd6a6-8fda-4b3d-b8d4-3548ef572426">
+      <Output>
+        <StdOut>Information [0]: Completing Premium pass Purchase. Order fe38e3f3-ae0c-4171-a494-1398bf068317, group 2993</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="49a0e147-287d-499c-9ef0-9603b62563cd" testId="3465b140-d8c6-75e8-47d5-46fdc18099b5" testName="\ud83d\udc4d\ud83d\udc4eCheck invitee reward claim" computerName="5955a5bf5f87" duration="00:00:00.0030187" startTime="2024-07-02T13:00:09.2035645+00:00" endTime="2024-07-02T13:00:09.2035645+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="49a0e147-287d-499c-9ef0-9603b62563cd">
+      <Output>
+        <StdOut>&lt;Scope: OnInviteeRewardClaimed()&gt;
+   Information [0]: Claiming invitee reward
+&lt;/Scope: OnInviteeRewardClaimed()&gt;</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="572e7d86-e29d-4eef-8133-c4df5791d309" testId="225e971b-185d-0ff2-923b-a5998139e7ba" testName="\ud83d\udc4d\ud83d\udc4eCheck inviter reward claim" computerName="5955a5bf5f87" duration="00:00:00.0096472" startTime="2024-07-02T13:00:09.1790929+00:00" endTime="2024-07-02T13:00:09.1790931+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="572e7d86-e29d-4eef-8133-c4df5791d309">
+      <Output>
+        <StdOut>&lt;Scope: OnInviterRewardClaimed(groupId=1)&gt;
+   Information [0]: Claiming invitee reward
+&lt;/Scope: OnInviterRewardClaimed(groupId=1)&gt;</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="17021959-b1de-4729-8146-2918f9c0dadb" testId="aedcc49d-8359-5df0-a9f2-985f914b6f93" testName="\ud83d\udc4d\ud83d\udc4dCheck level reward claim: reward not found" computerName="5955a5bf5f87" duration="00:00:00.0028760" startTime="2024-07-02T13:00:09.2735069+00:00" endTime="2024-07-02T13:00:09.2735070+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="17021959-b1de-4729-8146-2918f9c0dadb">
+      <Output>
+        <StdOut>&lt;Scope: ClaimLevelReward(groupId=2993, reward=1)&gt;
+   Error [0]: Reward not found
+&lt;/Scope: ClaimLevelReward(groupId=2993, reward=1)&gt;</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="715358a3-ba5f-4230-a071-caeb79b761ad" testId="9cfaeb67-a9e8-05ac-af33-cf66eb02abff" testName="\ud83d\udc4d\ud83d\udc4e\ud83d\udc4eComplete in-app purchase of season pass should work" computerName="5955a5bf5f87" duration="00:00:00.0292821" startTime="2024-07-02T13:00:09.5891343+00:00" endTime="2024-07-02T13:00:09.5891345+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="715358a3-ba5f-4230-a071-caeb79b761ad">
+      <Output>
+        <StdOut>Information [0]: Completing Premium pass Purchase. Order 61dcde78-be22-4f20-b4c5-cb7a4ce443d2, group 2993
+Information [0]: Deleting redis key 042a5c7352b44ce2bfc9c45e8711dc95/frever::user-level-activity::24-07-02::{2993}</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="3604040a-201d-47b6-ab95-00c08e36facf" testId="83692f93-294e-46f0-b0e2-010caa846fba" testName="\ud83d\udc4d\ud83d\udc4d\ud83d\udc4dComplete in-app purchase should fail if receipt contains different product SKU(platform: iOS)" computerName="5955a5bf5f87" duration="00:00:00.0239140" startTime="2024-07-02T13:00:09.5415744+00:00" endTime="2024-07-02T13:00:09.5415745+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3604040a-201d-47b6-ab95-00c08e36facf">
+      <Output>
+        <StdOut>Information [0]: Completing Premium pass Purchase. Order b22cda09-a2fd-4ec5-92af-c1a49a4fd9fa, group 2993</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="4c08f5d4-19b1-4869-a54b-6d025793025e" testId="267faff0-4128-6d9c-ec13-a05a467545fe" testName="\ud83d\udc4d\ud83d\udc4dCheck invitee reward claim: reward already claimed" computerName="5955a5bf5f87" duration="00:00:00.0148034" startTime="2024-07-02T13:00:09.1986429+00:00" endTime="2024-07-02T13:00:09.1986433+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4c08f5d4-19b1-4869-a54b-6d025793025e">
+      <Output>
+        <StdOut>&lt;Scope: OnInviteeRewardClaimed()&gt;
+   Information [0]: Claiming invitee reward
+   Warning [0]: Can't claim reward
+&lt;/Scope: OnInviteeRewardClaimed()&gt;</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="860f1a4e-d22c-436d-83f7-40a7f249ff6a" testId="50090891-40e3-069c-8de1-6640255931d7" testName="\ud83d\udc4d\ud83d\udc4d\ud83d\udc4dComplete in-app purchase should fail if there is no pending order" computerName="5955a5bf5f87" duration="00:00:00.0214514" startTime="2024-07-02T13:00:09.4971213+00:00" endTime="2024-07-02T13:00:09.4971213+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="860f1a4e-d22c-436d-83f7-40a7f249ff6a">
+      <Output>
+        <StdOut>Information [0]: Completing Premium pass Purchase. Order ea634566-b783-4def-b82a-de922e24125f, group 2993</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="36204d79-2868-4341-a4de-bc0eb6ba2ff4" testId="27ce5656-d3d4-1f83-1a02-88d08a32dd52" testName="\ud83d\udc4d\ud83d\udc4dCheck inviter reward claim: reward not found" computerName="5955a5bf5f87" duration="00:00:00.0053050" startTime="2024-07-02T13:00:09.1693496+00:00" endTime="2024-07-02T13:00:09.1693498+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="36204d79-2868-4341-a4de-bc0eb6ba2ff4">
+      <Output>
+        <StdOut>&lt;Scope: OnInviterRewardClaimed(groupId=1)&gt;
+   Information [0]: Claiming invitee reward
+   Error [0]: No available rewards
+&lt;/Scope: OnInviterRewardClaimed(groupId=1)&gt;</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="a4fe8406-ea7a-4df4-bfeb-7adf3895df57" testId="414cfd2e-f470-6c01-fe0e-d25a9f3045bb" testName="\ud83d\udc4d\ud83d\udc4eCheck onboarding reward claim" computerName="5955a5bf5f87" duration="00:00:00.0068158" startTime="2024-07-02T13:00:09.3005017+00:00" endTime="2024-07-02T13:00:09.3005019+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a4fe8406-ea7a-4df4-bfeb-7adf3895df57">
+      <Output>
+        <StdOut>&lt;Scope: ClaimOnboardingReward(groupId=2993, onboardingRewardId=1)&gt;
+   Information [0]: Claiming onboarding reward
+&lt;/Scope: ClaimOnboardingReward(groupId=2993, onboardingRewardId=1)&gt;</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="c8a13455-a74e-4644-9be2-ffd6e3fb55b7" testId="43d1624f-af56-3c60-f012-5b8c06dd2e8d" testName="\ud83d\udc4d\ud83d\udc4dCheck creator level reward claim: reward not found" computerName="5955a5bf5f87" duration="00:00:00.0302693" startTime="2024-07-02T13:00:09.0421870+00:00" endTime="2024-07-02T13:00:09.0421871+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c8a13455-a74e-4644-9be2-ffd6e3fb55b7">
+      <Output>
+        <StdOut>&lt;Scope: OnCreatorScoreRewardClaimed(groupId=2993, seasonQuestId=1)&gt;
+   Information [0]: Claiming creator score reward
+   Debug [0]: Claimed rewards are 
+   Debug [0]: Available rewards are 
+   Warning [0]: Trying to claim non-available reward
+&lt;/Scope: OnCreatorScoreRewardClaimed(groupId=2993, seasonQuestId=1)&gt;</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="8d88dd29-466e-45c9-adf8-e1d9e96fd1a4" testId="aefbcb06-155f-64f8-b0a3-9ef8210e8f7c" testName="\ud83d\udc4d\ud83d\udc4dCheck battle reward claim: task not found" computerName="5955a5bf5f87" duration="00:00:00.2582156" startTime="2024-07-02T13:00:08.9548395+00:00" endTime="2024-07-02T13:00:08.9548712+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8d88dd29-466e-45c9-adf8-e1d9e96fd1a4">
+      <Output>
+        <StdOut>&lt;Scope: OnBattleRewardClaimed(groupId=2993, taskId=1)&gt;
+   Information [0]: Claiming battle reward
+   Error [0]: Voting task is not found or inactive
+&lt;/Scope: OnBattleRewardClaimed(groupId=2993, taskId=1)&gt;</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="685ca0a6-ceaf-4f6e-9d38-6af637830002" testId="0e1518aa-e71b-110f-e1ed-4d39977987e2" testName="\ud83d\udc4d\ud83d\udc4eCheck claim reward: for xp reward" computerName="5955a5bf5f87" duration="00:00:00.0056521" startTime="2024-07-02T13:00:09.4330509+00:00" endTime="2024-07-02T13:00:09.4330510+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="685ca0a6-ceaf-4f6e-9d38-6af637830002">
+      <Output>
+        <StdOut>Information [0]: Activity recorded for group=2993 type=0, xp=1 [id=0]
+Information [0]: Claim activity created: ID=0</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="59c0bfc7-9434-4ebf-b36c-476dc24a4b86" testId="eaf38a10-6a7c-be3f-4579-7308454de469" testName="\ud83d\udc4d\ud83d\udc4dCheck level reward claim: reward already claimed" computerName="5955a5bf5f87" duration="00:00:00.0038493" startTime="2024-07-02T13:00:09.2720900+00:00" endTime="2024-07-02T13:00:09.2720902+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="59c0bfc7-9434-4ebf-b36c-476dc24a4b86">
+      <Output>
+        <StdOut>&lt;Scope: ClaimLevelReward(groupId=2993, reward=1)&gt;
+   Warning [0]: Can't claim reward, error code: ERROR_REWARD_CLAIMED
+&lt;/Scope: ClaimLevelReward(groupId=2993, reward=1)&gt;</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="de6b97f3-9ece-41d5-a876-357e8cbb4a76" testId="1e166095-bfa3-8b51-1e08-e6f847b8619e" testName="\ud83d\udc4d\ud83d\udc4dCheck crew reward claim: reward already claimed" computerName="5955a5bf5f87" duration="00:00:00.0034348" startTime="2024-07-02T13:00:09.1122372+00:00" endTime="2024-07-02T13:00:09.1122373+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="de6b97f3-9ece-41d5-a876-357e8cbb4a76">
+      <Output>
+        <StdOut>&lt;Scope: ClaimCrewReward(groupId=2993, reward=1)&gt;
+   Warning [0]: Can't claim reward, error code: ERROR_REWARD_CLAIMED
+&lt;/Scope: ClaimCrewReward(groupId=2993, reward=1)&gt;</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="2082c3db-9d48-4f9c-bcb8-ca114c397388" testId="d981a920-8c72-6a7b-5a21-d9f7632f9caa" testName="\ud83d\udc4d\ud83d\udc4dCheck battle reward claim: reward already claimed" computerName="5955a5bf5f87" duration="00:00:00.0342886" startTime="2024-07-02T13:00:08.9852897+00:00" endTime="2024-07-02T13:00:08.9852899+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2082c3db-9d48-4f9c-bcb8-ca114c397388">
+      <Output>
+        <StdOut>&lt;Scope: OnBattleRewardClaimed(groupId=2993, taskId=1)&gt;
+   Information [0]: Claiming battle reward
+   Warning [0]: Can't claim reward
+&lt;/Scope: OnBattleRewardClaimed(groupId=2993, taskId=1)&gt;</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="c25f5a8a-7d03-4c1b-adee-92d8c9e9bb8a" testId="b7107d00-5b17-1d42-e92b-9b7407a16443" testName="\ud83d\udc4d\ud83d\udc4dCheck invitee reward claim: reward not found" computerName="5955a5bf5f87" duration="00:00:00.0028615" startTime="2024-07-02T13:00:09.2005123+00:00" endTime="2024-07-02T13:00:09.2005123+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c25f5a8a-7d03-4c1b-adee-92d8c9e9bb8a">
+      <Output>
+        <StdOut>&lt;Scope: OnInviteeRewardClaimed()&gt;
+   Information [0]: Claiming invitee reward
+   Error [0]: No available rewards
+&lt;/Scope: OnInviteeRewardClaimed()&gt;</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="f28f0fe4-a570-47fe-b957-66f3f7a42c5e" testId="c7552208-2584-9ffe-3e94-f59fa61c28c3" testName="\ud83d\udc4d\ud83d\udc4dCheck season quest reward claim: unknown quest type" computerName="5955a5bf5f87" duration="00:00:00.0137726" startTime="2024-07-02T13:00:09.3982633+00:00" endTime="2024-07-02T13:00:09.3982635+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f28f0fe4-a570-47fe-b957-66f3f7a42c5e">
+      <Output>
+        <StdOut>&lt;Scope: OnSeasonQuestClaimed(groupId=2993, seasonQuestId=1)&gt;
+   Information [0]: Claiming season quest
+   Warning [0]: Can't claim reward
+&lt;/Scope: OnSeasonQuestClaimed(groupId=2993, seasonQuestId=1)&gt;</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="66ec842a-69eb-4b23-a69c-0b02b963d5f5" testId="d65ceebc-6097-328b-27e8-4acfc61097be" testName="\ud83d\udc4d\ud83d\udc4dCheck daily quest reward claim: reward already claimed" computerName="5955a5bf5f87" duration="00:00:00.0083291" startTime="2024-07-02T13:00:09.1536835+00:00" endTime="2024-07-02T13:00:09.1536836+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="66ec842a-69eb-4b23-a69c-0b02b963d5f5">
+      <Output>
+        <StdOut>&lt;Scope: ClaimDailyQuest(groupId=2993, dailyQuestId=1)&gt;
+   Information [0]: Claiming daily quest
+   Information [0]: Claiming daily quest: likes received today 0, has claimed = True
+   Warning [0]: Can't claim reward
+&lt;/Scope: ClaimDailyQuest(groupId=2993, dailyQuestId=1)&gt;</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="1ca50730-c1b2-4c44-9632-e89ee09c7fd5" testId="09edd8a2-65c3-582c-0879-605bc0a14bf5" testName="\ud83d\udc4d\ud83d\udc4eCheck level reward claim" computerName="5955a5bf5f87" duration="00:00:00.0073793" startTime="2024-07-02T13:00:09.2666719+00:00" endTime="2024-07-02T13:00:09.2666721+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1ca50730-c1b2-4c44-9632-e89ee09c7fd5">
+      <Output>
+        <StdOut>&lt;Scope: ClaimLevelReward(groupId=2993, reward=1)&gt;
+&lt;/Scope: ClaimLevelReward(groupId=2993, reward=1)&gt;</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="84f8f320-bb56-4b31-bdf6-62bd903ea661" testId="a175c7ef-83ea-b141-2be7-eb8626dfefef" testName="\ud83d\udc4d\ud83d\udc4eCheck season quest reward claim" computerName="5955a5bf5f87" duration="00:00:00.0110346" startTime="2024-07-02T13:00:09.3811233+00:00" endTime="2024-07-02T13:00:09.3811234+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="84f8f320-bb56-4b31-bdf6-62bd903ea661">
+      <Output>
+        <StdOut>&lt;Scope: OnSeasonQuestClaimed(groupId=2993, seasonQuestId=1)&gt;
+   Information [0]: Claiming season quest
+   Information [0]: Claiming season quest: likes received this season 0, quest needs 0
+   Information [0]: Reward can be claimed: reward IDs = 1
+&lt;/Scope: OnSeasonQuestClaimed(groupId=2993, seasonQuestId=1)&gt;</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="b4e18b70-12d0-4e9f-80bf-88c69a32097c" testId="b8997efe-4ab5-a0b0-42fe-e516d31c904d" testName="\ud83d\udc4d\ud83d\udc4dCheck battle reward claim: reward not found" computerName="5955a5bf5f87" duration="00:00:00.0030526" startTime="2024-07-02T13:00:09.0089045+00:00" endTime="2024-07-02T13:00:09.0089046+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b4e18b70-12d0-4e9f-80bf-88c69a32097c">
+      <Output>
+        <StdOut>&lt;Scope: OnBattleRewardClaimed(groupId=2993, taskId=1)&gt;
+   Information [0]: Claiming battle reward
+   Error [0]: No available rewards
+&lt;/Scope: OnBattleRewardClaimed(groupId=2993, taskId=1)&gt;</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="1404a517-2786-40e3-bbc1-179f38f6f3b1" testId="ee096d0e-f609-2877-395b-cab4eef6eb6d" testName="\ud83d\udc4d\ud83d\udc4dCheck season quest reward claim: not enough likes" computerName="5955a5bf5f87" duration="00:00:00.0280863" startTime="2024-07-02T13:00:09.3606915+00:00" endTime="2024-07-02T13:00:09.3606918+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1404a517-2786-40e3-bbc1-179f38f6f3b1">
+      <Output>
+        <StdOut>&lt;Scope: OnSeasonQuestClaimed(groupId=2993, seasonQuestId=1)&gt;
+   Information [0]: Claiming season quest
+   Information [0]: Claiming season quest: likes received this season 0, quest needs 1
+   Warning [0]: Can't claim reward
+&lt;/Scope: OnSeasonQuestClaimed(groupId=2993, seasonQuestId=1)&gt;</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="aef1b2aa-6478-44cd-87ba-f9221875c9ec" testId="a42ee040-0bd6-0b69-0fad-780737332f42" testName="\ud83d\udc4d\ud83d\udc4eCheck creator level reward claim" computerName="5955a5bf5f87" duration="00:00:00.0243823" startTime="2024-07-02T13:00:09.0719700+00:00" endTime="2024-07-02T13:00:09.0719700+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="aef1b2aa-6478-44cd-87ba-f9221875c9ec">
+      <Output>
+        <StdOut>&lt;Scope: OnCreatorScoreRewardClaimed(groupId=2993, seasonQuestId=1)&gt;
+   Information [0]: Claiming creator score reward
+   Debug [0]: Claimed rewards are 
+   Debug [0]: Available rewards are 
+&lt;/Scope: OnCreatorScoreRewardClaimed(groupId=2993, seasonQuestId=1)&gt;</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="daac46fb-97a4-4383-9e9f-6db764b5a695" testId="03cd5860-3f34-f54e-0e4d-914139c97484" testName="\ud83d\udc4d\ud83d\udc4dCheck crew reward claim: reward not found" computerName="5955a5bf5f87" duration="00:00:00.0058150" startTime="2024-07-02T13:00:09.1293454+00:00" endTime="2024-07-02T13:00:09.1293455+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="daac46fb-97a4-4383-9e9f-6db764b5a695">
+      <Output>
+        <StdOut>&lt;Scope: ClaimCrewReward(groupId=2993, reward=1)&gt;
+   Error [0]: Reward not found
+&lt;/Scope: ClaimCrewReward(groupId=2993, reward=1)&gt;</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="8fa699ec-dce9-4960-9592-ea19f2d0578e" testId="f4e9d011-f111-859e-dba8-01043a7708c3" testName="\ud83d\udc4d\ud83d\udc4eCheck claim reward: for hard currency reward" computerName="5955a5bf5f87" duration="00:00:00.0121555" startTime="2024-07-02T13:00:09.4109523+00:00" endTime="2024-07-02T13:00:09.4109524+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8fa699ec-dce9-4960-9592-ea19f2d0578e">
+      <Output>
+        <StdOut>Information [0]: Activity recorded for group=2993 type=0, xp=(null) [id=0]
+Information [0]: Claim activity created: ID=0
+Information [0]: Hard currency payout done: 1</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="0e93cb77-c39f-41fe-b0e9-6b77375c984c" testId="3c022a6e-81a4-3be4-7acb-2926d03ce778" testName="\ud83d\udc4d\ud83d\udc4dCheck daily quest reward claim: not enough likes" computerName="5955a5bf5f87" duration="00:00:00.0061681" startTime="2024-07-02T13:00:09.1600115+00:00" endTime="2024-07-02T13:00:09.1600116+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0e93cb77-c39f-41fe-b0e9-6b77375c984c">
+      <Output>
+        <StdOut>&lt;Scope: ClaimDailyQuest(groupId=2993, dailyQuestId=1)&gt;
+   Information [0]: Claiming daily quest
+   Information [0]: Claiming daily quest: likes received today 0, has claimed = False
+   Warning [0]: Can't claim reward
+&lt;/Scope: ClaimDailyQuest(groupId=2993, dailyQuestId=1)&gt;</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="fa6fa5a7-3df5-41c8-be39-a07e6a8dece4" testId="f2ecdf79-4b00-fb51-c209-14945e2fd6b5" testName="\ud83d\udc4d\ud83d\udc4e\ud83d\udc4eSimple shuffling should work" computerName="5955a5bf5f87" duration="00:00:00.8163647" startTime="2024-07-02T13:00:09.5032268+00:00" endTime="2024-07-02T13:00:09.5032268+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fa6fa5a7-3df5-41c8-be39-a07e6a8dece4" />
+    <UnitTestResult executionId="1f03c6f4-0694-44a0-9982-d9e02816ac3b" testId="cb33cba6-0b2d-019c-e7d8-16ca6fa0f616" testName="\ud83d\udc4d\ud83d\udc4dCheck claim reward: unknown reward type" computerName="5955a5bf5f87" duration="00:00:00.0043370" startTime="2024-07-02T13:00:09.4271692+00:00" endTime="2024-07-02T13:00:09.4271693+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1f03c6f4-0694-44a0-9982-d9e02816ac3b">
+      <Output>
+        <StdOut>Information [0]: Activity recorded for group=2993 type=0, xp=(null) [id=0]
+Information [0]: Claim activity created: ID=0</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="de253a0f-75c1-4734-9dfa-5355dfdd2a6d" testId="d1e2060a-497e-5320-6116-5bd2aa6b850f" testName="\ud83d\udc4d\ud83d\udc4e\ud83d\udc4eComplete in-app purchase should work" computerName="5955a5bf5f87" duration="00:00:00.0233818" startTime="2024-07-02T13:00:09.6558122+00:00" endTime="2024-07-02T13:00:09.6558133+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="de253a0f-75c1-4734-9dfa-5355dfdd2a6d">
+      <Output>
+        <StdOut>Information [0]: Completing Premium pass Purchase. Order d2e006d9-88e7-45c6-a255-aa7d4c1be232, group 2993
+Information [0]: Deleting redis key 042a5c7352b44ce2bfc9c45e8711dc95/frever::user-level-activity::24-07-02::{2993}</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="36fc5da9-7428-4dc5-a703-cee06e60edcb" testId="16894b8d-6412-5264-d6d5-27ee7d9de9ce" testName="\ud83d\udc4d\ud83d\udc4dCheck crew reward claim: not enough points" computerName="5955a5bf5f87" duration="00:00:00.0091229" startTime="2024-07-02T13:00:09.1013611+00:00" endTime="2024-07-02T13:00:09.1013615+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="36fc5da9-7428-4dc5-a703-cee06e60edcb">
+      <Output>
+        <StdOut>&lt;Scope: ClaimCrewReward(groupId=2993, reward=1)&gt;
+   Warning [0]: Can't claim reward, error code: ERROR_REWARD_NOT_ENOUGH_POINTS
+&lt;/Scope: ClaimCrewReward(groupId=2993, reward=1)&gt;</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="a44e0815-124a-4ee5-ab0d-bd3cdbfa882a" testId="be7c77bb-481e-29e6-9313-fd4cd1312cfa" testName="\ud83d\udc4d\ud83d\udc4dCheck daily quest reward claim: season not found" computerName="5955a5bf5f87" duration="00:00:00.0026210" startTime="2024-07-02T13:00:09.1638869+00:00" endTime="2024-07-02T13:00:09.1638870+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a44e0815-124a-4ee5-ab0d-bd3cdbfa882a">
+      <Output>
+        <StdOut>&lt;Scope: ClaimDailyQuest(groupId=2993, dailyQuestId=1)&gt;
+   Information [0]: Claiming daily quest
+   Error [0]: No active season
+&lt;/Scope: ClaimDailyQuest(groupId=2993, dailyQuestId=1)&gt;</StdOut>
+      </Output>
+    </UnitTestResult>
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4dCheck crew reward claim: reward not found" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="03cd5860-3f34-f54e-0e4d-914139c97484">
+      <Execution id="daac46fb-97a4-4383-9e9f-6db764b5a695" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.ClaimCrewRewardTest" name="CheckClaimCrewReward_RewardNotFound" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4d\ud83d\udc4dInit in-app purchase: should fail on buying season pass if no season" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="eb740ac8-8050-9141-5098-4f7b20c02033">
+      <Execution id="acb3d6b5-311d-4555-b5c4-fa0f2fb4bd71" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.Features.InAppPurchase.InAppPurchaseTest" name="InAppPurchase_Init_ShouldFailOnSeasonPassIfNoSeason" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4e\ud83d\udc4eInit in-app purchase should work" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="d0bd859c-a413-6c2c-919b-91e2fa697715">
+      <Execution id="92b22a9a-1be8-45dc-a06a-529b4332239e" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.Features.InAppPurchase.InAppPurchaseTest" name="InAppPurchase_Init_HappyPath" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4dCheck battle reward claim: task not found" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="aefbcb06-155f-64f8-b0a3-9ef8210e8f7c">
+      <Execution id="8d88dd29-466e-45c9-adf8-e1d9e96fd1a4" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.CheckClaimBattleRewardTest" name="CheckClaimBattleReward_TaskNotFound" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4dCheck daily quest reward claim: daily quest not found" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="9f92ee52-eb17-dbcb-8298-bb1784893a85">
+      <Execution id="1baa8ecb-09be-48b3-b4cd-f6123a1b1eb1" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.ClaimDailyQuestRewardTest" name="CheckClaimDailyQuestReward_DailyQuestNotFound" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4dCheck season quest reward claim: unknown quest type" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="c7552208-2584-9ffe-3e94-f59fa61c28c3">
+      <Execution id="f28f0fe4-a570-47fe-b957-66f3f7a42c5e" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.ClaimSeasonQuestRewardTest" name="CheckClaimSeasonQuestReward_UnknownQuestType" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4eCheck season quest reward claim: for xp reward" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="30b96301-3f57-5cc8-78a6-e08790d6048b">
+      <Execution id="82ceed68-6014-4379-8104-9b85cc1b1fc7" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.ClaimPastRewardsTest" name="CheckClaimPastRewards_ForXpReward" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4dCheck onboarding reward claim: onboarding quest not completed" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="1ec48c86-b003-7680-131c-5f9ec0a210da">
+      <Execution id="8e6be394-a317-4f72-8573-5290f22c31cb" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.ClaimOnboardingRewardTest" name="CheckClaimOnboardingReward_OnboardingQuestNotCompleted" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4dCheck season quest reward claim: reward already claimed" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="249e3799-4c26-2703-db45-e072a2bbd04a">
+      <Execution id="38de4a5d-669e-47f6-972f-73723a8db8c1" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.ClaimSeasonQuestRewardTest" name="CheckClaimSeasonQuestReward_RewardAlreadyClaimed" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4eCheck season quest reward claim" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="4ec2342e-6a1c-2dd7-b8ed-776df041c6f4">
+      <Execution id="2f035cdf-7b82-4b0e-8e86-3b622912197b" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.ClaimPastRewardsTest" name="CheckClaimPastRewards" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4dCheck battle reward claim: reward already claimed" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="d981a920-8c72-6a7b-5a21-d9f7632f9caa">
+      <Execution id="2082c3db-9d48-4f9c-bcb8-ca114c397388" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.CheckClaimBattleRewardTest" name="CheckClaimBattleReward_RewardAlreadyClaimed" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4dCheck level reward claim: reward already claimed" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="eaf38a10-6a7c-be3f-4579-7308454de469">
+      <Execution id="59c0bfc7-9434-4ebf-b36c-476dc24a4b86" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.ClaimLevelRewardTest" name="CheckClaimLevelReward_RewardAlreadyClaimed" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4dCheck daily quest reward claim: not enough likes" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="3c022a6e-81a4-3be4-7acb-2926d03ce778">
+      <Execution id="0e93cb77-c39f-41fe-b0e9-6b77375c984c" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.ClaimDailyQuestRewardTest" name="CheckClaimDailyQuestReward_NotEnoughLikes" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4dCheck creator level reward claim: reward not found" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="43d1624f-af56-3c60-f012-5b8c06dd2e8d">
+      <Execution id="c8a13455-a74e-4644-9be2-ffd6e3fb55b7" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.ClaimCreatorLevelRewardTest" name="CheckClaimCreatorLevelReward_RewardNotFound" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4dCheck daily quest reward claim: unknown quest type" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="6818d405-a738-a3e0-81ed-2fa11ba46644">
+      <Execution id="41a0e67d-68d6-4cfc-98e3-c6a42e34d5c7" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.ClaimDailyQuestRewardTest" name="CheckClaimDailyQuestReward_UnknownQuestType" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4e\ud83d\udc4eComplete in-app purchase should work" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="d1e2060a-497e-5320-6116-5bd2aa6b850f">
+      <Execution id="de253a0f-75c1-4734-9dfa-5355dfdd2a6d" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.Features.InAppPurchase.InAppPurchaseTest" name="InAppPurchase_Complete_HappyPath" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4dCheck level reward claim: premium required" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="6699cdc6-5020-d8de-1bfb-704840864748">
+      <Execution id="35129609-e82e-4c7b-a6ca-793543acd466" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.ClaimLevelRewardTest" name="CheckClaimLevelReward_RewardPremiumRequired" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4eCheck creator level reward claim" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="a42ee040-0bd6-0b69-0fad-780737332f42">
+      <Execution id="aef1b2aa-6478-44cd-87ba-f9221875c9ec" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.ClaimCreatorLevelRewardTest" name="CheckClaimCreatorLevelReward" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4dCheck invitee reward claim: reward not found" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="b7107d00-5b17-1d42-e92b-9b7407a16443">
+      <Execution id="c25f5a8a-7d03-4c1b-adee-92d8c9e9bb8a" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.ClaimInviteeRewardTest" name="CheckClaimInviteeReward_RewardNotFound" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4eCheck claim reward: for soft currency reward" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="3d91a4b4-8151-4474-92cf-64aa4d4ccaf1">
+      <Execution id="9dc5e92a-a9d6-4870-a31f-50132243455c" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.RewardClaimerTest" name="CheckClaimReward_ForSoftCurrencyReward" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4eCheck claim reward: for asset reward" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="a986bacb-3401-2901-619d-57a2fc94217e">
+      <Execution id="a9f67035-9b00-4106-963f-a3f8bd74f06d" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.RewardClaimerTest" name="CheckClaimReward_ForAssetReward" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4dCheck season quest reward claim: season not found" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="4ce95d4a-2a01-2aa4-1580-525ccb84be0d">
+      <Execution id="4c056d48-602c-46eb-8e07-c4a3df066201" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.ClaimSeasonQuestRewardTest" name="CheckClaimSeasonQuestReward_SeasonNotFound" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4dCheck season quest reward claim: not enough likes" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="ee096d0e-f609-2877-395b-cab4eef6eb6d">
+      <Execution id="1404a517-2786-40e3-bbc1-179f38f6f3b1" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.ClaimSeasonQuestRewardTest" name="CheckClaimSeasonQuestReward_NotEnoughLikes" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4dCheck season quest reward claim: season quest not found" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="83ba0708-34d8-7603-d26f-111e936df1a3">
+      <Execution id="6d1719cf-b33b-4146-8dd0-c04252d7770e" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.ClaimSeasonQuestRewardTest" name="CheckClaimSeasonQuestReward_SeasonQuestNotFound" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4d\ud83d\udc4dInit in-app purchase: should fail on buying season pass if no season" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="545bde0f-68df-6b5a-90a7-1aa353151b00">
+      <Execution id="970a7c77-9dce-4894-a4a2-ed31c68c92a5" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.Features.InAppPurchase.InAppPurchaseTest" name="InAppPurchase_Init_ShouldFailIfNoInAppProduct" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4dCheck daily quest reward claim: reward already claimed" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="d65ceebc-6097-328b-27e8-4acfc61097be">
+      <Execution id="66ec842a-69eb-4b23-a69c-0b02b963d5f5" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.ClaimDailyQuestRewardTest" name="CheckClaimDailyQuestReward_RewardAlreadyClaimed" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4dCheck onboarding reward claim: reward not found" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="1fefe05b-bd4d-7f82-2918-b3a53833dfd8">
+      <Execution id="d8c97123-0b2f-41c5-ba30-d434f1b82986" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.ClaimOnboardingRewardTest" name="CheckClaimOnboardingReward_RewardNotFound" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4dCheck inviter reward claim: reward already claimed" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="437e832b-7768-b5b0-66f8-4ed39956aad4">
+      <Execution id="bcefb13c-5bc2-4a9f-985e-9c0ba269b1ba" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.ClaimInviteeRewardTest" name="CheckClaimInviterReward_RewardAlreadyClaimed" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4d\ud83d\udc4dComplete in-app purchase should fail if order has been completed" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="72e08fff-cd44-b579-51bf-64dc8490ece4">
+      <Execution id="7bcbd6a6-8fda-4b3d-b8d4-3548ef572426" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.Features.InAppPurchase.InAppPurchaseTest" name="InAppPurchase_Complete_ShouldFailIfOrderIsNotPending" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4d\ud83d\udc4dComplete in-app purchase should fail on completing premium pass if no season" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="d7efa46d-616d-40ca-740a-2f2e93bb6eba">
+      <Execution id="301d1413-448f-4943-96f4-a0e9947b448f" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.Features.InAppPurchase.InAppPurchaseTest" name="InAppPurchase_Complete_ShouldFailIfNoSeasonForPremiumPass" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4dCheck inviter reward claim: reward not found" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="27ce5656-d3d4-1f83-1a02-88d08a32dd52">
+      <Execution id="36204d79-2868-4341-a4de-bc0eb6ba2ff4" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.ClaimInviteeRewardTest" name="CheckClaimInviterReward_RewardNotFound" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4d\ud83d\udc4dComplete in-app purchase should fail if receipt validation failed" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="d18ca102-c345-57bb-b795-ff51d7cb209e">
+      <Execution id="e9039582-2b53-40be-b7e6-c46b7b820e95" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.Features.InAppPurchase.InAppPurchaseTest" name="InAppPurchase_Complete_ShouldFailIfReceiptValidationFailed" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4d\ud83d\udc4dInit in-app purchase: should fail on buying season pass if user has season pass" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="61850938-f45f-2c74-4bf9-3ea66ee2e802">
+      <Execution id="273a261a-b5f8-4c32-8369-6a41014ffa7c" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.Features.InAppPurchase.InAppPurchaseTest" name="InAppPurchase_Init_ShouldFailIfSeasonPassAlreadyBought" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4dCheck creator level reward claim: group not found" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="10dac743-f600-e3cd-c40c-9423023483b0">
+      <Execution id="5ceafa3b-f152-4995-a14e-a983d55ebf4e" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.ClaimCreatorLevelRewardTest" name="CheckClaimCreatorLevelReward_GroupNotFound" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4dCheck battle reward claim: reward not found" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="b8997efe-4ab5-a0b0-42fe-e516d31c904d">
+      <Execution id="b4e18b70-12d0-4e9f-80bf-88c69a32097c" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.CheckClaimBattleRewardTest" name="CheckClaimBattleReward_RewardNotFound" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4d\ud83d\udc4dComplete in-app purchase should fail if receipt contains different product SKU(platform: iOS)" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="83692f93-294e-46f0-b0e2-010caa846fba">
+      <Execution id="3604040a-201d-47b6-ab95-00c08e36facf" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.Features.InAppPurchase.InAppPurchaseTest" name="InAppPurchase_Complete_ShouldFailIfReceiptHasDifferentProductSKU" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4dCheck crew reward claim: crew not found" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="fa40b2f3-dc58-3b26-ba9f-6798e078aead">
+      <Execution id="8c44c863-d5f3-4b87-afde-fc549af464bb" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.ClaimCrewRewardTest" name="CheckClaimCrewReward_CrewNotFound" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4eCheck onboarding reward claim" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="414cfd2e-f470-6c01-fe0e-d25a9f3045bb">
+      <Execution id="a4fe8406-ea7a-4df4-bfeb-7adf3895df57" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.ClaimOnboardingRewardTest" name="CheckClaimOnboardingReward" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4eCheck inviter reward claim" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="225e971b-185d-0ff2-923b-a5998139e7ba">
+      <Execution id="572e7d86-e29d-4eef-8133-c4df5791d309" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.ClaimInviteeRewardTest" name="CheckClaimInviterReward" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4e\ud83d\udc4eInit in-app purchase should work for season pass" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="39be7dab-3646-2dcf-bddf-c107c457f3db">
+      <Execution id="d8a74c72-1aa3-41ba-b4ad-3be54f9b6d42" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.Features.InAppPurchase.InAppPurchaseTest" name="InAppPurchase_Init_HappyPath_SeasonPass" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4eCheck claim reward: for hard currency reward" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="f4e9d011-f111-859e-dba8-01043a7708c3">
+      <Execution id="8fa699ec-dce9-4960-9592-ea19f2d0578e" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.RewardClaimerTest" name="CheckClaimReward_ForHardCurrencyReward" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4dCheck level reward claim: reward not found" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="aedcc49d-8359-5df0-a9f2-985f914b6f93">
+      <Execution id="17021959-b1de-4729-8146-2918f9c0dadb" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.ClaimLevelRewardTest" name="CheckClaimLevelReward_RewardNotFound" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4d\ud83d\udc4dInit in-app purchase should reset existing pending order" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="e0f9b732-3a37-c977-20ea-65ad978d2b43">
+      <Execution id="ac1f14cd-c2c9-471f-9472-066eee233b07" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.Features.InAppPurchase.InAppPurchaseTest" name="InAppPurchase_Init_WithExistingPendingOrder" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4dCheck daily quest reward claim: season not found" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="be7c77bb-481e-29e6-9313-fd4cd1312cfa">
+      <Execution id="a44e0815-124a-4ee5-ab0d-bd3cdbfa882a" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.ClaimDailyQuestRewardTest" name="CheckClaimDailyQuestReward_SeasonNotFound" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4dCheck battle reward claim: video not found" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="b5df5109-3153-f91f-4f7c-3e5b2b4b730d">
+      <Execution id="18606472-c4dc-4d03-b48d-ad4d2503f952" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.CheckClaimBattleRewardTest" name="CheckClaimBattleReward_VideoNotFound" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4dCheck crew reward claim: competition not found" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="23157450-032c-d17f-8878-51fe07a6379e">
+      <Execution id="a259761e-a1e0-488c-9e09-671e77b2d8c7" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.ClaimCrewRewardTest" name="CheckClaimCrewReward_CompetitionNotFound" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4eCheck invitee reward claim" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="3465b140-d8c6-75e8-47d5-46fdc18099b5">
+      <Execution id="49a0e147-287d-499c-9ef0-9603b62563cd" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.ClaimInviteeRewardTest" name="CheckClaimInviteeReward" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4dCheck invitee reward claim: reward already claimed" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="267faff0-4128-6d9c-ec13-a05a467545fe">
+      <Execution id="4c08f5d4-19b1-4869-a54b-6d025793025e" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.ClaimInviteeRewardTest" name="CheckClaimInviteeReward_RewardAlreadyClaimed" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4d\ud83d\udc4dComplete in-app purchase should fail if no in-app product" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="f534cbf0-8e0d-e274-06a5-8ea30b468dd3">
+      <Execution id="e8d51d6a-fafd-4546-b601-f3a0fddaf889" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.Features.InAppPurchase.InAppPurchaseTest" name="InAppPurchase_Complete_ShouldFailIfNoInAppProduct" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4dCheck level reward claim: not enough level" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="c0c2983d-596c-c7f3-3ced-0159b689fc5f">
+      <Execution id="b288400d-e2ba-48db-b8f1-a97be266eaa0" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.ClaimLevelRewardTest" name="CheckClaimLevelReward_NotEnoughLevel" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4eCheck daily quest reward claim" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="8cb2a9b4-0844-30dc-32cc-483054873193">
+      <Execution id="f65aab3d-fd69-4d02-aa49-9d9d7ec60436" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.ClaimDailyQuestRewardTest" name="CheckClaimDailyQuestReward" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4dCheck claim reward: unknown reward type" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="cb33cba6-0b2d-019c-e7d8-16ca6fa0f616">
+      <Execution id="1f03c6f4-0694-44a0-9982-d9e02816ac3b" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.RewardClaimerTest" name="CheckClaimReward_UnknownType" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4eCheck level reward claim" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="09edd8a2-65c3-582c-0879-605bc0a14bf5">
+      <Execution id="1ca50730-c1b2-4c44-9632-e89ee09c7fd5" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.ClaimLevelRewardTest" name="CheckClaimLevelReward" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4eCheck battle reward claim" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="3a9d9758-c929-2779-800f-c2b6925b19eb">
+      <Execution id="8b939adf-5964-4f17-90d6-493a7c08a4fe" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.CheckClaimBattleRewardTest" name="CheckClaimBattleReward" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4eCheck season quest reward claim" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="a175c7ef-83ea-b141-2be7-eb8626dfefef">
+      <Execution id="84f8f320-bb56-4b31-bdf6-62bd903ea661" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.ClaimSeasonQuestRewardTest" name="CheckClaimSeasonQuestReward" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4eCheck crew reward claim" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="495e1e8b-2091-899e-5d5b-56d5ea8ba752">
+      <Execution id="b018bc6c-8d8a-4b5d-985a-2fd3f711530d" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.ClaimCrewRewardTest" name="CheckClaimCrewReward" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4d\ud83d\udc4dComplete in-app purchase should fail if there is no pending order" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="50090891-40e3-069c-8de1-6640255931d7">
+      <Execution id="860f1a4e-d22c-436d-83f7-40a7f249ff6a" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.Features.InAppPurchase.InAppPurchaseTest" name="InAppPurchase_Complete_ShouldFailIfNoPendingOrder" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4dCheck crew reward claim: not enough points" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="16894b8d-6412-5264-d6d5-27ee7d9de9ce">
+      <Execution id="36fc5da9-7428-4dc5-a703-cee06e60edcb" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.ClaimCrewRewardTest" name="CheckClaimCrewReward_NotEnoughPoints" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4dCheck level reward claim: season not found" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="e48702d7-ab6d-b66e-88ce-b105ffcb9b74">
+      <Execution id="4c63bd78-1706-44de-a37e-ac904688229a" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.ClaimLevelRewardTest" name="CheckClaimLevelReward_SeasonNotFound" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4dCheck onboarding reward claim: reward already claimed" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="aaa45368-aacf-f6f5-37d9-69673e72eaf7">
+      <Execution id="78929d7f-f77f-4815-b496-a46322722d11" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.ClaimOnboardingRewardTest" name="CheckClaimOnboardingReward_RewardAlreadyClaimed" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4e\ud83d\udc4eSimple shuffling should work" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="f2ecdf79-4b00-fb51-c209-14945e2fd6b5">
+      <Execution id="fa6fa5a7-3df5-41c8-be39-a07e6a8dece4" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.Shuffling.LevelShufflingTest" name="LevelShufflingShouldWork" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4d\ud83d\udc4dComplete in-app purchase should fail if receipt contains different product SKU(platform: Android)" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="a8b5aabb-e3fe-8161-9325-9de00f8a2775">
+      <Execution id="3b2adc40-ad6c-4a5d-bc65-eaca39583ccf" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.Features.InAppPurchase.InAppPurchaseTest" name="InAppPurchase_Complete_ShouldFailIfReceiptHasDifferentProductSKU" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4eCheck claim reward: for xp reward" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="0e1518aa-e71b-110f-e1ed-4d39977987e2">
+      <Execution id="685ca0a6-ceaf-4f6e-9d38-6af637830002" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.RewardClaimerTest" name="CheckClaimReward_ForXpReward" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4e\ud83d\udc4eComplete in-app purchase of season pass should work" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="9cfaeb67-a9e8-05ac-af33-cf66eb02abff">
+      <Execution id="715358a3-ba5f-4230-a071-caeb79b761ad" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.Features.InAppPurchase.InAppPurchaseTest" name="InAppPurchase_Complete_SeasonPass_HappyPath" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4dCheck crew reward claim: reward already claimed" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="1e166095-bfa3-8b51-1e08-e6f847b8619e">
+      <Execution id="de6b97f3-9ece-41d5-a876-357e8cbb4a76" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.ClaimCrewRewardTest" name="CheckClaimCrewReward_RewardAlreadyClaimed" />
+    </UnitTest>
+    <UnitTest name="\ud83d\udc4d\ud83d\udc4dCheck level reward claim: not enough xp" storage="/source/microservices/client/frever.client.core.test/bin/debug/net8.0/frever.client.core.test.dll" id="451703e4-9acd-1942-d50c-c82f05ef82e6">
+      <Execution id="1561e2e1-f7c6-4cba-8710-834336b67697" />
+      <TestMethod codeBase="/source/Microservices/Client/Frever.Client.Core.Test/bin/Debug/net8.0/Frever.Client.Core.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Frever.Client.Core.Test.ClaimRewards.ClaimLevelRewardTest" name="CheckClaimLevelReward_NotEnoughXp" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="8cb2a9b4-0844-30dc-32cc-483054873193" executionId="f65aab3d-fd69-4d02-aa49-9d9d7ec60436" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="437e832b-7768-b5b0-66f8-4ed39956aad4" executionId="bcefb13c-5bc2-4a9f-985e-9c0ba269b1ba" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d0bd859c-a413-6c2c-919b-91e2fa697715" executionId="92b22a9a-1be8-45dc-a06a-529b4332239e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e0f9b732-3a37-c977-20ea-65ad978d2b43" executionId="ac1f14cd-c2c9-471f-9472-066eee233b07" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1ec48c86-b003-7680-131c-5f9ec0a210da" executionId="8e6be394-a317-4f72-8573-5290f22c31cb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="10dac743-f600-e3cd-c40c-9423023483b0" executionId="5ceafa3b-f152-4995-a14e-a983d55ebf4e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a986bacb-3401-2901-619d-57a2fc94217e" executionId="a9f67035-9b00-4106-963f-a3f8bd74f06d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d7efa46d-616d-40ca-740a-2f2e93bb6eba" executionId="301d1413-448f-4943-96f4-a0e9947b448f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a8b5aabb-e3fe-8161-9325-9de00f8a2775" executionId="3b2adc40-ad6c-4a5d-bc65-eaca39583ccf" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="30b96301-3f57-5cc8-78a6-e08790d6048b" executionId="82ceed68-6014-4379-8104-9b85cc1b1fc7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="39be7dab-3646-2dcf-bddf-c107c457f3db" executionId="d8a74c72-1aa3-41ba-b4ad-3be54f9b6d42" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="23157450-032c-d17f-8878-51fe07a6379e" executionId="a259761e-a1e0-488c-9e09-671e77b2d8c7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="545bde0f-68df-6b5a-90a7-1aa353151b00" executionId="970a7c77-9dce-4894-a4a2-ed31c68c92a5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3d91a4b4-8151-4474-92cf-64aa4d4ccaf1" executionId="9dc5e92a-a9d6-4870-a31f-50132243455c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4ce95d4a-2a01-2aa4-1580-525ccb84be0d" executionId="4c056d48-602c-46eb-8e07-c4a3df066201" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="61850938-f45f-2c74-4bf9-3ea66ee2e802" executionId="273a261a-b5f8-4c32-8369-6a41014ffa7c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="83ba0708-34d8-7603-d26f-111e936df1a3" executionId="6d1719cf-b33b-4146-8dd0-c04252d7770e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="451703e4-9acd-1942-d50c-c82f05ef82e6" executionId="1561e2e1-f7c6-4cba-8710-834336b67697" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3a9d9758-c929-2779-800f-c2b6925b19eb" executionId="8b939adf-5964-4f17-90d6-493a7c08a4fe" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1fefe05b-bd4d-7f82-2918-b3a53833dfd8" executionId="d8c97123-0b2f-41c5-ba30-d434f1b82986" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f534cbf0-8e0d-e274-06a5-8ea30b468dd3" executionId="e8d51d6a-fafd-4546-b601-f3a0fddaf889" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="249e3799-4c26-2703-db45-e072a2bbd04a" executionId="38de4a5d-669e-47f6-972f-73723a8db8c1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="eb740ac8-8050-9141-5098-4f7b20c02033" executionId="acb3d6b5-311d-4555-b5c4-fa0f2fb4bd71" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="aaa45368-aacf-f6f5-37d9-69673e72eaf7" executionId="78929d7f-f77f-4815-b496-a46322722d11" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fa40b2f3-dc58-3b26-ba9f-6798e078aead" executionId="8c44c863-d5f3-4b87-afde-fc549af464bb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6699cdc6-5020-d8de-1bfb-704840864748" executionId="35129609-e82e-4c7b-a6ca-793543acd466" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c0c2983d-596c-c7f3-3ced-0159b689fc5f" executionId="b288400d-e2ba-48db-b8f1-a97be266eaa0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e48702d7-ab6d-b66e-88ce-b105ffcb9b74" executionId="4c63bd78-1706-44de-a37e-ac904688229a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9f92ee52-eb17-dbcb-8298-bb1784893a85" executionId="1baa8ecb-09be-48b3-b4cd-f6123a1b1eb1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d18ca102-c345-57bb-b795-ff51d7cb209e" executionId="e9039582-2b53-40be-b7e6-c46b7b820e95" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="495e1e8b-2091-899e-5d5b-56d5ea8ba752" executionId="b018bc6c-8d8a-4b5d-985a-2fd3f711530d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6818d405-a738-a3e0-81ed-2fa11ba46644" executionId="41a0e67d-68d6-4cfc-98e3-c6a42e34d5c7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b5df5109-3153-f91f-4f7c-3e5b2b4b730d" executionId="18606472-c4dc-4d03-b48d-ad4d2503f952" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4ec2342e-6a1c-2dd7-b8ed-776df041c6f4" executionId="2f035cdf-7b82-4b0e-8e86-3b622912197b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="72e08fff-cd44-b579-51bf-64dc8490ece4" executionId="7bcbd6a6-8fda-4b3d-b8d4-3548ef572426" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3465b140-d8c6-75e8-47d5-46fdc18099b5" executionId="49a0e147-287d-499c-9ef0-9603b62563cd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="225e971b-185d-0ff2-923b-a5998139e7ba" executionId="572e7d86-e29d-4eef-8133-c4df5791d309" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="aedcc49d-8359-5df0-a9f2-985f914b6f93" executionId="17021959-b1de-4729-8146-2918f9c0dadb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9cfaeb67-a9e8-05ac-af33-cf66eb02abff" executionId="715358a3-ba5f-4230-a071-caeb79b761ad" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="83692f93-294e-46f0-b0e2-010caa846fba" executionId="3604040a-201d-47b6-ab95-00c08e36facf" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="267faff0-4128-6d9c-ec13-a05a467545fe" executionId="4c08f5d4-19b1-4869-a54b-6d025793025e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="50090891-40e3-069c-8de1-6640255931d7" executionId="860f1a4e-d22c-436d-83f7-40a7f249ff6a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="27ce5656-d3d4-1f83-1a02-88d08a32dd52" executionId="36204d79-2868-4341-a4de-bc0eb6ba2ff4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="414cfd2e-f470-6c01-fe0e-d25a9f3045bb" executionId="a4fe8406-ea7a-4df4-bfeb-7adf3895df57" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="43d1624f-af56-3c60-f012-5b8c06dd2e8d" executionId="c8a13455-a74e-4644-9be2-ffd6e3fb55b7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="aefbcb06-155f-64f8-b0a3-9ef8210e8f7c" executionId="8d88dd29-466e-45c9-adf8-e1d9e96fd1a4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0e1518aa-e71b-110f-e1ed-4d39977987e2" executionId="685ca0a6-ceaf-4f6e-9d38-6af637830002" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="eaf38a10-6a7c-be3f-4579-7308454de469" executionId="59c0bfc7-9434-4ebf-b36c-476dc24a4b86" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1e166095-bfa3-8b51-1e08-e6f847b8619e" executionId="de6b97f3-9ece-41d5-a876-357e8cbb4a76" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d981a920-8c72-6a7b-5a21-d9f7632f9caa" executionId="2082c3db-9d48-4f9c-bcb8-ca114c397388" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b7107d00-5b17-1d42-e92b-9b7407a16443" executionId="c25f5a8a-7d03-4c1b-adee-92d8c9e9bb8a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c7552208-2584-9ffe-3e94-f59fa61c28c3" executionId="f28f0fe4-a570-47fe-b957-66f3f7a42c5e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d65ceebc-6097-328b-27e8-4acfc61097be" executionId="66ec842a-69eb-4b23-a69c-0b02b963d5f5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="09edd8a2-65c3-582c-0879-605bc0a14bf5" executionId="1ca50730-c1b2-4c44-9632-e89ee09c7fd5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a175c7ef-83ea-b141-2be7-eb8626dfefef" executionId="84f8f320-bb56-4b31-bdf6-62bd903ea661" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b8997efe-4ab5-a0b0-42fe-e516d31c904d" executionId="b4e18b70-12d0-4e9f-80bf-88c69a32097c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ee096d0e-f609-2877-395b-cab4eef6eb6d" executionId="1404a517-2786-40e3-bbc1-179f38f6f3b1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a42ee040-0bd6-0b69-0fad-780737332f42" executionId="aef1b2aa-6478-44cd-87ba-f9221875c9ec" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="03cd5860-3f34-f54e-0e4d-914139c97484" executionId="daac46fb-97a4-4383-9e9f-6db764b5a695" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f4e9d011-f111-859e-dba8-01043a7708c3" executionId="8fa699ec-dce9-4960-9592-ea19f2d0578e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3c022a6e-81a4-3be4-7acb-2926d03ce778" executionId="0e93cb77-c39f-41fe-b0e9-6b77375c984c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f2ecdf79-4b00-fb51-c209-14945e2fd6b5" executionId="fa6fa5a7-3df5-41c8-be39-a07e6a8dece4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="cb33cba6-0b2d-019c-e7d8-16ca6fa0f616" executionId="1f03c6f4-0694-44a0-9982-d9e02816ac3b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d1e2060a-497e-5320-6116-5bd2aa6b850f" executionId="de253a0f-75c1-4734-9dfa-5355dfdd2a6d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="16894b8d-6412-5264-d6d5-27ee7d9de9ce" executionId="36fc5da9-7428-4dc5-a703-cee06e60edcb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="be7c77bb-481e-29e6-9313-fd4cd1312cfa" executionId="a44e0815-124a-4ee5-ab0d-bd3cdbfa882a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="66" executed="66" passed="66" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.8.0+6438bb880a (64-bit .NET 8.0.6)
+[xUnit.net 00:00:00.10]   Discovering: Frever.Client.Core.Test
+[xUnit.net 00:00:00.27]   Discovered:  Frever.Client.Core.Test
+[xUnit.net 00:00:00.28]   Starting:    Frever.Client.Core.Test
+[xUnit.net 00:00:01.37]   Finished:    Frever.Client.Core.Test
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>

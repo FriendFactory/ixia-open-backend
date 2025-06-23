@@ -1,0 +1,12 @@
+@auth_server=http://localhost:5002
+# @auth_server=https://content-stage.frever-api.com/1.4/auth
+
+###
+POST {{auth_server}}/account/StoreEmailForAppleId
+Content-Type: application/json
+
+{
+  "appleId": "asbc2",
+  "email": "abc@mail.mai1l"
+}
+

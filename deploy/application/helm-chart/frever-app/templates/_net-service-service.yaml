@@ -1,0 +1,16 @@
+{{- define "frever-app.net-service-service" }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Service }}-service
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-cross-zone-load-balancing-enabled: "true"
+spec:
+  selector:
+    app: {{ .Service }}
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+{{- end }}
