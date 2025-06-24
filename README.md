@@ -40,7 +40,7 @@ Integrates with our Platform service for recommendations and background processi
 * **Apple Developer Account** - Apple Sign-In/Sign-Up integration
 * **Twilio** - SMS/messaging services
 * **Content moderation services** - Text/image moderation
-* **PixVerse** (Stable Diffusion) - AI video generation
+* **PixVerse** - AI video generation
 
 **Note:** Some third-party services and technologies are optional and not required for core platform functionality. However, their credentials may still be referenced during startup. To avoid initialization errors, provide placeholder or dummy values for these optional service credentials if they're not actively used.
 
